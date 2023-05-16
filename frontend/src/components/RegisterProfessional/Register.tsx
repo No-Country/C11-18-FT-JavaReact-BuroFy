@@ -27,23 +27,27 @@ export default function Register(){
     }));
   };
   return(
-    <div className="h-[560px] m-auto bg-white items-center flex flex-col justify-center">
+    <div className="flex flex-col items-center justify-center m-auto bg-white min-h-fit">
+      <h1 className="bg-slate-500 h-[55px] w-full">Aca va la navBar</h1>
       <>
         <h1 className="m-5 text-xl font-extrabold">Registro de nuevo usuario</h1>
-        <span className="flex justify-center my-5 space-x-10 text-sm ">
-          {next?<p className="underline">1. Crear usuario</p>:<p>1. Crear usuario</p>}
-          {next?<p>2. Datos personales</p>:<p className="underline">2. Datos personales</p>}
+        <span className="flex justify-center my-6 space-x-10 text-sm ">
+          {next?<button className="underline" >1. Crear usuario</button>:<button onClick={()=>setNext(!next)}>1. Crear usuario</button>}
+          {next?<button onClick={()=>setNext(!next)}>2. Datos personales</button>:<button className="underline ">2. Datos personales</button>}
         </span>
       </>
       <div>
-        {next ? <RegisterStepOne state={state} changeHandler={changeHandler} /> : <RegisterStepTwo/>}
+        {next ? <RegisterStepOne state={state} changeHandler={changeHandler} /> : <RegisterStepTwo state={state} changeHandler={changeHandler}/>}
       </div>
       <>
-        <button className="w-[200px] h-[35px] bg-[#B1B1B1] rounded-lg my-7" onClick={()=>{setNext(false);}}>Siguiente</button>
+        {next?<button className="w-[200px] h-[35px] bg-[#B1B1B1] rounded-lg my-7" onClick={()=>{setNext(false);}}>Siguiente</button>
+          : <button className="w-[200px] h-[35px] bg-[#B1B1B1] rounded-lg my-7"> Crear Cuenta </button>}
       </>
       <>
         <h1>--------O continúa con---------</h1>
       </>
+      <h1 className="py-5">Aca va lo de auth</h1>
+      <h1 className="py-5">Burofy genera conexiones</h1>
     </div>
   );
 }
