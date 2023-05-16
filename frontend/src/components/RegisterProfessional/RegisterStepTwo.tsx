@@ -1,9 +1,8 @@
 import React from "react";
 
-export default function Register(){
+export default function RegisterStepTwo(){
   return(
     <>
-      <h1>Cosas</h1>
     </>
   );
-}
+} 

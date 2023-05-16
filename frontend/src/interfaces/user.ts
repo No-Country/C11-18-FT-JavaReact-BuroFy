@@ -1,4 +1,4 @@
-import { Address, Phone } from "./serializers/Common";
+/* import { Address, Phone } from "./serializers/Common";
 import { UserClientContent, UserProfessionalContent } from "./serializers/user";
 
 export type Role = "client" | "professional";
@@ -20,3 +20,4 @@ export interface User {
   status?: boolean;
   verified?: boolean;
 }
+ */
