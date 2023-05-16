@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/C11-18-FT-JavaReact-BuroFy.iml" filepath="$PROJECT_DIR$/.idea/C11-18-FT-JavaReact-BuroFy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/appWebBurofy.iml" filepath="$PROJECT_DIR$/backend/appWebBurofy.iml" />
+    </modules>
+  </component>
+</project>
