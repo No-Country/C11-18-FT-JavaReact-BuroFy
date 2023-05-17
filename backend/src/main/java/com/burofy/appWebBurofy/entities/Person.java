@@ -1,11 +1,11 @@
-package com.burofy.appWebBurofy.Entidades;
+package com.burofy.appWebBurofy.entities;
 
-import
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import jakarta.persistence.*;
+import javax.persistence.*;
+
 @Entity
 @Table(name = "person")
 @NoArgsConstructor
