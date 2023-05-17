@@ -6,7 +6,7 @@ export interface register {
     city:string,
     name:string,
     lastName:string,
-    phone:number,
+    phone:string,
     identification:string,
     matricula:number,
     specialization:string,
