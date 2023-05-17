@@ -1,4 +1,4 @@
-package com.burofy.appWebBurofy.entities;
+package com.burofy.appWebBurofy.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,22 +7,18 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+
+@Entity
+@Table (name = "client")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
-@Table(name = "payment")
-public class Payment  {
+public class Client extends Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String type;
-
-    private Boolean paid;
-
-    private Float price;
+    private String occupation ;
 
 }

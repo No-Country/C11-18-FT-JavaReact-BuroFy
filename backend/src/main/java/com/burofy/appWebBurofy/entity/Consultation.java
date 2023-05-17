@@ -1,4 +1,4 @@
-package com.burofy.appWebBurofy.entities;
+package com.burofy.appWebBurofy.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
