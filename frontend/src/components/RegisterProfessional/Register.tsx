@@ -42,7 +42,7 @@ export default function Register(){
           <h1>--------O continúa con---------</h1>
         </>
         <h1 className="py-5">Aca va lo de auth</h1>
-        <h1 className="py-5">Burofy genera conexiones</h1>
+        <footer className="py-5">Burofy genera conexiones</footer>
       </div>
     </div>
   );

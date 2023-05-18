@@ -43,8 +43,8 @@ export default function RegisterStepTwo({register, errors} : propsType){
       <div className="w-[356px] text-left flex flex-col m-auto px-3 space-y-4">
         <label className={labelStyle}>Nombre (*)
           <input placeholder="Nombre" className={inputStyle} name="name" {...register("name", { required: true })} ></input>
-          {errors.name && <span>Este campo es requerido</span>}
         </label>
+        {errors.name && <span>Este campo es requerido</span>}
         <label className={labelStyle}>Apellido (*)
           <input placeholder="Apellido" className={inputStyle} name="lastName" {...register("lastName", { required: true })}></input>
         </label>
