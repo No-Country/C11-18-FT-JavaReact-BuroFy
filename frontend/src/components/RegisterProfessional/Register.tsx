@@ -12,7 +12,9 @@ export default function Register(){
 
   const [next, setNext] = useState(true);
 
-  const onSubmit = ()=>{};
+  const onSubmit = (data:any)=>{
+    console.log(data)
+  };
 
   return(
     <div className="m-auto lg:flex lg:flex-row">

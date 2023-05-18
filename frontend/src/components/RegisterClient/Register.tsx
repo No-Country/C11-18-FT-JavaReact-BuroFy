@@ -15,15 +15,18 @@ export default function Register(){
   const onSubmit = ()=>{};
 
   return(
-    <div className="m-auto lg:flex lg:flex-row">
+    <div className="m-auto font-DM-primary lg:flex lg:flex-row">
       <div className="hidden lg:block lg:w-1/3">
         <h1>Aca va la imagen</h1>
       </div>
       <div className="flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full lg:w-2/3">
         <>
           <h1 className="m-5 text-xl font-extrabold">Registro de nuevo usuario</h1>
-          <span className="flex justify-center my-6 space-x-10 text-sm ">
-
+          <span className="flex justify-center mt-4 text-sm ">
+            Crea tu usuario y 
+          </span>
+          <span className="flex justify-center mb-4 text-sm ">
+        Recibe Asistencia legal !YA¡
           </span>
         </> 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -34,10 +37,10 @@ export default function Register(){
         {errors.name && <span>Este campo es requerido</span>}
       </label>
       <label  className="flex px-1 flex-col h-[87px]">Contraseña (*)
-        <input value={confirm.password} className={ inputStyle } placeholder="Crear contraseña" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{1,12}$/ })} onChange={(e)=>{setConfirm({...confirm,password:e.target.value});}}></input>
+        <input value={confirm.password} type="password" className={ inputStyle } placeholder="Crear contraseña" {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{1,12}$/ })} onChange={(e)=>{setConfirm({...confirm,password:e.target.value});}}></input>
       </label>
       <label  className="flex px-1 flex-col h-[87px]">Verifica tu contraseña (*)
-        <input name="rePassword"className={ inputStyle } value={confirm.rePassword} placeholder="Repetir contraseña" onChange={(e)=>{setConfirm({...confirm,rePassword:e.target.value});}}></input>
+        <input name="rePassword" type="password" className={ inputStyle } value={confirm.rePassword} placeholder="Repetir contraseña" onChange={(e)=>{setConfirm({...confirm,rePassword:e.target.value});}}></input>
       </label>
       {confirm.password !== confirm.rePassword ? "Las contraseñas no coinciden" : ""}
     </div>
