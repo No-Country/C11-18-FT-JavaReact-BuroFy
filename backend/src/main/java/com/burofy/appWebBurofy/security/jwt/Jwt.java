@@ -1,4 +1,3 @@
-package com.burofy.appWebBurofy.security.config.jwt;
-
-public class Jwt {
-}
+package com.burofy.appWebBurofy.security.jwt;
+///public class Jwt {
+//}
