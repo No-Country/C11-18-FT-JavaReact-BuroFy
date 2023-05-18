@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write './*/.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "prepare": "husky install"
+    "format": "prettier --write './*/.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -40,7 +39,6 @@
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.8.0",
-    "husky": "^8.0.3",
     "prettier": "^2.8.8"
   }
 }
