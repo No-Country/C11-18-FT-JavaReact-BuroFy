@@ -15,12 +15,11 @@ export default function Register(){
   const onSubmit = ()=>{};
 
   return(
-    <div className="lg:flex lg:flex-row">
-      <div className="hidden lg:block lg:w-1/2">
-        <h1>sadasd</h1>
+    <div className="m-auto lg:flex lg:flex-row">
+      <div className="hidden lg:block lg:w-1/3">
+        <h1>Aca va la imagen</h1>
       </div>
-      <div className="flex flex-col items-center justify-center bg-white min-h-fit md:w-full md:h-full lg:w-1/2">
-        <h1 className="bg-slate-500 h-[55px] w-full">Aca va la navBar</h1>
+      <div className="flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full lg:w-2/3">
         <>
           <h1 className="m-5 text-xl font-extrabold">Registro de nuevo usuario</h1>
           <span className="flex justify-center my-6 space-x-10 text-sm ">

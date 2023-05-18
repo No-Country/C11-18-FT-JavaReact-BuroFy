@@ -17,8 +17,8 @@ interface Country {
 } */
 
 export default function RegisterStepTwo({register, errors} : propsType){
-  const inputStyle = "h-[50px] rounded-lg my-2 px-3 bg-[#F0F0F0] border border-[#909090]";
-  const labelStyle = "flex px-1 flex-col h-[87px]";
+  const inputStyle = "h-[50px] rounded-lg my-2 px-3 bg-[#F0F0F0] border border-[#909090] lg:w-full ";
+  const labelStyle = "flex px-1 flex-col h-[87px] my-3 lg:mx-5";
   const [countries, setCountries] = useState<Country[]>([]);
   /*   const [provinces, setProvinces] = useState<Province[]>([]); */
   /*   const lookForCities = async (id:number)=>{
@@ -40,11 +40,10 @@ export default function RegisterStepTwo({register, errors} : propsType){
 
   return(
     <>
-      <div className="w-[356px] text-left flex flex-col m-auto px-3 space-y-4">
+      <div className="w-[356px] text-left flex justify-center flex-col m-auto px-3 lg:grid lg:grid-cols-2 lg:w-full lg:mx-5">
         <label className={labelStyle}>Nombre (*)
           <input placeholder="Nombre" className={inputStyle} name="name" {...register("name", { required: true })} ></input>
         </label>
-        {errors.name && <span>Este campo es requerido</span>}
         <label className={labelStyle}>Apellido (*)
           <input placeholder="Apellido" className={inputStyle} name="lastName" {...register("lastName", { required: true })}></input>
         </label>
@@ -69,7 +68,7 @@ export default function RegisterStepTwo({register, errors} : propsType){
         <label className={labelStyle}>Especialidad
           <select className={inputStyle} name="specialization" {...register("experience", { required: false })}></select>
         </label>
-        
+        {errors.name && <span>Este campo es requerido</span>}
       </div>
     </>
   );
