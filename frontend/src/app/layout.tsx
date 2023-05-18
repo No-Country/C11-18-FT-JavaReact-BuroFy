@@ -1,6 +1,13 @@
 import "./globals.css";
-import {  Header, Providers } from "@/components";
+import { DM_Sans } from "next/font/google";
+import { Header, Providers } from "@/components";
 import { User } from "@/interfaces/user";
+
+const dm = DM_Sans({
+  weight: ["400", "500", "700"],
+  style: ["italic", "normal"],
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Burofy | Home",
@@ -36,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang='en'>
-      <body>
+      <body className={dm.className}>
         <Providers>
           <Header user={stubUser} />
 

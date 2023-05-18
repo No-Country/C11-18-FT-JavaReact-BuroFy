@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Epilogue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Epilogue&display=swap");
 
 @tailwind base;
 @layer base {
-    body {
-        @apply bg-black font-DM-primary;
-    }
+  body {
+    @apply bg-white;
+  }
 }
 @tailwind components;
 @tailwind utilities;

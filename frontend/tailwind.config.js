@@ -9,21 +9,19 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        "primary": "36px",
-        "secundary": "30px",
-        "tertiary": "25px",
+        primary: "36px",
+        secundary: "30px",
+        tertiary: "25px",
       },
-      fontFamily: {
-        "DM-primary": 'DM-Sans',
-      },
+
       backgroundColor: {
-        "primary": "#C600E0",
-        "secundary": "#7FCEFF",
-        "tertiary": "#2E2E2E",
-        "quaternary": "#FFFFFF",
+        primary: "#C600E0",
+        secundary: "#7FCEFF",
+        tertiary: "#2E2E2E",
+        quaternary: "#FFFFFF",
       },
       backgroundImage: {
-        'header-img': "url('/bg-header-burofy.svg')",
+        "header-img": "url('/bg-header-burofy.svg')",
       },
       colors: {
         lilac: "#C600E0",
