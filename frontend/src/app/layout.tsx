@@ -1,9 +1,11 @@
+import React from "react";
 import "./globals.css";
-import {  Header, Providers, Spinner } from "@/components";
+import { Header, Providers } from "@/components";
 import { User } from "@/interfaces/user";
 
+
 export const metadata = {
-  title: "Burofy | Home",
+  title: "Burofy | Inicio",
   description:
     "Burofy: Conectamos clientes con abogados expertos en diversas áreas del derecho. Encuentra al profesional adecuado para tus necesidades legales fácil y rápido.",
   keywords: ["Burofy", "buro-fy", "buro", "derecho", "abogado", "abogancia", "intermediario"],
@@ -30,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     id_token: "tokenid23232",
     email: "jesus_12423@gmail.com",
     rol: "client",
-    firstName: "jesus",
+    firstName: "Jesús",
     avatar: "/jesus.jpeg",
   };
 
