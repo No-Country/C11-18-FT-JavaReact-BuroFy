@@ -1,10 +1,14 @@
 import React from "react";
 import FormLogin from "../../components/FormLogin";
 
+export const metadata = {
+  title: "Burofy | Login",
+};
+
 export default function Login() {
   return (
-    <div className='flex w-auto '>
+    <section className='h-screen w-full p-4 bg-white md:ml-64 md:p-24'>
       <FormLogin />
-    </div>
+    </section>
   );
 }
