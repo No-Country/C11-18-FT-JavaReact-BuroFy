@@ -2,15 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import FormSearchBar from "./FormSearchBar";
 import { usePathname } from "next/navigation";
 import { AiOutlineSearch, AiFillHome } from "react-icons/ai";
 import { HiPencil } from "react-icons/hi";
 import { IoMdHelpCircle } from "react-icons/io";
 import { BsFillPersonFill } from "react-icons/bs";
 import { User } from "@/interfaces/user";
-
 import { RxHamburgerMenu } from "react-icons/rx";
 import Avatar from "./Avatar";
+import Spinner from "./Spinner";
+import { useAuth } from "@/contexts/AuthContext";
 
 type PropsType = {
   user: User;
@@ -18,37 +20,40 @@ type PropsType = {
 
 const Header = ({ user }: PropsType) => {
   const pathname = usePathname();
+  const { statusAuth } = useAuth();
 
   console.log(user);
 
   return (
     <>
-      <header className='w-full h-[100px] flex p-6 justify-between items-center bg-header-img object-cover object-center md:h-[300px] md:py-8 md:px-20 capitalize gap-4'>
+      {/* <Spinner /> */}
+      <header className='w-full h-[100px] flex p-6 justify-between items-center bg-header-img object-cover object-center md:h-[300px] md:py-8 md:px-20  gap-4 bg-no-repeat bg-cover'>
         <button
-        className="focus:scale-110 active:scale-110 transition"
-        type="button"
-        data-drawer-toggle="drawer-navigation"
-        aria-controls="drawer-navigation"
+          className='focus:scale-110 active:scale-110 transition'
+          type='button'
+          data-drawer-toggle='drawer-navigation'
+          aria-controls='drawer-navigation'
         >
-          <RxHamburgerMenu className='w-8 h-8 text-white ' />
+          <RxHamburgerMenu className='w-8 h-8 text-white' />
         </button>
         <Image
           src='/header-burofy.svg'
           alt='header burofy logotype'
           width={170}
           height={52}
-          className='md:hidden'
+          className='md:hidden bg-no-repeat'
         />
-        <div className='hidden md:flex md:flex-col md:grow-1 md:shrink-1 md:ml-[180px] lg:ml-[250px]'>
-          <h5 className='font-bold text-secundary text-white leading-[39.06px]'>
+        <div className='hidden md:flex md:flex-col md:grow-1 md:shrink-1 md:ml-[180px] lg:ml-[150px]'>
+          <h5 className='mb-3 font-bold text-secundary text-white leading-[39.06px] lg:me-[1000px]'>
             Encuentra a tu especialista
           </h5>
-          <h6 className='text-lg text-white leading-[26.04px]'>
+          <h6 className='text-lg font-normal text-white leading-[26.04px]'>
             Haz “match” con un profesional y agenda una consulta
           </h6>
         </div>
         <Avatar user={user} />
       </header>
+
       {/* drawer */}
       <aside
         className='fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 p-0 md:block'

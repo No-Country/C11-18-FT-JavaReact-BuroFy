@@ -50,7 +50,7 @@ export const sign_in_with_credentials = async ({ email, password }: Omit<Inputs,
             id_token,
             providerId: resp.user.providerData[0].providerId
         }
-
+        console.log(user)
         return { user }
     } catch (e) {
         console.log(e)
