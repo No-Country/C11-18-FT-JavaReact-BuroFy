@@ -1,5 +1,5 @@
 import "./globals.css";
-import {  Header, Providers } from "@/components";
+import {  Header, Providers, Spinner } from "@/components";
 import { User } from "@/interfaces/user";
 
 export const metadata = {
@@ -20,7 +20,7 @@ export const metadata = {
       url: "./favicon.png",
       type: "image/png",
     },
-    shortcut: { url: "./favicon.png", type: "image/ png" },
+    shortcut: { url: "./favicon.png", type: "image/png" },
   },
 };
 
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     id_token: "tokenid23232",
     email: "jesus_12423@gmail.com",
     rol: "client",
-    firstName: "jesus papa",
+    firstName: "jesus",
     avatar: "/jesus.jpeg",
   };
 
@@ -39,7 +39,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Providers>
           <Header user={stubUser} />
-
           {children}
         </Providers>
       </body>

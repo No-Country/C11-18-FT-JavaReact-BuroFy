@@ -3,7 +3,7 @@
 @tailwind base;
 @layer base {
     body {
-        @apply bg-black font-DM-primary;
+        @apply bg-black font-primary-roboto overflow-y-hidden;
     }
 }
 @tailwind components;
