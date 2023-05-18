@@ -1,13 +1,12 @@
+import Register from "@/components/RegisterClient/Register";
+import React from "react";
 
-import Register from '@/components/RegisterClient/Register'
-import React from 'react'
-
-const registerProffesional = () => {
+const registerClient = () => {
   return (
     <main>
-      <Register/>
+      <Register />
     </main>
-  )
-}
+  );
+};
 
-export default registerProffesional
+export default registerClient;
