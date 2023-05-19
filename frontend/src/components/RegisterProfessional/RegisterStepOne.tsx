@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEye } from "react-icons/ai";
 
 interface propsType {
   register: any;
@@ -6,6 +8,7 @@ interface propsType {
 }
 
 export default function RegisterStepOne({ register, errors }: propsType) {
+  const [visible, setVisible] = useState(false);
   const inputStyle = "h-[50px] rounded-lg my-2 px-3 bg-[#F0F0F0] border border-[#909090]";
   const [confirm, setConfirm] = useState({
     password: "",
@@ -17,9 +20,11 @@ export default function RegisterStepOne({ register, errors }: propsType) {
         {" "}
         Nombre de usuario (*)
         <input
+          type="email"
           name='email'
           className={inputStyle}
           placeholder='Email'
+          required
           {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
         ></input>
         {errors.name && <span>Este campo es requerido</span>}
@@ -28,6 +33,8 @@ export default function RegisterStepOne({ register, errors }: propsType) {
         Contraseña (*)
         <input
           name='password'
+          type="password"
+          required
           value={confirm.password}
           className={inputStyle}
           placeholder='Crear contraseña'
@@ -44,6 +51,8 @@ export default function RegisterStepOne({ register, errors }: propsType) {
         Verifica tu contraseña (*)
         <input
           name='rePassword'
+          type="password"
+          required
           className={inputStyle}
           value={confirm.rePassword}
           placeholder='Repetir contraseña'
@@ -52,6 +61,19 @@ export default function RegisterStepOne({ register, errors }: propsType) {
           }}
         ></input>
       </label>
+      {visible ? (
+              <AiFillEye
+                className='absolute right-4 top-[10%]'
+                size={25}
+                onClick={() => setVisible(false)}
+              />
+            ) : (
+              <AiFillEyeInvisible
+                className='absolute right-4 top-[10%]'
+                size={25}
+                onClick={() => setVisible(true)}
+              />
+            )}
       {confirm.password !== confirm.rePassword ? "Las contraseñas no coinciden" : ""}
     </div>
   );
