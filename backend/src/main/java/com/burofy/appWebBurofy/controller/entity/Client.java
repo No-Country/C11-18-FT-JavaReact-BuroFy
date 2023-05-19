@@ -14,11 +14,18 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Client extends Person {
+public class Client  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String occupation ;
+    private String name;
+    private String lastName;
+    private String documentNumber;
+    private String phone;
+    private String location;
+    private String email;
+    private String password;
+    private String occupation;
 
 }
