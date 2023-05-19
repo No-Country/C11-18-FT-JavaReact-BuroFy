@@ -1,7 +1,8 @@
-package com.burofy.appWebBurofy.service;
+package com.burofy.appWebBurofy.service.impl;
 
 import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.repository.IClientRepository;
+import com.burofy.appWebBurofy.service.IClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
