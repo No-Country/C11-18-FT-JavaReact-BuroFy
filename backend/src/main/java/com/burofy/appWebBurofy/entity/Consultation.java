@@ -1,6 +1,7 @@
 package com.burofy.appWebBurofy.entity;
 
 import javax.persistence.*;
+
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,7 +9,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "consultation")
@@ -21,17 +22,19 @@ public class Consultation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "id_client")
+/*    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id")
+    @JsonBackReference
     private Client client;
-    @ManyToOne
-    @JoinColumn(name = "id_professional")
-    private Professional professional;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "professional_id")
+    @JsonBackReference
+    private Professional professional;*/
+ /*   @ManyToOne
     @JoinColumn(name = "id_payment")
-    private Payment payment;
-    private String  type;
-    private LocalDate date;
+    private Payment payment;*/
+    private String type;
+    private Date date;
     private String comments;
 
 }

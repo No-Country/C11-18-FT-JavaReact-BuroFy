@@ -1,10 +1,15 @@
 package com.burofy.appWebBurofy.entity;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,5 +38,9 @@ public class Professional {
     private Boolean isRemoteWork;
     private Boolean isFaceToFaceWork;
 
+//    @OneToMany(mappedBy = "professional", fetch = FetchType.EAGER)
+//    @JsonIgnore
+//    @JsonBackReference
+//    private List<Consultation> consultations;
 
 }
