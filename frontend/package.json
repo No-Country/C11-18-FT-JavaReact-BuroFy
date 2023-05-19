@@ -23,6 +23,7 @@
     "dayjs": "^1.11.7",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
+    "firebase": "^9.22.0",
     "flowbite": "^1.6.5",
     "flowbite-react": "^0.4.4",
     "framer-motion": "^10.12.11",
