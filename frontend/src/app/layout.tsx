@@ -1,16 +1,9 @@
 import "./globals.css";
-import { DM_Sans } from "next/font/google";
 import { Header, Providers } from "@/components";
 import { User } from "@/interfaces/user";
 
-const dm = DM_Sans({
-  weight: ["400", "500", "700"],
-  style: ["italic", "normal"],
-  subsets: ["latin"],
-});
-
 export const metadata = {
-  title: "Burofy | Home",
+  title: "Burofy | Inicio",
   description:
     "Burofy: Conectamos clientes con abogados expertos en diversas áreas del derecho. Encuentra al profesional adecuado para tus necesidades legales fácil y rápido.",
   keywords: ["Burofy", "buro-fy", "buro", "derecho", "abogado", "abogancia", "intermediario"],
@@ -27,7 +20,7 @@ export const metadata = {
       url: "./favicon.png",
       type: "image/png",
     },
-    shortcut: { url: "./favicon.png", type: "image/ png" },
+    shortcut: { url: "./favicon.png", type: "image/png" },
   },
 };
 
@@ -37,16 +30,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     id_token: "tokenid23232",
     email: "jesus_12423@gmail.com",
     rol: "client",
-    firstName: "jesus papa",
+    firstName: "Jesús",
     avatar: "/jesus.jpeg",
   };
 
   return (
     <html lang='en'>
-      <body className={dm.className}>
+      <body>
         <Providers>
           <Header user={stubUser} />
-
           {children}
         </Providers>
       </body>

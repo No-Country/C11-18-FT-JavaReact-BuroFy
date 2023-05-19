@@ -12,21 +12,26 @@ interface Country {
   geonameId: number | string;
 }
 
-/* interface Province {
-  name:string
-} */
+interface Province {
+  name: string;
+}
 
 export default function RegisterStepTwo({ register, errors }: propsType) {
   const inputStyle =
     "h-[50px] rounded-lg my-2 px-3 bg-[#F0F0F0] border border-[#909090] lg:w-full ";
-  const labelStyle = "flex px-1 flex-col h-[87px] my-3 lg:mx-5";
+  const labelStyle = "flex px-1 flex-col h-[107px] my-3 lg:mx-5";
   const [countries, setCountries] = useState<Country[]>([]);
-  /*   const [provinces, setProvinces] = useState<Province[]>([]); */
-  /*   const lookForCities = async (id:number)=>{
-    await axios.get(`http://api.geonames.org/childrenJSON?geonameId=${id}&username=EugeniaGramajo`)
-      .then(response=>
-        setProvinces(response.data.geonames));
-  }; */
+  const [provinces, setProvinces] = useState<Province[]>([]);
+  const [selectedCountryId, setSelectedCountryId] = useState<number | string>("");
+
+  const lookForCities = async (id: number | string) => {
+    await axios
+      .get(`http://api.geonames.org/childrenJSON?geonameId=${id}&username=EugeniaGramajo`)
+      .then((response) => {
+        setProvinces(response.data.geonames);
+      });
+  };
+
   useEffect(() => {
     axios
       .get("http://api.geonames.org/countryInfoJSON?username=EugeniaGramajo&orderby=name")
@@ -37,6 +42,14 @@ export default function RegisterStepTwo({ register, errors }: propsType) {
         console.error(error);
       });
   }, []);
+
+  const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedCountry = countries.find((country) => country.countryName === event.target.value);
+    if (selectedCountry) {
+      setSelectedCountryId(selectedCountry.geonameId);
+      lookForCities(selectedCountry.geonameId);
+    }
+  };
 
   return (
     <>
@@ -49,7 +62,9 @@ export default function RegisterStepTwo({ register, errors }: propsType) {
             name='name'
             {...register("name", { required: true })}
           ></input>
+          {errors.name && <span>Este campo es requerido</span>}
         </label>
+
         <label className={labelStyle}>
           Apellido (*)
           <input
@@ -58,24 +73,41 @@ export default function RegisterStepTwo({ register, errors }: propsType) {
             name='lastName'
             {...register("lastName", { required: true })}
           ></input>
+          {errors.lastName && <span>Este campo es requerido</span>}
         </label>
+
         <label className={labelStyle}>
           Seleccionar tu país (*)
-          <select className={inputStyle} {...register("country", { required: true })}>
+          <select
+            className={inputStyle}
+            {...register("country", { required: true })}
+            onChange={handleCountryChange}
+          >
             <option disabled selected>
               Selecciona tu país
             </option>
             {countries?.map((a) => (
-              <option value={a?.countryName} key={a?.countryCode}>
-                {a?.countryName}
+              <option value={a.countryName} key={a.countryCode}>
+                {a.countryName}
               </option>
             ))}
           </select>
+          {errors.country && <span>Este campo es requerido</span>}
         </label>
+
         <label className={labelStyle}>
           Seleccionar tu ciudad (*)
-          <select className={inputStyle} {...register("city", { required: true })}></select>
+          <select className={inputStyle} {...register("city", { required: true })}>
+            <option disabled selected>
+              Selecciona tu ciudad
+            </option>
+            {provinces?.map((c) => (
+              <option key={c.name}>{c.name}</option>
+            ))}
+          </select>
+          {errors.city && <span>Este campo es requerido</span>}
         </label>
+
         <label className={labelStyle}>
           Número de telefono (*)
           <input
@@ -85,6 +117,7 @@ export default function RegisterStepTwo({ register, errors }: propsType) {
             name='phone'
             {...register("phone", { required: true })}
           ></input>
+          {errors.phone && <span>Este campo es requerido</span>}
         </label>
         <label className={labelStyle}>
           Identificación (*)
@@ -93,7 +126,9 @@ export default function RegisterStepTwo({ register, errors }: propsType) {
             className={inputStyle}
             {...register("documentNumber", { required: true })}
           ></input>
+          {errors.documentNumber && <span>Este campo es requerido</span>}
         </label>
+
         <label className={labelStyle}>
           Número de matricula
           <input
@@ -110,7 +145,6 @@ export default function RegisterStepTwo({ register, errors }: propsType) {
             {...register("experience", { required: false })}
           ></select>
         </label>
-        {errors.name && <span>Este campo es requerido</span>}
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import { Dispatch } from "react";
+import React, { Dispatch } from "react";
 
 export type Status = "authenticated" | "no-authenticated" | "checking";
 
@@ -11,6 +11,7 @@ export interface SignIn {
 export interface SignUp {
     email: string
     password: string
+    displayName?: string
     confirmPassword?: string 
 }
 

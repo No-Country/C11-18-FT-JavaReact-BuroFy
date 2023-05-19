@@ -1,19 +1,40 @@
 "use client";
-import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import ButtonFacebook from "../Buttons/ButtonFacebook";
+import ButtonGoogle from "../Buttons/ButtonGoogle";
+import { AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEye } from "react-icons/ai";
+import { useState } from "react";
+import ButtonAuth from "../Buttons/ButtonAuth";
+import ErrorMsg from "../ErrorMsg";
+import { SignUp } from "@/interfaces/auth";
+import { useRouter } from "next/navigation";
+import { sign_up_with_credentials } from "@/lib/firebase_auth";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function Register() {
+  const { setStatusAuth } = useAuth();
+  const [visible, setVisible] = useState(false);
+  const router = useRouter();
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
-  } = useForm();
-  const inputStyle = "h-[50px] rounded-lg my-2 px-3 bg-[#F0F0F0] border border-[#909090]";
-  const [confirm, setConfirm] = useState({
-    password: "",
-    rePassword: "",
-  });
-  const onSubmit = () => {};
+  } = useForm<SignUp>();
+
+  const onSubmit = async (data: SignUp) => {
+    const { password, email, displayName } = data;
+    setStatusAuth("checking");
+    try {
+      await sign_up_with_credentials({ email, password, displayName });
+      console.log("Yes sir");
+      setStatusAuth("authenticated");
+      router.push("/");
+    } catch (error) {
+      console.log((error as Error).message);
+    }
+  };
 
   return (
     <div className='m-auto lg:flex lg:flex-row'>
@@ -22,64 +43,136 @@ export default function Register() {
       </div>
       <div className='flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full lg:w-2/3'>
         <>
-          <h1 className='m-5 text-xl font-extrabold'>Registro de nuevo usuario</h1>
+          <h3 className='m-5 text-xl font-black'>Registro de nuevo usuario</h3>
           <span className='flex justify-center my-6 space-x-10 text-sm '></span>
         </>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <div className='w-[356px] text-left flex flex-col m-auto px-3 space-y-4'>
-              <label className='flex px-1 flex-col h-[87px]'>
-                {" "}
-                Nombre de usuario (*)
-                <input
-                  className={inputStyle}
-                  placeholder='Email'
-                  {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
-                ></input>
-                {errors.name && <span>Este campo es requerido</span>}
+          <div className='w-[356px] text-left flex flex-col m-auto px-3 space-y-4 gap-14'>
+            <div className='relative z-0 w-full group'>
+              <input
+                type='text'
+                id='name'
+                className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
+                placeholder=' '
+                required
+                {...register("displayName", {
+                  required: "Name is required.",
+                })}
+              />
+              <label
+                htmlFor='name'
+                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 '
+              >
+                Nombre
               </label>
-              <label className='flex px-1 flex-col h-[87px]'>
-                Contraseña (*)
-                <input
-                  value={confirm.password}
-                  className={inputStyle}
-                  placeholder='Crear contraseña'
-                  {...register("password", {
-                    required: true,
-                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{1,12}$/,
-                  })}
-                  onChange={(e) => {
-                    setConfirm({ ...confirm, password: e.target.value });
-                  }}
-                ></input>
+
+              {errors.displayName && <ErrorMsg>{errors.displayName?.message as string}</ErrorMsg>}
+            </div>
+
+            <div className='relative z-0 w-full group'>
+              <input
+                type='email'
+                id='text '
+                className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
+                placeholder=' '
+                required
+                {...register("email", {
+                  required: "Email is required.",
+                  pattern: {
+                    value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                    message: "Email is not valid.",
+                  },
+                })}
+              />
+              <label
+                htmlFor='text'
+                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 '
+              >
+                Correo electrónico
               </label>
-              <label className='flex px-1 flex-col h-[87px]'>
-                Verifica tu contraseña (*)
-                <input
-                  name='rePassword'
-                  className={inputStyle}
-                  value={confirm.rePassword}
-                  placeholder='Repetir contraseña'
-                  onChange={(e) => {
-                    setConfirm({ ...confirm, rePassword: e.target.value });
-                  }}
-                ></input>
+
+              {errors.email && <ErrorMsg>{errors.email?.message as string}</ErrorMsg>}
+            </div>
+
+            <div className='relative z-0 w-full group'>
+              <input
+                type={visible ? "text" : "password"}
+                id='password'
+                className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
+                placeholder=' '
+                required
+                {...register("password", {
+                  required: "Password is required.",
+                  minLength: {
+                    value: 6,
+                    message: "Password should be at-least 6 characters.",
+                  },
+                })}
+              />
+              <label
+                htmlFor='password'
+                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+              >
+                Contraseña
               </label>
-              {confirm.password !== confirm.rePassword ? "Las contraseñas no coinciden" : ""}
+              {errors.password && <ErrorMsg>{errors.password?.message as string}</ErrorMsg>}
+
+              {visible ? (
+                <AiFillEye
+                  className='absolute right-4 top-[10%]'
+                  size={25}
+                  onClick={() => setVisible(false)}
+                />
+              ) : (
+                <AiFillEyeInvisible
+                  className='absolute right-4 top-[10%]'
+                  size={25}
+                  onClick={() => setVisible(true)}
+                />
+              )}
+            </div>
+
+            <div className='relative z-0 w-full group'>
+              <input
+                type={visible ? "text" : "password"}
+                id='confirmPassword'
+                className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
+                placeholder=' '
+                required
+                {...register("confirmPassword", {
+                  required: "Confirm password is required.",
+                  minLength: {
+                    value: 6,
+                    message: "Password should be at-least 6 characters.",
+                  },
+                  validate: (value) => {
+                    const { password } = getValues();
+                    if (password !== value) return "Your password does not match";
+                  },
+                })}
+              />
+              <label
+                htmlFor='confirmPassword'
+                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+              >
+                Confirma Contraseña
+              </label>
+              {errors.confirmPassword && <ErrorMsg>{errors.confirmPassword?.message}</ErrorMsg>}
             </div>
           </div>
-          <div className='flex justify-center'>
-            <button className='w-[200px] h-[35px] bg-primary rounded-lg my-7'>
-              {" "}
-              Crear Cuenta{" "}
-            </button>
+
+          <div className='flex justify-center my-10'>
+            <ButtonAuth>Registrarse</ButtonAuth>
           </div>
         </form>
         <>
-          <h1>--------O continúa con---------</h1>
+          <span>O continúa con</span>
         </>
-        <h1 className='py-5'>Aca va lo de auth</h1>
-        <footer className='py-5'>Burofy genera conexiones</footer>
+        <div className='flex mt-2 md:mt-14 items-center justify-center flex-col gap-4 md:gap-8 md:flex-row'>
+          <ButtonGoogle />
+          <ButtonFacebook />
+        </div>
+        <footer className='absolute bottom-4 text-xs mt-4'>Burofy genera conexiones</footer>
       </div>
     </div>
   );
