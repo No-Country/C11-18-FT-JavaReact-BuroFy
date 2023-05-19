@@ -1,8 +1,11 @@
 "use client";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { ContextAuth, Status } from "@/interfaces/auth";
 import { firebase_auth } from "@/lib/firebase";
 
-import { Dispatch, SetStateAction, createContext, useContext, useState, useEffect } from "react";
+type PropsType = {
+  children: ReactNode;
+};
 
 const emptyContext = {};
 
@@ -12,12 +15,17 @@ export function useAuth(): ContextAuth {
   return useContext(AuthContext);
 }
 
-export const AuthProvider = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
+export const AuthProvider = ({ children }: PropsType) => {
   const [statusAuth, setStatusAuth] = useState<Status>("checking");
   console.log(statusAuth);
   useEffect(() => {
     const unsubsrcibe = firebase_auth.onAuthStateChanged((user) => {
-      setStatusAuth("authenticated");
+      if (user) {
+        console.log(user);
+        setStatusAuth("authenticated");
+      } else {
+        setStatusAuth("no-authenticated");
+      }
     });
     return unsubsrcibe;
   }, []);

@@ -31,7 +31,7 @@ module.exports = {
         "sky-blue": "#7FCEFF",
       },
       animation: {
-        "spinner-square": "spinner 3s infinite",
+        'spinner-square': 'spinner 3s infinite'
       },
       keyframes: {
         spinner: {

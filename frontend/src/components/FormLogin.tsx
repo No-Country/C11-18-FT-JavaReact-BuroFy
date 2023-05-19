@@ -1,18 +1,20 @@
 "use client";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
-import { BsFacebook } from "react-icons/bs";
 import { useState } from "react";
 import { SignIn } from "@/interfaces/auth";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 import ButtonAuth from "./Buttons/ButtonAuth";
-import { useAuth } from "@/contexts/AuthContext";
 import { sign_in_with_credentials } from "@/lib/firebase_auth";
 import { useRouter } from "next/navigation";
+import ButtonGoogle from "./Buttons/ButtonGoogle";
+import ButtonFacebook from "./Buttons/ButtonFacebook";
+import ErrorMsg from "./ErrorMsg";
+import { useAuth } from "@/contexts/AuthContext";
 
 const FormLogin = () => {
+  const { setStatusAuth } = useAuth();
   const [visible, setVisible] = useState(false);
   const router = useRouter();
 
@@ -22,14 +24,13 @@ const FormLogin = () => {
     formState: { errors },
   } = useForm<SignIn>();
 
-  const { statusAuth, setStatusAuth } = useAuth();
-
   const onSubmit = async (data: SignIn) => {
+    setStatusAuth("checking");
     try {
       await sign_in_with_credentials(data);
-
+      setStatusAuth("authenticated");
       console.log("Yes sir");
-      router.push("/dashboard");
+      router.push("/");
     } catch (error) {
       console.log((error as Error).message);
     }
@@ -64,8 +65,8 @@ const FormLogin = () => {
             >
               Correo electrónico
             </label>
+            {errors.email && <ErrorMsg>{errors.email?.message as string}</ErrorMsg>}
           </div>
-          {errors.email && errors.email?.message}
         </div>
         <div className='flex flex-col '>
           <div className='relative z-0 w-full mb-6 group'>
@@ -89,6 +90,7 @@ const FormLogin = () => {
             >
               Contraseña
             </label>
+            {errors.password && <ErrorMsg>{errors.password?.message as string}</ErrorMsg>}
             {visible ? (
               <AiFillEye
                 className='absolute right-4 top-[10%]'
@@ -124,15 +126,8 @@ const FormLogin = () => {
           <p className='mb-14 max-w-xl mx-auto text-center text-xl relative '>O continúa con</p>
         </div>
         <div className='flex mt-6 items-center justify-center flex-col gap-8'>
-          <button className='p-2 flex w-48 h-14 bg-quinary items-center rounded-lg text-xs gap-2'>
-            <FcGoogle className='flex ml-1 text-lg w-8 h-8' />
-            Registrarte con Google
-          </button>
-
-          <button className='p-2 flex w-48 h-14 bg-quinary items-center rounded-lg text-xs gap-2'>
-            <BsFacebook className='flex ml-1 text-lg text-[#3b5998] w-8 h-8' />
-            Registrarte con Facebook
-          </button>
+          <ButtonGoogle />
+          <ButtonFacebook />
         </div>
       </form>
     </>

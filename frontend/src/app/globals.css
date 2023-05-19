@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Epilogue&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&display=swap');
 
 @tailwind base;
 @layer base {
-  body {
-    @apply bg-white;
-  }
+    body {
+        @apply bg-white font-primary-roboto overflow-y-hidden;
+    }
 }
 @tailwind components;
 @tailwind utilities;
