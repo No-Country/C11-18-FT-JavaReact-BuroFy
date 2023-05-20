@@ -2,11 +2,12 @@
 import React, { useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { MdOutlineLocalPhone, MdOutlineLocationOn, MdOutlinePersonOutline } from "react-icons/md";
-import ButtonAuth from "../Buttons/ButtonAuth";
-import PerfilTwo from "./PerfilTwo";
-import Link from "next/link";
+
 
 export default function PerfilOne() {
+  // const Next = () =>{
+    
+  // }
    
   return (
     <div className=' flex w-[327.68px] h-[579.98] items-center ml-4 lg:flex lg:w-[327.68px] lg:h-[579.98] ld:items-center lg:ml-[43rem]'>
@@ -40,7 +41,7 @@ export default function PerfilOne() {
             Ubicacion
           </label>
           <input
-            type='email'
+            type=''
             placeholder=''
             className='block py-2.5 ml-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
           />
@@ -51,7 +52,7 @@ export default function PerfilOne() {
             Telefono
           </label>
           <input
-            type='email'
+            type='number'
             placeholder=''
             className='block py-2.5 ml-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
           />
@@ -60,8 +61,8 @@ export default function PerfilOne() {
         <div className='ml-16 mt-12 font-semibold relative z-0 w-full mb-6 group'>
           <button
             className='bg-primary w-[220px] h-10  mt-12 text-lg font-bold text-white flex- items-center justify-center 
-            rounded-xl mx-auto md:w-96 md:h-14' >  
-             {/* onClick={Next} */}
+            rounded-xl mx-auto md:w-96 md:h-14'>  
+             {/* onClick={Next}  */}
             Guardar
           </button>
         </div>

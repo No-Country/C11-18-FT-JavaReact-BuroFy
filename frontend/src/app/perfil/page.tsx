@@ -7,7 +7,7 @@ import React from "react";
 const ProfilePage = () => {
   return (
     <main>
-      <h2><PerfilOne/></h2>
+      <PerfilOne/>
     </main>
   );
 };
