@@ -1,4 +1,4 @@
-import PerfilTwo from "@/components/Perfil/PerfilTwo";
+import PerfilTwo from "@/components/Perfil/PerfilClient";
 import React from "react";
 
 
