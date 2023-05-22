@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import RegisterStepOne from "./RegisterStepOne";
 import RegisterStepTwo from "./RegisterStepTwo";
 import { useForm } from "react-hook-form";
+import ButtonGoogle from "../Buttons/ButtonGoogle";
+import ButtonFacebook from "../Buttons/ButtonFacebook";
 
 
 
@@ -42,7 +44,8 @@ export default function Register(){
         <>
           <h1>--------O continúa con---------</h1>
         </>
-        <h1 className="py-5">Aca va lo de auth</h1>
+        <ButtonGoogle />
+        <ButtonFacebook/>
         <footer className="py-5">Burofy genera conexiones</footer>
       </div>
     </div>
