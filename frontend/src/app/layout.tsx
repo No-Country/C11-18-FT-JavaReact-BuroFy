@@ -1,3 +1,4 @@
+import React from "react";
 import "./globals.css";
 import { Header, Providers } from "@/components";
 import { User } from "@/interfaces/user";

@@ -119,13 +119,13 @@ export default function Register() {
 
               {visible ? (
                 <AiFillEye
-                  className='absolute right-4 top-[10%] lg:left-[20rem] lg:absolute'
+                  className='absolute right-4 top-[10%]'
                   size={25}
                   onClick={() => setVisible(false)}
                 />
               ) : (
                 <AiFillEyeInvisible
-                  className='absolute right-4 top-[10%] lg:left-[20rem] lg:absolute'
+                  className='absolute right-4 top-[10%]'
                   size={25}
                   onClick={() => setVisible(true)}
                 />
@@ -159,7 +159,6 @@ export default function Register() {
               </label>
               {errors.confirmPassword && <ErrorMsg>{errors.confirmPassword?.message}</ErrorMsg>}
             </div>
-          
           </div>
 
           <div className='flex justify-center my-10'>
