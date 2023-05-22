@@ -9,13 +9,12 @@ export interface User {
   email: string;
   rol: string | Role;
   firstName: string | null;
-  rolContent?: UserClientContent | UserProfessionalContent;
+  rolContent?: UserClientContent | UserProfessionalContent | null;
   birthday?: Date | null;
   surName?: string | null;
   dni?: string | null;
   phone?: Phone | null;
   address?: Address | null;
   avatar?: string | null;
-  status?: boolean;
   verified?: boolean;
 }
