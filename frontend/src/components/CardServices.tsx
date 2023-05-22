@@ -8,14 +8,14 @@ import { AiFillEye } from "react-icons/ai";
 export default function CardServices() {
   return (
     <>
-      <div className=' bg-white border border-[#C600E0] rounded-lg drop-shadow-xl lg:border-[3px] lg:w-[459px] lg:h-[569px]'>
+      <div className=' bg-white mb-3 border border-[#C600E0] rounded-lg drop-shadow-xl lg:border-[3px] lg:w-[459px] lg:h-auto'>
         <div className='flex justify-between rounded-tr-lg rounded-tl-lg bg-[#EBEBEB] lg:w-[453px] lg:h-[60px] lg:items-center'>
-          <h1 className='lg:font-bold lg:text-[20px] lg:m-5 lg:leading-[26px]'>Mis servicios</h1>
+          <h1 className='lg:font-bold lg:text-[20px] m-5 lg:leading-[26px]'>Mis servicios</h1>
           <label className='mb-2 text-sm font-medium text-gray-900 sr-only'>Your Email</label>
           <button
             id='dropdown-button'
             data-dropdown-toggle='dropdown'
-            className='flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-normal text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg'
+            className='flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-normal text-center text-gray-900   border-none border-gray-400 w-[135px] '
             type='button'
           >
             Ordernar por{" "}
@@ -64,17 +64,17 @@ export default function CardServices() {
             </ul>
           </div>
         </div>
-        <div className='p-4 mt-3'>
-          <div className='bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[126px] lg:mb-3 lg:p-1.5'>
-            <div className='flex lg:p-3 lg: lg:gap-10'>
+        <div className='p-2.5 lg:p-4 lg:mt-3 space-y-4 '>
+          <div className='flex flex-col-reverse lg:flex-col w-[322px] h-[100px] p-2 bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[126px] lg:mb-3 lg:p-1.5'>
+            <div className='flex ms-2 mt-3 lg:mt-0 lg:ms-0 lg:flex lg:p-3 lg: lg:gap-10'>
               <div className='flex items-center'>
-                <p className='lg:text-xs lg:font-normal leading-[14px]'>N° del servicio:</p>
-                <span className='bg-gray-700  text-[#FFFFFF] ms-3 leading-[16px] text-xs font-normal mr-2 px-2.5 py-0.5 rounded-full self-center'>
+                <p className='text-xs lg:font-normal leading-[14px]'>N° del servicio:</p>
+                <p className='bg-gray-700  text-[#FFFFFF] ms-3 leading-[16px] text-xs font-normal mr-2 px-2.5 py-0.5 rounded-full self-center'>
                   875
-                </span>
+                </p>
               </div>
               <div className='flex items-center'>
-                <p className='lg:text-xs lg:font-normal'>Fecha:</p>
+                <p className='text-xs lg:font-normal'>Fecha:</p>
                 <p className='bg-gray-700 w-[96px] h-[20px] text-white text-center ms-4 text-xs mr-2 px-2.5 py-0.5 rounded-full self-center'>
                   05/15/2023
                 </p>
@@ -84,23 +84,22 @@ export default function CardServices() {
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
               <div className='flex gap-2'>
                 <Image src={image} width={50} height={50} alt='profile' />
-                <div className='flex-col'>
-                  <p className='lg:font-bold lg:text-sm'>Carlos Fernandez</p>
-                  <span className='bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mr-2 px-2.5 py-0.5 rounded-full'>
+                <div className='flex lg:flex-col '>
+                  <p className='px-3 lg:px-0 lg:font-bold lg:text-sm'>Carlos Fernandez</p>
+                  <span className='hidden lg:flex bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mr-2 px-2.5 py-0.5 rounded-full'>
                     Abogado Migratorío
                   </span>
                 </div>
-              </div>
-
-              <div className='flex'>
-                <span className='bg-[#D8D8FE] text-[#3C3CA7] lg:h-[29px] ms-4 text-xs font-normal px-4 py-1.5 rounded-full self-center'>
-                  En progreso
-                </span>
+                <div className='flex'>
+                  <span className='bg-[#D8D8FE] text-[#3C3CA7] lg:h-[29px] ms-4 text-xs font-normal px-4 py-1.5 rounded-full self-center'>
+                    En progreso
+                  </span>
+                </div>
               </div>
             </div>
           </div>
           {/* Item */}
-          <div className='bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[126px] lg:mb-3 lg:p-1.5'>
+          <div className='w-[322px] h-[100px] bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[126px] lg:mb-3 lg:p-1.5'>
             <div className='flex lg:p-3 lg: lg:gap-10'>
               <div className='flex items-center'>
                 <p className='lg:text-xs lg:font-normal leading-[14px]'>N° del servicio:</p>
@@ -135,7 +134,7 @@ export default function CardServices() {
             </div>
           </div>
           {/* Item */}
-          <div className='bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[126px] lg:mb-3 lg:p-1.5'>
+          <div className=' w-[322px] h-[100px] bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[126px] lg:mb-3 lg:p-1.5'>
             <div className='flex lg:p-3 lg: lg:gap-10'>
               <div className='flex items-center'>
                 <p className='lg:text-xs lg:font-normal leading-[14px]'>N° del servicio:</p>
@@ -170,10 +169,10 @@ export default function CardServices() {
             </div>
           </div>
 
-          <div className='flex justify-end mt-5'>
+          <div className='flex justify-center lg:justify-end mt-5'>
             <button
               type='button'
-              className='text-white bg-[#24292F] lg:w-[126px lg:h-[30px] lg:font-bold lg:rounded-md lg:text-smlg: px-5 lg:py-1.5 text-center inline-flex items-center mr-1 gap-1'
+              className='text-white bg-[#24292F] rounded-md lg:w-[126px lg:h-[30px] lg:font-bold lg:text-smlg: px-5 lg:py-1.5 text-center inline-flex items-center mr-1  gap-1'
             >
               <AiFillEye />
               Ver todos
