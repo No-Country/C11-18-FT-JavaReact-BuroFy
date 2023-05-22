@@ -1,10 +1,13 @@
 package com.burofy.appWebBurofy.entity;
 
 import javax.persistence.*;
+
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,5 +36,7 @@ public class Professional {
     private Boolean isRemoteWork;
     private Boolean isFaceToFaceWork;
 
+    @OneToMany(mappedBy = "professional", fetch = FetchType.EAGER)
+    private List<Consultation> consultations;
 
 }
