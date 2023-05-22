@@ -1,5 +1,6 @@
 package com.burofy.appWebBurofy.controller;
 
+import com.burofy.appWebBurofy.ResponseBuilder;
 import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.service.IClientService;
 import com.burofy.appWebBurofy.utility.Response;
@@ -7,9 +8,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 
 @RestController
@@ -23,6 +24,13 @@ public class ClientRestController{
     public ResponseEntity<Response> createClient(@RequestBody Client client) {
         clientService.createClient(client)  ;
         return new  ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+   @GetMapping(path = "/getClient/{id}")
+    public ResponseEntity<?> getClient(@PathVariable Long id) {
+        Client client = clientService.getClient(id);
+       System.out.println(client.toString());
+       return ResponseBuilder.responseBuilder(HttpStatus.OK,client);
     }
 
 
