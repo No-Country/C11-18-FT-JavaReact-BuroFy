@@ -27,32 +27,33 @@ export default function Register() {
     const { password, email, displayName } = data;
     setStatusAuth("checking");
     try {
-      await sign_up_with_credentials({ email, password, displayName });
-      console.log("Yes sir");
-      setStatusAuth("authenticated");
-      router.push("/");
+      if (data) {
+        await sign_up_with_credentials({ email, password, displayName });
+        console.log("Yes sir");
+        setStatusAuth("authenticated");
+        router.push("/");
+      }
     } catch (error) {
       console.log((error as Error).message);
     }
   };
 
   return (
-    <div className='m-auto lg:flex lg:flex-row'>
-      <div className='hidden lg:block lg:w-1/3'>
-        <h1>Aca va la imagen</h1>
-      </div>
-      <div className='flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full lg:w-2/3'>
-        <>
-          <h3 className='m-5 text-xl font-black'>Registro de nuevo usuario</h3>
-          <span className='flex justify-center my-6 space-x-10 text-sm '></span>
-        </>
+    <div className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center order-4 lg:mt-20 lg:mb-0'>
+      <div className='flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full'>
+        <h3 className='m-5 text-xl font-black md:text-2xl lg:text-3xl'>
+          Registro de nuevo usuario
+        </h3>
+        <h4 className='flex justify-center my-6 space-x-10 text-sm lg:text-lg'>
+          Crea tu usuario y recibí asistencia legal ¡ya!
+        </h4>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className='w-[356px] text-left flex flex-col m-auto px-3 space-y-4 gap-14'>
+          <div className='w-full text-left flex flex-col m-auto px-3 space-y-4 gap-10'>
             <div className='relative z-0 w-full group'>
               <input
                 type='text'
                 id='name'
-                className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
+                className='block py-2.5 pr-0 pl-4 w-full text-sm text-gray-900 border-0 border-b-2 border-[#2E2E2E] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96 bg-quinary focus:bg-transparent'
                 placeholder=' '
                 required
                 {...register("displayName", {
@@ -61,44 +62,42 @@ export default function Register() {
               />
               <label
                 htmlFor='name'
-                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 '
+                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 z-50 pl-4 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 '
               >
                 Nombre
               </label>
-
               {errors.displayName && <ErrorMsg>{errors.displayName?.message as string}</ErrorMsg>}
             </div>
 
-            <div className='relative z-0 w-full group'>
+            <div className='relative z-0 w-full group mb-14 '>
               <input
                 type='email'
-                id='text '
-                className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
+                id='email'
+                className='block py-2.5 pr-0 pl-4 w-full text-sm text-gray-900 border-0 border-b-2 border-[#2E2E2E] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96 bg-quinary focus:bg-transparent'
                 placeholder=' '
                 required
                 {...register("email", {
                   required: "Email is required.",
                   pattern: {
-                    value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                    value: /^[^@ ]+@[^@ ]+.[^@ .]{2,}$/,
                     message: "Email is not valid.",
                   },
                 })}
               />
               <label
-                htmlFor='text'
-                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 '
+                htmlFor='email'
+                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 z-50 pl-4 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 '
               >
                 Correo electrónico
               </label>
-
               {errors.email && <ErrorMsg>{errors.email?.message as string}</ErrorMsg>}
             </div>
 
-            <div className='relative z-0 w-full group'>
+            <div className='relative z-0 w-full mb-6 group'>
               <input
                 type={visible ? "text" : "password"}
                 id='password'
-                className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
+                className='block py-2.5 pr-0 pl-4 w-full text-sm text-gray-900 bg-quinary focus:bg-transparent border-0 border-b-2 border-[#2E2E2E] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
                 placeholder=' '
                 required
                 {...register("password", {
@@ -111,21 +110,20 @@ export default function Register() {
               />
               <label
                 htmlFor='password'
-                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 z-50 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 pl-4 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 Contraseña
               </label>
               {errors.password && <ErrorMsg>{errors.password?.message as string}</ErrorMsg>}
-
               {visible ? (
                 <AiFillEye
-                  className='absolute right-4 top-[10%]'
+                  className='absolute right-4 top-[15%] cursor-pointer'
                   size={25}
                   onClick={() => setVisible(false)}
                 />
               ) : (
                 <AiFillEyeInvisible
-                  className='absolute right-4 top-[10%]'
+                  className='absolute right-4 top-[15%] cursor-pointer'
                   size={25}
                   onClick={() => setVisible(true)}
                 />
@@ -136,7 +134,7 @@ export default function Register() {
               <input
                 type={visible ? "text" : "password"}
                 id='confirmPassword'
-                className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
+                className='block py-2.5 pr-0 pl-4 w-full text-sm text-gray-900 bg-quinary focus:bg-transparent border-0 border-b-2 border-[#2E2E2E] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
                 placeholder=' '
                 required
                 {...register("confirmPassword", {
@@ -153,16 +151,16 @@ export default function Register() {
               />
               <label
                 htmlFor='confirmPassword'
-                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 z-50 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 pl-4 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
-                Confirma Contraseña
+                Confirma contraseña
               </label>
               {errors.confirmPassword && <ErrorMsg>{errors.confirmPassword?.message}</ErrorMsg>}
             </div>
           </div>
 
           <div className='flex justify-center my-10'>
-            <ButtonAuth>Registrarse</ButtonAuth>
+            <ButtonAuth>Crear cuenta</ButtonAuth>
           </div>
         </form>
         <>

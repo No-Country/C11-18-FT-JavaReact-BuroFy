@@ -19,6 +19,7 @@ module.exports = {
         tertiary: "#2E2E2E",
         quaternary: "#FFFFFF",
         quinary: "#D9D9D9",
+        sixnary: "#F0BFF7"
       },
       backgroundImage: {
         "header-img": "url('/bg-header-burofy.svg')",
