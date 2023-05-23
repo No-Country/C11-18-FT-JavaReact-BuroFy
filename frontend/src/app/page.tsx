@@ -1,8 +1,9 @@
 import React from "react";
-import CardApplicationEmpty from "@/components/CardApplicationEmpty";
-import CardReviewEmpty from "@/components/CardReviewEmpty";
+// import CardApplicationEmpty from "@/components/CardApplicationEmpty";
+// import CardReviewEmpty from "@/components/CardReviewEmpty";
 import CardServices from "@/components/CardServices";
 import CardReview from "@/components/CardReview";
+import Spinner2 from "@/components/Spinner2";
 
 const HomePage = () => {
   return (
@@ -18,6 +19,7 @@ const HomePage = () => {
           <CardReviewEmpty /> */}
           {/* <CardServices />
           <CardReview /> */}
+          <Spinner2 />
         </section>
       </main>
       <footer className='flex justify-center mt-[250px] md:hidden lg:hidden'>
