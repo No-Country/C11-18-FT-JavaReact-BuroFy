@@ -21,7 +21,7 @@ type PropsType = {
 const Header = ({ user }: PropsType) => {
   const pathname = usePathname();
   const { statusAuth } = useAuth();
-  console.log(statusAuth)
+  console.log(statusAuth);
   console.log(user);
 
   return (
@@ -39,7 +39,7 @@ const Header = ({ user }: PropsType) => {
               <RxHamburgerMenu className='w-8 h-8 text-white md:hidden' />
             </button>
             <Image
-              src='/header-burofy.svg'
+              src='/title-burofy-white.svg'
               alt='header burofy logotype'
               width={170}
               height={52}

@@ -15,8 +15,8 @@ const AvatarTitle = ({ firstName }: PropsType) => {
   const handleLogout = async () => {
     setStatusAuth("checking");
     try {
-      await logout_firebase();
       router.push("/acceso");
+      await logout_firebase();
       setStatusAuth("no-authenticated");
     } catch (error) {
       console.log((error as Error).message);

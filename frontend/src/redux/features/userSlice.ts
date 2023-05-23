@@ -34,7 +34,7 @@ const userSlice = createSlice({
       state.id_token = action.payload.id_token;
       state.providerId = action.payload.providerId;
       state.email = action.payload.email;
-      console.log(state)
+      console.log(state);
     },
   },
 });

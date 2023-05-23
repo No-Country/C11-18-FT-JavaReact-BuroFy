@@ -13,6 +13,9 @@ module.exports = {
         secundary: "30px",
         tertiary: "25px",
       },
+      fontFamily: {
+        "primary-roboto": "Epilogue",
+      },
       backgroundColor: {
         primary: "#C600E0",
         secundary: "#7FCEFF",

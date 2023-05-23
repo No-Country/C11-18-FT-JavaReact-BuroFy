@@ -9,4 +9,5 @@ export { default as Input } from "./Input";
 export { default as Providers } from "./Providers";
 export { default as Search } from "./Search";
 export { default as Spinner } from "./Spinner";
+export { default as Heroimage } from "./Heroimage";
 export * from "./index";
