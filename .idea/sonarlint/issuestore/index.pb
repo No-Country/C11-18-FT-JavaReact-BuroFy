@@ -36,6 +36,7 @@ Fbackend/src/main/java/com/burofy/appWebBurofy/entity/Professional.java,5\9\59a
 ?
 backend/pom.xml,f\9\f9590cd73598b6f2427c8b1327d922c50d1dc504
 <<<<<<< HEAD
+<<<<<<< HEAD
 y
 Ibackend/src/main/java/com/burofy/appWebBurofy/service/IClientService.java,d\d\ddef34f7849adc03d8413de98cd28642163508a0
 >>>>>>> 5c23832b5bc0c042140b5461a539e11ba38a77bc
@@ -43,3 +44,8 @@ Ibackend/src/main/java/com/burofy/appWebBurofy/service/IClientService.java,d\d\
 q
 Abackend/src/main/java/com/burofy/appWebBurofy/entity/Payment.java,d\3\d3fae3addfb890dd2809fbabc088bdaecda4f043
 >>>>>>> 1da4b33321c6e85867973305c728f25e3f6cf1d2
+=======
+y
+Ibackend/src/main/java/com/burofy/appWebBurofy/service/IClientService.java,d\d\ddef34f7849adc03d8413de98cd28642163508a0
+>>>>>>> 5c23832 (fix: "se corrigen los errores al crear una consulta")
+>>>>>>> 92c1c34992e1e141b7527ef4c9a5dc10fa7a69fc

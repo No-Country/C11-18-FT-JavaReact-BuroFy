@@ -28,6 +28,8 @@ public class Client  {
     private String email;
     private String password;
     private String occupation;
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    private List<Consultation> consultations;
 
 
 }
