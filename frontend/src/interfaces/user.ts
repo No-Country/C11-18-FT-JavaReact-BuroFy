@@ -1,13 +1,14 @@
 import { Address, Phone } from "./serializers/common";
 import { UserClientContent, UserProfessionalContent } from "./serializers/user";
 
-export type Role = "client" | "professional";
+export type Rol = "client" | "professional";
 
 export interface User {
   id: string | number;
   id_token: string;
+  providerId: string | null;
   email: string;
-  rol: string | Role;
+  rol: Rol | string;
   firstName: string | null;
   rolContent?: UserClientContent | UserProfessionalContent | null;
   birthday?: Date | null;

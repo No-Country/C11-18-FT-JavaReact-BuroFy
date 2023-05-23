@@ -26,7 +26,7 @@ const provider = {
   google: google_provider,
   facebook: facebook_provider,
 };
-
+//login with provider of google and facebook
 export const sing_in = async (type_provider: ProviderType) => {
   try {
     const resp = await signInWithPopup(firebase_auth, provider[type_provider]);
@@ -103,26 +103,6 @@ export const set_new_password = async (new_password: string) => {
   } catch (error) {
     return false;
   }
-};
-
-export const on_auth_state_has_changed = (
-  login: (id_token: string, uid: string, providerId: string) => Promise<void>,
-  logout: () => void,
-) => {
-  onAuthStateChanged(
-    firebase_auth,
-    async (user) => {
-      if (!user) return logout();
-
-      const providerId = user.providerData[0].providerId;
-      const id_token = await user.getIdToken();
-
-      login(id_token, user.uid, providerId);
-    },
-    (error) => {
-      logout();
-    },
-  );
 };
 
 export const logout_firebase = async () => await firebase_auth.signOut();

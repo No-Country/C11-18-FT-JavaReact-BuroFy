@@ -4,6 +4,8 @@ import Link from "next/link";
 import { logout_firebase } from "@/lib/firebase_auth";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
+import { useAppDispatch } from "@/hooks";
+import { logoutUser } from "@/redux/features/userSlice";
 
 type PropsType = {
   firstName: string | null;
@@ -12,11 +14,16 @@ type PropsType = {
 const AvatarTitle = ({ firstName }: PropsType) => {
   const { setStatusAuth } = useAuth();
   const router = useRouter();
+  const dispatch = useAppDispatch();
+
   const handleLogout = async () => {
     setStatusAuth("checking");
     try {
-      await logout_firebase();
       router.push("/acceso");
+      //close conection with firebase
+      await logout_firebase();
+      //delete all states of user
+      dispatch(logoutUser());
       setStatusAuth("no-authenticated");
     } catch (error) {
       console.log((error as Error).message);

@@ -44,11 +44,10 @@ const FormLogin = () => {
         className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center order-4 lg:mt-20 lg:mb-0'
         onSubmit={handleSubmit(onSubmit)}
       >
+        <h3 className='text-xl font-black self-center mb-14 md:text-2xl lg:text-4xl'>
+          ¡Bienvenido de nuevo!
+        </h3>
         <div className='flex flex-col justify-center items-center'>
-          <h3 className='text-xl font-black self-start mb-14 md:text-2xl lg:text-4xl'>
-            ¡Bienvenido de nuevo!
-          </h3>
-
           <div className='relative z-0 w-full group mb-14 '>
             <input
               type='email'
@@ -122,7 +121,7 @@ const FormLogin = () => {
               recordarme
             </label>
           </div>
-          <Link href='#' className='text-lg hover:underline hover:scale-105 transition'>
+          <Link href='/acceso' className='text-lg hover:underline hover:scale-105 transition'>
             {" "}
             ¿olvidaste la contraseña?
           </Link>
