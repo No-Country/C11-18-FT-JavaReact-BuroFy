@@ -26,11 +26,14 @@ public class ClientRestController{
         return new  ResponseEntity<>(HttpStatus.CREATED);
     }
 
-   @GetMapping(path = "/getClient/{id}")
-    public ResponseEntity<?> getClient(@PathVariable Long id) {
+    @GetMapping(path = "/getClient/{id}")
+    public ResponseEntity<Client> getClient(@PathVariable Long id) {
         Client client = clientService.getClient(id);
-       System.out.println(client.toString());
-       return ResponseBuilder.responseBuilder(HttpStatus.OK,client);
+        if (client != null) {
+            return ResponseEntity.ok(client);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 
