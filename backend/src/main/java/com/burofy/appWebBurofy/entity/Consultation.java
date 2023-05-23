@@ -22,6 +22,9 @@ public class Consultation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
+
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
@@ -34,5 +37,7 @@ public class Consultation {
     private String type;
     private Date date;
     private String comments;
+
+
 
 }

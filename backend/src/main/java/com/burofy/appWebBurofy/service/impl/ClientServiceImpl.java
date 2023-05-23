@@ -6,6 +6,8 @@ import com.burofy.appWebBurofy.service.IClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class ClientServiceImpl implements IClientService {
@@ -14,5 +16,15 @@ public class ClientServiceImpl implements IClientService {
     @Override
     public Client createClient(Client client) {
         return clientRepository.save(client);
+    }
+
+    @Override
+    public Client getClient(Long id) {
+
+        if (clientRepository.findById(id).isPresent()) {
+            return clientRepository.findById(id).get();
+        }
+       throw new RuntimeException("Could not find client");
+
     }
 }

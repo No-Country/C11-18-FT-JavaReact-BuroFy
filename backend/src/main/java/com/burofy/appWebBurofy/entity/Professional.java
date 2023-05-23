@@ -39,4 +39,24 @@ public class Professional {
     @OneToMany(mappedBy = "professional", fetch = FetchType.EAGER)
     private List<Consultation> consultations;
 
+    @Override
+    public String toString() {
+        return "Professional{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", documentNumber='" + documentNumber + '\'' +
+                ", phone='" + phone + '\'' +
+                ", location='" + location + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", license='" + license + '\'' +
+                ", experience='" + experience + '\'' +
+                ", training='" + training + '\'' +
+                ", diploma='" + diploma + '\'' +
+                ", isRemoteWork=" + isRemoteWork +
+                ", isFaceToFaceWork=" + isFaceToFaceWork +
+                ", consultations=" + consultations +
+                '}';
+    }
 }
