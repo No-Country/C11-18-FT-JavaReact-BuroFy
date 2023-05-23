@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 // import FormSearchBar from "./FormSearchBar";
 import { usePathname } from "next/navigation";
-import { AiOutlineSearch, AiFillHome } from "react-icons/ai";
+import { AiOutlineSearch, AiFillHome, AiOutlineExport } from "react-icons/ai";
 import { HiPencil } from "react-icons/hi";
 import { IoMdHelpCircle } from "react-icons/io";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -13,6 +13,9 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import Avatar from "./Avatar";
 import Spinner from "./Spinner";
 import { useAuth } from "@/contexts/AuthContext";
+import { logout_firebase } from "@/lib/firebase_auth";
+import { logoutUser } from "@/redux/features/userSlice";
+import { useAppDispatch } from "@/hooks";
 
 type PropsType = {
   user: User;
@@ -20,10 +23,23 @@ type PropsType = {
 
 const Header = ({ user }: PropsType) => {
   const pathname = usePathname();
-  const { statusAuth } = useAuth();
+  const { statusAuth, setStatusAuth } = useAuth();
+  const dispatch = useAppDispatch();
   console.log(statusAuth);
   console.log(user);
 
+  const handleLogout = async () => {
+    setStatusAuth("checking");
+    try {
+      //close conection with firebase
+      await logout_firebase();
+      //delete all states of user
+      dispatch(logoutUser());
+      setStatusAuth("no-authenticated");
+    } catch (error) {
+      console.log((error as Error).message);
+    }
+  };
   return (
     <>
       {statusAuth === "checking" && <Spinner />}
@@ -93,27 +109,23 @@ const Header = ({ user }: PropsType) => {
                   </Link>
                 </li>
 
-                {user.rol === "client" && (
-                  <li
-                    className={`hover:bg-primary transition-colors w-full  ${
-                      pathname === "/buscar" && "bg-tertiary"
-                    }`}
+                <li
+                  className={`hover:bg-primary transition-colors w-full  ${
+                    pathname === "/buscar" && "bg-tertiary"
+                  }`}
+                >
+                  <Link
+                    href='/'
+                    className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
                   >
-                    <Link
-                      href='/'
-                      className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
-                    >
-                      <AiOutlineSearch
-                        className={`w-6 h-6 active:text-white ${
-                          pathname === "/buscar" && "text-white"
-                        }`}
-                      />
-                      <span className={`ml-3 ${pathname === "/buscar" && "text-white"}`}>
-                        Buscar
-                      </span>
-                    </Link>
-                  </li>
-                )}
+                    <AiOutlineSearch
+                      className={`w-6 h-6 active:text-white ${
+                        pathname === "/buscar" && "text-white"
+                      }`}
+                    />
+                    <span className={`ml-3 ${pathname === "/buscar" && "text-white"}`}>Buscar</span>
+                  </Link>
+                </li>
 
                 <li
                   className={`hover:bg-primary transition-colors ${
@@ -170,6 +182,17 @@ const Header = ({ user }: PropsType) => {
                       }`}
                     />
                     <span className={`ml-3 ${pathname === "/ayuda" && "text-white"}`}>Ayuda</span>
+                  </Link>
+                </li>
+
+                <li className='hover:bg-primary transition-colors w-full active:bg-tertiary'>
+                  <Link
+                    onClick={handleLogout}
+                    href='/registro'
+                    className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
+                  >
+                    <AiOutlineExport className='w-6 h-6 active:text-white' />
+                    <span className='ml-3 active:text-white'>Salir</span>
                   </Link>
                 </li>
               </ul>

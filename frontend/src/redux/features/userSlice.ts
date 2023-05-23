@@ -34,10 +34,26 @@ const userSlice = createSlice({
       state.id_token = action.payload.id_token;
       state.providerId = action.payload.providerId;
       state.email = action.payload.email;
-      console.log(state);
+    },
+    logoutUser: (state) => {
+      // all states of user 
+      state.id = "";
+      state.id_token = "";
+      state.email = "";
+      state.rol = "";
+      state.firstName = "";
+      state.surName = "";
+      state.rolContent = null;
+      state.providerId = "";
+      state.birthday = null;
+      state.dni = "";
+      state.phone = null;
+      state.address = null;
+      state.avatar = null;
+      state.verified = false;
     },
   },
 });
 
-export const { setRol, setUserInitial } = userSlice.actions;
+export const { setRol, setUserInitial, logoutUser } = userSlice.actions;
 export default userSlice.reducer;

@@ -1,12 +1,25 @@
-"use client"
+"use client";
 import Image from "next/image";
-import React from "react";
 import { BsFillPersonFill } from "react-icons/bs";
 import ButtonAuth from "./Buttons/ButtonAuth";
 import { useRouter } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { setRol } from "@/redux/features/userSlice";
+import { FormEvent } from "react";
 
-export const SelecRol = () => {
+const SelectRol = () => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
+  const rol = useAppSelector((state) => state.user.rol);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // verify of rol (only client for moment!)
+    if (rol) {
+      rol === "client" ? router.push("/registro/cliente") : router.push("/registro");
+    }
+  };
+
   return (
     <article className='flex flex-col order-4 gap-9 w-full h-screen justify-start items-center'>
       <div className='w-[353px] h-[134px] lg:w-[653px] flex flex-col items-center'>
@@ -18,22 +31,33 @@ export const SelecRol = () => {
         </h3>
       </div>
 
-      <article className='flex self-center lg:w-[426px] lg:h-[300px] flex-col items-center gap-16'>
-        <div className='flex flex-col lg:flex-row lg:w-full items-center gap-10'>
+      <form
+        onSubmit={handleSubmit}
+        className='flex self-center lg:w-[426px] lg:h-[300px] flex-col items-center gap-16'
+      >
+        <div className='flex flex-col lg:flex-row lg:w-full items-center lg:gap-16'>
           {/* button of client and profesional */}
-          <button className='w-[312px] h-[100px] border-solid border-2 border-black mt-12 rounded-lg relative cursor-pointer lg:w-[238px] lg:h-[138px] shadow-md focus:bg-sky-blue hover:scale-105 transition active:scale-100'>
-            <BsFillPersonFill className='text-5xl text-gray-800 ml-14 gap-4 lg:text-4xl lg:top-[12%] lg:absolute lg:ml-[5rem] lg:w-18 lg:h-14' />
-            <aside className='fex fex-col absolute top-[28%] ml-[50%] lg:ml-[50%] lg:absolute'>
-              <h2 className='font-bold text-lg lg:absolute lg:top-[1.5rem] lg:ml-[-1.8rem]'>
-                Usuario
-              </h2>
-              <h4 className='font-normal ml-3 text-sm lg:absolute lg:top-[3.5rem] lg:ml-[-1.3rem]'>
+          <button
+            type='button'
+            className='w-[312px] h-[100px] border-solid border-2 border-black mt-12 rounded-lg relative cursor-pointer lg:w-[238px] lg:h-[138px] shadow-md focus:bg-sky-blue hover:scale-105 transition active:scale-100 mb-8 lg:mb-0 lg:flex lg:flex-col lg:self-center lg:items-center'
+            value='client'
+            onClick={() => dispatch(setRol("client"))}
+          >
+            <BsFillPersonFill className='text-5xl text-gray-800 ml-14 lg:text-4xl lg:top-[12%] lg:absolute lg:ml-0 lg:w-18 lg:h-14' />
+            <aside className='flex flex-col absolute top-[28%] ml-[50%] lg:ml-0 lg:absolute justify-center items-center'>
+              <h2 className='font-bold text-lg lg:absolute lg:top-[1.5rem] '>Usuario</h2>
+              <h4 className='font-normal ml-3 text-sm lg:absolute lg:top-[3.5rem] lg:ml-0'>
                 Cliente
               </h4>
             </aside>
           </button>
-
-          <button className='w-[312px] h-[100px] border-solid border-2 border-black mt-2 rounded-lg relative cursor-pointer lg:w-[238px] lg:h-[138px] lg:mt-12 shadow-md focus:bg-sky-blue hover:scale-105 transition active:scale-100'>
+          {/* directly setState in redux of rol, for moment! */}
+          <button
+            type='button'
+            className='w-full h-[100px] border-solid border-2 border-black rounded-lg relative cursor-pointer lg:w-[238px] lg:h-[138px] lg:mt-12 shadow-md focus:bg-sky-blue hover:scale-105 transition active:scale-100 mt-8 lg:mb-0'
+            value='professional'
+            onClick={() => dispatch(setRol("professional"))}
+          >
             <Image
               src='/icon-legal.png'
               alt='logo'
@@ -52,7 +76,7 @@ export const SelecRol = () => {
           </button>
         </div>
         <ButtonAuth>Crear cuenta</ButtonAuth>
-      </article>
+      </form>
 
       <footer className='w-[279px] h-[66px] mt-24 lg:absolute lg:w-[400px] lg:mt-[34rem] flex flex-col items-center'>
         <h4 className='leading-5 text-lg'>¿Ya estas registrado?</h4>
@@ -67,3 +91,4 @@ export const SelecRol = () => {
     </article>
   );
 };
+export default SelectRol;
