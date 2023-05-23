@@ -20,12 +20,12 @@ public class ClientServiceImpl implements IClientService {
 
     @Override
     public Client getClient(Long id) {
-        Optional<Client> client = clientRepository.findById(1L);
+        Optional<Client> client = clientRepository.findById(id);
 
-        if (!clientRepository.findById(id).isPresent()) {
+        if (!client.isPresent()) {
             throw new RuntimeException("Could not find client");
         }
-        return clientRepository.findById(id).get();
-
+        return client.get();
     }
+
 }

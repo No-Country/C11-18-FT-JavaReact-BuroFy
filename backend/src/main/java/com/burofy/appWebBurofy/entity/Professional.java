@@ -36,10 +36,8 @@ public class Professional {
     private Boolean isRemoteWork;
     private Boolean isFaceToFaceWork;
 
-<<<<<<< HEAD
-=======
-    @OneToMany(mappedBy = "professional", fetch = FetchType.EAGER)
-    private List<Consultation> consultations;
 
->>>>>>> 92c1c34992e1e141b7527ef4c9a5dc10fa7a69fc
+
+
+
 }
