@@ -1,6 +1,7 @@
 package com.burofy.appWebBurofy.service.impl;
 
 import com.burofy.appWebBurofy.entity.Consultation;
+import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.repository.IConsultationRepository;
 import com.burofy.appWebBurofy.service.IConsultationService;
 import lombok.RequiredArgsConstructor;
@@ -28,5 +29,24 @@ public class ConsultationServiceImpl implements IConsultationService {
         }
         return consultation.get();
     }
+
+    @Override
+    public Consultation updateConsultation(Long id, Consultation updatedConsultation) {
+        Optional<Consultation> consultationOptional = consultationRepository.findById(id);
+
+        if (!consultationOptional.isPresent()) {
+            throw new RuntimeException("Could not find consultation");
+        }
+        Consultation consultation = consultationOptional.get();
+        consultation.setClient(updatedConsultation.getClient());
+        consultation.setProfessional(updatedConsultation.getProfessional());
+        consultation.setPayment(updatedConsultation.getPayment());
+        consultation.setType(updatedConsultation.getType());
+        consultation.setDate(updatedConsultation.getDate());
+        consultation.setComments(updatedConsultation.getComments());
+
+        return consultationRepository.save(consultation);
+    }
+
 
 }

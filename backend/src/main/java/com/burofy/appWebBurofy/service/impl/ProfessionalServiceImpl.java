@@ -35,7 +35,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
         Optional<Professional> professionalOptional = professionalRepository.findById(id);
 
         if (!professionalOptional.isPresent()) {
-            throw new RuntimeException("Could not find client");
+            throw new RuntimeException("Could not find professional");
         }
         Professional professional = professionalOptional.get();
         professional.setName(updatedProfessional.getName());
