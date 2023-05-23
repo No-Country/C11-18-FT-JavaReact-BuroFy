@@ -22,17 +22,15 @@ public class Consultation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-/*    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "client_id")
-    @JsonBackReference
     private Client client;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "professional_id")
-    @JsonBackReference
-    private Professional professional;*/
- /*   @ManyToOne
-    @JoinColumn(name = "id_payment")
-    private Payment payment;*/
+    private Professional professional;
+    @OneToOne
+    @JoinColumn(name = "payment_id")
+    private Payment payment;
     private String type;
     private Date date;
     private String comments;
