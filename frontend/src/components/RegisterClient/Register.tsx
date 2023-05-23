@@ -39,7 +39,7 @@ export default function Register() {
   };
 
   return (
-    <div className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center order-4 lg:mt-20 lg:mb-0'>
+    <div className='flex flex-col order-4 w-full h-auto mx-auto mb-6 md:items-center lg:mt-20 lg:mb-0'>
       <div className='flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full'>
         <h3 className='m-5 text-xl font-black md:text-2xl lg:text-3xl'>
           Registro de nuevo usuario
@@ -48,7 +48,7 @@ export default function Register() {
           Crea tu usuario y recibí asistencia legal ¡ya!
         </h4>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className='w-full text-left flex flex-col m-auto px-3 space-y-4 gap-10'>
+          <div className='flex flex-col w-full gap-10 px-3 m-auto space-y-4 text-left'>
             <div className='relative z-0 w-full group'>
               <input
                 type='text'
@@ -117,29 +117,13 @@ export default function Register() {
               {errors.password && <ErrorMsg>{errors.password?.message as string}</ErrorMsg>}
               {visible ? (
                 <AiFillEye
-<<<<<<< HEAD
-<<<<<<< HEAD
                   className='absolute right-4 top-[10%] lg:left-[20rem] lg:absolute'
-=======
-                  className='absolute right-4 top-[15%] cursor-pointer'
->>>>>>> f3a29926980685d1bc2a2989df9b8df8d5804a0f
-=======
-                  className='absolute right-4 top-[15%] cursor-pointer'
->>>>>>> 475d7a1b59ec4120ae8384b405b44ada33c3ea12
                   size={25}
                   onClick={() => setVisible(false)}
                 />
               ) : (
                 <AiFillEyeInvisible
-<<<<<<< HEAD
-<<<<<<< HEAD
                   className='absolute right-4 top-[10%] lg:left-[20rem] lg:absolute'
-=======
-                  className='absolute right-4 top-[15%] cursor-pointer'
->>>>>>> f3a29926980685d1bc2a2989df9b8df8d5804a0f
-=======
-                  className='absolute right-4 top-[15%] cursor-pointer'
->>>>>>> 475d7a1b59ec4120ae8384b405b44ada33c3ea12
                   size={25}
                   onClick={() => setVisible(true)}
                 />
@@ -182,11 +166,11 @@ export default function Register() {
         <>
           <span>O continúa con</span>
         </>
-        <div className='flex mt-2 md:mt-14 items-center justify-center flex-col gap-4 md:gap-8 md:flex-row'>
+        <div className='flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 md:gap-8 md:flex-row'>
           <ButtonGoogle />
           <ButtonFacebook />
         </div>
-        <footer className='absolute bottom-4 text-xs mt-4'>Burofy genera conexiones</footer>
+        <footer className='absolute mt-4 text-xs bottom-4'>Burofy genera conexiones</footer>
       </div>
     </div>
   );
