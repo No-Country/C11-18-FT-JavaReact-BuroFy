@@ -7,6 +7,7 @@ export type Role = "client" | "professional";
 export interface User {
   id: string | number;
   id_token: string;
+  providerId: string | null;
   email: string;
   rol: string | Role;
   firstName: string | null;
