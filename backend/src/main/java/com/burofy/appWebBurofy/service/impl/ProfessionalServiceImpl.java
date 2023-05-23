@@ -1,6 +1,5 @@
 package com.burofy.appWebBurofy.service.impl;
 
-import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.repository.IProfessionalRepository;
 import com.burofy.appWebBurofy.service.IProfessionalService;
@@ -11,10 +10,10 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-
 public class ProfessionalServiceImpl implements IProfessionalService {
 
     private final IProfessionalRepository professionalRepository;
+
     @Override
     public Professional createProfessional(Professional professional) {
         return professionalRepository.save(professional);
@@ -24,11 +23,10 @@ public class ProfessionalServiceImpl implements IProfessionalService {
     public Professional getProfessional(Long id) {
         Optional<Professional> professional = professionalRepository.findById(1L);
 
-        if (!professionalRepository.findById(id).isPresent()) {
-            throw new RuntimeException("Could not find client");
+        if (!professional.isPresent()) {
+            throw new RuntimeException("Could not find professional");
         }
-        return professionalRepository.findById(id).get();
-
+        return professional.get();
     }
 
 }
