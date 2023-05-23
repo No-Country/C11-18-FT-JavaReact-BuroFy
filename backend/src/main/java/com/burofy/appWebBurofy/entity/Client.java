@@ -28,22 +28,6 @@ public class Client  {
     private String email;
     private String password;
     private String occupation;
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
-    private List<Consultation> consultations;
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", documentNumber='" + documentNumber + '\'' +
-                ", phone='" + phone + '\'' +
-                ", location='" + location + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", occupation='" + occupation + '\'' +
-                ", consultations=" + consultations +
-                '}';
-    }
+
 }
