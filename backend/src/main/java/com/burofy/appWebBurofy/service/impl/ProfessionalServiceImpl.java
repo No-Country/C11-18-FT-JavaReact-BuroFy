@@ -22,7 +22,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
 
     @Override
     public Professional getProfessional(Long id) {
-        Optional<Professional> professional = professionalRepository.findById(1L);
+        Optional<Professional> professional = professionalRepository.findById(id);
 
         if (!professionalRepository.findById(id).isPresent()) {
             throw new RuntimeException("Could not find client");
