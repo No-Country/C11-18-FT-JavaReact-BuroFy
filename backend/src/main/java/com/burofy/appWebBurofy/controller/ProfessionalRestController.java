@@ -31,4 +31,11 @@ public class ProfessionalRestController  {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PutMapping(path = "/update/professional/{id}")
+    public ResponseEntity<Professional> updateProfessional(@PathVariable Long id, @RequestBody Professional updatedProfessional) {
+        professionalService.updateProfessional(id,updatedProfessional);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

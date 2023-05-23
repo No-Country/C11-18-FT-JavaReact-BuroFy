@@ -32,5 +32,11 @@ public class ClientRestController{
         }
     }
 
+    @PutMapping(path = "/update/client/{id}")
+    public ResponseEntity<Client> updateClient(@PathVariable Long id,@RequestBody Client updatedClient) {
+        clientService.updateClient(id,updatedClient);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 v
 Fbackend/src/main/java/com/burofy/appWebBurofy/exception/Exception.java,d\4\d45cf32b9251b202e4dabbc1692e004bd60f09e6
@@ -49,3 +50,5 @@ y
 Ibackend/src/main/java/com/burofy/appWebBurofy/service/IClientService.java,d\d\ddef34f7849adc03d8413de98cd28642163508a0
 >>>>>>> 5c23832 (fix: "se corrigen los errores al crear una consulta")
 >>>>>>> 92c1c34992e1e141b7527ef4c9a5dc10fa7a69fc
+=======
+>>>>>>> eeec2312c8f9a75abbfb6eadba57e5527203a774
