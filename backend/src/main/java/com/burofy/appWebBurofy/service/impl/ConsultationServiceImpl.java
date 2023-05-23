@@ -21,7 +21,7 @@ public class ConsultationServiceImpl implements IConsultationService {
 
     @Override
     public Consultation getConsultation(Long id) {
-        Optional<Consultation> consultation = consultationRepository.findById(1L);
+        Optional<Consultation> consultation = consultationRepository.findById(id);
 
         if (!consultation.isPresent()) {
             throw new RuntimeException("Could not find consultation");

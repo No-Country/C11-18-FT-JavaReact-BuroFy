@@ -21,7 +21,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
 
     @Override
     public Professional getProfessional(Long id) {
-        Optional<Professional> professional = professionalRepository.findById(1L);
+        Optional<Professional> professional = professionalRepository.findById(id);
 
         if (!professional.isPresent()) {
             throw new RuntimeException("Could not find professional");
