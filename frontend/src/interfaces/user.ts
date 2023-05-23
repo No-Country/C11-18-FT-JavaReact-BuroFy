@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 475d7a1b59ec4120ae8384b405b44ada33c3ea12
 import { Address, Phone } from "./serializers/common";
 import { UserClientContent, UserProfessionalContent } from "./serializers/user";
 
