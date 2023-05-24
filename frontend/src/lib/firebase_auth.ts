@@ -2,8 +2,8 @@ import {
   createUserWithEmailAndPassword,
   FacebookAuthProvider,
   GoogleAuthProvider,
-  OAuthProvider,
-  onAuthStateChanged,
+  // OAuthProvider,
+  // onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
   updatePassword,
@@ -26,7 +26,7 @@ const provider = {
   google: google_provider,
   facebook: facebook_provider,
 };
-
+//login with provider of google and facebook
 export const sing_in = async (type_provider: ProviderType) => {
   try {
     const resp = await signInWithPopup(firebase_auth, provider[type_provider]);
@@ -36,7 +36,7 @@ export const sing_in = async (type_provider: ProviderType) => {
     const providerId = resp.user.providerData[0].providerId as any;
 
     const user = {
-      uid,
+      id: uid,
       id_token,
       providerId,
       firstname: displayName,
@@ -80,8 +80,8 @@ export const sign_up_with_credentials = async ({ email, password, displayName }:
     ]);
 
     const user = {
-      uid: resp.user.uid,
-      displayName,
+      id: resp.user.uid,
+      firstName: displayName,
       email,
       providerId: resp.user.providerData[0].providerId,
       id_token,
@@ -103,26 +103,6 @@ export const set_new_password = async (new_password: string) => {
   } catch (error) {
     return false;
   }
-};
-
-export const on_auth_state_has_changed = (
-  login: (id_token: string, uid: string, providerId: string) => Promise<void>,
-  logout: () => void,
-) => {
-  onAuthStateChanged(
-    firebase_auth,
-    async (user) => {
-      if (!user) return logout();
-
-      const providerId = user.providerData[0].providerId;
-      const id_token = await user.getIdToken();
-
-      login(id_token, user.uid, providerId);
-    },
-    (error) => {
-      logout();
-    },
-  );
 };
 
 export const logout_firebase = async () => await firebase_auth.signOut();
