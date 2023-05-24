@@ -1,0 +1,12 @@
+export { default as AvatarTitle } from "./AvatarTitle";
+export { default as Avatar } from "./Avatar";
+export { default as ButtonFacebook } from "./Buttons/ButtonFacebook";
+export { default as ButtonGoogle } from "./Buttons/ButtonGoogle";
+export { default as ButtonAuth } from "./Buttons/ButtonAuth";
+export { default as FormLogin } from "./FormLogin";
+export { default as Header } from "./Header";
+export { default as Input } from "./Input";
+export { default as Providers } from "./Providers";
+export { default as Search } from "./Search";
+export { default as Spinner } from "./Spinner";
+export * from "./index";
