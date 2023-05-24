@@ -11,10 +11,13 @@ import { SignUp } from "@/interfaces/auth";
 import { useRouter } from "next/navigation";
 import { sign_up_with_credentials } from "@/lib/firebase_auth";
 import { useAuth } from "@/contexts/AuthContext";
+import { useAppDispatch } from "@/hooks";
+import { setUserInitial } from "@/redux/features/userSlice";
 
 export default function Register() {
   const { setStatusAuth } = useAuth();
   const [visible, setVisible] = useState(false);
+  const dispatch = useAppDispatch();
   const router = useRouter();
   const {
     register,
@@ -28,8 +31,9 @@ export default function Register() {
     setStatusAuth("checking");
     try {
       if (data) {
-        await sign_up_with_credentials({ email, password, displayName });
-        console.log("Yes sir");
+        const { user } = await sign_up_with_credentials({ email, password, displayName });
+        console.log(user);
+        dispatch(setUserInitial(user));
         setStatusAuth("authenticated");
         router.push("/");
       }

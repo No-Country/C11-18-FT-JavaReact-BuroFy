@@ -10,7 +10,7 @@ import { FormEvent } from "react";
 const SelectRol = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const rol = useAppSelector((state) => state.user.rol);
+  const {rol} = useAppSelector((state) => state.user);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
