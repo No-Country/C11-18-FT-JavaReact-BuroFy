@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
@@ -28,8 +27,7 @@ public class Client  {
     private String email;
     private String password;
     private String occupation;
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
-    private List<Consultation> consultations;
+    private Boolean state;
 
 
 }

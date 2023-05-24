@@ -13,8 +13,11 @@ import java.util.Optional;
 public class ClientServiceImpl implements IClientService {
 
     private final IClientRepository clientRepository;
+    private static final String NOTFOUND = "Could not find client";
     @Override
     public Client createClient(Client client) {
+
+        client.setState(true);
         return clientRepository.save(client);
     }
 
@@ -23,7 +26,7 @@ public class ClientServiceImpl implements IClientService {
         Optional<Client> client = clientRepository.findById(id);
 
         if (!client.isPresent()) {
-            throw new RuntimeException("Could not find client");
+            throw new RuntimeException(NOTFOUND);
         }
         return client.get();
     }
@@ -33,7 +36,7 @@ public class ClientServiceImpl implements IClientService {
         Optional<Client> clientOptional = clientRepository.findById(id);
 
         if (!clientOptional.isPresent()) {
-            throw new RuntimeException("Could not find client");
+            throw new RuntimeException(NOTFOUND);
         }
         Client client = clientOptional.get();
         client.setName(updatedClient.getName());
@@ -44,7 +47,20 @@ public class ClientServiceImpl implements IClientService {
         client.setEmail(updatedClient.getEmail());
         client.setPassword(updatedClient.getPassword());
         client.setOccupation(updatedClient.getOccupation());
+        client.setState(updatedClient.getState());
 
+        return clientRepository.save(client);
+    }
+
+    @Override
+    public Client deleteClient(Long id) {
+        Optional<Client> clientOptional = clientRepository.findById(id);
+
+        if (!clientOptional.isPresent()) {
+            throw new RuntimeException(NOTFOUND);
+        }
+        Client client = clientOptional.get();
+        client.setState(false);
         return clientRepository.save(client);
     }
 

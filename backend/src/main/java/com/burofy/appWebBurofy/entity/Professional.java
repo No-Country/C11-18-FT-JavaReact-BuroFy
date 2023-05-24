@@ -7,8 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -28,13 +26,13 @@ public class Professional {
     private String location;
     private String email;
     private String password;
-
     private String license;
     private String experience;
     private String training;
     private String diploma;
     private Boolean isRemoteWork;
     private Boolean isFaceToFaceWork;
+    private Boolean state;
 
 
 

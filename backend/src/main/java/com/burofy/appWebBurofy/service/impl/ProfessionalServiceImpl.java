@@ -1,6 +1,5 @@
 package com.burofy.appWebBurofy.service.impl;
 
-import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.repository.IProfessionalRepository;
 import com.burofy.appWebBurofy.service.IProfessionalService;
@@ -51,6 +50,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
         professional.setDiploma(updatedProfessional.getDiploma());
         professional.setIsRemoteWork(updatedProfessional.getIsRemoteWork());
         professional.setIsFaceToFaceWork(updatedProfessional.getIsFaceToFaceWork());
+        professional.setState(updatedProfessional.getState());
 
         return professionalRepository.save(professional);
     }

@@ -38,5 +38,11 @@ public class ClientRestController{
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PatchMapping(path = "/delete/client/{id}")
+    public ResponseEntity<Client> deleteClient(@PathVariable Long id) {
+        clientService.deleteClient(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
 }

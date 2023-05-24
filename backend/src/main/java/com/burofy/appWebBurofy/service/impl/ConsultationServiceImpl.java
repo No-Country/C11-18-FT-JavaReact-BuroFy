@@ -1,7 +1,6 @@
 package com.burofy.appWebBurofy.service.impl;
 
 import com.burofy.appWebBurofy.entity.Consultation;
-import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.repository.IConsultationRepository;
 import com.burofy.appWebBurofy.service.IConsultationService;
 import lombok.RequiredArgsConstructor;
@@ -44,6 +43,7 @@ public class ConsultationServiceImpl implements IConsultationService {
         consultation.setType(updatedConsultation.getType());
         consultation.setDate(updatedConsultation.getDate());
         consultation.setComments(updatedConsultation.getComments());
+        consultation.setState(updatedConsultation.getState());
 
         return consultationRepository.save(consultation);
     }
