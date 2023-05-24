@@ -1,6 +1,5 @@
 package com.burofy.appWebBurofy.controller;
 
-import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.entity.Consultation;
 import com.burofy.appWebBurofy.service.IConsultationService;
 import com.burofy.appWebBurofy.utility.Response;
@@ -36,6 +35,12 @@ public class ConsultationRestController {
     @PutMapping(path = "/update/consultation/{id}")
     public ResponseEntity<Consultation> updateConsultation(@PathVariable Long id, @RequestBody Consultation updatedConsultation) {
         consultationService.updateConsultation(id,updatedConsultation);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PatchMapping(path = "/delete/consultation/{id}")
+    public ResponseEntity<Consultation> deleteConsultation(@PathVariable Long id) {
+        consultationService.deleteConsultation(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

@@ -16,6 +16,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
 
     @Override
     public Professional createProfessional(Professional professional) {
+        professional.setState(true);
         return professionalRepository.save(professional);
     }
 

@@ -1,7 +1,6 @@
 package com.burofy.appWebBurofy.service;
 
 import com.burofy.appWebBurofy.entity.Consultation;
-import com.burofy.appWebBurofy.entity.Professional;
 
 public interface IConsultationService {
 
@@ -11,4 +10,5 @@ public interface IConsultationService {
 
     Consultation updateConsultation(Long id, Consultation updatedConsultation);
 
+    Consultation deleteConsultation(Long id);
 }
