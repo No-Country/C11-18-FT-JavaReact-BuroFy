@@ -16,7 +16,6 @@ import { logout_firebase } from "@/lib/firebase_auth";
 import { logoutUser } from "@/redux/features/userSlice";
 import { useAppDispatch } from "@/hooks";
 
-
 const Header = () => {
   const pathname = usePathname();
   const { statusAuth, setStatusAuth } = useAuth();
@@ -38,7 +37,7 @@ const Header = () => {
   return (
     <>
       {statusAuth === "checking" && <Spinner />}
-      {statusAuth !== "no-authenticated" && (
+      {statusAuth === "authenticated" ? (
         <>
           <header className='w-full h-[100px] flex p-6 justify-between items-center bg-header-img object-cover object-center md:h-[300px] md:py-8 md:px-20  gap-4 bg-no-repeat bg-cover '>
             <button
@@ -56,11 +55,11 @@ const Header = () => {
               height={52}
               className='md:hidden bg-no-repeat'
             />
-            <div className='hidden md:flex md:flex-col md:grow-1 md:shrink-1 md:ml-[180px] lg:ml-[150px]'>
-              <h5 className='mb-3 font-bold text-secundary text-white leading-[39.06px] '>
+            <div className='hidden md:flex md:flex-col md:grow-1 md:shrink-1 md:ml-[180px] '>
+              <h5 className='mb-3 font-bold text-secundary text-white leading-[39.06px] lg:ml-[-600px] '>
                 Encuentra a tu especialista
               </h5>
-              <h6 className='text-lg font-normal text-white leading-[26.04px]'>
+              <h6 className='text-lg font-normal text-white leading-[26.04px] lg:ml-[-600px]'>
                 Haz “match” con un profesional y agenda una consulta
               </h6>
             </div>
@@ -200,6 +199,12 @@ const Header = () => {
               </footer>
             </div>
           </aside>
+        </>
+      ) : (
+        <>
+          <div className='md:hidden absolute top-10 left-[50%] translate-x-[-50%]'>
+            <Image src='/title-burofy.svg' width={200} height={100} alt='title burofy white' />
+          </div>
         </>
       )}
     </>

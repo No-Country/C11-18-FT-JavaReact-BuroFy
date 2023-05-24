@@ -10,7 +10,7 @@ import { FormEvent } from "react";
 const SelectRol = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const {rol} = useAppSelector((state) => state.user);
+  const { rol } = useAppSelector((state) => state.user);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,7 +35,7 @@ const SelectRol = () => {
         onSubmit={handleSubmit}
         className='flex self-center lg:w-[426px] lg:h-[300px] flex-col items-center gap-16'
       >
-        <div className='flex flex-col lg:flex-row lg:w-full items-center lg:gap-16'>
+        <div className='flex flex-col lg:flex-row lg:w-full items-center lg:gap-20'>
           {/* button of client and profesional */}
           <button
             type='button'
@@ -78,11 +78,11 @@ const SelectRol = () => {
         <ButtonAuth>Crear cuenta</ButtonAuth>
       </form>
 
-      <footer className='w-[279px] h-[66px] mt-24 lg:absolute lg:w-[400px] lg:mt-[34rem] lg:flex lg:justify-center'>
-        <h4 className='leading-5 text-lg'>¿Ya estas registrado?</h4>
+      <footer className='w-[279px] h-[66px] mt-24 lg:absolute lg:w-[400px] lg:mt-[34rem] lg:flex lg:justify-center lg:gap-2'>
+        <h4 className='leading-5 text-lg lg:self-baseline'>¿Ya estas registrado?</h4>
 
         <button
-          className='text-lilac font-bold leading-5 underline hover:scale-110 transition active:scale-90 mt-8 cursor-pointer lg:cursor-pointer lg:mt-[-2.5rem]'
+          className='text-lilac font-bold leading-5 underline hover:scale-110 transition active:scale-90 mt-8 cursor-pointer lg:cursor-pointer lg:mt-[-2.5rem] lg:self-baseline'
           onClick={() => router.push("/acceso")}
         >
           Inicia sesión

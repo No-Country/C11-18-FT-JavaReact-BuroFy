@@ -8,7 +8,7 @@ const WelcomeApp = () => {
       <h2 className='items-end ml-[6rem] mt-10 font-bold text-lg lg:text-3xl'>
         ¡Bienvenida Andrea!
       </h2>
-      <div className="ml-[8.5rem] mt-20  lg:mr-[15rem]">
+      <div className='ml-[8.5rem] mt-20  lg:mr-[15rem]'>
         <BsCheckCircleFill className=' text-[6.5rem] text-[#C600E0]' />
       </div>
       <div className='w-[303px] h-[74px] ml-8 text-sm font-medium mt-20 lg:ml-24 lg:text-sm'>

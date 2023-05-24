@@ -19,7 +19,7 @@ const Heroimage = () => {
       <h2 className='absolute bottom-48 left-[50%] translate-x-[-50%] font-bold text-5xl text-white leading-12 text-center w-[521px]'>
         Burofy genera conexiones.
       </h2>
-      <p className='absolute bottom-5 text-center w-[572px] left-[50%] translate-x-[-50%] text-white text-2xl font-bold leading-9'>
+      <p className='absolute bottom-5 text-center w-[572px] left-[50%] translate-x-[-50%] text-white text-2xl font-semibold leading-9'>
         Tu aliado legal digital para resolver tus consultas y recibir asesoramiento experto de
         manera rápida y confiable.
       </p>

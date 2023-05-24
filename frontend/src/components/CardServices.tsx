@@ -82,19 +82,17 @@ export default function CardServices() {
             </div>
 
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
-              <div className='flex gap-2'>
-                <Image src={image} width={50} height={50} alt='profile' />
-                <div className='flex lg:flex-col '>
-                  <p className='px-3 lg:px-0 lg:font-bold lg:text-sm'>Carlos Fernandez</p>
-                  <span className='hidden lg:flex bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mr-2 px-2.5 py-0.5 rounded-full'>
-                    Abogado Migratorío
-                  </span>
-                </div>
-                <div className='flex'>
-                  <span className='bg-[#D8D8FE] text-[#3C3CA7] lg:h-[29px] ms-4 text-xs font-normal px-4 py-1.5 rounded-full self-center'>
-                    En progreso
-                  </span>
-                </div>
+              <Image src={image} width={50} height={50} alt='profile' />
+              <div className='flex lg:flex-col '>
+                <p className='px-3 lg:px-0 lg:font-bold lg:text-sm'>Carlos Fernandez</p>
+                <span className='hidden lg:flex bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mr-2 px-2.5 py-0.5 rounded-full'>
+                  Abogado Migratorío
+                </span>
+              </div>
+              <div className='flex'>
+                <span className='bg-[#D8D8FE] text-[#3C3CA7] lg:h-[29px] ms-4 text-xs font-normal px-4 py-1.5 rounded-full self-center lg:ml-20'>
+                  En progreso
+                </span>
               </div>
             </div>
           </div>
