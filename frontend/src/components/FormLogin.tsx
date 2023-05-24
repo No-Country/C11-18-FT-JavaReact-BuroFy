@@ -30,7 +30,6 @@ const FormLogin = () => {
       if (data) {
         await sign_in_with_credentials(data);
         setStatusAuth("authenticated");
-        console.log("Yes sir");
         router.push("/");
       }
     } catch (error) {
