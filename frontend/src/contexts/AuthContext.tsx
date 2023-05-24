@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 import { ContextAuth, Status } from "@/interfaces/auth";
 import { firebase_auth } from "@/lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import { setUserInitial } from "@/redux/features/userSlice";
+import { setUserInitial, setUserInitialWithProvider } from "@/redux/features/userSlice";
 // import { logout_firebase } from "@/lib/firebase_auth";
 import { useAppDispatch } from "@/hooks";
 
@@ -31,11 +31,14 @@ export const AuthProvider = ({ children }: PropsType) => {
         const firstName = user.providerData[0].displayName;
         const id = user.uid;
         const id_token = await user.getIdToken();
-
-        console.log(user);
-        console.log(user.providerData[0].displayName);
-        dispatch(setUserInitial({ providerId, email, firstName, id, id_token }));
+        const avatar = user.photoURL;
         setStatusAuth("authenticated");
+
+        user.providerData[0].providerId === "password"
+          ? dispatch(setUserInitial({ providerId, email, firstName, id, id_token }))
+          : dispatch(
+            setUserInitialWithProvider({ providerId, email, firstName, id, id_token, avatar }),
+          );
       } else {
         setStatusAuth("no-authenticated");
       }

@@ -4,22 +4,19 @@ import Link from "next/link";
 import { logout_firebase } from "@/lib/firebase_auth";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
-import { useAppDispatch } from "@/hooks";
+import { useAppDispatch, useAppSelector } from "@/hooks";
 import { logoutUser } from "@/redux/features/userSlice";
 
-type PropsType = {
-  firstName: string | null;
-};
-
-const AvatarTitle = ({ firstName }: PropsType) => {
+const AvatarTitle = () => {
   const { setStatusAuth } = useAuth();
   const router = useRouter();
   const dispatch = useAppDispatch();
+  const { firstName } = useAppSelector((state) => state.user);
 
   const handleLogout = async () => {
     setStatusAuth("checking");
     try {
-      router.push("/acceso");
+      router.push("/registro");
       //close conection with firebase
       await logout_firebase();
       //delete all states of user
@@ -32,7 +29,7 @@ const AvatarTitle = ({ firstName }: PropsType) => {
 
   return (
     <div className='hidden md:flex md:flex-col'>
-      <span className='text-white font-medium'>Hola, {firstName as string}</span>
+      <span className='text-white font-medium'>Hola, {(firstName as string) || ""}</span>
       <div className='flex gap-2'>
         <Link
           href='/perfil'

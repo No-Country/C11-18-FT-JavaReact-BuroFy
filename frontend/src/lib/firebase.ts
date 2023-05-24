@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { FirebaseOptions, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics } from "firebase/analytics";
 
 const firebase_configuration: FirebaseOptions = {
   apiKey: process.env.NEXT_PUBLIC_APIKEY,

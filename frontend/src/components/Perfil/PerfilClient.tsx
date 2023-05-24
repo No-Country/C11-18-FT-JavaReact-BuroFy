@@ -1,15 +1,16 @@
 import Image from "next/image";
-import React from "react";
-import { Accordion } from "flowbite-react";
-import { AiFillStar, AiOutlineEdit, AiOutlineMail, AiOutlineStar } from "react-icons/ai";
-import { FaCcMastercard } from "react-icons/fa";
+// import React from "react";
+// import { Accordion } from "flowbite-react";
+// import { AiFillStar, AiOutlineEdit, AiOutlineMail, AiOutlineStar } from "react-icons/ai";
+// import { FaCcMastercard } from "react-icons/fa";
 import {
-  MdOutlineAddCard,
+  // MdOutlineAddCard,
   MdOutlineLocalPhone,
   MdOutlineLocationOn,
   MdOutlineWorkOutline,
 } from "react-icons/md";
 import { BsFillPersonFill } from "react-icons/bs";
+import { AiOutlineEdit, AiOutlineMail } from "react-icons/ai";
 
 export default function PerfilCliente() {
   return (

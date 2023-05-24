@@ -8,7 +8,6 @@ import { AiOutlineSearch, AiFillHome, AiOutlineExport } from "react-icons/ai";
 import { HiPencil } from "react-icons/hi";
 import { IoMdHelpCircle } from "react-icons/io";
 import { BsFillPersonFill } from "react-icons/bs";
-import { User } from "@/interfaces/user";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Avatar from "./Avatar";
 import Spinner from "./Spinner";
@@ -17,16 +16,11 @@ import { logout_firebase } from "@/lib/firebase_auth";
 import { logoutUser } from "@/redux/features/userSlice";
 import { useAppDispatch } from "@/hooks";
 
-type PropsType = {
-  user: User;
-};
-
-const Header = ({ user }: PropsType) => {
+const Header = () => {
   const pathname = usePathname();
   const { statusAuth, setStatusAuth } = useAuth();
   const dispatch = useAppDispatch();
   console.log(statusAuth);
-  console.log(user);
 
   const handleLogout = async () => {
     setStatusAuth("checking");
@@ -69,7 +63,7 @@ const Header = ({ user }: PropsType) => {
                 Haz “match” con un profesional y agenda una consulta
               </h6>
             </div>
-            <Avatar user={user} />
+            <Avatar />
           </header>
 
           {/* drawer */}

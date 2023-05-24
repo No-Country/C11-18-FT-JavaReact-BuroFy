@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Header, Providers } from "@/components";
-import { User } from "@/interfaces/user";
 import { Roboto } from "next/font/google";
+import { ReactNode } from "react";
 const roboto = Roboto({ weight: ["400", "500", "700"], subsets: ["latin"], style: "normal" });
 
 export const metadata = {
@@ -26,21 +26,12 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const stubUser: User = {
-    id: "kakakakaka2323",
-    id_token: "tokenid23232",
-    email: "jesus_12423@gmail.com",
-    rol: "client",
-    firstName: "Jesús",
-    avatar: "/jesus.jpeg",
-  };
-
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body className={roboto.className}>
         <Providers>
-          <Header user={stubUser} />
+          <Header />
           {children}
         </Providers>
       </body>

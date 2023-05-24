@@ -2,6 +2,10 @@ import { User } from "@/interfaces/user";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type initialUser = Pick<User, "id" | "id_token" | "providerId" | "firstName" | "email">;
+type initialUserWithProvider = Pick<
+  User,
+  "id" | "id_token" | "providerId" | "avatar" | "firstName" | "email"
+>;
 
 const initialState: User = {
   id: "",
@@ -35,8 +39,16 @@ const userSlice = createSlice({
       state.providerId = action.payload.providerId;
       state.email = action.payload.email;
     },
+    setUserInitialWithProvider: (state, action: PayloadAction<initialUserWithProvider>) => {
+      state.firstName = action.payload.firstName;
+      state.id = action.payload.id;
+      state.id_token = action.payload.id_token;
+      state.providerId = action.payload.providerId;
+      state.email = action.payload.email;
+      state.avatar = action.payload.avatar;
+    },
     logoutUser: (state) => {
-      // all states of user 
+      // all states of user
       state.id = "";
       state.id_token = "";
       state.email = "";
@@ -55,5 +67,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setRol, setUserInitial, logoutUser } = userSlice.actions;
+export const { setRol, setUserInitial, logoutUser, setUserInitialWithProvider } = userSlice.actions;
 export default userSlice.reducer;

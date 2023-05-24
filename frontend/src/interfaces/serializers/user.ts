@@ -2,7 +2,7 @@ export type Interview = "remote" | "onSite";
 
 export interface UserClientContent {
   occupation?: string | null;
-  payment?: UserPayment
+  payment?: UserPayment;
 }
 
 export interface UserProfessionalContent {
@@ -10,9 +10,9 @@ export interface UserProfessionalContent {
   experience?: string | null;
   training?: string | null;
   diploma?: string | null;
-  typeJob?: string[] | Interview[]
+  typeJob?: string[] | Interview[];
 }
 
 export interface UserPayment {
-    stripe?: string | null
+  stripe?: string | null;
 }

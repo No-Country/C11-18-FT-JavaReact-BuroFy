@@ -1,6 +1,6 @@
-import React from "react";
-import CardApplicationEmpty from "@/components/CardApplicationEmpty";
-import CardReviewEmpty from "@/components/CardReviewEmpty";
+// import React from "react";
+// import CardApplicationEmpty from "@/components/CardApplicationEmpty";
+// import CardReviewEmpty from "@/components/CardReviewEmpty";
 import CardServices from "@/components/CardServices";
 import CardReview from "@/components/CardReview";
 

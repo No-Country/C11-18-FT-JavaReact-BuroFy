@@ -1,11 +1,10 @@
 import PerfilClient from "@/components/Perfil/PerfilClient";
 import React from "react";
 
-
 const ProfilePage = () => {
   return (
     <main>
-      <PerfilClient/>
+      <PerfilClient />
     </main>
   );
 };

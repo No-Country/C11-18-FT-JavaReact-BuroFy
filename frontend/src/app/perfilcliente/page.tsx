@@ -1,11 +1,10 @@
 import PerfilTwo from "@/components/Perfil/PerfilClient";
 import React from "react";
 
-
 const ProfilePageTwo = () => {
   return (
     <main>
-      <PerfilTwo/>
+      <PerfilTwo />
     </main>
   );
 };

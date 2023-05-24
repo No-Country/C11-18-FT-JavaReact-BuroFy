@@ -2,8 +2,8 @@ import {
   createUserWithEmailAndPassword,
   FacebookAuthProvider,
   GoogleAuthProvider,
-  OAuthProvider,
-  onAuthStateChanged,
+  // OAuthProvider,
+  // onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
   updatePassword,
@@ -36,7 +36,7 @@ export const sing_in = async (type_provider: ProviderType) => {
     const providerId = resp.user.providerData[0].providerId as any;
 
     const user = {
-      uid,
+      id: uid,
       id_token,
       providerId,
       firstname: displayName,
@@ -80,8 +80,8 @@ export const sign_up_with_credentials = async ({ email, password, displayName }:
     ]);
 
     const user = {
-      uid: resp.user.uid,
-      displayName,
+      id: resp.user.uid,
+      firstName: displayName,
       email,
       providerId: resp.user.providerData[0].providerId,
       id_token,
