@@ -13,4 +13,6 @@ public interface IProfessionalService {
 
     Professional updateProfessional(Long id, Professional updatedProfessional);
 
+    Professional deleteProfessional(Long id);
+
 }

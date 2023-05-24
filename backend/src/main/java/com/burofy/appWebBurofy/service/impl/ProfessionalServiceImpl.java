@@ -13,7 +13,7 @@ import java.util.Optional;
 public class ProfessionalServiceImpl implements IProfessionalService {
 
     private final IProfessionalRepository professionalRepository;
-
+    private static final String NOTFOUND = "Could not find professional";
     @Override
     public Professional createProfessional(Professional professional) {
         professional.setState(true);
@@ -25,7 +25,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
         Optional<Professional> professional = professionalRepository.findById(id);
 
         if (!professional.isPresent()) {
-            throw new RuntimeException("Could not find professional");
+            throw new RuntimeException(NOTFOUND);
         }
         return professional.get();
     }
@@ -35,7 +35,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
         Optional<Professional> professionalOptional = professionalRepository.findById(id);
 
         if (!professionalOptional.isPresent()) {
-            throw new RuntimeException("Could not find professional");
+            throw new RuntimeException(NOTFOUND);
         }
         Professional professional = professionalOptional.get();
         professional.setName(updatedProfessional.getName());
@@ -55,6 +55,16 @@ public class ProfessionalServiceImpl implements IProfessionalService {
 
         return professionalRepository.save(professional);
     }
+    @Override
+    public Professional deleteProfessional(Long id) {
+        Optional<Professional> professionalOptional = professionalRepository.findById(id);
 
+        if (!professionalOptional.isPresent()) {
+            throw new RuntimeException(NOTFOUND);
+        }
+        Professional professional = professionalOptional.get();
+        professional.setState(false);
+        return professionalRepository.save(professional);
+    }
 
 }

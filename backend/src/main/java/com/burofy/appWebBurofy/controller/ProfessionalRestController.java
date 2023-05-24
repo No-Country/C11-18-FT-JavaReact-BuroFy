@@ -1,5 +1,6 @@
 package com.burofy.appWebBurofy.controller;
 
+import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.service.IProfessionalService;
 import com.burofy.appWebBurofy.utility.Response;
@@ -35,6 +36,12 @@ public class ProfessionalRestController  {
     @PutMapping(path = "/update/professional/{id}")
     public ResponseEntity<Professional> updateProfessional(@PathVariable Long id, @RequestBody Professional updatedProfessional) {
         professionalService.updateProfessional(id,updatedProfessional);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PatchMapping(path = "/delete/professional/{id}")
+    public ResponseEntity<Professional> deleteProfessional(@PathVariable Long id) {
+        professionalService.deleteProfessional(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
