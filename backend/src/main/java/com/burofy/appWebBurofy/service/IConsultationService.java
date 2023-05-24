@@ -8,4 +8,7 @@ public interface IConsultationService {
 
     Consultation getConsultation(Long id);
 
+    Consultation updateConsultation(Long id, Consultation updatedConsultation);
+
+    Consultation deleteConsultation(Long id);
 }

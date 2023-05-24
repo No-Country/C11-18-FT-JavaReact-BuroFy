@@ -13,9 +13,11 @@ import java.util.Optional;
 public class ConsultationServiceImpl implements IConsultationService {
 
     private final IConsultationRepository consultationRepository;
+    private static final String NOTFOUND = "Could not find consultation";
 
     @Override
     public Consultation createConsultation(Consultation consultation) {
+        consultation.setState(true);
         return consultationRepository.save(consultation);
     }
 
@@ -24,9 +26,40 @@ public class ConsultationServiceImpl implements IConsultationService {
         Optional<Consultation> consultation = consultationRepository.findById(id);
 
         if (!consultation.isPresent()) {
-            throw new RuntimeException("Could not find consultation");
+            throw new RuntimeException(NOTFOUND);
         }
         return consultation.get();
+    }
+
+    @Override
+    public Consultation updateConsultation(Long id, Consultation updatedConsultation) {
+        Optional<Consultation> consultationOptional = consultationRepository.findById(id);
+
+        if (!consultationOptional.isPresent()) {
+            throw new RuntimeException(NOTFOUND);
+        }
+        Consultation consultation = consultationOptional.get();
+        consultation.setClient(updatedConsultation.getClient());
+        consultation.setProfessional(updatedConsultation.getProfessional());
+        consultation.setPayment(updatedConsultation.getPayment());
+        consultation.setType(updatedConsultation.getType());
+        consultation.setDate(updatedConsultation.getDate());
+        consultation.setComments(updatedConsultation.getComments());
+        consultation.setState(updatedConsultation.getState());
+
+        return consultationRepository.save(consultation);
+    }
+
+    @Override
+    public Consultation deleteConsultation(Long id) {
+        Optional<Consultation> consultationOptional = consultationRepository.findById(id);
+
+        if (!consultationOptional.isPresent()) {
+            throw new RuntimeException(NOTFOUND);
+        }
+        Consultation consultation = consultationOptional.get();
+        consultation.setState(false);
+        return consultationRepository.save(consultation);
     }
 
 }

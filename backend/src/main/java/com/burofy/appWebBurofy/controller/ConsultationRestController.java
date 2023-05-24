@@ -31,4 +31,17 @@ public class ConsultationRestController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PutMapping(path = "/update/consultation/{id}")
+    public ResponseEntity<Consultation> updateConsultation(@PathVariable Long id, @RequestBody Consultation updatedConsultation) {
+        consultationService.updateConsultation(id,updatedConsultation);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PatchMapping(path = "/delete/consultation/{id}")
+    public ResponseEntity<Consultation> deleteConsultation(@PathVariable Long id) {
+        consultationService.deleteConsultation(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }
