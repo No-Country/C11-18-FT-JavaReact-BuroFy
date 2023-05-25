@@ -34,7 +34,7 @@ export default function Register() {
       if (data) {
         const { user } = await sign_up_with_credentials({ email, password, displayName });
         console.log(user);
-        dispatch(setUserInitial(user));
+        dispatch(setUserInitial(user as any));
         setStatusAuth("authenticated");
         router.push("/");
       }
