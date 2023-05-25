@@ -186,12 +186,7 @@ export default function Register() {
         <>
           <span>O continúa con</span>
         </>
-<<<<<<< HEAD
-        <div className='flex mt-2 md:mt-10 items-center justify-center flex-col gap-4 md:gap-8 md:flex-row'>
-          <ButtonGoogle />
-          <ButtonFacebook />
-        </div>
-=======
+<<<<<<<<< Temporary merge branch 1
         <div className='flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 md:gap-8 md:flex-row'>
           <ButtonGoogle />
           <ButtonFacebook />
