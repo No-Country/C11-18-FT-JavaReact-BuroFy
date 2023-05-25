@@ -34,7 +34,7 @@ export default function Register() {
       if (data) {
         const { user } = await sign_up_with_credentials({ email, password, displayName });
         console.log(user);
-        dispatch(setUserInitial(user));
+        dispatch(setUserInitial(user as any));
         setStatusAuth("authenticated");
         router.push("/");
       }
@@ -186,13 +186,10 @@ export default function Register() {
         <>
           <span>O continúa con</span>
         </>
-<<<<<<<<< Temporary merge branch 1
-        <div className='flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 md:gap-8 md:flex-row'>
+        <div className='flex mt-2 md:mt-10 items-center justify-center flex-col gap-4 md:gap-8 md:flex-row'>
           <ButtonGoogle />
           <ButtonFacebook />
         </div>
-        <footer className='absolute mt-4 text-xs bottom-4'>Burofy genera conexiones</footer>
->>>>>>> cd1c30c5a3e40dad83cc3e16a3eea0a500525aa4
       </div>
     </div>
   );
