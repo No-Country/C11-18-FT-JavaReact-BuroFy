@@ -186,13 +186,11 @@ export default function Register() {
         <>
           <span>O continúa con</span>
         </>
-<<<<<<<<< Temporary merge branch 1
         <div className='flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 md:gap-8 md:flex-row'>
           <ButtonGoogle />
           <ButtonFacebook />
         </div>
         <footer className='absolute mt-4 text-xs bottom-4'>Burofy genera conexiones</footer>
->>>>>>> cd1c30c5a3e40dad83cc3e16a3eea0a500525aa4
       </div>
     </div>
   );
