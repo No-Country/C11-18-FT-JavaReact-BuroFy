@@ -183,9 +183,13 @@ export default function Register() {
             <ButtonAuth>Crear cuenta</ButtonAuth>
           </div>
         </form>
-        <>
+        <div>
           <span>O continúa con</span>
-        </>
+
+        </div>
+
+    
+
         <div className='flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 md:gap-8 md:flex-row'>
           <ButtonGoogle />
           <ButtonFacebook />
