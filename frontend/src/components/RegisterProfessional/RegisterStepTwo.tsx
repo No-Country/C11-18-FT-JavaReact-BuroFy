@@ -23,7 +23,7 @@ export default function RegisterStepTwo({ register, errors }: propsType) {
   const [countries, setCountries] = useState<Country[]>([]);
   const [provinces, setProvinces] = useState<Province[]>([]);
   const [selectedCountryId, setSelectedCountryId] = useState<number | string>("");
-
+  console.log(selectedCountryId);
   const lookForCities = async (id: number | string) => {
     await axios
       .get(`http://api.geonames.org/childrenJSON?geonameId=${id}&username=EugeniaGramajo`)

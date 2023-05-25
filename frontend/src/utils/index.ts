@@ -1,1 +1,1 @@
-export { default as getAvatarString } from './getAvatarString';
+export { default as getAvatarString } from "./getAvatarString";
