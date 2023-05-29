@@ -8,7 +8,7 @@ import { AiFillEye } from "react-icons/ai";
 export default function CardReview() {
   return (
     <>
-      <div className=' bg-white border border-[#7FCEFF] rounded-lg drop-shadow-xl lg:border-[3px] lg:w-[459px] lg:h-auto'>
+      <div className=' bg-white border border-[#7FCEFF] rounded-lg drop-shadow-xl lg:border-[3px] lg:w-[459px] lg:h-[431px]'>
         <div className='flex justify-between rounded-tr-lg rounded-tl-lg bg-[#EBEBEB] lg:w-[453px] lg:h-[60px] lg:items-center'>
           <h1 className=' lg:font-bold lg:text-[20px] m-5 lg:leading-[26px]'>Reseñas recibidas</h1>
           <label className='mb-2 text-sm font-medium text-gray-900 sr-only'>Your Email</label>

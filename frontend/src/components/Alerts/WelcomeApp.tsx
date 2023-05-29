@@ -1,6 +1,6 @@
 import React from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
-import ButtonAuth from "./Buttons/ButtonAuth";
+import ButtonAuth from "../Buttons/ButtonAuth";
 
 const WelcomeApp = () => {
   return (
