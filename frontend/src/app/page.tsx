@@ -14,8 +14,8 @@ const HomePage = () => {
           <CardReview />
         </section>
         <section className='space-y-10 lg:flex lg:ms-70 lg:mt-7 lg:space-x-5'>
-          <CardApplicationEmpty />
-          <CardReviewEmpty />
+          {/* <CardApplicationEmpty />
+          <CardReviewEmpty /> */}
           {/* <CardServices />
           <CardReview /> */}
         </section>
