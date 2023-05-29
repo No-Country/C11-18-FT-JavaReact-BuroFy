@@ -2,6 +2,7 @@ import "./globals.css";
 import { Header, Providers } from "@/components";
 import { Roboto } from "next/font/google";
 import { ReactNode } from "react";
+
 const roboto = Roboto({ weight: ["400", "500", "700"], subsets: ["latin"], style: "normal" });
 
 export const metadata = {
@@ -19,16 +20,16 @@ export const metadata = {
   publisher: "Burofy organization",
   icons: {
     icon: {
-      url: "./favicon.png",
+      url: "/favicon.png",
       type: "image/png",
     },
-    shortcut: { url: "./favicon.png", type: "image/png" },
+    shortcut: { url: "/favicon.png", type: "image/png" },
   },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='en'>
+    <html lang='es'>
       <body className={roboto.className}>
         <Providers>
           <Header />

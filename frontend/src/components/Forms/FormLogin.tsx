@@ -5,12 +5,12 @@ import { useState } from "react";
 import { SignIn } from "@/interfaces/auth";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
-import ButtonAuth from "./Buttons/ButtonAuth";
+import ButtonAuth from "../Buttons/ButtonAuth";
 import { sign_in_with_credentials } from "@/lib/firebase_auth";
 import { useRouter } from "next/navigation";
-import ButtonGoogle from "./Buttons/ButtonGoogle";
-import ButtonFacebook from "./Buttons/ButtonFacebook";
-import ErrorMsg from "./ErrorMsg";
+import ButtonGoogle from "../Buttons/ButtonGoogle";
+import ButtonFacebook from "../Buttons/ButtonFacebook";
+import ErrorMsg from "../ErrorMsg";
 import { useAuth } from "@/contexts/AuthContext";
 
 const FormLogin = () => {
@@ -40,10 +40,27 @@ const FormLogin = () => {
   return (
     <>
       <form
-        className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center order-4 lg:mt-20 lg:mb-0'
+        className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center order-4 lg:mt-36 '
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h3 className='text-xl font-black self-center mb-14 md:text-2xl lg:text-4xl'>
+        <Link className='lg:flex lg:gap-2 hidden ' href='/registro'>
+          <svg
+            className='lg:mt-[7px]'
+            width='5'
+            height='8'
+            viewBox='0 0 5 8'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              d='M0.646447 3.64645C0.451184 3.84171 0.451184 4.15829 0.646447 4.35355L3.82843 7.53553C4.02369 7.7308 4.34027 7.7308 4.53553 7.53553C4.7308 7.34027 4.7308 7.02369 4.53553 6.82843L1.70711 4L4.53553 1.17157C4.7308 0.976311 4.7308 0.659728 4.53553 0.464466C4.34027 0.269204 4.02369 0.269204 3.82843 0.464466L0.646447 3.64645ZM1.87924 4.5C2.15539 4.5 2.37924 4.27614 2.37924 4C2.37924 3.72386 2.15539 3.5 1.87924 3.5V4.5ZM1 4.5H1.87924V3.5H1V4.5Z'
+              fill='black'
+            />
+          </svg>
+          <p className='lg:flex lg:mr-[400px] lg:mb-5 border-b-2 border-slate-500'>Atrás</p>
+        </Link>
+
+        <h3 className='text-xl font-black self-center mb-14 md:text-2xl lg:text-4xl lg:ml-[-100px]'>
           ¡Bienvenido de nuevo!
         </h3>
         <div className='flex flex-col justify-center items-center'>
@@ -51,7 +68,7 @@ const FormLogin = () => {
             <input
               type='email'
               id='email'
-              className='block py-2.5 pr-0 pl-4 w-full text-sm text-gray-900 border-0 border-b-2 border-[#2E2E2E] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96 bg-quinary focus:bg-transparent'
+              className='block py-2.5 pr-0 pl-4 w-full lg:w-[460px] text-sm text-gray-900 border-0 border-b-2 border-[#2E2E2E] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96 bg-quinary focus:bg-transparent'
               placeholder=' '
               required
               {...register("email", {
@@ -76,7 +93,7 @@ const FormLogin = () => {
             <input
               type={visible ? "text" : "password"}
               id='password'
-              className='block py-2.5 pr-0 pl-4 w-full text-sm text-gray-900 bg-quinary focus:bg-transparent border-0 border-b-2 border-[#2E2E2E] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
+              className='block py-2.5 pr-0 pl-4 w-full lg:w-[460px] text-sm text-gray-900 bg-quinary focus:bg-transparent border-0 border-b-2 border-[#2E2E2E] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
               placeholder=' '
               required
               {...register("password", {
@@ -125,10 +142,8 @@ const FormLogin = () => {
             ¿olvidaste la contraseña?
           </Link>
         </div>
-
         <ButtonAuth>Iniciar Sesion</ButtonAuth>
-
-        <div className='flex items-center justify-center mt-14'>
+        <div className='flex  mt-14'>
           <p className='mb-10 max-w-xl mx-auto text-center text-xl relative '>O continúa con</p>
         </div>
         <div className='flex mt-6 items-center justify-center flex-col gap-8 lg:flex-row'>

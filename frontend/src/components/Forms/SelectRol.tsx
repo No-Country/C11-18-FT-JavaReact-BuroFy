@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { BsFillPersonFill } from "react-icons/bs";
-import ButtonAuth from "./Buttons/ButtonAuth";
+import ButtonAuth from "../Buttons/ButtonAuth";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setRol } from "@/redux/features/userSlice";
@@ -21,7 +21,7 @@ const SelectRol = () => {
   };
 
   return (
-    <article className='flex flex-col order-4 gap-9 w-full h-screen justify-start items-center'>
+    <article className='flex flex-col order-4 gap-9 w-full h-screen justify-start items-center lg:mt-36'>
       <div className='w-[353px] h-[134px] lg:w-[653px] flex flex-col items-center'>
         <h2 className='font-bold text-2xl mt-14 lg:text-4xl leading-10 text-center'>
           ¿Cómo deseas registrarte?
@@ -35,7 +35,7 @@ const SelectRol = () => {
         onSubmit={handleSubmit}
         className='flex self-center lg:w-[426px] lg:h-[300px] flex-col items-center gap-16'
       >
-        <div className='flex flex-col lg:flex-row lg:w-full items-center lg:gap-16'>
+        <div className='flex flex-col lg:flex-row lg:w-full items-center lg:gap-20'>
           {/* button of client and profesional */}
           <button
             type='button'
@@ -78,11 +78,11 @@ const SelectRol = () => {
         <ButtonAuth>Crear cuenta</ButtonAuth>
       </form>
 
-      <footer className='w-[279px] h-[66px] mt-24 lg:absolute lg:w-[400px] lg:mt-[34rem] flex flex-col items-center'>
-        <h4 className='leading-5 text-lg'>¿Ya estas registrado?</h4>
+      <footer className='w-[279px] h-[66px] mt-24 lg:absolute lg:w-[400px] lg:mt-[34rem] lg:flex lg:justify-center lg:gap-2'>
+        <h4 className='leading-5 text-lg lg:self-baseline'>¿Ya estas registrado?</h4>
 
         <button
-          className='text-lilac font-bold leading-5 underline hover:scale-110 transition active:scale-90 mt-8 cursor-pointer lg:cursor-pointer lg:mt-[-2.5rem]'
+          className='text-lilac font-bold leading-5 underline hover:scale-110 transition active:scale-90 mt-8 cursor-pointer lg:cursor-pointer lg:mt-[-2.5rem] lg:self-baseline'
           onClick={() => router.push("/acceso")}
         >
           Inicia sesión

@@ -2,8 +2,6 @@ import {
   createUserWithEmailAndPassword,
   FacebookAuthProvider,
   GoogleAuthProvider,
-  // OAuthProvider,
-  // onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
   updatePassword,

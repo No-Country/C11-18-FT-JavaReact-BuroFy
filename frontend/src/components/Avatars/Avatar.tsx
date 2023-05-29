@@ -10,11 +10,11 @@ const Avatar = () => {
   return (
     <>
       {avatar ? (
-        <div className='self-baseline flex gap-2'>
+        <div className='self-baseline lg:flex'>
           <Image
-            width={40}
-            height={40}
-            className='rounded-full w-10 h-10 lg:w-12 lg:h-12'
+            width={50}
+            height={50}
+            className='rounded-full w-10 h-10 lg:w-14 lg:h-14 lg:gap-2 '
             src={avatar}
             alt={firstName as string}
           />
