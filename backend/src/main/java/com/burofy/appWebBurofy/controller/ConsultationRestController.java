@@ -1,5 +1,6 @@
 package com.burofy.appWebBurofy.controller;
 
+import com.burofy.appWebBurofy.dto.ConsultationResponseDTO;
 import com.burofy.appWebBurofy.entity.Consultation;
 import com.burofy.appWebBurofy.service.IConsultationService;
 import com.burofy.appWebBurofy.utility.Response;
@@ -43,5 +44,27 @@ public class ConsultationRestController {
         consultationService.deleteConsultation(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping(path = "/getConsultationsByClientId")
+    public ResponseEntity<ConsultationResponseDTO> findConsultationsByClientId(@RequestHeader("clientId") Long clientId) {
+        ConsultationResponseDTO consultationResponseDTO = consultationService.getConsultationsByClientId(clientId);
+        if (consultationResponseDTO.getConsultations().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(consultationResponseDTO);
+        }
+        //return ResponseEntity.status(HttpStatus.valueOf((int)consultationResponseDTO.getStatus())).body(consultationResponseDTO);
+    }
+    @GetMapping(path = "/getConsultationsByProfessionalId")
+    public ResponseEntity<ConsultationResponseDTO> getConsultationsByProfessionalId(@RequestHeader("professionalId") Long professionalId) {
+        ConsultationResponseDTO consultationResponseDTO = consultationService.getConsultationsByProfessionalId(professionalId);
+        if (consultationResponseDTO.getConsultations().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(consultationResponseDTO);
+        }
+        //return ResponseEntity.status(HttpStatus.valueOf((int)consultationResponseDTO.getStatus())).body(consultationResponseDTO);
+    }
+
 
 }
