@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import image5 from "../../public/imgprofile5.png";
-import image4 from "../../public/imgprofile4.png";
-import image6 from "../../public/imgprofile6.png";
+import image5 from "../../../public/mocks/imgprofile5.png";
+import image4 from "../../../public/mocks/imgprofile4.png";
+import image6 from "../../../public/mocks/imgprofile6.png";
 import { AiFillEye } from "react-icons/ai";
 
 export default function CardReview() {

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Avatar from "../Avatars/Avatar";
 
+
 const Sidebar = () => {
   return (
     <header className='w-full h-[100px] flex p-6 justify-between items-center bg-header-img object-cover object-center md:h-[300px] md:py-8 md:px-20  gap-4 bg-no-repeat bg-cover '>
@@ -14,7 +15,7 @@ const Sidebar = () => {
         <RxHamburgerMenu className='w-8 h-8 text-white md:hidden' />
       </button>
       <Image
-        src='/title-burofy-white.svg'
+        src='/assets/bg-header-burofy.svg'
         alt='header burofy logotype'
         width={170}
         height={52}

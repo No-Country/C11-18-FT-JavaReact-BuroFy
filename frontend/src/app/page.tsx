@@ -1,6 +1,7 @@
-// import CardApplicationEmpty from "@/components/CardApplicationEmpty";
-// import CardReviewEmpty from "@/components/CardReviewEmpty";
-import { CardServices, CardReview } from "@/components";
+// import CardApplicationEmpty from "@/components/Cards/CardApplicationEmpty";
+// import CardReviewEmpty from "@/components/Cards/CardReviewEmpty";
+import  CardReview  from "@/components/Cards/CardReview";
+import CardServices  from "@/components/Cards/CardServices";
 
 const HomePage = () => {
   return (

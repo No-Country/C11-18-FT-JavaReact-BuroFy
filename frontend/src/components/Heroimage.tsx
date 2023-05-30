@@ -1,16 +1,17 @@
 import Image from "next/image";
+
 const Heroimage = () => {
   return (
     <div className='hidden lg:block lg:order-1 w-full h-screen relative'>
       <Image
         className='absolute top-10 left-[50%] translate-x-[-50%]'
-        src='/title-burofy-white.svg'
+        src='/assets/title-burofy-white.svg'
         alt='title of burofy in white'
         width={200}
         height={150}
       />
       <Image
-        src='/hero-image-burofy.png'
+        src='/assets/hero-image-burofy.png'
         alt='hero image about burofy'
         height={800}
         width={800}
