@@ -42,7 +42,7 @@ const Drawer = () => {
             {/* title - header */}
             <header className='w-full h-1/6 flex justify-center items-center border border-transparent border-b-2 border-b-[#C0C0C0] mb-7'>
               <Image
-                src='/title-burofy.svg'
+                src='/assets/title-burofy.svg'
                 alt='title burofy with colors'
                 width={200}
                 height={200}

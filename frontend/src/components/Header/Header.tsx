@@ -20,7 +20,7 @@ const Header = () => {
       ) : (
         <>
           <div className='md:hidden absolute top-10 left-[50%] translate-x-[-50%]'>
-            <Image src='/title-burofy.svg' width={200} height={100} alt='title burofy white' />
+            <Image src='/assets/title-burofy.svg' width={200} height={100} alt='title burofy white' />
           </div>
         </>
       )}

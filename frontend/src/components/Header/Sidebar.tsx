@@ -14,7 +14,7 @@ const Sidebar = () => {
         <RxHamburgerMenu className='w-8 h-8 text-white md:hidden' />
       </button>
       <Image
-        src='/title-burofy-white.svg'
+        src='/assets/title-burofy-white.svg'
         alt='header burofy logotype'
         width={170}
         height={52}
