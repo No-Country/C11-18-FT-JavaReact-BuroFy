@@ -12,15 +12,9 @@ const Avatar = () => {
       {avatar ? (
         <div className='self-baseline lg:flex'>
           <Image
-<<<<<<< HEAD:frontend/src/components/Avatar.tsx
-            width={40}
-            height={40}
-            className='rounded-full w-10 h-10 lg:w-12 lg:h-12'
-=======
             width={50}
             height={50}
             className='rounded-full w-10 h-10 lg:w-14 lg:h-14 lg:gap-2 '
->>>>>>> 016b95a7d4914cb73e6c7e0ebc3cf0c09a6374c7:frontend/src/components/Avatars/Avatar.tsx
             src={avatar}
             alt={firstName as string}
           />

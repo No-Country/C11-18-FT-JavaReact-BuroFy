@@ -16,7 +16,6 @@ import { logout_firebase } from "@/lib/firebase_auth";
 import { logoutUser } from "@/redux/features/userSlice";
 import { useAppDispatch } from "@/hooks";
 
-
 const Header = () => {
   const pathname = usePathname();
   const { statusAuth, setStatusAuth } = useAuth();
@@ -50,7 +49,7 @@ const Header = () => {
               <RxHamburgerMenu className='w-8 h-8 text-white md:hidden' />
             </button>
             <Image
-              src='/title-burofy-white.svg'
+              src='/assets/title-burofy-white.svg'
               alt='header burofy logotype'
               width={170}
               height={52}
@@ -77,7 +76,7 @@ const Header = () => {
               {/* title - header */}
               <header className='w-full h-1/6 flex justify-center items-center border border-transparent border-b-2 border-b-[#C0C0C0] mb-7'>
                 <Image
-                  src='/title-burofy.svg'
+                  src='/assets/header-burofy.svg'
                   alt='title burofy with colors'
                   width={200}
                   height={200}

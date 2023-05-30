@@ -1,8 +1,6 @@
-import React from "react";
 // import CardApplicationEmpty from "@/components/CardApplicationEmpty";
 // import CardReviewEmpty from "@/components/CardReviewEmpty";
-import CardServices from "@/components/CardServices";
-import CardReview from "@/components/CardReview";
+import { CardServices, CardReview } from "@/components";
 
 const HomePage = () => {
   return (
@@ -12,13 +10,10 @@ const HomePage = () => {
         <section className='lg:flex lg:space-x-5 lg:ms-56 lg:mt-7 '>
           <CardServices />
           <CardReview />
+          {/* <CardReviewEmpty />
+          <CardApplicationEmpty /> */}
         </section>
-        <section className='space-y-10 lg:flex lg:ms-70 lg:mt-7 lg:space-x-5'>
-          {/* <CardApplicationEmpty />
-          <CardReviewEmpty /> */}
-          {/* <CardServices />
-          <CardReview /> */}
-        </section>
+        <section className='space-y-10 lg:flex lg:ms-70 lg:mt-7 lg:space-x-5'></section>
       </main>
       <footer className='flex justify-center mt-[250px] md:hidden lg:hidden'>
         <span className='text-center text-xs font-normal'>Burofy genera conexiones.</span>
