@@ -39,7 +39,7 @@ public class ClientServiceImpl implements IClientService {
             throw new RuntimeException(NOTFOUND);
         }
         Client client = clientOptional.get();
-        client.setName(updatedClient.getName());
+        client.setFirstName(updatedClient.getFirstName());
         client.setLastName(updatedClient.getLastName());
         client.setDocumentNumber(updatedClient.getDocumentNumber());
         client.setPhone(updatedClient.getPhone());

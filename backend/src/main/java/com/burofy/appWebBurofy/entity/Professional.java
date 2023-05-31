@@ -18,13 +18,9 @@ import java.time.LocalDate;
 public class Professional {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String fireBaseId;
-    private String providedId;
-    private String token;
-
-    private String name;
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
+    private String firstName;
     private String lastName;
     private String documentNumber;
     private LocalDate birthDate;
@@ -39,9 +35,5 @@ public class Professional {
     private Boolean isRemoteWork;
     private Boolean isFaceToFaceWork;
     private Boolean state;
-
-
-
-
 
 }

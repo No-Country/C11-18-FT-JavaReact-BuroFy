@@ -36,7 +36,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
     @Override
     public List<Professional> allProfessionals(int page, int pageSize) {
         List<Professional> professionals = professionalRepository.findAll();
-        professionals.sort(Comparator.comparing(Professional::getName));
+        professionals.sort(Comparator.comparing(Professional::getFirstName));
         return  Pagination.paginate(professionals, pageSize, page);
     }
 
@@ -48,7 +48,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
             throw new RuntimeException(NOTFOUND);
         }
         Professional professional = professionalOptional.get();
-        professional.setName(updatedProfessional.getName());
+        professional.setFirstName(updatedProfessional.getFirstName());
         professional.setLastName(updatedProfessional.getLastName());
         professional.setDocumentNumber(updatedProfessional.getDocumentNumber());
         professional.setPhone(updatedProfessional.getPhone());
