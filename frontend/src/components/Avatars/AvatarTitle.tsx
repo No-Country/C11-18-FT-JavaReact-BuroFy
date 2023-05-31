@@ -16,7 +16,7 @@ const AvatarTitle = () => {
   const handleLogout = async () => {
     setStatusAuth("checking");
     try {
-      router.push("/registro");
+      router.push("/acceso");
       //close conection with firebase
       await logout_firebase();
       //delete all states of user
