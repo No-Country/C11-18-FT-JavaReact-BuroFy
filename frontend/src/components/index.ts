@@ -23,7 +23,7 @@ export { default as PerfilClient } from "./Perfil/PerfilClient";
 export { default as PersonalInfo } from "./Perfil/PersonalInfo";
 export { default as Reviews } from "./Perfil/Reviews";
 export { default as Providers } from "./Providers";
-export { default as Search } from "./Search";
+export { default as Search } from "./SearchBar";
 export { default as Spinner } from "./Spinners/Spinner";
 export { default as Spinner2 } from "./Spinners/Spinner2";
 export * from "./index";
