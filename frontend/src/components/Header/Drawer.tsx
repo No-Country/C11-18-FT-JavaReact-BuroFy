@@ -34,7 +34,7 @@ const Drawer = () => {
     <>
       <>
         <aside
-          className='fixed top-0 left-0 z-40 w-80 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 p-0 md:block'
+          className='fixed top-0 left-0 z-40 w-80 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 p-0 md:block col-span-1'
           aria-label='Sidenav'
           id='drawer-navigation'
         >
@@ -52,9 +52,8 @@ const Drawer = () => {
             {/* nav */}
             <ul className='space-y-2'>
               <li
-                className={`hover:bg-primary transition-colors ${
-                  pathname === "/" && "bg-tertiary"
-                } w-full mb-7`}
+                className={`hover:bg-primary transition-colors ${pathname === "/" && "bg-tertiary"
+                  } w-full mb-7`}
               >
                 <Link
                   href='/'
@@ -70,36 +69,32 @@ const Drawer = () => {
               </li>
 
               <li
-                className={`hover:bg-primary transition-colors w-full  ${
-                  pathname === "/buscar" && "bg-tertiary"
-                }`}
+                className={`hover:bg-primary transition-colors w-full  ${pathname === "/buscar" && "bg-tertiary"
+                  }`}
               >
                 <Link
                   href='/'
                   className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
                 >
                   <AiOutlineSearch
-                    className={`w-6 h-6 active:text-white ${
-                      pathname === "/buscar" && "text-white"
-                    }`}
+                    className={`w-6 h-6 active:text-white ${pathname === "/buscar" && "text-white"
+                      }`}
                   />
                   <span className={`ml-3 ${pathname === "/buscar" && "text-white"}`}>Buscar</span>
                 </Link>
               </li>
 
               <li
-                className={`hover:bg-primary transition-colors ${
-                  pathname === "/consultas" && "bg-tertiary"
-                } w-full`}
+                className={`hover:bg-primary transition-colors ${pathname === "/consultas" && "bg-tertiary"
+                  } w-full`}
               >
                 <Link
                   href='/'
                   className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
                 >
                   <HiPencil
-                    className={`w-6 h-6 active:text-white ${
-                      pathname === "/consultas" && "text-white"
-                    }`}
+                    className={`w-6 h-6 active:text-white ${pathname === "/consultas" && "text-white"
+                      }`}
                   />
                   <span className={`ml-3 ${pathname === "/consultas" && "text-white"}`}>
                     Mis consultas
@@ -108,18 +103,16 @@ const Drawer = () => {
               </li>
 
               <li
-                className={`hover:bg-primary transition-colors ${
-                  pathname === "/perfil" && "bg-tertiary"
-                } w-full`}
+                className={`hover:bg-primary transition-colors ${pathname === "/perfil" && "bg-tertiary"
+                  } w-full`}
               >
                 <Link
                   href='/perfil'
                   className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
                 >
                   <BsFillPersonFill
-                    className={`w-6 h-6 active:text-white ${
-                      pathname === "/perfil" && "text-white"
-                    }`}
+                    className={`w-6 h-6 active:text-white ${pathname === "/perfil" && "text-white"
+                      }`}
                   />
                   <span className={`ml-3 ${pathname === "/perfil" && "text-white"}`}>
                     Mi perfil
@@ -128,9 +121,8 @@ const Drawer = () => {
               </li>
 
               <li
-                className={`hover:bg-primary transition-colors ${
-                  pathname === "/ayuda" && "bg-tertiary"
-                } w-full`}
+                className={`hover:bg-primary transition-colors ${pathname === "/ayuda" && "bg-tertiary"
+                  } w-full`}
               >
                 <Link
                   href='/'
@@ -164,7 +156,6 @@ const Drawer = () => {
           </div>
         </aside>
       </>
-      )
     </>
   );
 };

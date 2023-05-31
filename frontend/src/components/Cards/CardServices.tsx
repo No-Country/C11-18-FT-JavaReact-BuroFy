@@ -1,8 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import image from "../../../public/mocks/imgprofile.png";
-import image2 from "../../../public/mocks/imgprofile2.png";
-import image3 from "../../../public/mocks/imgprofile3.png";
 import { AiFillEye } from "react-icons/ai";
 
 export default function CardServices() {
@@ -82,7 +79,7 @@ export default function CardServices() {
             </div>
 
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
-              <Image src={image} width={50} height={50} alt='profile' />
+              <Image src="/stub/imgprofile2.png" width={50} height={50} alt='profile' />
               <div className='flex lg:flex-col '>
                 <p className='px-3 lg:px-0 lg:font-bold lg:text-sm'>Carlos Fernandez</p>
                 <span className='hidden lg:flex bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mr-2 px-2.5 py-0.5 rounded-full'>
@@ -115,7 +112,7 @@ export default function CardServices() {
 
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
               <div className='flex gap-2'>
-                <Image src={image2} width={50} height={50} alt='profile' />
+                <Image src="/stub/imgprofile2.png" width={50} height={50} alt='profile' />
                 <div className='flex-col'>
                   <p className='lg:font-bold lg:text-sm'>Jimena León Jimenez</p>
                   <span className='bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mr-2 px-2.5 py-0.5 rounded-full'>
@@ -150,7 +147,7 @@ export default function CardServices() {
 
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
               <div className='flex gap-2'>
-                <Image src={image3} width={50} height={50} alt='profile' />
+                <Image src="/stub/imgprofile2.png" width={50} height={50} alt='profile' />
                 <div className='flex-col'>
                   <p className='lg:font-bold lg:text-sm'>Arturo García Torres</p>
                   <span className='bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mr-2 px-2.5 py-0.5 rounded-full'>
