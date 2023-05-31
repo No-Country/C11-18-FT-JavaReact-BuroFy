@@ -35,7 +35,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
 
     @Override
     public List<Professional> allProfessionals(int page, int pageSize) {
-        List<Professional> professionals = professionalRepository.allProfessionals(page, pageSize);
+        List<Professional> professionals = professionalRepository.findAll();
         professionals.sort(Comparator.comparing(Professional::getName));
         return  Pagination.paginate(professionals, pageSize, page);
     }
