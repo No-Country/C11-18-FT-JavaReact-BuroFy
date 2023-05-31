@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 class ClientServiceImplTest {
@@ -28,10 +29,11 @@ class ClientServiceImplTest {
     @Test
     void testCreateClient() {
         // Arrange
-        Client client = new Client(1L,"Lili", "Gallego","1049940","3139393039",
+        Client client = new Client(1L,"firabaseId","providedId","token","Lili",
+                "Gallego","1049940", LocalDate.of(1995, 5,6), "3139393039",
                 "Ibague","lili@gmail.com","123","Ing de Alimentos",true);
         // Set the necessary properties of the client
-
+        //LocalDate.of(year,month,day)
         Mockito.when(clientRepository.save(client)).thenReturn(client);
 
         // Act
@@ -46,7 +48,8 @@ class ClientServiceImplTest {
     void testGetClient() {
         // Arrange
         Long clientId = 1L;
-        Client client = new Client(1L,"Lili", "Gallego","1049940","3139393039",
+        Client client = new Client(1L,"firabaseId","providedId","token","Lili",
+                "Gallego","1049940", LocalDate.of(1995, 5,6), "3139393039",
                 "Ibague","lili@gmail.com","123","Ing de Alimentos",true);
         // Set the necessary properties of the client
 
@@ -64,12 +67,15 @@ class ClientServiceImplTest {
     void testUpdateClient() {
         // Arrange
         Long clientId = 1L;
-        Client existingClient = new Client(1L,"Lili", "Gallego","1049940","3139393039",
+        Client existingClient = new Client(1L,"firabaseId","providedId","token","Lili",
+                "Gallego","1049940", LocalDate.of(1995, 5,6), "3139393039",
                 "Ibague","lili@gmail.com","123","Ing de Alimentos",true);
+
         // Set the necessary properties of the existing client
 
-        Client updatedClient = new Client(1L,"Liliana", "Gallego","1049940","3139393039",
-                "Ibague","lili@gmail.com","123","Ing de Alimentos",true);
+        Client updatedClient = new Client(1L,"firabaseId","providedId","token","Lili",
+                "Gallego","1049940", LocalDate.of(1995, 5,6), "3139393039",
+                "Ibague","liliana@gmail.com","123","Ing de Alimentos",true);
         // Set the necessary properties of the updated client
 
         Mockito.when(clientRepository.findById(clientId)).thenReturn(Optional.of(existingClient));

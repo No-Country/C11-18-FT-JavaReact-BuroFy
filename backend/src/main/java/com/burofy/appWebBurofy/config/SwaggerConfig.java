@@ -27,14 +27,15 @@ public class SwaggerConfig {
         return new ApiInfo("Spring Boot Burofy API",
                 "Buryofy API REST",
                 "Version: 1.0",
-                "Despliegue: https://backend-web-burofy.onrender.com",
+                "https://backend-web-burofy.onrender.com",
                 new Contact(
                         "Burofy",
                         "https://github.com/No-Country/C11-18-FT-JavaReact-BuroFy.git", "burofy@example.com"),
                 "MIT",
-                "url",
+                "https://en.wikipedia.org/wiki/MIT_License",
                 Collections.emptyList());
     }
 
 }
+
 

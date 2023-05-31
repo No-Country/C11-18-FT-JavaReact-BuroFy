@@ -1,6 +1,5 @@
 package com.burofy.appWebBurofy.controller;
 
-import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.service.IProfessionalService;
 import com.burofy.appWebBurofy.utility.Response;
@@ -9,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -43,6 +44,16 @@ public class ProfessionalRestController  {
     public ResponseEntity<Professional> deleteProfessional(@PathVariable Long id) {
         professionalService.deleteProfessional(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/allProfessionals/{page}/{size}")
+    public ResponseEntity<List<Professional>> allProfessionals(@PathVariable int page, @PathVariable int size) {
+        List<Professional> professionals = professionalService.allProfessionals(page,size);
+        if (!professionals.isEmpty()) {
+            return ResponseEntity.ok(professionals);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }
