@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -18,10 +20,14 @@ public class Professional {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String fireBaseId;
+    private String providedId;
+    private String token;
 
     private String name;
     private String lastName;
     private String documentNumber;
+    private LocalDate birthDate;
     private String phone;
     private String location;
     private String email;
