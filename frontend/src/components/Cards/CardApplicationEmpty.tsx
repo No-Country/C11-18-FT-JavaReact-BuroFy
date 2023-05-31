@@ -1,9 +1,19 @@
 import React from "react";
+import Image from "next/image";
 
 export default function CardApplicationEmpty() {
   return (
     <>
-      <div className=' p-5 m-3 bg-white border border-[#C600E0] rounded-lg drop-shadow-xl text-center lg:border-2 lg:w-[450px] lg:h-[249px] lg:p-12 lg:space-y-6'>
+      <div className=' p-10 mx-3 items-center justify-center flex-col bg-white border border-[#C600E0] w-auto h-auto rounded-lg drop-shadow-xl text-center lg:border-2 lg:w-auto  lg:items-center lg:justify-center lg:h-auto lg:p-12 lg:ml-[20.5rem] lg:mb-16 lg:space-y-6'>
+        <div className='flex items-center justify-center'>
+          <Image
+            src='/assets/busqueda-empty.png'
+            alt=''
+            width={100}
+            height={150}
+            className='flex items-center justify-center'
+          />
+        </div>
         <h5 className='mb-2 text-base font-medium tracking-tight text-gray-900 lg:text-[25px] lg:font-bold'>
           Aún no tienes consultas
         </h5>

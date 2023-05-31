@@ -25,7 +25,7 @@ module.exports = {
         sixnary: "#F0BFF7",
       },
       backgroundImage: {
-        "header-img": "url('/bg-header-burofy.svg')",
+        "header-img": "url('/assets/bg-header-burofy.svg')",
       },
       colors: {
         lilac: "#C600E0",
