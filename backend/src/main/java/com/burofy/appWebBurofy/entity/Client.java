@@ -23,7 +23,6 @@ public class Client  {
     private String fireBaseId;
     private String providedId;
     private String token;
-
     private String name;
     private String lastName;
     private String documentNumber;

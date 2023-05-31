@@ -1,5 +1,6 @@
 com\burofy\appWebBurofy\service\impl\ClientServiceImpl.class
 com\burofy\appWebBurofy\dto\ConsultationDTO.class
+com\burofy\appWebBurofy\utility\Pagination.class
 com\burofy\appWebBurofy\utility\Response$ResponseBuilder.class
 com\burofy\appWebBurofy\service\IProfessionalService.class
 com\burofy\appWebBurofy\utility\Response.class

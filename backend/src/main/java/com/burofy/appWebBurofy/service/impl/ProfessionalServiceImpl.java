@@ -3,9 +3,12 @@ package com.burofy.appWebBurofy.service.impl;
 import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.repository.IProfessionalRepository;
 import com.burofy.appWebBurofy.service.IProfessionalService;
+import com.burofy.appWebBurofy.utility.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,6 +31,13 @@ public class ProfessionalServiceImpl implements IProfessionalService {
             throw new RuntimeException(NOTFOUND);
         }
         return professional.get();
+    }
+
+    @Override
+    public List<Professional> allProfessionals(int page, int pageSize) {
+        List<Professional> professionals = professionalRepository.findAll();
+        professionals.sort(Comparator.comparing(Professional::getName));
+        return  Pagination.paginate(professionals, pageSize, page);
     }
 
     @Override
