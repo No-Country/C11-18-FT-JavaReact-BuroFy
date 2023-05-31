@@ -34,7 +34,7 @@ const Drawer = () => {
     <>
       <>
         <aside
-          className='fixed top-0 left-0 z-40 w-80 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 p-0 md:block'
+          className='fixed top-0 left-0 z-40 w-80 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 p-0 md:block col-span-1'
           aria-label='Sidenav'
           id='drawer-navigation'
         >

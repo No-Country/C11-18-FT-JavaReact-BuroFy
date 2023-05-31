@@ -4,7 +4,7 @@ import Avatar from "../Avatars/Avatar";
 
 const Sidebar = () => {
   return (
-    <header className='w-full h-[100px] flex p-6 justify-between items-center bg-header-img object-cover object-center md:h-[300px] md:py-8 md:px-20  gap-4 bg-no-repeat bg-cover '>
+    <header className='w-full h-full flex p-6 justify-between items-center bg-header-img object-cover object-center md:h-[300px] md:py-8 md:px-20  gap-4 bg-no-repeat bg-cover col-start-2 col-end-2 row-span-1'>
       <button
         className='focus:scale-110 active:scale-110 transition'
         type='button'
