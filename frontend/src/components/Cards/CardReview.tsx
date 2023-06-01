@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
-
+import image5 from "../../../public/mocks/imgprofile5.png";
+import image4 from "../../../public/mocks/imgprofile4.png";
+import image6 from "../../../public/mocks/imgprofile6.png";
 import { AiFillEye } from "react-icons/ai";
 
 export default function CardReview() {
@@ -66,7 +68,7 @@ export default function CardReview() {
           <div className='bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[74px] lg:mb-3 lg:p-1.5'>
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
               <div className='flex gap-2 items-center'>
-                <Image src="/stub/imgprofile3.png" width={50} height={50} alt='profile' />
+                <Image src={image4} width={50} height={50} alt='profile' />
                 <div className='flex-col'>
                   <p className='lg:font-bold lg:text-sm'>Catalina Villanueva</p>
                 </div>
@@ -135,7 +137,7 @@ export default function CardReview() {
           <div className='bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[74px] lg:mb-3 lg:p-1.5'>
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
               <div className='flex gap-2 items-center'>
-                <Image src="/stub/imgprofile5.png" width={50} height={50} alt='profile' />
+                <Image src={image5} width={50} height={50} alt='profile' />
                 <div className='flex-col'>
                   <p className='lg:font-bold lg:text-sm'>Genaro Lozano Pérez</p>
                 </div>
@@ -204,7 +206,7 @@ export default function CardReview() {
           <div className='bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[74px] lg:mb-3 lg:p-1.5'>
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
               <div className='flex gap-2 items-center'>
-                <Image src="/stub/imgprofile4.png" width={50} height={50} alt='profile' />
+                <Image src={image6} width={50} height={50} alt='profile' />
                 <div className='flex-col'>
                   <p className='lg:font-bold lg:text-sm'>Imelda Bautista Ruiz</p>
                 </div>

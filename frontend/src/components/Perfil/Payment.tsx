@@ -11,7 +11,7 @@ type PropsType = {
 export default function Payment({user}:PropsType) {
   return( 
     <>
-      <div className=" w-[361px] lg:w-fit lg:max-w-[918px] shadow-md items-center m-auto py-3 lg:p-10 lg:pb-0 rounded-xl border-4 border-[#7FCEFF]">
+      <div className=" w-[361px] lg:w-[918px] shadow-md items-center m-auto py-3 lg:p-10 lg:pb-0 rounded-xl border-4 border-[#7FCEFF]">
         <header className="mb-8 w-[331px] lg:w-full m-auto border-b border-[#7FCEFF] flex justify-center">
           {user?.rol!=="professional" ? <h1 className="font-bold font-primary-roboto text-[20px] lg:text-[30px] mb-3">Método de pago</h1> : <h1 className="font-bold font-primary-roboto text-[20px] lg:text-[30px] mb-3">Recepción de pago</h1>}
         </header>
