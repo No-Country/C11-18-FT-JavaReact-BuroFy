@@ -13,10 +13,12 @@ type PropsType = {
 export default function PerfilProfessional({user}:PropsType){
   return(
     <>
-      <PersonalInfo user={user}/>
-      <ProfessionalInfo/>
-      <Payment/>
-      <Reviews/>
+      <div className='space-y-6'>
+        <PersonalInfo user={user}/>
+        <ProfessionalInfo/>
+        <Payment user={user}/>
+        <Reviews/>
+      </div>
     </>
   );
 }

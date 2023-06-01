@@ -13,7 +13,7 @@ export default function PerfilCliente({user}:PropsType) {
   return (
     <div className='space-y-6'>
       <PersonalInfo user={user}/>
-      <Payment/>
+      <Payment user={user}/>
       <Reviews/>
     </div>
   );

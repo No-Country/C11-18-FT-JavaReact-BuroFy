@@ -18,7 +18,7 @@ export default function CardReviewProfile(){
         </div>
         <div className="flex w-[311px] lg:w-full flex-col lg:flex-row py-2">
           <div className="flex">
-            <Image width={60} height={60} className="rounded-full w-[60px] h-[60px] mx-4 self-center lg:m-auto" src="/imgprofile.png" alt="profile-prof"/>
+            <Image width={60} height={60} className="rounded-full w-[60px] h-[60px] mx-4 self-center lg:m-auto" src="/stub/imgprofile.png" alt="profile-prof"/>
             <span className="flex flex-col lg:mx-3">
               <h1 className="text-[18px] font-bold">Carlos Fernandez</h1>
               <ul className="space-y-1">
@@ -102,9 +102,9 @@ export default function CardReviewProfile(){
         </div>
         <div className="flex w-[311px] lg:w-full flex-col lg:flex-row py-2">
           <div className="flex">
-            <Image width={60} height={60} className="rounded-full w-[60px] h-[60px] mx-4 self-center lg:m-auto" src="/imgprofile.png" alt="profile-prof"/>
+            <Image width={60} height={60} className="rounded-full w-[60px] h-[60px] mx-4 self-center lg:m-auto" src="/stub/imgprofile4.png" alt="profile-prof"/>
             <span className="flex flex-col lg:mx-3">
-              <h1 className="text-[18px] font-bold">Carlos Fernandez</h1>
+              <h1 className="text-[18px] font-bold">Carla Fernandez</h1>
               <ul className="space-y-1">
                 <li className="bg-[#D0D0D0] rounded-3xl text-[12px] text-center">Sucesiones</li>
                 <li className="bg-[#D0D0D0] rounded-3xl text-[12px] text-center">Derecho familiar</li>

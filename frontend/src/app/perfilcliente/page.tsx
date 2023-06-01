@@ -23,7 +23,7 @@ const user: User = {
     country: "",
     zipcode: ""
   },
-  avatar: "/perfilcliente.png",
+  avatar: "/stub/perfilcliente.png",
   verified: true,
 };
 
