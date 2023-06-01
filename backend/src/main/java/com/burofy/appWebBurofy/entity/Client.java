@@ -20,16 +20,15 @@ public class Client  {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
+    private String email;
+    private String avatar;
     private String firstName;
     private String lastName;
-    private String documentNumber;
     private LocalDate birthDate;
+    private String documentNumber;
     private String phone;
     private String location;
-    private String email;
-    private String password;
     private String occupation;
     private Boolean state;
-
 
 }

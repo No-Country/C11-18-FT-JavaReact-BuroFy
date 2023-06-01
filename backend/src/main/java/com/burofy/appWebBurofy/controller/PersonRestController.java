@@ -1,6 +1,5 @@
 package com.burofy.appWebBurofy.controller;
 
-import com.burofy.appWebBurofy.entity.Consultation;
 import com.burofy.appWebBurofy.entity.Person;
 import com.burofy.appWebBurofy.service.IPersonService;
 import com.burofy.appWebBurofy.utility.Response;
@@ -19,8 +18,12 @@ public class PersonRestController {
 
     @PostMapping(path = "/create/person")
     public ResponseEntity<Response> createPerson(@RequestBody Person person) {
-        personService.createPerson(person);
-        return new  ResponseEntity<>(HttpStatus.CREATED);
+        if (person.getRol().equals("client") || person.getRol().equals("professional")) {
+            personService.createPerson(person);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping(path = "/getPerson/{id}")

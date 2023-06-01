@@ -20,18 +20,20 @@ public class Professional {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
+    private String email;
+    private String avatar;
     private String firstName;
     private String lastName;
-    private String documentNumber;
     private LocalDate birthDate;
+    private String documentNumber;
     private String phone;
     private String location;
-    private String email;
-    private String password;
     private String license;
     private String experience;
     private String training;
     private String diploma;
+    //private String price;
+    //private String aboutMe;
     private Boolean isRemoteWork;
     private Boolean isFaceToFaceWork;
     private Boolean state;
