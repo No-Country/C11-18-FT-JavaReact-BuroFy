@@ -61,8 +61,8 @@ const SelectRol = () => {
             <Image
               src='/assets/icon-legal.png'
               alt='logo'
-              width={70}
-              height={35}
+              width={50}
+              height={25}
               className='ml-10 lg:flex lg:absolute lg:top-[13%] lg:ml-[4rem]'
             />
             <aside className='flex flex-col absolute top-[25%] ml-[48%] lg:ml-[50%] lg:absolute'>
