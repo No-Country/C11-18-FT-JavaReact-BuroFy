@@ -19,7 +19,7 @@ const Header = () => {
         </>
       ) : (
         <>
-          <div className='md:hidden absolute top-10 left-[50%] translate-x-[-50%]'>
+          <div className='md:hidden flex justify-center mt-5'>
             <Image src='/assets/title-burofy.svg' width={200} height={100} alt='title burofy white' />
           </div>
         </>

@@ -43,7 +43,7 @@ const FormLogin = () => {
         className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center order-4 lg:mt-36 '
         onSubmit={handleSubmit(onSubmit)}
       >
-        <Link className='lg:flex lg:gap-2 hidden ' href='/registro'>
+        <Link className='lg:flex lg:gap-2 hidden lg:mb-4' href='/registro'>
           <svg
             className='lg:mt-[7px]'
             width='5'
@@ -57,7 +57,7 @@ const FormLogin = () => {
               fill='black'
             />
           </svg>
-          <p className='lg:flex lg:mr-[400px] lg:mb-5 border-b-2 border-slate-500'>Atrás</p>
+          <p className='lg:flex lg:mr-[400px]  border-b-2 border-slate-500'>Atrás</p>
         </Link>
 
         <h3 className='text-xl font-black self-center mb-14 md:text-2xl lg:text-4xl lg:ml-[-100px]'>
