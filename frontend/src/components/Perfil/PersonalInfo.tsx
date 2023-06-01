@@ -53,13 +53,13 @@ export default function PersonalInfo({user}:PropsType){
             <span className="flex items-center">
               <MdPhoneEnabled size={25} color="#2E2E2E"/> <p className={pStyle}>{user.phone?.phone}</p>
             </span>
-            <span className="flex items-center">
+            {user.rol!=="professional" ? <span className="flex items-center">
               <MdWork size={25} color="#2E2E2E" /> <p className={pStyle}>{user.rolContent===null && "Profesora de Inglés"}</p>
-            </span> 
+            </span> : null}
           </div>
         </div>
         <div className="flex justify-center my-8">
-          <button className="rounded-md  w-[180px] h-[40px] text-white font-bold bg-sixnary">Botones</button>
+          <button className="rounded-md my-10 w-full lg:my-0 lg:w-[180px] h-[40px] text-white font-bold bg-sixnary">Botones</button>
         </div>
         
       </div>
