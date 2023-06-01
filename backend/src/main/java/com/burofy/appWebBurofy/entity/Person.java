@@ -1,0 +1,25 @@
+package com.burofy.appWebBurofy.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Entity
+@Table(name = "person")
+public class Person { // para registrar un cliente / un profesional
+    @Id
+    private String id;
+    private String rol;
+    private String firstName;
+    private String email;
+    private String avatar;
+    private String providerId;
+
+}

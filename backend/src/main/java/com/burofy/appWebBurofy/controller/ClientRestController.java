@@ -18,7 +18,7 @@ public class ClientRestController{
 
     @PostMapping(path = "/create/client")
     public ResponseEntity<Response> createClient(@RequestBody Client client) {
-        clientService.createClient(client)  ;
+        clientService.createClient(client);
         return new  ResponseEntity<>(HttpStatus.CREATED);
     }
 
