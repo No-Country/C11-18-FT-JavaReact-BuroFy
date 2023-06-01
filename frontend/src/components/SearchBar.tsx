@@ -1,17 +1,11 @@
 import React from "react";
 
-
-
-
-
 const SearchBar = () => {
-
-
 
   return (
     <>
-      <div className="lg:flex lg:w-[935px] lg:h-[92px] bg-white rounded-md mt-3">
-        <div className='lg:flex lg:flex-row  lg:content-center lg:justify-center lg:w-[300px] lg:h-[92px] items-center lg:gap-4 border border-3 '>
+      <div className="lg:flex lg:w-[935px] lg:h-[92px] bg-white rounded-md mt-5">
+        <div className='lg:flex lg:flex-row  lg:content-center lg:justify-center lg:w-[300px] lg:h-[92px] items-center lg:gap-4 border-e-2 lg:mr-5'>
           {/* button of client and profesional */}
           <button className="flex flex-col lg:w-[111px] lg:h-[63px] text-white bg-[#2E2E2E] font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center mt-3 mr-2 mb-2">
             <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +37,7 @@ const SearchBar = () => {
                 htmlFor='text'
                 className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
-                Especialización
+                Buscar Especialización
               </label>
             </div>
             <div className='relative z-0 w-full mb-6 group'>
@@ -59,12 +53,18 @@ const SearchBar = () => {
                 htmlFor='text'
                 className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
-                Ubicación
+                Buscar Ubicación
               </label>
             </div>
+            <button
+              type='button'
+              className='text-white bg-[#24292F] rounded-md lg:w-[126px lg:h-[30px] lg:font-bold  lg:text-sm lg: lg:px-6 lg:py-1.5 text-center inline-flex items-center mr-1 mb-1 lg:mr-4 lg:mt-3 gap-1'
+            >
+              Buscar
+            </button>
           </form>
         </div>
-      </div>
+      </div >
     </>
   );
 };

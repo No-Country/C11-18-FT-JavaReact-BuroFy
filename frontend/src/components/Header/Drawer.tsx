@@ -53,7 +53,7 @@ const Drawer = () => {
             <ul className='space-y-2'>
               <li
                 className={`hover:bg-primary transition-colors ${pathname === "/" && "bg-tertiary"
-                  } w-full mb-7`}
+                } w-full mb-7`}
               >
                 <Link
                   href='/'
@@ -70,7 +70,7 @@ const Drawer = () => {
 
               <li
                 className={`hover:bg-primary transition-colors w-full  ${pathname === "/buscar" && "bg-tertiary"
-                  }`}
+                }`}
               >
                 <Link
                   href='/'
@@ -78,7 +78,7 @@ const Drawer = () => {
                 >
                   <AiOutlineSearch
                     className={`w-6 h-6 active:text-white ${pathname === "/buscar" && "text-white"
-                      }`}
+                    }`}
                   />
                   <span className={`ml-3 ${pathname === "/buscar" && "text-white"}`}>Buscar</span>
                 </Link>
@@ -86,7 +86,7 @@ const Drawer = () => {
 
               <li
                 className={`hover:bg-primary transition-colors ${pathname === "/consultas" && "bg-tertiary"
-                  } w-full`}
+                } w-full`}
               >
                 <Link
                   href='/'
@@ -94,7 +94,7 @@ const Drawer = () => {
                 >
                   <HiPencil
                     className={`w-6 h-6 active:text-white ${pathname === "/consultas" && "text-white"
-                      }`}
+                    }`}
                   />
                   <span className={`ml-3 ${pathname === "/consultas" && "text-white"}`}>
                     Mis consultas
@@ -104,7 +104,7 @@ const Drawer = () => {
 
               <li
                 className={`hover:bg-primary transition-colors ${pathname === "/perfil" && "bg-tertiary"
-                  } w-full`}
+                } w-full`}
               >
                 <Link
                   href='/perfil'
@@ -112,7 +112,7 @@ const Drawer = () => {
                 >
                   <BsFillPersonFill
                     className={`w-6 h-6 active:text-white ${pathname === "/perfil" && "text-white"
-                      }`}
+                    }`}
                   />
                   <span className={`ml-3 ${pathname === "/perfil" && "text-white"}`}>
                     Mi perfil
@@ -122,7 +122,7 @@ const Drawer = () => {
 
               <li
                 className={`hover:bg-primary transition-colors ${pathname === "/ayuda" && "bg-tertiary"
-                  } w-full`}
+                } w-full`}
               >
                 <Link
                   href='/'

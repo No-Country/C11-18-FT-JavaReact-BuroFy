@@ -137,13 +137,13 @@ export default function FormRegister() {
               {errors.password && <ErrorMsg>{errors.password?.message as string}</ErrorMsg>}
               {visible ? (
                 <AiFillEye
-                  className='absolute right-4 top-[10%] lg:left-[20rem] lg:absolute'
+                  className='absolute right-4 top-[15%] cursor-pointer'
                   size={25}
                   onClick={() => setVisible(false)}
                 />
               ) : (
                 <AiFillEyeInvisible
-                  className='absolute right-4 top-[10%] lg:left-[20rem] lg:absolute'
+                  className='absolute right-4 top-[15%] cursor-pointer'
                   size={25}
                   onClick={() => setVisible(true)}
                 />

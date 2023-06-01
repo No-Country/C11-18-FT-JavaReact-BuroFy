@@ -12,7 +12,7 @@ export default function CardServices() {
           <button
             id='dropdown-button'
             data-dropdown-toggle='dropdown'
-            className='flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-normal text-center text-gray-900   border-none border-gray-400 w-[135px] '
+            className='flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-normal text-center text-gray-900  border-none border-b-2 border-gray-400 w-[140px]'
             type='button'
           >
             Ordernar por{" "}
