@@ -54,7 +54,6 @@ public class ProfessionalServiceImpl implements IProfessionalService {
         professional.setPhone(updatedProfessional.getPhone());
         professional.setLocation(updatedProfessional.getLocation());
         professional.setEmail(updatedProfessional.getEmail());
-        professional.setPassword(updatedProfessional.getPassword());
         professional.setLicense(updatedProfessional.getLicense());
         professional.setExperience(updatedProfessional.getExperience());
         professional.setTraining(updatedProfessional.getTraining());

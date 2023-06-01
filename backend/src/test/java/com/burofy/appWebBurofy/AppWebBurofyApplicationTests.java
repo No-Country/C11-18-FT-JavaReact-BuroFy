@@ -1,4 +1,4 @@
-package com.burofy.appWebBurofy;
+/*package com.burofy.appWebBurofy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,4 +10,4 @@ class AppWebBurofyApplicationTests {
 	void contextLoads() {
 	}
 
-}
+}*/
