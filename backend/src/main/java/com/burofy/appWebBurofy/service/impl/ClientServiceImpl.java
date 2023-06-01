@@ -45,7 +45,6 @@ public class ClientServiceImpl implements IClientService {
         client.setPhone(updatedClient.getPhone());
         client.setLocation(updatedClient.getLocation());
         client.setEmail(updatedClient.getEmail());
-        client.setPassword(updatedClient.getPassword());
         client.setOccupation(updatedClient.getOccupation());
         client.setState(updatedClient.getState());
 
