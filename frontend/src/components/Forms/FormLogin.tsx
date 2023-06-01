@@ -57,10 +57,10 @@ const FormLogin = () => {
               fill='black'
             />
           </svg>
-          <p className='lg:flex lg:mr-[400px]  border-b-2 border-slate-500'>Atrás</p>
+          <p className='lg:flex lg:mr-[420px] border-b-2 border-slate-500'>Atrás</p>
         </Link>
 
-        <h3 className='text-xl font-black self-center mb-14 md:text-2xl lg:text-4xl lg:ml-[-100px]'>
+        <h3 className='text-xl font-black self-center mb-14 md:text-2xl lg:text-4xl lg:mr-[80px]'>
           ¡Bienvenido de nuevo!
         </h3>
         <div className='flex flex-col justify-center items-center'>
@@ -93,7 +93,7 @@ const FormLogin = () => {
             <input
               type={visible ? "text" : "password"}
               id='password'
-              className='block py-2.5 pr-0 pl-4 w-full lg:w-[460px] text-sm text-gray-900 bg-quinary focus:bg-transparent border-0 border-b-2 border-[#2E2E2E] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
+              className='block py-2.5 mb-10 pr-0 pl-4 w-full lg:w-[460px] text-sm text-gray-900 bg-quinary focus:bg-transparent border-0 border-b-2 border-[#2E2E2E] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96'
               placeholder=' '
               required
               {...register("password", {
@@ -126,7 +126,7 @@ const FormLogin = () => {
             )}
           </div>
         </div>
-        <div className='flex flex-col mt-5 capitalize mx-auto gap-12 mb-14 md:flex-row'>
+        {/* <div className='flex flex-col mt-5 capitalize mx-auto gap-12 mb-14 md:flex-row'>
           <div className='flex items-center gap-2'>
             <input
               type='checkbox'
@@ -141,10 +141,10 @@ const FormLogin = () => {
             {" "}
             ¿olvidaste la contraseña?
           </Link>
-        </div>
+        </div> */}
         <ButtonAuth>Iniciar Sesion</ButtonAuth>
-        <div className='flex  mt-14'>
-          <p className='mb-10 max-w-xl mx-auto text-center text-xl relative '>O continúa con</p>
+        <div className='flex  mt-12'>
+          <p className='max-w-xl mx-auto text-center text-xl relative '>O continúa con</p>
         </div>
         <div className='flex mt-6 items-center justify-center flex-col gap-8 lg:flex-row'>
           <ButtonGoogle />
