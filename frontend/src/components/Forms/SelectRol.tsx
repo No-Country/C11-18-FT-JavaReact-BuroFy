@@ -59,7 +59,7 @@ const SelectRol = () => {
             onClick={() => dispatch(setRol("professional"))}
           >
             <Image
-              src='/icon-legal.png'
+              src='/assets/icon-legal.png'
               alt='logo'
               width={70}
               height={35}
