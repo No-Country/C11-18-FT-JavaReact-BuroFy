@@ -45,7 +45,7 @@ export default function ProfessionalInfo(){
         </div>
 
         <div >
-          <h2 className="py-3">Documentación</h2>
+          <h2 className="py-3">Documentación </h2>
           <div className="px-5 border-2 rounded-2xl py-7 border-lilac">
             <p className="pb-5 text-center underline">Diploma.pdf</p>
             <button className="bg-[#2E2E2E] flex text-center lg:flex-col w-[297px] lg:w-[174px] h-[65px] lg:h-[85px] rounded-md">
