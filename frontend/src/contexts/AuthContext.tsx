@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }: PropsType) => {
         const id_token = await user.getIdToken();
         const avatar = user.photoURL;
         setStatusAuth("authenticated");
-
+        console.log(user);
         user.providerData[0].providerId === "password"
           ? dispatch(setUserInitial({ providerId, email, firstName, id, id_token }))
           : dispatch(

@@ -1,11 +1,5 @@
-import { User } from "@/interfaces/user";
+import { Rol, User, UserInitial } from "@/interfaces/user";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-type initialUser = Pick<User, "id" | "id_token" | "providerId" | "firstName" | "email">;
-type initialUserWithProvider = Pick<
-  User,
-  "id" | "id_token" | "providerId" | "avatar" | "firstName" | "email"
->;
 
 const initialState: User = {
   id: "",
@@ -28,18 +22,11 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setRol: (state, action: PayloadAction<string>) => {
+    setRol: (state, action: PayloadAction<Rol>) => {
       state.rol = action.payload;
     },
-    setUserInitial: (state, action: PayloadAction<initialUser>) => {
-      // five state
-      state.firstName = action.payload.firstName;
-      state.id = action.payload.id;
-      state.id_token = action.payload.id_token;
-      state.providerId = action.payload.providerId;
-      state.email = action.payload.email;
-    },
-    setUserInitialWithProvider: (state, action: PayloadAction<initialUserWithProvider>) => {
+    setUserInitial: (state, action: PayloadAction<UserInitial>) => {
+      // six state
       state.firstName = action.payload.firstName;
       state.id = action.payload.id;
       state.id_token = action.payload.id_token;
@@ -67,5 +54,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setRol, setUserInitial, logoutUser, setUserInitialWithProvider } = userSlice.actions;
+export const { setRol, setUserInitial, logoutUser} = userSlice.actions;
 export default userSlice.reducer;

@@ -8,6 +8,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { firebase_auth } from "./firebase";
+import { UserInitial } from "@/interfaces/user";
 
 interface Inputs {
   email: string;
@@ -33,11 +34,11 @@ export const sing_in = async (type_provider: ProviderType) => {
     const id_token = await resp.user.getIdToken();
     const providerId = resp.user.providerData[0].providerId as any;
 
-    const user = {
+    const user: Omit<UserInitial, "rol"> = {
       id: uid,
       id_token,
       providerId,
-      firstname: displayName,
+      firstName: displayName,
       email,
       avatar: photoURL,
     };
@@ -61,6 +62,7 @@ export const sign_in_with_credentials = async ({
       id_token,
       providerId: resp.user.providerData[0].providerId,
     };
+    
     console.log(user);
     return { user };
   } catch (e) {
@@ -77,12 +79,13 @@ export const sign_up_with_credentials = async ({ email, password, displayName }:
       updateProfile(firebase_auth.currentUser!, { displayName }),
     ]);
 
-    const user = {
+    const user: Omit<UserInitial, "rol"> = {
       id: resp.user.uid,
-      firstName: displayName,
       email,
+      firstName: String(displayName),
       providerId: resp.user.providerData[0].providerId,
       id_token,
+      avatar: null,
     };
 
     return { user };

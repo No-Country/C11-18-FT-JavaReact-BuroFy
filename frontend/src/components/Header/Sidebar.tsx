@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Avatar from "../Avatars/Avatar";
+import SearchBar from "../SearchBar";
 
 const Sidebar = () => {
   return (
@@ -20,13 +21,14 @@ const Sidebar = () => {
         height={52}
         className='md:hidden bg-no-repeat'
       />
-      <div className='hidden md:flex md:flex-col md:grow-1 md:shrink-1 md:ml-[180px] '>
-        <h5 className='mb-3 font-bold text-secundary text-white leading-[39.06px] lg:ml-[-600px] '>
+      <div className='hidden md:flex md:flex-col md:grow-1 md:shrink-1  '>
+        <h5 className='mb-3 font-bold text-secundary text-white leading-[39.06px]  '>
           Encuentra a tu especialista
         </h5>
-        <h6 className='text-lg font-normal text-white leading-[26.04px] lg:ml-[-600px]'>
+        <h6 className='text-lg font-normal text-white leading-[26.04px] '>
           Haz “match” con un profesional y agenda una consulta
         </h6>
+        <SearchBar />
       </div>
       <Avatar />
     </header>

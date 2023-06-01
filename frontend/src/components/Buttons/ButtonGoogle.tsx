@@ -3,7 +3,6 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { useAppDispatch } from "@/hooks";
 import { sing_in } from "@/lib/firebase_auth";
-import { setUserInitialWithProvider } from "@/redux/features/userSlice";
 import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 
@@ -11,12 +10,12 @@ const ButtonGoogle = () => {
   const dispatch = useAppDispatch();
   const { setStatusAuth } = useAuth();
   const router = useRouter();
+
   const handleGoogle = async () => {
     setStatusAuth("checking");
     try {
       const { user } = await sing_in("google");
       if (user) {
-        dispatch(setUserInitialWithProvider(user as any));
         setStatusAuth("authenticated");
         router.push("/");
       }
@@ -27,7 +26,7 @@ const ButtonGoogle = () => {
   return (
     <button
       onClick={handleGoogle}
-      className='p-2 flex w-50 h-14 transition shadow-lg hover:scale-110 active:scale-110 bg-white items-center rounded-lg text-xs gap-1 lg:w-56 lg:text-sm'
+      className='button-provider'
     >
       <FcGoogle className='flex ml-1 text-lg w-7 h-7' />
       Inica sesión con Google

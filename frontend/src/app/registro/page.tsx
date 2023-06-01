@@ -6,7 +6,7 @@ export const metadata = {
 
 const RegisterPage = () => {
   return (
-    <section className='h-screen w-full flex flex-col items-center px-4 pt-10 bg-white md:p-24 lg:p-0 lg:flex-row lg:justify-between lg:items-start overflow-x-hidden order-1'>
+    <section className='h-screen w-full flex flex-col items-center px-4 pt-10 bg-white md:p-24 lg:p-0 lg:flex-row lg:justify-between lg:items-start overflow-hidden order-1 absolute top-0 left-0'>
       <SelectRol />
       <Heroimage />
     </section>

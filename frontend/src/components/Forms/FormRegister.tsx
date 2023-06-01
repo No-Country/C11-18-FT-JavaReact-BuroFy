@@ -1,25 +1,27 @@
 "use client";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { setUserInitial } from "@/redux/features/userSlice";
+import { SignUp } from "@/interfaces/auth";
+import { createUser } from "@/lib";
 import ButtonFacebook from "../Buttons/ButtonFacebook";
 import ButtonGoogle from "../Buttons/ButtonGoogle";
+import ButtonAuth from "../Buttons/ButtonAuth";
+import ButtonBack from "../Buttons/ButtonBack";
+import ErrorMsg from "../ErrorMsg";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
-import { useState } from "react";
-import ButtonAuth from "../Buttons/ButtonAuth";
-import ErrorMsg from "../ErrorMsg";
-import { SignUp } from "@/interfaces/auth";
-import { useRouter } from "next/navigation";
-import { sign_up_with_credentials } from "@/lib/firebase_auth";
-import { useAuth } from "@/contexts/AuthContext";
-import { useAppDispatch } from "@/hooks";
-import { setUserInitial } from "@/redux/features/userSlice";
-import Link from "next/link";
 
 export default function FormRegister() {
   const { setStatusAuth } = useAuth();
   const [visible, setVisible] = useState(false);
   const dispatch = useAppDispatch();
+  const { rol } = useAppSelector((state) => state.user);
   const router = useRouter();
+  
   const {
     register,
     handleSubmit,
@@ -32,9 +34,9 @@ export default function FormRegister() {
     setStatusAuth("checking");
     try {
       if (data) {
-        const { user } = await sign_up_with_credentials({ email, password, displayName });
+        const user = await createUser({ password, email, displayName, rol });
+        dispatch(setUserInitial(user));
         console.log(user);
-        dispatch(setUserInitial(user as any));
         setStatusAuth("authenticated");
         router.push("/");
       }
@@ -46,22 +48,7 @@ export default function FormRegister() {
   return (
     <div className='flex flex-col order-4 w-full h-auto mx-auto mb-6 md:items-center lg:mt-20 lg:mb-0'>
       <div className='flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full'>
-        <Link className='flex gap-2' href='/registro'>
-          <svg
-            className='lg:mt-[7px]'
-            width='5'
-            height='8'
-            viewBox='0 0 5 8'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              d='M0.646447 3.64645C0.451184 3.84171 0.451184 4.15829 0.646447 4.35355L3.82843 7.53553C4.02369 7.7308 4.34027 7.7308 4.53553 7.53553C4.7308 7.34027 4.7308 7.02369 4.53553 6.82843L1.70711 4L4.53553 1.17157C4.7308 0.976311 4.7308 0.659728 4.53553 0.464466C4.34027 0.269204 4.02369 0.269204 3.82843 0.464466L0.646447 3.64645ZM1.87924 4.5C2.15539 4.5 2.37924 4.27614 2.37924 4C2.37924 3.72386 2.15539 3.5 1.87924 3.5V4.5ZM1 4.5H1.87924V3.5H1V4.5Z'
-              fill='black'
-            />
-          </svg>
-          <p className='lg:flex lg:mr-[400px] lg:mb-6 border-b-2 border-slate-500'>Atrás</p>
-        </Link>
+        <ButtonBack />
 
         <h3 className=' text-xl font-black md:text-2xl lg:text-3xl'>Registro de nuevo usuario</h3>
         <h4 className='flex justify-center my-6 space-x-10 text-sm lg:text-lg'>

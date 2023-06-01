@@ -1,17 +1,18 @@
 "use client";
-import { useForm } from "react-hook-form";
+
 import Link from "next/link";
-import { useState } from "react";
-import { SignIn } from "@/interfaces/auth";
-import { AiFillEyeInvisible } from "react-icons/ai";
-import { AiFillEye } from "react-icons/ai";
-import ButtonAuth from "../Buttons/ButtonAuth";
-import { sign_in_with_credentials } from "@/lib/firebase_auth";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useForm } from "react-hook-form";
+import { SignIn } from "@/interfaces/auth";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { sign_in_with_credentials } from "@/lib/firebase_auth";
+import ButtonAuth from "../Buttons/ButtonAuth";
 import ButtonGoogle from "../Buttons/ButtonGoogle";
 import ButtonFacebook from "../Buttons/ButtonFacebook";
 import ErrorMsg from "../ErrorMsg";
-import { useAuth } from "@/contexts/AuthContext";
+import ButtonBack from "../Buttons/ButtonBack";
 
 const FormLogin = () => {
   const { setStatusAuth } = useAuth();
@@ -43,22 +44,7 @@ const FormLogin = () => {
         className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center order-4 lg:mt-36 '
         onSubmit={handleSubmit(onSubmit)}
       >
-        <Link className='lg:flex lg:gap-2 hidden ' href='/registro'>
-          <svg
-            className='lg:mt-[7px]'
-            width='5'
-            height='8'
-            viewBox='0 0 5 8'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              d='M0.646447 3.64645C0.451184 3.84171 0.451184 4.15829 0.646447 4.35355L3.82843 7.53553C4.02369 7.7308 4.34027 7.7308 4.53553 7.53553C4.7308 7.34027 4.7308 7.02369 4.53553 6.82843L1.70711 4L4.53553 1.17157C4.7308 0.976311 4.7308 0.659728 4.53553 0.464466C4.34027 0.269204 4.02369 0.269204 3.82843 0.464466L0.646447 3.64645ZM1.87924 4.5C2.15539 4.5 2.37924 4.27614 2.37924 4C2.37924 3.72386 2.15539 3.5 1.87924 3.5V4.5ZM1 4.5H1.87924V3.5H1V4.5Z'
-              fill='black'
-            />
-          </svg>
-          <p className='lg:flex lg:mr-[400px] lg:mb-5 border-b-2 border-slate-500'>Atrás</p>
-        </Link>
+        <ButtonBack />
 
         <h3 className='text-xl font-black self-center mb-14 md:text-2xl lg:text-4xl lg:ml-[-100px]'>
           ¡Bienvenido de nuevo!

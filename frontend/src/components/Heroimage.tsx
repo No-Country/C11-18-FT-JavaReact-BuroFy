@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 const Heroimage = () => {
   return (
     <div className='hidden lg:block lg:order-1 w-full h-screen relative'>
