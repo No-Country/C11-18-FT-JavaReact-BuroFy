@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -44,8 +43,7 @@ const FormLogin = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <ButtonBack />
-
-        <h3 className='text-xl font-black self-center mb-14 md:text-2xl lg:text-4xl lg:ml-[-100px]'>
+        <h3 className='text-xl font-black self-center mb-6 md:text-2xl lg:text-4xl lg:ml-[-100px]'>
           ¡Bienvenido de nuevo!
         </h3>
         <div className='flex flex-col justify-center items-center'>
@@ -122,16 +120,12 @@ const FormLogin = () => {
               recordarme
             </label>
           </div>
-          <Link href='/acceso' className='text-lg hover:underline hover:scale-105 transition'>
-            {" "}
-            ¿olvidaste la contraseña?
-          </Link>
         </div>
         <ButtonAuth>Iniciar Sesion</ButtonAuth>
         <div className='flex  mt-14'>
-          <p className='mb-10 max-w-xl mx-auto text-center text-xl relative '>O continúa con</p>
+          <p className='mb-4 md:mb-10 max-w-xl mx-auto text-center text-xl relative '>O continúa con</p>
         </div>
-        <div className='flex mt-6 items-center justify-center flex-col gap-8 lg:flex-row'>
+        <div className='flex mt-4 items-center justify-center flex-col gap-8 lg:flex-row'>
           <ButtonGoogle />
         </div>
       </form>

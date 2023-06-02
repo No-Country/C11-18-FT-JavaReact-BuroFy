@@ -19,11 +19,11 @@ const Header = () => {
         </>
       ) : (
         <>
-          <div className='md:hidden absolute top-10 left-[50%] translate-x-[-50%]'>
+          <div className='md:hidden absolute top-4 left-[50%] translate-x-[-50%] z-[55]'>
             <Image
               src='/assets/title-burofy.svg'
-              width={200}
-              height={100}
+              width={120}
+              height={80}
               alt='title burofy white'
             />
           </div>

@@ -46,16 +46,19 @@ export default function FormRegister() {
   };
 
   return (
-    <div className='flex flex-col order-4 w-full h-auto mx-auto mb-6 md:items-center lg:mt-20 lg:mb-0'>
-      <div className='flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full'>
+    <div className=' flex flex-col order-4 w-full h-auto mx-auto mb-6 md:items-center lg:mt-20 lg:mb-0'>
+      <div className='mb-8 flex flex-col items-center justify-center h-full bg-white md:w-full md:h-full'>
         <ButtonBack />
 
-        <h3 className=' text-xl font-black md:text-2xl lg:text-3xl'>Registro de nuevo usuario</h3>
-        <h4 className='flex justify-center my-6 space-x-10 text-sm lg:text-lg'>
+        <h3 className='text-xl font-black self-center mb-6 md:text-2xl lg:text-4xl lg:ml-[-100px]'>Registro de nuevo usuario</h3>
+        <h4 className='font-bold flex justify-center my-6 space-x-10 text-sm lg:text-lg'>
           Crea tu usuario y recibí asistencia legal ¡ya!
         </h4>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className='flex flex-col w-full gap-10 px-3 m-auto space-y-4 text-left'>
+        <form
+          className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center lg:mt-36'
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className='w-full flex flex-col gap-10 m-auto space-y-4 text-left'>
             <div className='relative z-0 w-full group'>
               <input
                 type='text'
@@ -124,13 +127,13 @@ export default function FormRegister() {
               {errors.password && <ErrorMsg>{errors.password?.message as string}</ErrorMsg>}
               {visible ? (
                 <AiFillEye
-                  className='absolute right-4 top-[10%] lg:left-[20rem] lg:absolute'
+                  className='absolute right-4 top-[15%] cursor-pointer'
                   size={25}
                   onClick={() => setVisible(false)}
                 />
               ) : (
                 <AiFillEyeInvisible
-                  className='absolute right-4 top-[10%] lg:left-[20rem] lg:absolute'
+                  className='absolute right-4 top-[15%] cursor-pointer'
                   size={25}
                   onClick={() => setVisible(true)}
                 />
@@ -173,11 +176,11 @@ export default function FormRegister() {
         <div>
           <span>O continúa con</span>
         </div>
-        <div className='flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 md:gap-8 md:flex-row'>
+        <div className='w-full flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 md:gap-8 md:flex-row'>
           <ButtonGoogle />
         </div>
-        <footer className='absolute mt-4 text-xs bottom-4'>Burofy genera conexiones</footer>
       </div>
+      <footer className='self-center text-xs'>Burofy genera conexiones</footer>
     </div>
   );
 }
