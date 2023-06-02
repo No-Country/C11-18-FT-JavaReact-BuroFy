@@ -6,7 +6,8 @@ export interface UserClientContent {
 }
 
 export interface UserProfessionalContent {
-  professionalDocument?: string | null;
+  dni?: string | null;
+  enrollment?: string | null;
   experience?: string | null;
   training?: string | null;
   diploma?: string | null;

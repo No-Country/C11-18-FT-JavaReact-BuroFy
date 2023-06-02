@@ -56,11 +56,10 @@ export const sign_in_with_credentials = async ({
     const id_token = await resp.user.getIdToken();
 
     const user = {
-      uid: resp.user.uid,
+      id: resp.user.uid,
       id_token,
     };
 
-    console.log(user);
     return { user };
   } catch (e) {
     console.log(e);
