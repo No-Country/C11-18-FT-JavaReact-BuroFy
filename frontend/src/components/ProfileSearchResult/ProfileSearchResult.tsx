@@ -1,4 +1,4 @@
-"use Client";
+"use client";
 import React from "react";
 import AboutProfessional from "./AboutProfessional";
 import MoreInfo from "./MoreInfo";
@@ -12,9 +12,9 @@ import ProfileHeaderView from "./ProfileHeaderView";
 export default function ProfileSearchResult(){
   return(
     <>
-      <div className="md:absolute ">
+      <div className=" md:absolute">
         <ProfileHeaderView/> 
-        <div className="xl:flex xl:flex-row-reverse ">
+        <div className="items-start xl:flex xl:flex-row-reverse">
           <div className="-mt-[62px] space-y-4">
             <div>
               <AboutProfessional/>
@@ -24,8 +24,8 @@ export default function ProfileSearchResult(){
               </div>
             </div>
           </div>
-          <div className="space-y-4 xl:overflow-hidden">
-            <div className="xl:overflow-y-scroll">
+          <div className="space-y-4 xl:overflow-y-scroll">
+            <div className="max-w-[700px]">
               <AboutMe /> 
               <ConsultProfessional/>
               <ReviewsProfessional/>
