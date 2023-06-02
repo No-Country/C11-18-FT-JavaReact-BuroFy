@@ -5,12 +5,13 @@ import { MdVerified } from "react-icons/md";
 export default function MoreInfo(){
   return(
     <>
-      <div className="p-4">
+      <div className="p-4 xl:flex xl:flex-col xl:justify-center xl:items-center xl:h-[222px] xl:bg-[#2e2e2e20] xl:border xl:border-[#ababab] xl:w-[355px] space-y-4 font-primary-roboto">
+        
         <header>
-          <h1 className="text-[16px] font-bold">Más información</h1>
+          <h1 className="text-[20px] font-bold xl:text-center">Más información</h1>
         </header>
-        <div className="flex space-x-6" >
-          <span className="flex space-x-4">
+        <div className="flex space-x-6 xl:flex-col-reverse xl:justify-center xl:items-center xl:space-x-0" >
+          <span className="flex space-x-4 xl:pt-4">
             <p>Perfil verificado</p>
             <MdVerified size={25} color="green" />
           </span>

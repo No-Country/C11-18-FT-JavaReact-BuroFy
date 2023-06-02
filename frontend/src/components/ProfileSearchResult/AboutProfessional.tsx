@@ -6,11 +6,11 @@ import React from "react";
 export default function AboutProfessional(){
   return(
     <>
-      <div className="p-3 font-primary-roboto">
+      <div className="p-3 pt-24 xl:items-center xl:flex xl:flex-col xl:justify-center xl:h-[378px] xl:w-[355px] xl:bg-[#2e2e2e20] xl:border xl:border-[#ababab] font-primary-roboto">
         <header>
-          <h1 className="text-[20px] font-bold">Sobre el profesional</h1>
+          <h1 className="text-[20px] xl:text-center font-bold">Sobre el profesional</h1>
         </header>
-        <div className="flex m-3 space-x-5">
+        <div className="flex justify-between m-3 xl:justify-center xl:items-center xl:space-y-6 xl:pb-3 xl:flex-col">
           <span className="min-w-[135px]">
             <h1 className="text-[16px] font-bold">Ubicacion</h1>
             <p className="text-[14px] ">Capital Federal, Buenos Aires</p>

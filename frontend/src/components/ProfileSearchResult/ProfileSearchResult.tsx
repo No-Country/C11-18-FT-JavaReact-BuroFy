@@ -5,21 +5,32 @@ import MoreInfo from "./MoreInfo";
 import AboutMe from "./AboutMe";
 import ConsultProfessional from "./ConsultProfessional";
 import ReviewsProfessional from "./ReviewsProfessional";
+import ProfileHeaderView from "./ProfileHeaderView";
 
 
 
 export default function ProfileSearchResult(){
   return(
     <>
-      <div>
-        <div>
-          <AboutProfessional/>
-          <MoreInfo/>
-        </div>
-        <div>
-          <AboutMe />
-          <ConsultProfessional/>
-          <ReviewsProfessional/>
+      <div className="md:absolute ">
+        <ProfileHeaderView/> 
+        <div className="xl:flex xl:flex-row-reverse ">
+          <div className="-mt-[62px] space-y-4">
+            <div>
+              <AboutProfessional/>
+              <MoreInfo/>
+              <div className="hidden xl:bg-[#2e2e2e20] xl:justify-center xl:items-center xl:border xl:border-[#ababab] xl:flex xl:h-[145px] w-[355px]">
+                <button className="bg-sixnary font-bold font-primary-roboto w-[241px] text-white h-[48px]">Realizar reserva</button>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-4 xl:overflow-hidden">
+            <div className="xl:overflow-y-scroll">
+              <AboutMe /> 
+              <ConsultProfessional/>
+              <ReviewsProfessional/>
+            </div>
+          </div>
         </div>
       </div>
     </>

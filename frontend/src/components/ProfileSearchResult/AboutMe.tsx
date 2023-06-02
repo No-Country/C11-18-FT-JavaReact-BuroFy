@@ -6,7 +6,7 @@ import React from "react";
 export default function AboutMe(){
   return(
     <>
-      <div className="p-5 space-y-5 font-primary-roboto">
+      <div className="p-5 space-y-5 font-primary-roboto xl:mt-10">
         <div>
           <h1 className="text-[18px] pb-2 font-bold">Sobre mi</h1>
           <p className="text-[14px]">Mi objetivo principal es brindar un servicio legal excepcional, brindando soluciones efectivas y personalizadas a los desafíos legales que enfrentan mis clientes. Si estás buscando asesoramiento legal en materia migratoria o necesitas ayuda con contratos, estaré encantado de ayudarte a alcanzar tus objetivos legales de manera eficiente y profesional.</p>
