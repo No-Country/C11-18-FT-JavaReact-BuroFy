@@ -6,7 +6,7 @@ export default function CardServices() {
   return (
     <>
       <div className=' bg-white mb-3 border-2 border-[#C600E0] rounded-lg drop-shadow-xl lg:border-[3px] w-[363px] lg:w-[459px] lg:h-auto'>
-        <div className='flex justify-between rounded-tr-lg rounded-tl-lg bg-[#EBEBEB] lg:w-[453px] lg:h-[60px] lg:items-center'>
+        <div className='flex justify-between rounded-tr-lg rounded-tl-lg bg-[#EBEBEB] lg:w-[453px]  lg:h-[60px] lg:items-center'>
           <h1 className='lg:font-bold lg:text-[20px] m-5 lg:leading-[26px]'>Mis servicios</h1>
           <label className='mb-2 text-sm font-medium text-gray-900 sr-only'>Your Email</label>
           <button
@@ -62,7 +62,7 @@ export default function CardServices() {
           </div>
         </div>
         <div className='p-3 lg:p-4 lg:mt-1 space-y-4 '>
-          <div className='flex flex-col lg:flex-col w-[337px] h-[100px] p-2 bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[126px] lg:mb-3 lg:p-1.5'>
+          <div className='flex flex-col lg:flex-col w-[337px] h-[138px] p-2 bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[126px] lg:mb-3 lg:p-1.5'>
             <div className='flex ms-2 mt-1 lg:mt-0 lg:ms-0 lg:flex lg:p-3 lg: lg:gap-10 mb-2 lg:mb-0'>
               <div className='flex items-center'>
                 <p className='text-xs lg:font-normal leading-[14px]'>N° del servicio:</p>
@@ -77,19 +77,20 @@ export default function CardServices() {
                 </p>
               </div>
             </div>
-            <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
+            <div className='flex mt-10 lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between absolute '>
               <Image src="/stub/imgprofile2.png" width={50} height={50} alt='profile' />
-              <div className='flex flex-col lg:flex-col'>
-                <p className='lg:ml-0 ml-2 lg:px-0 lg:font-bold lg:text-sm'>Carlos Fernandez</p>
-                <span className='lg:flex bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mt-1 mr-2 lg:ml-0 ml-2 px-2.5 py-0.5 rounded-full '>
+              <div className='flex flex-col lg:flex-col w-[180px]'>
+                <p className='lg:ml-0 ml-2 lg:px-0 lg:font-bold lg:text-sm w-[220px]'>Carlos Fernandez Gutierrez</p>
+                <span className='lg:flex bg-[#D0D0D0] text-[#2E2E2E] w-[135px] text-xs font-normal mt-1 mr-2 lg:ml-0 ml-2 px-2.5 py-0.5 rounded-full '>
                   Abogado Migratorío
                 </span>
               </div>
-              <div className='flex'>
-                <span className='bg-[#D8D8FE] text-[#3C3CA7] lg:h-[29px] ms-4 text-xs font-normal px-4 w-[full] py-1.5 rounded-full self-center lg:ml-20'>
+             
+            </div>
+            <div className='flex relative top-[60px] left-[200px] lg:top-5 lg:left-[220px]'>
+              <span className='bg-[#D8D8FE] text-[#3C3CA7] lg:h-[29px] ms-4 text-xs font-normal px-4 w-[full] py-1.5 rounded-full self-center lg:ml-20'>
                   En progreso
-                </span>
-              </div>
+              </span>
             </div>
           </div>
           
@@ -148,7 +149,7 @@ export default function CardServices() {
                 </span>
               </div>
               <div className='flex'>
-                <span className='bg-[#D0D0D0] text-[#2E2E2E] lg:h-[29px] ms-4 text-xs font-normal px-4 w-[full] py-1.5 rounded-full self-center lg:ml-20'>
+                <span className='bg-[#D0D0D0] text-[#2E2E2E] lg:h-[29px] ms-4 text-xs font-normal px-4 w-[97px] py-1.5 rounded-full self-center lg:ml-20 text-center'>
                   Cerrado
                 </span>
               </div>
