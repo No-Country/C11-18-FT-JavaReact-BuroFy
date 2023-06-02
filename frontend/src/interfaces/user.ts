@@ -2,12 +2,13 @@ import { Address, Phone } from "./serializers/common";
 import { UserClientContent, UserProfessionalContent } from "./serializers/user";
 
 export type Rol = "client" | "professional";
+export type ProviderType = "facebook" | "google";
 
 export interface User {
-  id: string | number;
+  id: string;
   id_token: string;
-  providerId: string | null;
-  email: string;
+  providerId: ProviderType | string;
+  email: string | null;
   rol: Rol | string;
   firstName: string | null;
   rolContent?: UserClientContent | UserProfessionalContent | null;
@@ -19,3 +20,8 @@ export interface User {
   avatar?: string | null;
   verified?: boolean;
 }
+
+export type UserInitial = Pick<
+  User,
+  "id" | "id_token" | "providerId" | "firstName" | "email" | "avatar" | "rol" | "rolContent"
+>;

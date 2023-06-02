@@ -1,11 +1,12 @@
 "use client";
+import { FormEvent } from "react";
 import Image from "next/image";
-import { BsFillPersonFill } from "react-icons/bs";
-import ButtonAuth from "../Buttons/ButtonAuth";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setRol } from "@/redux/features/userSlice";
-import { FormEvent } from "react";
+import ButtonAuth from "../Buttons/ButtonAuth";
+import { Rol } from "@/interfaces/user";
+import { BsFillPersonFill } from "react-icons/bs";
 
 const SelectRol = () => {
   const router = useRouter();
@@ -16,17 +17,19 @@ const SelectRol = () => {
     e.preventDefault();
     // verify of rol (only client for moment!)
     if (rol) {
-      rol === "client" ? router.push("/registro/cliente") : router.push("/registro");
+      (rol as Rol) === "client"
+        ? router.push("/registro/cliente")
+        : router.push("/registro/profesional");
     }
   };
 
   return (
-    <article className='flex flex-col order-4 gap-9 w-full h-screen justify-start items-center lg:mt-36'>
+    <article className='flex flex-col order-4 gap-8 w-full h-screen justify-start items-center lg:mt-36'>
       <div className='w-[353px] h-[134px] lg:w-[653px] flex flex-col items-center'>
         <h2 className='font-bold text-2xl mt-14 lg:text-4xl leading-10 text-center'>
           ¿Cómo deseas registrarte?
         </h2>
-        <h3 className='text-base mt-4 lg:mt-8 lg:text-xl leading-7 text-center'>
+        <h3 className='font-bold text-base mt-4 lg:mt-8 lg:text-xl leading-7 text-center'>
           Nosotros ajustamos la experiencia a tus nesecidades.
         </h3>
       </div>
@@ -78,9 +81,8 @@ const SelectRol = () => {
         <ButtonAuth>Crear cuenta</ButtonAuth>
       </form>
 
-      <footer className='w-[279px] h-[66px] mt-24 lg:absolute lg:w-[400px] lg:mt-[34rem] lg:flex lg:justify-center lg:gap-2'>
+      <footer className='h-[66px] flex flex-col justify-center items-center mt-16 lg:absolute lg:w-[400px] lg:mt-[34rem] lg:gap-2'>
         <h4 className='leading-5 text-lg lg:self-baseline'>¿Ya estas registrado?</h4>
-
         <button
           className='text-lilac font-bold leading-5 underline hover:scale-110 transition active:scale-90 mt-8 cursor-pointer lg:cursor-pointer lg:mt-[-2.5rem] lg:self-baseline'
           onClick={() => router.push("/acceso")}

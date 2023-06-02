@@ -1,5 +1,3 @@
-// import CardApplicationEmpty from "@/components/CardApplicationEmpty";
-// import CardReviewEmpty from "@/components/CardReviewEmpty";
 import { CardServices, CardReview } from "@/components";
 
 const HomePage = () => {
@@ -13,7 +11,6 @@ const HomePage = () => {
           {/* <CardReviewEmpty />
           <CardApplicationEmpty /> */}
         </article>
-
       </section>
       <footer className='flex justify-center mt-[250px] md:hidden lg:hidden'>
         <span className='text-center text-xs font-normal'>Burofy genera conexiones.</span>

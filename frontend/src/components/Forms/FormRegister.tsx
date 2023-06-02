@@ -1,25 +1,26 @@
 "use client";
 import { useForm } from "react-hook-form";
-import ButtonFacebook from "../Buttons/ButtonFacebook";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { setUserInitial } from "@/redux/features/userSlice";
+import { SignUp } from "@/interfaces/auth";
 import ButtonGoogle from "../Buttons/ButtonGoogle";
+import ButtonAuth from "../Buttons/ButtonAuth";
+import ButtonBack from "../Buttons/ButtonBack";
+import ErrorMsg from "../ErrorMsg";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
-import { useState } from "react";
-import ButtonAuth from "../Buttons/ButtonAuth";
-import ErrorMsg from "../ErrorMsg";
-import { SignUp } from "@/interfaces/auth";
-import { useRouter } from "next/navigation";
-import { sign_up_with_credentials } from "@/lib/firebase_auth";
-import { useAuth } from "@/contexts/AuthContext";
-import { useAppDispatch } from "@/hooks";
-import { setUserInitial } from "@/redux/features/userSlice";
-import Link from "next/link";
+import { createUser } from "@/lib/services-burofy/createUser";
 
 export default function FormRegister() {
   const { setStatusAuth } = useAuth();
   const [visible, setVisible] = useState(false);
   const dispatch = useAppDispatch();
+  const { rol } = useAppSelector((state) => state.user);
   const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -29,12 +30,13 @@ export default function FormRegister() {
 
   const onSubmit = async (data: SignUp) => {
     const { password, email, displayName } = data;
+    console.log(data);
     setStatusAuth("checking");
     try {
       if (data) {
-        const { user } = await sign_up_with_credentials({ email, password, displayName });
+        const user = await createUser({ password, email, displayName, rol } as SignUp);
+        dispatch(setUserInitial(user));
         console.log(user);
-        dispatch(setUserInitial(user as any));
         setStatusAuth("authenticated");
         router.push("/");
       }
@@ -44,22 +46,22 @@ export default function FormRegister() {
   };
 
   return (
-    <div className='flex flex-col order-4 w-full h-auto mx-auto mb-2 md:items-center lg:mt-20 lg:mb-0'>
-      <div className='flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full'>
-        <Link className='hidden lg:flex gap-2 text-start' href='/registro'>
-          <svg width="16" height="16" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1.25 9L18.75 9M1.25 9L8.75 1.5M1.25 9L8.75 16.5" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <p className='hidden lg:flex lg:mr-[400px] lg:mb-6 border-b-2 border-slate-500'>Atrás</p>
-        </Link>
+    <div className=' flex flex-col order-4 w-full h-auto mx-auto mb-6 md:items-center lg:mt-20 lg:mb-0'>
+      <div className='mb-8 flex flex-col items-center justify-center h-full bg-white md:w-full md:h-full'>
+        <ButtonBack />
 
-        <h3 className='text-xl font-black md:text-2xl lg:text-3xl leading-[33.85px]'>Registro de nuevo usuario</h3>
-        <h4 className='flex text-center my-6 px-20 font-medium text-sm lg:text-lg'>
-          Crea tu usuario y recibí asistencia legal ¡Ya!
+        <h3 className='text-xl font-black self-center mb-6 md:text-2xl lg:text-4xl lg:ml-[-100px]'>
+          Registro de nuevo usuario
+        </h3>
+        <h4 className='font-bold flex justify-center my-6 space-x-10 text-sm lg:text-lg'>
+          Crea tu usuario y recibí asistencia legal ¡ya!
         </h4>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className='flex flex-col w-full gap-4 lg:gap-10 m-auto space-y-4 text-left'>
-            <div className='relative z-0 w-[353px] group'>
+        <form
+          className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center lg:mt-36'
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className='w-full flex flex-col gap-10 m-auto space-y-4 text-left'>
+            <div className='relative z-0 w-full group'>
               <input
                 type='text'
                 id='name'
@@ -176,12 +178,11 @@ export default function FormRegister() {
         <div>
           <span>O continúa con</span>
         </div>
-        <div className='flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 md:gap-8 md:flex-row'>
-          <ButtonGoogle />
-          <ButtonFacebook />
-        </div>
+        <ButtonGoogle />
+        
         <footer className='hidden lg:absolute mt-4 text-xs bottom-4'>Burofy genera conexiones</footer>
       </div>
+      <footer className='self-center text-xs'>Burofy genera conexiones</footer>
     </div>
   );
 }

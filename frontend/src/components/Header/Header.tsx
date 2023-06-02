@@ -19,8 +19,13 @@ const Header = () => {
         </>
       ) : (
         <>
-          <div className='md:hidden flex justify-center mt-5'>
-            <Image src='/assets/title-burofy.svg' width={200} height={100} alt='title burofy white' />
+          <div className='md:hidden absolute top-4 left-[50%] translate-x-[-50%] z-[55]'>
+            <Image
+              src='/assets/title-burofy.svg'
+              width={120}
+              height={80}
+              alt='title burofy white'
+            />
           </div>
         </>
       )}

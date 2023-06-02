@@ -1,4 +1,5 @@
 import React, { Dispatch } from "react";
+import { Rol } from "./user";
 
 export type Status = "authenticated" | "no-authenticated" | "checking";
 
@@ -11,7 +12,9 @@ export interface SignIn {
 export interface SignUp {
   email: string;
   password: string;
+  isProvider?: boolean;
   displayName?: string;
+  rol?: Rol;
   confirmPassword?: string;
 }
 
