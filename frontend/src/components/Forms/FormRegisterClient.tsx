@@ -35,10 +35,13 @@ export default function FormRegister() {
     try {
       if (data) {
         const user = await createUser({ password, email, displayName, rol } as SignUp);
-        dispatch(setUserInitial(user));
-        console.log(user);
-        setStatusAuth("authenticated");
-        router.push("/");
+        if (user) {
+          dispatch(setUserInitial(user));
+          setStatusAuth("authenticated");
+          router.push("/");
+        } else {
+          throw new Error("user not found");
+        }
       }
     } catch (error) {
       console.log((error as Error).message);

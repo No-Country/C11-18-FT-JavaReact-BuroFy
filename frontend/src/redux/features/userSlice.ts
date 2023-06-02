@@ -11,11 +11,10 @@ const initialState: User = {
   rolContent: null,
   providerId: "",
   birthday: null,
-  dni: "",
   phone: null,
   address: null,
   avatar: null,
-  verified: false,
+  verified: "no-authenticated",
 };
 
 const userSlice = createSlice({
@@ -25,14 +24,34 @@ const userSlice = createSlice({
     setRol: (state, action: PayloadAction<Rol>) => {
       state.rol = action.payload;
     },
+    setVerified: (state, action: PayloadAction<Pick<User, "verified">>) => {
+      state.verified = action.payload.verified;
+    },
     setUserInitial: (state, action: PayloadAction<UserInitial>) => {
-      // six state
+      // seven state
       state.firstName = action.payload.firstName;
       state.id = action.payload.id;
       state.id_token = action.payload.id_token;
       state.providerId = action.payload.providerId;
       state.email = action.payload.email;
       state.avatar = action.payload.avatar;
+      state.rol = action.payload.rol;
+      state.rolContent = action.payload.rolContent;
+      state.verified = "authenticated";
+    },
+    setCredentials: (state, action: PayloadAction<User>) => {
+      state.firstName = action.payload.firstName;
+      state.id = action.payload.id;
+      state.id_token = action.payload.id_token;
+      state.providerId = action.payload.providerId;
+      state.email = action.payload.email;
+      state.avatar = action.payload.avatar;
+      state.rol = action.payload.rol;
+      state.rolContent = action.payload.rolContent;
+      state.address = action.payload.address || null;
+      state.phone = action.payload.phone || null;
+      state.birthday = action.payload.birthday || null;
+      state.verified = "authenticated";
     },
     logoutUser: (state) => {
       // all states of user
@@ -45,14 +64,14 @@ const userSlice = createSlice({
       state.rolContent = null;
       state.providerId = "";
       state.birthday = null;
-      state.dni = "";
       state.phone = null;
       state.address = null;
       state.avatar = null;
-      state.verified = false;
+      state.verified = "no-authenticated";
     },
   },
 });
 
-export const { setRol, setUserInitial, logoutUser } = userSlice.actions;
+export const { setRol, setUserInitial, logoutUser, setVerified, setCredentials } =
+  userSlice.actions;
 export default userSlice.reducer;

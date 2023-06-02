@@ -1,4 +1,4 @@
-import { CardServices, CardReview, CardApplicationEmpty, CardReviewEmpty } from "@/components";
+import { CardApplicationEmpty, CardReviewEmpty } from "@/components";
 
 const HomePage = () => {
   return (

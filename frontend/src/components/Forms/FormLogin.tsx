@@ -6,11 +6,12 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useForm } from "react-hook-form";
 import { SignIn } from "@/interfaces/auth";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { sign_in_with_credentials } from "@/lib/firebase_auth";
 import ButtonAuth from "../Buttons/ButtonAuth";
 import ButtonGoogle from "../Buttons/ButtonGoogle";
 import ErrorMsg from "../ErrorMsg";
 import ButtonBack from "../Buttons/ButtonBack";
+import { loginUser } from "@/lib/services-burofy/loginUser";
+import { setCredentials } from "@/redux/features/userSlice";
 
 const FormLogin = () => {
   const { setStatusAuth } = useAuth();
@@ -27,9 +28,12 @@ const FormLogin = () => {
     setStatusAuth("checking");
     try {
       if (data) {
-        await sign_in_with_credentials(data);
-        setStatusAuth("authenticated");
-        router.push("/");
+        const user = await loginUser(data);
+        if (user) {
+          setCredentials(user);
+          setStatusAuth("authenticated");
+          router.push("/");
+        }
       }
     } catch (error) {
       console.log((error as Error).message);
