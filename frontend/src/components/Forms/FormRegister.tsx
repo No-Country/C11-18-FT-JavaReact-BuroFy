@@ -50,7 +50,9 @@ export default function FormRegister() {
       <div className='mb-8 flex flex-col items-center justify-center h-full bg-white md:w-full md:h-full'>
         <ButtonBack />
 
-        <h3 className='text-xl font-black self-center mb-6 md:text-2xl lg:text-4xl lg:ml-[-100px]'>Registro de nuevo usuario</h3>
+        <h3 className='text-xl font-black self-center mb-6 md:text-2xl lg:text-4xl lg:ml-[-100px]'>
+          Registro de nuevo usuario
+        </h3>
         <h4 className='font-bold flex justify-center my-6 space-x-10 text-sm lg:text-lg'>
           Crea tu usuario y recibí asistencia legal ¡ya!
         </h4>

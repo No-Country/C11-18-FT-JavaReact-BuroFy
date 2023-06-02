@@ -1,11 +1,9 @@
 "use client";
 import React from "react";
-import {  MdLocationPin, MdPhoneEnabled, MdWork, MdCake } from "react-icons/md";
+import { MdLocationPin, MdPhoneEnabled, MdWork, MdCake } from "react-icons/md";
 import { RiEditCircleFill } from "react-icons/ri";
 import { FaUserAlt } from "react-icons/fa";
 // import Image from "next/image";
-
-
 
 export default function PersonalInfo() {
   // const pStyle =

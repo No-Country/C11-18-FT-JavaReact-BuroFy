@@ -1,4 +1,4 @@
-import {PerfilClient} from "@/components";
+import { PerfilClient } from "@/components";
 import React from "react";
 
 const ProfilePage = () => {

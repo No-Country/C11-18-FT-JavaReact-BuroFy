@@ -59,7 +59,7 @@ export const sign_in_with_credentials = async ({
       uid: resp.user.uid,
       id_token,
     };
-    
+
     console.log(user);
     return { user };
   } catch (e) {

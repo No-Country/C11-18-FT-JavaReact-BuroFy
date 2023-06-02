@@ -123,7 +123,9 @@ const FormLogin = () => {
         </div>
         <ButtonAuth>Iniciar Sesion</ButtonAuth>
         <div className='flex  mt-14'>
-          <p className='mb-4 md:mb-10 max-w-xl mx-auto text-center text-xl relative '>O continúa con</p>
+          <p className='mb-4 md:mb-10 max-w-xl mx-auto text-center text-xl relative '>
+            O continúa con
+          </p>
         </div>
         <div className='flex mt-4 items-center justify-center flex-col gap-8 lg:flex-row'>
           <ButtonGoogle />
