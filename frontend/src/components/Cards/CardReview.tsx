@@ -6,7 +6,7 @@ import { AiFillEye } from "react-icons/ai";
 export default function CardReview() {
   return (
     <>
-      <div className=' bg-white border border-[#7FCEFF] rounded-lg drop-shadow-xl lg:border-[3px] lg:w-[459px] lg:h-[431px]'>
+      <div className='bg-white border-2 border-[#7FCEFF] rounded-lg drop-shadow-xl lg:border-[3px] w-[363px]  lg:w-[459px] lg:h-[431px]'>
         <div className='flex justify-between rounded-tr-lg rounded-tl-lg bg-[#EBEBEB] lg:w-[453px] lg:h-[60px] lg:items-center'>
           <h1 className=' lg:font-bold lg:text-[20px] m-5 lg:leading-[26px]'>Reseñas recibidas</h1>
           <label className='mb-2 text-sm font-medium text-gray-900 sr-only'>Your Email</label>
@@ -62,18 +62,20 @@ export default function CardReview() {
             </ul>
           </div>
         </div>
-        <div className='p-4 mt-3'>
-          <div className='bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[74px] lg:mb-3 lg:p-1.5'>
-            <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
-              <div className='flex gap-2 items-center'>
+        <div className='p-3 mt-2 '>
+          <div className='bg-[#EBEBEB] rounded-lg w-[337px] h-[106px] lg:w-[423px] lg:h-[74px] lg:mb-3 lg:p-1.5'>
+            <div className='flex-row lg:flex lg:[423px] lg:[126px] lg:p-2 lg:gap-2 p-3 mt-1 '>
+              <div className='flex gap-2 items-center lg:'>
                 <Image src="/stub/imgprofile3.png" width={50} height={50} alt='profile' />
                 <div className='flex-col'>
-                  <p className='lg:font-bold lg:text-sm'>Catalina Villanueva</p>
+                  <p className='lg:font-bold lg:text-sm'>Pedro Guitierrez Lazo</p>
+                  <span className='lg:flex bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mt-1 mr-2 lg:ml-0 ml-2 px-2.5 py-0.5 rounded-full '>
+                  Abogado Migratorío
+                  </span>
                 </div>
               </div>
-              <div className='flex-col'>
-                <p className='lg:font-normal lg:text-sm lg:text-end'>Puntuación recibida</p>
-
+              <div className='flex lg:flex-col gap-2 lg:gap-0 '>
+                <p className='lg:font-normal lg:text-sm lg:text-end lg:mb-2 mb-3 text-xs mt-3 lg:mt-0'>Mi puntuación</p>
                 <div className='flex items-center'>
                   <svg
                     aria-hidden='true'
@@ -125,161 +127,25 @@ export default function CardReview() {
                     <title>Fifth star</title>
                     <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'></path>
                   </svg>
-                  <p className='ml-2 text-sm font-medium text-gray-500 dark:text-gray-400'>
+                  <p className='ml-2 text-sm font-normal text-gray-500'>
                     <strong className='text-black'>4</strong> estrellas
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div className='bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[74px] lg:mb-3 lg:p-1.5'>
-            <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
-              <div className='flex gap-2 items-center'>
-                <Image src="/stub/imgprofile5.png" width={50} height={50} alt='profile' />
-                <div className='flex-col'>
-                  <p className='lg:font-bold lg:text-sm'>Genaro Lozano Pérez</p>
-                </div>
-              </div>
-              <div className='flex-col'>
-                <p className='lg:font-normal lg:text-sm lg:text-end'>Puntuación recibida</p>
+         
 
-                <div className='flex items-center'>
-                  <svg
-                    aria-hidden='true'
-                    className='w-5 h-5 text-yellow-400'
-                    fill='currentColor'
-                    viewBox='0 0 20 20'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <title>First star</title>
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'></path>
-                  </svg>
-                  <svg
-                    aria-hidden='true'
-                    className='w-5 h-5 text-yellow-400'
-                    fill='currentColor'
-                    viewBox='0 0 20 20'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <title>Second star</title>
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'></path>
-                  </svg>
-                  <svg
-                    aria-hidden='true'
-                    className='w-5 h-5 text-yellow-400'
-                    fill='currentColor'
-                    viewBox='0 0 20 20'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <title>Third star</title>
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'></path>
-                  </svg>
-                  <svg
-                    aria-hidden='true'
-                    className='w-5 h-5 text-yellow-400'
-                    fill='currentColor'
-                    viewBox='0 0 20 20'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <title>Fourth star</title>
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'></path>
-                  </svg>
-                  <svg
-                    aria-hidden='true'
-                    className='w-5 h-5 text-gray-300 dark:text-gray-500'
-                    fill='currentColor'
-                    viewBox='0 0 20 20'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <title>Fifth star</title>
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'></path>
-                  </svg>
-                  <p className='ml-2 text-sm font-medium text-gray-500 dark:text-gray-400'>
-                    <strong className='text-black'>4</strong> estrellas
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[74px] lg:mb-3 lg:p-1.5'>
-            <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
-              <div className='flex gap-2 items-center'>
-                <Image src="/stub/imgprofile4.png" width={50} height={50} alt='profile' />
-                <div className='flex-col'>
-                  <p className='lg:font-bold lg:text-sm'>Imelda Bautista Ruiz</p>
-                </div>
-              </div>
-              <div className='flex-col'>
-                <p className='lg:font-normal lg:text-sm lg:text-end'>Puntuación recibida</p>
-
-                <div className='flex items-center'>
-                  <svg
-                    aria-hidden='true'
-                    className='w-5 h-5 text-yellow-400'
-                    fill='currentColor'
-                    viewBox='0 0 20 20'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <title>First star</title>
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'></path>
-                  </svg>
-                  <svg
-                    aria-hidden='true'
-                    className='w-5 h-5 text-yellow-400'
-                    fill='currentColor'
-                    viewBox='0 0 20 20'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <title>Second star</title>
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'></path>
-                  </svg>
-                  <svg
-                    aria-hidden='true'
-                    className='w-5 h-5 text-yellow-400'
-                    fill='currentColor'
-                    viewBox='0 0 20 20'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <title>Third star</title>
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'></path>
-                  </svg>
-                  <svg
-                    aria-hidden='true'
-                    className='w-5 h-5 text-yellow-400'
-                    fill='currentColor'
-                    viewBox='0 0 20 20'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <title>Fourth star</title>
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'></path>
-                  </svg>
-                  <svg
-                    aria-hidden='true'
-                    className='w-5 h-5 text-gray-300 dark:text-gray-500'
-                    fill='currentColor'
-                    viewBox='0 0 20 20'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <title>Fifth star</title>
-                    <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'></path>
-                  </svg>
-                  <p className='ml-2 text-sm font-medium text-gray-500 dark:text-gray-400'>
-                    <strong className='text-black'>4</strong> estrellas
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <div className='flex justify-center lg:justify-end mt-5'>
             <button
               type='button'
-              className='text-white bg-[#24292F] rounded-md lg:w-[126px lg:h-[30px] lg:font-bold  lg:text-smlg: px-5 lg:py-1.5 text-center inline-flex items-center mr-1 mb-1 gap-1'
+              className='text-white bg-[#24292F] justify-center rounded-md w-[380px] h-[40px] lg:w-[136px] lg:h-[30px] lg:font-bold lg:text-smlg: px-5 lg:py-1.5 text-center inline-flex items-center mr-1  gap-1'
             >
               <AiFillEye />
               Ver todos
             </button>
-          </div>
+          </div>  
         </div>
       </div>
     </>
