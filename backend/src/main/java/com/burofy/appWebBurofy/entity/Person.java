@@ -18,10 +18,9 @@ public class Person { // para registrar un cliente / un profesional
     private String id;
     private String email;
     private String avatar;
-    private String firstName;
-    private String secondName;
-    //private String documentNumber;
-    //private String license;
+    private String fullName;
+    private String documentNumber;
+    private String license;
     private String providerId;
     private String rol;
     /*@OneToOne
