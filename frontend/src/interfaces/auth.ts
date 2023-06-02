@@ -12,7 +12,7 @@ export interface SignIn {
 export interface SignUp {
   email: string;
   password: string;
-  isProvider?: boolean
+  isProvider?: boolean;
   displayName?: string;
   rol?: Rol;
   confirmPassword?: string;
@@ -22,4 +22,3 @@ export interface ContextAuth {
   statusAuth: Status;
   setStatusAuth: Dispatch<React.SetStateAction<Status>>;
 }
-

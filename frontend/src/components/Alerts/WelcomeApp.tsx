@@ -16,7 +16,7 @@ const WelcomeApp = () => {
         <p className='ml-9'>Encuentra tu match con un profecional</p>
       </div>
       <div className='ml-[4.7rem] mt-20'>
-        <ButtonAuth >Ir a tu perfil</ButtonAuth>
+        <ButtonAuth>Ir a tu perfil</ButtonAuth>
       </div>
       <div className='w-[200px] h-[14px] ml-[4rem] mt-20'>
         <p className='text-[.5rem] font-semibold ml-[5rem] lg:hidden'>Burofy genera conexiones</p>

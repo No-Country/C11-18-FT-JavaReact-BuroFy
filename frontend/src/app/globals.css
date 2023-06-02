@@ -9,9 +9,8 @@
 @tailwind components;
 @layer components {
   .button-provider {
-    @apply justify-center text-center p-2 flex w-full h-14 transition shadow-lg hover:scale-110 active:scale-110 bg-white text-lg font-semibold items-center rounded-lg gap-4 lg:w-64 lg:text-sm
+    @apply justify-center text-center p-2 flex w-full h-14 transition shadow-lg hover:scale-110 active:scale-110 bg-white text-lg font-semibold items-center rounded-lg gap-4 lg:w-64 lg:text-sm;
   }
 }
 
 @tailwind utilities;
-

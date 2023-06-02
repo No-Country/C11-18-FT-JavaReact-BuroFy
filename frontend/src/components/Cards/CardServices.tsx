@@ -79,7 +79,7 @@ export default function CardServices() {
             </div>
 
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
-              <Image src="/stub/imgprofile2.png" width={50} height={50} alt='profile' />
+              <Image src='/stub/imgprofile2.png' width={50} height={50} alt='profile' />
               <div className='flex lg:flex-col '>
                 <p className='px-3 lg:px-0 lg:font-bold lg:text-sm'>Carlos Fernandez</p>
                 <span className='hidden lg:flex bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mr-2 px-2.5 py-0.5 rounded-full'>
@@ -112,7 +112,7 @@ export default function CardServices() {
 
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
               <div className='flex gap-2'>
-                <Image src="/stub/imgprofile2.png" width={50} height={50} alt='profile' />
+                <Image src='/stub/imgprofile2.png' width={50} height={50} alt='profile' />
                 <div className='flex-col'>
                   <p className='lg:font-bold lg:text-sm'>Jimena León Jimenez</p>
                   <span className='bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mr-2 px-2.5 py-0.5 rounded-full'>
@@ -147,7 +147,7 @@ export default function CardServices() {
 
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
               <div className='flex gap-2'>
-                <Image src="/stub/imgprofile2.png" width={50} height={50} alt='profile' />
+                <Image src='/stub/imgprofile2.png' width={50} height={50} alt='profile' />
                 <div className='flex-col'>
                   <p className='lg:font-bold lg:text-sm'>Arturo García Torres</p>
                   <span className='bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mr-2 px-2.5 py-0.5 rounded-full'>

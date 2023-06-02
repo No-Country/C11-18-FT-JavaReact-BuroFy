@@ -1,4 +1,4 @@
-import { sign_up_with_credentials} from "@/lib";
+import { sign_up_with_credentials } from "@/lib";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -17,7 +17,7 @@ export async function POST(req: Request) {
         rol,
       }),
     });
-    
+
     const response = NextResponse.json({ user, rol });
 
     response.cookies.set("id", String(user?.id), {

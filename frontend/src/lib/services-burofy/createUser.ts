@@ -7,7 +7,6 @@ export async function createUser({
   displayName,
   rol,
 }: SignUp): Promise<UserInitial> {
-  
   const user = await fetch("/api/register", {
     method: "POST",
     headers: {

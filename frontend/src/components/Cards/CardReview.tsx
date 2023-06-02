@@ -66,7 +66,7 @@ export default function CardReview() {
           <div className='bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[74px] lg:mb-3 lg:p-1.5'>
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
               <div className='flex gap-2 items-center'>
-                <Image src="/stub/imgprofile3.png" width={50} height={50} alt='profile' />
+                <Image src='/stub/imgprofile3.png' width={50} height={50} alt='profile' />
                 <div className='flex-col'>
                   <p className='lg:font-bold lg:text-sm'>Catalina Villanueva</p>
                 </div>
@@ -135,7 +135,7 @@ export default function CardReview() {
           <div className='bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[74px] lg:mb-3 lg:p-1.5'>
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
               <div className='flex gap-2 items-center'>
-                <Image src="/stub/imgprofile5.png" width={50} height={50} alt='profile' />
+                <Image src='/stub/imgprofile5.png' width={50} height={50} alt='profile' />
                 <div className='flex-col'>
                   <p className='lg:font-bold lg:text-sm'>Genaro Lozano Pérez</p>
                 </div>
@@ -204,7 +204,7 @@ export default function CardReview() {
           <div className='bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[74px] lg:mb-3 lg:p-1.5'>
             <div className='flex lg:[423px] lg:[126px] lg:p-3 lg:gap-2 lg:justify-between'>
               <div className='flex gap-2 items-center'>
-                <Image src="/stub/imgprofile4.png" width={50} height={50} alt='profile' />
+                <Image src='/stub/imgprofile4.png' width={50} height={50} alt='profile' />
                 <div className='flex-col'>
                   <p className='lg:font-bold lg:text-sm'>Imelda Bautista Ruiz</p>
                 </div>
