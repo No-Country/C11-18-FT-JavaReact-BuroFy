@@ -8,7 +8,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { firebase_auth } from "./firebase";
-import { UserInitial } from "@/interfaces/user";
+import { ProviderType, UserInitial } from "@/interfaces/user";
 
 interface Inputs {
   email: string;
@@ -18,8 +18,6 @@ interface Inputs {
 
 const google_provider = new GoogleAuthProvider();
 const facebook_provider = new FacebookAuthProvider();
-
-export type ProviderType = "facebook" | "google";
 
 const provider = {
   google: google_provider,
@@ -60,7 +58,6 @@ export const sign_in_with_credentials = async ({
     const user = {
       uid: resp.user.uid,
       id_token,
-      providerId: resp.user.providerData[0].providerId,
     };
     
     console.log(user);

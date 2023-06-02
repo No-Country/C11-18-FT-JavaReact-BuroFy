@@ -3,7 +3,7 @@ import { CardServices, CardReview, CardApplicationEmpty, CardReviewEmpty } from 
 const HomePage = () => {
   return (
     <>
-      <section className=' bg-white p-6 lg:flex lg:justify-center z-50'>
+      <section className=' bg-white p-6 lg:flex lg:justify-center '>
         <span className='m-4 text-[#616161] lg:hidden'>Tienes, 0 consultas</span>
         <article className='lg:flex'>
           {/* <CardServices />

@@ -1,14 +1,15 @@
 import { Address, Phone } from "./serializers/common";
 import { UserClientContent, UserProfessionalContent } from "./serializers/user";
 
-export type Rol = "client" | "professional" | "";
+export type Rol = "client" | "professional";
+export type ProviderType = "facebook" | "google";
 
 export interface User {
   id: string;
   id_token: string;
-  providerId: string;
+  providerId: ProviderType | string;
   email: string | null;
-  rol: Rol;
+  rol: Rol | string;
   firstName: string | null;
   rolContent?: UserClientContent | UserProfessionalContent | null;
   birthday?: Date | null;

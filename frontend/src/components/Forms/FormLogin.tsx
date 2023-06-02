@@ -10,7 +10,6 @@ import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { sign_in_with_credentials } from "@/lib/firebase_auth";
 import ButtonAuth from "../Buttons/ButtonAuth";
 import ButtonGoogle from "../Buttons/ButtonGoogle";
-import ButtonFacebook from "../Buttons/ButtonFacebook";
 import ErrorMsg from "../ErrorMsg";
 import ButtonBack from "../Buttons/ButtonBack";
 
@@ -134,7 +133,6 @@ const FormLogin = () => {
         </div>
         <div className='flex mt-6 items-center justify-center flex-col gap-8 lg:flex-row'>
           <ButtonGoogle />
-          <ButtonFacebook />
         </div>
       </form>
     </>

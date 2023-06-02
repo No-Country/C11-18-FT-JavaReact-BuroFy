@@ -6,14 +6,13 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setUserInitial } from "@/redux/features/userSlice";
 import { SignUp } from "@/interfaces/auth";
-import { createUser } from "@/lib";
-import ButtonFacebook from "../Buttons/ButtonFacebook";
 import ButtonGoogle from "../Buttons/ButtonGoogle";
 import ButtonAuth from "../Buttons/ButtonAuth";
 import ButtonBack from "../Buttons/ButtonBack";
 import ErrorMsg from "../ErrorMsg";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
+import { createUser } from "@/lib/services-burofy/createUser";
 
 export default function FormRegister() {
   const { setStatusAuth } = useAuth();
@@ -21,7 +20,7 @@ export default function FormRegister() {
   const dispatch = useAppDispatch();
   const { rol } = useAppSelector((state) => state.user);
   const router = useRouter();
-  
+
   const {
     register,
     handleSubmit,
@@ -31,10 +30,11 @@ export default function FormRegister() {
 
   const onSubmit = async (data: SignUp) => {
     const { password, email, displayName } = data;
+    console.log(data);
     setStatusAuth("checking");
     try {
       if (data) {
-        const user = await createUser({ password, email, displayName, rol });
+        const user = await createUser({ password, email, displayName, rol } as SignUp);
         dispatch(setUserInitial(user));
         console.log(user);
         setStatusAuth("authenticated");
@@ -175,7 +175,6 @@ export default function FormRegister() {
         </div>
         <div className='flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 md:gap-8 md:flex-row'>
           <ButtonGoogle />
-          <ButtonFacebook />
         </div>
         <footer className='absolute mt-4 text-xs bottom-4'>Burofy genera conexiones</footer>
       </div>

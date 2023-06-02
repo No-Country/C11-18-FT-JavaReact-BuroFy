@@ -1,11 +1,12 @@
 "use client";
+import { FormEvent } from "react";
 import Image from "next/image";
-import { BsFillPersonFill } from "react-icons/bs";
-import ButtonAuth from "../Buttons/ButtonAuth";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setRol } from "@/redux/features/userSlice";
-import { FormEvent } from "react";
+import ButtonAuth from "../Buttons/ButtonAuth";
+import { Rol } from "@/interfaces/user";
+import { BsFillPersonFill } from "react-icons/bs";
 
 const SelectRol = () => {
   const router = useRouter();
@@ -16,7 +17,9 @@ const SelectRol = () => {
     e.preventDefault();
     // verify of rol (only client for moment!)
     if (rol) {
-      rol === "client" ? router.push("/registro/cliente") : router.push("/registro");
+      (rol as Rol) === "client"
+        ? router.push("/registro/cliente")
+        : router.push("/registro/profesional");
     }
   };
 
