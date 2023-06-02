@@ -22,8 +22,7 @@ public class Client  {
     private String id;
     private String email;
     private String avatar;
-    private String firstName;
-    private String lastName;
+    private String fullName;
     private LocalDate birthDate;
     private String documentNumber;
     private String phone;
