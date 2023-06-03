@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,6 +17,7 @@ public class PersonRestController {
 
     private final IPersonService personService;
 
+    @ApiIgnore // no se usa, para crear a un cliente/un professional usamos create/person
     @PostMapping(path = "/create/person")
     public ResponseEntity<Response> createPerson(@RequestBody Person person) {
         if (person.getRol().equals("client") || person.getRol().equals("professional")) {
@@ -35,7 +37,6 @@ public class PersonRestController {
             return ResponseEntity.notFound().build();
         }
     }
-
 
 
 }

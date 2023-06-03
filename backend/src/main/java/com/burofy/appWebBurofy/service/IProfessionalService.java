@@ -8,11 +8,11 @@ public interface IProfessionalService {
 
     Professional createProfessional(Professional professional);
 
-    Professional getProfessional(Long id);
+    Professional getProfessional(String id);
     List<Professional> allProfessionals(int page, int pageSize);
 
-    Professional updateProfessional(Long id, Professional updatedProfessional);
+    Professional updateProfessional(String id, Professional updatedProfessional);
 
-    Professional deleteProfessional(Long id);
+    Professional deleteProfessional(String id);
 
 }

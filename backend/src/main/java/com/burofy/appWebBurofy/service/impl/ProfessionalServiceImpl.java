@@ -24,7 +24,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
     }
 
     @Override
-    public Professional getProfessional(Long id) {
+    public Professional getProfessional(String id) {
         Optional<Professional> professional = professionalRepository.findById(id);
 
         if (!professional.isPresent()) {
@@ -41,7 +41,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
     }
 
     @Override
-    public Professional updateProfessional(Long id, Professional updatedProfessional) {
+    public Professional updateProfessional(String id, Professional updatedProfessional) {
         Optional<Professional> professionalOptional = professionalRepository.findById(id);
 
         if (!professionalOptional.isPresent()) {
@@ -64,7 +64,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
         return professionalRepository.save(professional);
     }
     @Override
-    public Professional deleteProfessional(Long id) {
+    public Professional deleteProfessional(String id) {
         Optional<Professional> professionalOptional = professionalRepository.findById(id);
 
         if (!professionalOptional.isPresent()) {
