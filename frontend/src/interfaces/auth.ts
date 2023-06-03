@@ -14,6 +14,8 @@ export interface SignUp {
   password: string;
   isProvider?: boolean;
   displayName?: string;
+  dni?: string;
+  enrollment?: string;
   rol?: Rol;
   confirmPassword?: string;
 }

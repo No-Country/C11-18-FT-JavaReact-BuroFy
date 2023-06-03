@@ -8,10 +8,11 @@ export async function POST(req: Request) {
     const { email, password, displayName, rol }: SignUp = await req.json(); // body.
 
     const { user } = await sign_up_with_credentials({ email, password, displayName });
-
+    console.log("user", user);
+    
     if (user && rol) {
       const userInitial = registerAdapter(user, rol);
-
+      console.log("userInitial", userInitial);
       await fetch("http://backend-web-burofy.onrender.com/create/person", {
         method: "POST",
         headers: {

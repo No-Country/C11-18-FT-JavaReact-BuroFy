@@ -3,6 +3,7 @@ import { UserClientContent, UserProfessionalContent } from "./serializers/user";
 
 export type Rol = "client" | "professional";
 export type ProviderType = "facebook" | "google";
+export type Verified = "authenticated" | "no-authenticated" | "checking";
 
 export interface User {
   id: string;
@@ -14,11 +15,10 @@ export interface User {
   rolContent?: UserClientContent | UserProfessionalContent | null;
   birthday?: Date | null;
   surName?: string | null;
-  dni?: string | null;
   phone?: Phone | null;
   address?: Address | null;
   avatar?: string | null;
-  verified?: boolean;
+  verified?: Verified;
 }
 
 export type UserInitial = Pick<

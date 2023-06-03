@@ -6,7 +6,6 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setUserInitial } from "@/redux/features/userSlice";
 import { SignUp } from "@/interfaces/auth";
-import ButtonGoogle from "../Buttons/ButtonGoogle";
 import ButtonAuth from "../Buttons/ButtonAuth";
 import ButtonBack from "../Buttons/ButtonBack";
 import ErrorMsg from "../ErrorMsg";
@@ -29,16 +28,26 @@ export default function FormRegister() {
   } = useForm<SignUp>();
 
   const onSubmit = async (data: SignUp) => {
-    const { password, email, displayName } = data;
+    const { password, email, displayName, dni, enrollment } = data;
     console.log(data);
     setStatusAuth("checking");
     try {
       if (data) {
-        const user = await createUser({ password, email, displayName, rol } as SignUp);
-        dispatch(setUserInitial(user));
-        console.log(user);
-        setStatusAuth("authenticated");
-        router.push("/");
+        const user = await createUser({
+          password,
+          email,
+          displayName,
+          rol,
+          dni,
+          enrollment,
+        } as SignUp);
+
+        if (user) {
+          dispatch(setUserInitial(user));
+          console.log(user);
+          setStatusAuth("authenticated");
+          router.push("/");
+        }
       }
     } catch (error) {
       console.log((error as Error).message);
@@ -69,7 +78,7 @@ export default function FormRegister() {
                 placeholder=' '
                 required
                 {...register("displayName", {
-                  required: "Name is required.",
+                  required: "Nombre es requerido.",
                 })}
               />
               <label
@@ -81,7 +90,7 @@ export default function FormRegister() {
               {errors.displayName && <ErrorMsg>{errors.displayName?.message as string}</ErrorMsg>}
             </div>
 
-            <div className='relative z-0 w-full group lg:mb-14 '>
+            <div className='relative z-0 w-full group mb-14 '>
               <input
                 type='email'
                 id='email'
@@ -89,10 +98,10 @@ export default function FormRegister() {
                 placeholder=' '
                 required
                 {...register("email", {
-                  required: "Email is required.",
+                  required: "Correo electrónico es requerido",
                   pattern: {
                     value: /^[^@ ]+@[^@ ]+.[^@ .]{2,}$/,
-                    message: "Email is not valid.",
+                    message: "Correo electrónico no cumple.",
                   },
                 })}
               />
@@ -113,10 +122,10 @@ export default function FormRegister() {
                 placeholder=' '
                 required
                 {...register("password", {
-                  required: "Password is required.",
+                  required: "Contraseña es requerida.",
                   minLength: {
                     value: 6,
-                    message: "Password should be at-least 6 characters.",
+                    message: "Contraseña deberia tener minimo 6 caracteres.",
                   },
                 })}
               />
@@ -150,14 +159,14 @@ export default function FormRegister() {
                 placeholder=' '
                 required
                 {...register("confirmPassword", {
-                  required: "Confirm password is required.",
+                  required: "Confirmacion de contraseña es requerida.",
                   minLength: {
                     value: 6,
-                    message: "Password should be at-least 6 characters.",
+                    message: "Contraseña deberia tener minimo 6 caracteres.",
                   },
                   validate: (value) => {
                     const { password } = getValues();
-                    if (password !== value) return "Your password does not match";
+                    if (password !== value) return "Tu contraseña no es igual a la confirmación.";
                   },
                 })}
               />
@@ -169,18 +178,52 @@ export default function FormRegister() {
               </label>
               {errors.confirmPassword && <ErrorMsg>{errors.confirmPassword?.message}</ErrorMsg>}
             </div>
+
+            <div className='relative z-0 w-full group'>
+              <input
+                type='text'
+                id='dni'
+                className='block py-2.5 pr-0 pl-4 w-full lg:w-[460px] text-sm text-gray-900 border-0 border-b-2 border-[#2E2E2E] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96 bg-quinary focus:bg-transparent'
+                placeholder=' '
+                required
+                {...register("dni", {
+                  required: "Dni es requerido.",
+                })}
+              />
+              <label
+                htmlFor='dni'
+                className='uppercase peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 z-50 pl-4 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 '
+              >
+                dni
+              </label>
+              {errors.dni && <ErrorMsg>{errors.dni?.message as string}</ErrorMsg>}
+            </div>
+
+            <div className='relative z-0 w-full group'>
+              <input
+                type='text'
+                id='enrollment'
+                className='block py-2.5 pr-0 pl-4 w-full lg:w-[460px] text-sm text-gray-900 border-0 border-b-2 border-[#2E2E2E] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96 bg-quinary focus:bg-transparent'
+                placeholder=' '
+                required
+                {...register("enrollment", {
+                  required: "enrollment es requerida.",
+                })}
+              />
+              <label
+                htmlFor='enrollment'
+                className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 z-50 pl-4 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 '
+              >
+                N° matricula
+              </label>
+              {errors.enrollment && <ErrorMsg>{errors.enrollment?.message as string}</ErrorMsg>}
+            </div>
           </div>
 
           <div className='flex justify-center my-10 '>
             <ButtonAuth>Crear cuenta</ButtonAuth>
           </div>
         </form>
-        <div>
-          <span>O continúa con</span>
-        </div>
-        <ButtonGoogle />
-        
-        <footer className='hidden lg:absolute mt-4 text-xs bottom-4'>Burofy genera conexiones</footer>
       </div>
       <footer className='self-center text-xs'>Burofy genera conexiones</footer>
     </div>
