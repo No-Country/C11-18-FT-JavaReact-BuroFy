@@ -31,8 +31,8 @@ public class Professional {
     private String experience;
     private String training;
     private String diploma;
-    //private String price;
-    //private String aboutMe;
+    private String price;
+    private String aboutMe;
     private Boolean isRemoteWork;
     private Boolean isFaceToFaceWork;
     private Boolean state;

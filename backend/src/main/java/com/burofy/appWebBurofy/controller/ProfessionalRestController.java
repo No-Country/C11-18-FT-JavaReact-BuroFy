@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class ProfessionalRestController  {
 
     private final IProfessionalService professionalService;
 
+    @ApiIgnore // no se usa, para crear a un cliente/un professional usamos /create/person
     @PostMapping(path = "/create/professional")
     public ResponseEntity<Response> createProfessional(@RequestBody Professional professional) {
         professionalService.createProfessional(professional)  ;
@@ -25,7 +27,7 @@ public class ProfessionalRestController  {
     }
 
     @GetMapping(path = "/getProfessional/{id}")
-    public ResponseEntity<Professional> getProfessional(@PathVariable Long id) {
+    public ResponseEntity<Professional> getProfessional(@PathVariable String id) {
         Professional professional = professionalService.getProfessional(id);
         if (professional != null) {
             return ResponseEntity.ok(professional);
@@ -35,13 +37,13 @@ public class ProfessionalRestController  {
     }
 
     @PutMapping(path = "/update/professional/{id}")
-    public ResponseEntity<Professional> updateProfessional(@PathVariable Long id, @RequestBody Professional updatedProfessional) {
+    public ResponseEntity<Professional> updateProfessional(@PathVariable String id, @RequestBody Professional updatedProfessional) {
         professionalService.updateProfessional(id,updatedProfessional);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PatchMapping(path = "/delete/professional/{id}")
-    public ResponseEntity<Professional> deleteProfessional(@PathVariable Long id) {
+    public ResponseEntity<Professional> deleteProfessional(@PathVariable String id) {
         professionalService.deleteProfessional(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
