@@ -1,33 +1,44 @@
-import { User } from "@/interfaces/user";
+import { Rol } from "@/interfaces/user";
 import { sign_in_with_credentials } from "@/lib";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
     const { email, password } = await req.json();
     const { user } = await sign_in_with_credentials({ email, password });
+    if (!user) throw new Error("Your data isn't valid");
 
-    if (user as unknown as Pick<User, "id" | "id_token">) {
-      const responseUser = await fetch(
-        `http://backend-web-burofy.onrender.com/getPerson/${user?.id}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
+    const responseUser = await fetch(
+      `http://backend-web-burofy.onrender.com/getPerson/${user?.id}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+      },
+    );
 
-      const response = NextResponse.json(user?.id_token, responseUser);
+    const jsonData = await responseUser.json();
+    console.log("json", jsonData);
 
-      response.cookies.set("id", String(user?.id), {
-        path: "/",
-        httpOnly: true,
-      });
+    const response = NextResponse.json(jsonData, { status: 201 });
 
-      return response;
-    }
+    response.cookies.set("id", String(user?.id), {
+      path: "/",
+      httpOnly: true,
+    });
+
+    response.cookies.set("rol", String(jsonData?.rol as Rol), {
+      path: "/",
+      httpOnly: true,
+    });
+
+    return response;
   } catch (error) {
-    console.log(error);
-    return NextResponse.error();
+    if (error) {
+      console.log("error", error);
+      req.cookies.delete("id");
+      req.cookies.delete("rol");
+      return NextResponse.json(error, { status: 409 });
+    }
   }
 }

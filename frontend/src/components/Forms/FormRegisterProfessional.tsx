@@ -2,9 +2,8 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/contexts/AuthContext";
 import { useAppDispatch, useAppSelector } from "@/hooks";
-import { setUserInitial } from "@/redux/features/userSlice";
+import { setUserInitial, setVerified } from "@/redux/features/userSlice";
 import { SignUp } from "@/interfaces/auth";
 import ButtonAuth from "../Buttons/ButtonAuth";
 import ButtonBack from "../Buttons/ButtonBack";
@@ -12,9 +11,11 @@ import ErrorMsg from "../ErrorMsg";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 import { createUser } from "@/lib/services-burofy/createUser";
+import { sign_up_with_credentials } from "@/lib";
+import { Rol, UserInitial } from "@/interfaces/user";
+import { registerAdapterProfessional } from "@/adapters/registerProfessionalAdapter";
 
 export default function FormRegister() {
-  const { setStatusAuth } = useAuth();
   const [visible, setVisible] = useState(false);
   const dispatch = useAppDispatch();
   const { rol } = useAppSelector((state) => state.user);
@@ -28,30 +29,30 @@ export default function FormRegister() {
   } = useForm<SignUp>();
 
   const onSubmit = async (data: SignUp) => {
-    const { password, email, displayName, dni, enrollment } = data;
-    console.log(data);
-    setStatusAuth("checking");
-    try {
-      if (data) {
-        const user = await createUser({
-          password,
-          email,
-          displayName,
-          rol,
-          dni,
-          enrollment,
-        } as SignUp);
+    dispatch(setVerified("checking"));
+    if (data) {
+      try {
+        const { password, email, displayName, dni, enrollment } = data;
+        const { user } = await sign_up_with_credentials({ email, password, displayName });
+        if (!user) throw new Error("user not found");
 
-        if (user) {
-          dispatch(setUserInitial(user));
-          console.log(user);
-          setStatusAuth("authenticated");
-          router.push("/");
+        const userProfessional = registerAdapterProfessional(
+          user,
+          dni as string,
+          enrollment as string,
+        );
+        const responseUser = await createUser(
+          rol as Rol,
+          userProfessional as Omit<UserInitial, "rol">,
+        );
+        if (responseUser) {
+          dispatch(setUserInitial(responseUser));
         }
+      } catch (error) {
+        console.log((error as Error).message);
       }
-    } catch (error) {
-      console.log((error as Error).message);
     }
+    router.push("/");
   };
 
   return (

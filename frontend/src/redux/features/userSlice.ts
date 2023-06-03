@@ -1,4 +1,4 @@
-import { Rol, User, UserInitial } from "@/interfaces/user";
+import { Rol, User, UserInitial, Verified } from "@/interfaces/user";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: User = {
@@ -6,7 +6,7 @@ const initialState: User = {
   id_token: "",
   email: "",
   rol: "",
-  firstName: "",
+  fullName: "",
   surName: "",
   rolContent: null,
   providerId: "",
@@ -24,12 +24,12 @@ const userSlice = createSlice({
     setRol: (state, action: PayloadAction<Rol>) => {
       state.rol = action.payload;
     },
-    setVerified: (state, action: PayloadAction<Pick<User, "verified">>) => {
-      state.verified = action.payload.verified;
+    setVerified: (state, action: PayloadAction<Verified>) => {
+      state.verified = action.payload;
     },
     setUserInitial: (state, action: PayloadAction<UserInitial>) => {
       // seven state
-      state.firstName = action.payload.firstName;
+      state.fullName = action.payload.fullName;
       state.id = action.payload.id;
       state.id_token = action.payload.id_token;
       state.providerId = action.payload.providerId;
@@ -40,7 +40,7 @@ const userSlice = createSlice({
       state.verified = "authenticated";
     },
     setCredentials: (state, action: PayloadAction<User>) => {
-      state.firstName = action.payload.firstName;
+      state.fullName = action.payload.fullName;
       state.id = action.payload.id;
       state.id_token = action.payload.id_token;
       state.providerId = action.payload.providerId;
@@ -59,7 +59,7 @@ const userSlice = createSlice({
       state.id_token = "";
       state.email = "";
       state.rol = "";
-      state.firstName = "";
+      state.fullName = "";
       state.surName = "";
       state.rolContent = null;
       state.providerId = "";

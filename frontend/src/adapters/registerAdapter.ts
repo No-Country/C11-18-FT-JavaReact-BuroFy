@@ -6,7 +6,7 @@ export function registerAdapter(
 ): Omit<UserInitial, "id_token"> {
   return {
     id: user.id,
-    firstName: user.firstName,
+    fullName: user.fullName,
     email: user.email,
     avatar: user.avatar,
     rol: rol,

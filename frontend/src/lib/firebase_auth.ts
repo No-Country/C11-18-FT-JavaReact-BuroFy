@@ -36,7 +36,7 @@ export const sing_in = async (type_provider: ProviderType) => {
       id: uid,
       id_token,
       providerId,
-      firstName: displayName,
+      fullName: displayName,
       email,
       avatar: photoURL,
     };
@@ -78,7 +78,7 @@ export const sign_up_with_credentials = async ({ email, password, displayName }:
     const user: Omit<UserInitial, "rol"> = {
       id: resp.user.uid,
       email,
-      firstName: String(displayName),
+      fullName: String(displayName),
       providerId: resp.user.providerData[0].providerId,
       id_token,
       avatar: null,

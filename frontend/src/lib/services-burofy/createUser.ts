@@ -1,24 +1,16 @@
-import { SignUp } from "@/interfaces/auth";
-import { UserInitial } from "@/interfaces/user";
+import { Rol, UserInitial } from "@/interfaces/user";
 
-export async function createUser({
-  password,
-  email,
-  displayName,
-  rol,
-}: SignUp): Promise<UserInitial> {
-  const user = await fetch("/api/register", {
+export async function createUser(rol: Rol, user: Omit<UserInitial, "rol">): Promise<UserInitial> {
+  const responseUser = await fetch("/api/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      password,
-      email,
-      displayName,
+      user,
       rol,
     }),
   });
 
-  return user.json();
+  return responseUser.json();
 }

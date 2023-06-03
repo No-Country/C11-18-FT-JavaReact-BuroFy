@@ -7,36 +7,29 @@ import { AiOutlineSearch, AiFillHome, AiOutlineExport } from "react-icons/ai";
 import { HiPencil } from "react-icons/hi";
 import { IoMdHelpCircle } from "react-icons/io";
 import { BsFillPersonFill } from "react-icons/bs";
-import { logout_firebase } from "@/lib/firebase_auth";
-import { logoutUser } from "@/redux/features/userSlice";
+import { logoutUser, setVerified } from "@/redux/features/userSlice";
 import { useAppDispatch } from "@/hooks";
-import { useAuth } from "@/contexts/AuthContext";
+import { useRouter } from "next/navigation";
+import { logout_firebase } from "@/lib";
 
 const Drawer = () => {
-  const { setStatusAuth } = useAuth();
-
   const dispatch = useAppDispatch();
   const pathname = usePathname();
+  const router = useRouter();
 
   const handleLogout = async () => {
-    setStatusAuth("checking");
+    dispatch(setVerified("checking"));
     try {
-      //close conection with firebase
       await logout_firebase();
-      //delete all states of user
       dispatch(logoutUser());
-      setStatusAuth("no-authenticated");
     } catch (error) {
       console.log((error as Error).message);
     }
+    router.push("/registro");
   };
   return (
     <>
-      <aside
-        className='fixed top-0 left-0 z-40 w-80 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 p-0 md:block col-span-1'
-        aria-label='Sidenav'
-        id='drawer-navigation'
-      >
+      <aside className='fixed top-0 left-0 z-40 w-80 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 p-0 md:block col-span-1'>
         <div className='overflow-y-auto h-full bg-white'>
           {/* title - header */}
           <header className='w-full h-1/6 flex justify-center items-center border border-transparent border-b-2 border-b-[#C0C0C0] mb-7'>
@@ -72,7 +65,7 @@ const Drawer = () => {
               }`}
             >
               <Link
-                href='/'
+                href='/buscar'
                 className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
               >
                 <AiOutlineSearch
@@ -88,7 +81,7 @@ const Drawer = () => {
               } w-full`}
             >
               <Link
-                href='/'
+                href='/consultas'
                 className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
               >
                 <HiPencil
@@ -124,7 +117,7 @@ const Drawer = () => {
               } w-full`}
             >
               <Link
-                href='/'
+                href='/ayuda'
                 className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
               >
                 <IoMdHelpCircle
