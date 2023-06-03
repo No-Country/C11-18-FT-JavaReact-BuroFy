@@ -17,7 +17,7 @@ public class ClientRestController{
 
     private final IClientService clientService;
 
-    @ApiIgnore // no se usa, para crear a un cliente/un professional usamos create/person
+    @ApiIgnore // no se usa, para crear a un cliente/un professional usamos /create/person
     @PostMapping(path = "/create/client")
     public ResponseEntity<Response> createClient(@RequestBody Client client) {
         clientService.createClient(client);
