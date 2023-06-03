@@ -22,7 +22,7 @@ const Header = () => {
           <div className='md:hidden absolute top-5 left-[50%] translate-x-[-50%] z-[55]'>
             <Image
               src='/assets/title-burofy.svg'
-              width={120}
+              width={150}
               height={80}
               alt='title burofy white'
             />
