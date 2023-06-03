@@ -22,7 +22,7 @@ public class ClientServiceImpl implements IClientService {
     }
 
     @Override
-    public Client getClient(Long id) {
+    public Client getClient(String id) {
         Optional<Client> client = clientRepository.findById(id);
 
         if (!client.isPresent()) {
@@ -32,7 +32,7 @@ public class ClientServiceImpl implements IClientService {
     }
 
     @Override
-    public Client updateClient(Long id, Client updatedClient) {
+    public Client updateClient(String id, Client updatedClient) {
         Optional<Client> clientOptional = clientRepository.findById(id);
 
         if (!clientOptional.isPresent()) {
@@ -51,7 +51,7 @@ public class ClientServiceImpl implements IClientService {
     }
 
     @Override
-    public Client deleteClient(Long id) {
+    public Client deleteClient(String id) {
         Optional<Client> clientOptional = clientRepository.findById(id);
 
         if (!clientOptional.isPresent()) {
