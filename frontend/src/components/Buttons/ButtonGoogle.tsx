@@ -1,38 +1,43 @@
 "use client";
 
-import { useAuth } from "@/contexts/AuthContext";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { Rol, UserInitial } from "@/interfaces/user";
 import { sing_in } from "@/lib";
 import { createUserWithProvider } from "@/lib/services-burofy/createUserWithProvider";
-import { setUserInitial } from "@/redux/features/userSlice";
-import { useRouter } from "next/navigation";
+import { loginUserWithProvider } from "@/lib/services-burofy/loginUserWithProvider";
+import { setUserInitial, setVerified } from "@/redux/features/userSlice";
+import { usePathname, useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 
 const ButtonGoogle = () => {
   const dispatch = useAppDispatch();
-  const { setStatusAuth } = useAuth();
   const router = useRouter();
   const { rol } = useAppSelector((state) => state.user);
+  const pathname = usePathname();
 
   const handleGoogle = async () => {
-    setStatusAuth("checking");
+    dispatch(setVerified("checking"));
     try {
       const { user } = await sing_in("google");
+      console.log("USER", user);
+      if (!user) throw new Error("user isn't found");
 
-      if (user) {
+      if (pathname === "/acceso") {
+        const responseUser = await loginUserWithProvider(
+          user.id as unknown as Pick<UserInitial, "id">,
+        );
+        dispatch(setUserInitial(responseUser));
+      } else {
         const responseUser = await createUserWithProvider(
           rol as Rol,
           user as Omit<UserInitial, "rol">,
         );
-
         dispatch(setUserInitial(responseUser));
-        setStatusAuth("authenticated");
-        router.push("/");
       }
     } catch (error) {
       console.log(error as Error);
     }
+    router.push("/");
   };
 
   return (

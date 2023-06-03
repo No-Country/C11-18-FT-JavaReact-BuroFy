@@ -11,7 +11,7 @@ export interface User {
   providerId: ProviderType | string;
   email: string | null;
   rol: Rol | string;
-  firstName: string | null;
+  fullName: string | null;
   rolContent?: UserClientContent | UserProfessionalContent | null;
   birthday?: Date | null;
   surName?: string | null;
@@ -23,5 +23,5 @@ export interface User {
 
 export type UserInitial = Pick<
   User,
-  "id" | "id_token" | "providerId" | "firstName" | "email" | "avatar" | "rol" | "rolContent"
+  "id" | "id_token" | "providerId" | "fullName" | "email" | "avatar" | "rol" | "rolContent"
 >;

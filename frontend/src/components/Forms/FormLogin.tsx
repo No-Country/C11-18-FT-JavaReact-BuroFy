@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useAuth } from "@/contexts/AuthContext";
 import { useForm } from "react-hook-form";
 import { SignIn } from "@/interfaces/auth";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
@@ -11,10 +10,11 @@ import ButtonGoogle from "../Buttons/ButtonGoogle";
 import ErrorMsg from "../ErrorMsg";
 import ButtonBack from "../Buttons/ButtonBack";
 import { loginUser } from "@/lib/services-burofy/loginUser";
-import { setCredentials } from "@/redux/features/userSlice";
+import { setCredentials, setVerified } from "@/redux/features/userSlice";
+import { useAppDispatch } from "@/hooks";
 
 const FormLogin = () => {
-  const { setStatusAuth } = useAuth();
+  const dispatch = useAppDispatch();
   const [visible, setVisible] = useState(false);
   const router = useRouter();
 
@@ -25,19 +25,20 @@ const FormLogin = () => {
   } = useForm<SignIn>();
 
   const onSubmit = async (data: SignIn) => {
-    setStatusAuth("checking");
-    try {
-      if (data) {
+    dispatch(setVerified("checking"));
+    if (data) {
+      try {
         const user = await loginUser(data);
-        if (user) {
-          setCredentials(user);
-          setStatusAuth("authenticated");
-          router.push("/");
-        }
+        console.log("USER", user);
+        if (!user) throw new Error("user not found");
+
+        dispatch( setCredentials(user));
+      } catch (error) {
+        console.log((error as Error).message);
       }
-    } catch (error) {
-      console.log((error as Error).message);
     }
+
+    router.push("/");
   };
 
   return (

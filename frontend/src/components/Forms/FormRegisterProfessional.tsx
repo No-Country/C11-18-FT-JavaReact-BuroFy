@@ -2,9 +2,8 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/contexts/AuthContext";
 import { useAppDispatch, useAppSelector } from "@/hooks";
-import { setUserInitial } from "@/redux/features/userSlice";
+import { setUserInitial, setVerified } from "@/redux/features/userSlice";
 import { SignUp } from "@/interfaces/auth";
 import ButtonAuth from "../Buttons/ButtonAuth";
 import ButtonBack from "../Buttons/ButtonBack";
@@ -12,9 +11,11 @@ import ErrorMsg from "../ErrorMsg";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 import { createUser } from "@/lib/services-burofy/createUser";
+import { sign_up_with_credentials } from "@/lib";
+import { Rol, UserInitial } from "@/interfaces/user";
+import { registerAdapterProfessional } from "@/adapters/profesional";
 
 export default function FormRegister() {
-  const { setStatusAuth } = useAuth();
   const [visible, setVisible] = useState(false);
   const dispatch = useAppDispatch();
   const { rol } = useAppSelector((state) => state.user);
@@ -27,50 +28,41 @@ export default function FormRegister() {
     formState: { errors },
   } = useForm<SignUp>();
 
+
+
   const onSubmit = async (data: SignUp) => {
     const { password, email, displayName, dni, enrollment } = data;
-    console.log(data);
-    setStatusAuth("checking");
-    try {
-      if (data) {
-        const user = await createUser({
-          password,
-          email,
-          displayName,
-          rol,
-          dni,
-          enrollment,
-        } as SignUp);
+    dispatch(setVerified("checking"));
+    if (data) {
+      try {
+        const { user } = await sign_up_with_credentials({ email, password, displayName });
+        if (!user) throw new Error("user not found");
+        const userProfessional = registerAdapterProfessional(user, dni as string, enrollment as string);
 
-        if (user) {
-          dispatch(setUserInitial(user));
-          console.log(user);
-          setStatusAuth("authenticated");
-          router.push("/");
-        }
+        const responseUser = await createUser(rol as Rol, userProfessional as Omit<UserInitial, "rol">);
+        dispatch(setUserInitial(responseUser));
+      } catch (error) {
+        console.log((error as Error).message);
       }
-    } catch (error) {
-      console.log((error as Error).message);
     }
+    router.push("/");
   };
 
   return (
     <div className=' flex flex-col order-4 w-full h-auto mx-auto mb-6 md:items-center lg:mt-20 lg:mb-0'>
-      <div className='mb-8 flex flex-col items-center justify-center h-full bg-white md:w-full md:h-full'>
+      <div className='flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full'>
         <ButtonBack />
 
-        <h3 className='text-xl font-black self-center mb-6 md:text-2xl lg:text-4xl lg:ml-[-100px]'>
-          Registro de nuevo usuario
-        </h3>
+        <h3 className='text-xl font-black lg:font-bold md:text-2xl lg:text-3xl leading-[33.85px]'>Registro de nuevo usuario</h3>
         <h4 className='font-bold flex justify-center my-6 space-x-10 text-sm lg:text-lg'>
           Crea tu usuario y recibí asistencia legal ¡ya!
         </h4>
         <form
-          className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center lg:mt-36'
+          className='flex flex-col mb-6'
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className='w-full flex flex-col gap-10 m-auto space-y-4 text-left'>
-            <div className='relative z-0 w-full group'>
+            <div className='relative z-0 w-full group '>
               <input
                 type='text'
                 id='name'
@@ -225,7 +217,7 @@ export default function FormRegister() {
           </div>
         </form>
       </div>
-      <footer className='self-center text-xs'>Burofy genera conexiones</footer>
+     
     </div>
   );
 }

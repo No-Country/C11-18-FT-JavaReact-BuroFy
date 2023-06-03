@@ -2,31 +2,30 @@
 
 import Image from "next/image";
 import Spinner from "../Spinners/Spinner";
-import { useAuth } from "@/contexts/AuthContext";
 import Sidebar from "./Sidebar";
 import Drawer from "./Drawer";
+import { useAppSelector } from "@/hooks";
 
 const Header = () => {
-  const { statusAuth } = useAuth();
-
+  const { verified } = useAppSelector((state) => state.user);
   return (
     <>
-      {statusAuth === "checking" && <Spinner />}
-      {statusAuth === "authenticated" ? (
+      {verified === "checking" && <Spinner />}
+      {verified === "authenticated" ? (
         <>
           <Sidebar />
           <Drawer />
         </>
       ) : (
         <>
-          <div className='md:hidden absolute top-5 left-[50%] translate-x-[-50%] z-[55]'>
+          <header className='md:hidden absolute top-4 left-[50%] translate-x-[-50%] z-[55]'>
             <Image
               src='/assets/title-burofy.svg'
               width={150}
               height={80}
               alt='title burofy white'
             />
-          </div>
+          </header>
         </>
       )}
     </>

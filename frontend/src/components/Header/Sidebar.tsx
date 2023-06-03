@@ -2,15 +2,16 @@ import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Avatar from "../Avatars/Avatar";
 import SearchBar from "../SearchBar";
+import { useIsOpen } from "@/contexts/OpenContext";
 
 const Sidebar = () => {
+  const { setIsOpen, isOpen } = useIsOpen();
   return (
     <header className='w-full h-full flex p-6 justify-between items-center bg-header-img object-cover object-center md:h-[300px] md:py-8 md:px-20  gap-4 bg-no-repeat bg-cover col-start-2 col-end-2 row-span-1'>
       <button
         className='focus:scale-110 active:scale-110 transition'
         type='button'
-        data-drawer-toggle='drawer-navigation'
-        aria-controls='drawer-navigation'
+        onClick={() => setIsOpen(!isOpen)}
       >
         <RxHamburgerMenu className='w-8 h-8 text-white md:hidden' />
       </button>

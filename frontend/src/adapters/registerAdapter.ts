@@ -3,7 +3,7 @@ import { Rol, UserInitial } from "@/interfaces/user";
 export function registerAdapter(user: Omit<UserInitial, "rol">, rol: Rol)  {
   return {
     id: user.id,
-    fullName: user.firstName,
+    fullName: user.fullName,
     email: user.email,
     avatar: user.avatar,
     rol: rol,

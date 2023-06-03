@@ -11,6 +11,7 @@ const SelectRol = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const { rol } = useAppSelector((state) => state.user);
+  console.log(rol);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

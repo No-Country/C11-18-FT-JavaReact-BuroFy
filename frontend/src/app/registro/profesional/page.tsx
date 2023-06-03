@@ -6,7 +6,7 @@ export const metadata = {
 
 const registerProffesional = () => {
   return (
-    <section className='w-full flex flex-col items-center px-4 pt-10 bg-white md:p-24 lg:p-0 lg:flex-row lg:justify-between lg:items-start overflow-x-hidden  z-50'>
+    <section className='layout-out'>
       <FormRegisterProfessional />
       <Heroimage />
     </section>
