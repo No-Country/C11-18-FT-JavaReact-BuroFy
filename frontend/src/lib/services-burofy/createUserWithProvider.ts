@@ -4,7 +4,7 @@ export async function createUserWithProvider(
   rol: Rol,
   user: Omit<UserInitial, "rol">,
 ): Promise<UserInitial> {
-  const responseUser = await fetch("/api/registerWithProvider", {
+  const responseUser = await fetch("/api/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

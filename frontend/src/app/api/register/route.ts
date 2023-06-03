@@ -1,36 +1,37 @@
 import { registerAdapter } from "@/adapters/registerAdapter";
-import { SignUp } from "@/interfaces/auth";
-import { sign_up_with_credentials } from "@/lib";
-import { NextResponse } from "next/server";
+import { axios } from "@/lib";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
-    const { email, password, displayName, rol }: SignUp = await req.json(); // body.
+    const { user, rol } = await req.json(); // body.
+    if (!user || !rol) throw new Error("Your data isn't valid");
 
-    const { user } = await sign_up_with_credentials({ email, password, displayName });
+    const userInitial = registerAdapter(user, rol);
 
-    if (user && rol) {
-      const userInitial = registerAdapter(user, rol);
+    await axios.post("/create/person", userInitial, {
+      headers: { "Content-Type": "application/json" },
+    });
 
-      await fetch("http://backend-web-burofy.onrender.com/create/person", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userInitial),
-      });
+    const response = NextResponse.json({ user, rol }, { status: 201 });
 
-      const response = NextResponse.json({ user, rol });
+    response.cookies.set("id", String(user?.id), {
+      path: "/",
+      httpOnly: true,
+    });
 
-      response.cookies.set("id", String(user?.id), {
-        path: "/",
-        httpOnly: true,
-      });
+    response.cookies.set("rol", String(rol), {
+      path: "/",
+      httpOnly: true,
+    });
 
-      return response;
-    }
+    return response;
   } catch (error) {
-    console.log(error);
-    return NextResponse.error();
+    if (error) {
+      console.log("error", error);
+      req.cookies.delete("id");
+      req.cookies.delete("rol");
+      return NextResponse.json(error, { status: 409 });
+    }
   }
 }

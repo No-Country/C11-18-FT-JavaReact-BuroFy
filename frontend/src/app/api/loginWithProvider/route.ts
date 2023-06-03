@@ -1,20 +1,20 @@
-import { axios, sign_in_with_credentials } from "@/lib";
+import { UserInitial } from "@/interfaces/user";
+import { axios } from "@/lib";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, password } = await req.json();
-    const { user } = await sign_in_with_credentials({ email, password });
-    if (!user) throw new Error("Your data isn't valid");
+    const id: Pick<UserInitial, "id"> = await req.json();
+    if (!id) throw new Error("Your data isn't valid");
 
-    const responseUser = axios.get(`/getPerson/${user?.id}`);
+    const responseUser = axios.get(`/getPerson/${id}`);
 
     const jsonData = (await responseUser).data;
     console.log("json", jsonData);
 
     const response = NextResponse.json((await responseUser).data, { status: 201 });
 
-    response.cookies.set("id", String(user?.id), {
+    response.cookies.set("id", String(id), {
       path: "/",
       httpOnly: true,
     });

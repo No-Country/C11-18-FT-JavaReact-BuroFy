@@ -8,7 +8,7 @@ import { setUserInitial } from "@/redux/features/userSlice";
 import { useAppDispatch } from "@/hooks";
 
 type PropsType = {
-  children: ReactNode;
+  children: ReactNode | ReactNode[];
 };
 
 const emptyContext = {};
@@ -28,17 +28,16 @@ export const AuthProvider = ({ children }: PropsType) => {
       if (user) {
         const providerId = user.providerData[0].providerId;
         const email = user.email as string;
-        const firstName = user.providerData[0].displayName;
+        const fullName = user.providerData[0].displayName;
         const id = user.uid;
         const id_token = await user.getIdToken();
         const avatar = user.photoURL || null;
-        setStatusAuth("authenticated");
         console.log(user);
         dispatch(
           setUserInitial({
             providerId,
             email,
-            firstName,
+            fullName,
             id,
             id_token,
             avatar,
