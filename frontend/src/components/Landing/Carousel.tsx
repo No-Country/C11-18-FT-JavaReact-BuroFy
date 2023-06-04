@@ -11,6 +11,7 @@ import image1 from "../../../public/assets/sliderdesk1.svg";
 import image2 from "../../../public/assets/sliderdesk2.svg";
 import image3 from "../../../public/assets/sliderdesk3.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const slides = [
   {
@@ -54,7 +55,9 @@ export const Carousel = () => (
       ))}
       
     </ReactCarousel>
-    <ButtonAuth>Empezar ahora</ButtonAuth>
+    <Link href="/registro" className="mx-auto">
+      <ButtonAuth>Empezar ahora</ButtonAuth>
+    </Link>
     
     
   </section>
