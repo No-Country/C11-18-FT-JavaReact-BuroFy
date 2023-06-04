@@ -32,7 +32,7 @@ const FormLogin = () => {
         console.log("USER", user);
         if (!user) throw new Error("user not found");
 
-        dispatch( setCredentials(user));
+        dispatch(setCredentials(user));
       } catch (error) {
         console.log((error as Error).message);
       }
@@ -114,16 +114,17 @@ const FormLogin = () => {
             )}
           </div>
         </div>
-        <div className="mt-6">
+        <div className='mt-6'>
           <ButtonAuth>Iniciar Sesión</ButtonAuth>
         </div>
-        <div className="flex mt-4 justify-center">
-          <div className="inline-flex items-center justify-center ">
-            <hr className="w-24 lg:w-40 h-px my-8 bg-gray-600 border-0"/>
-            <span className=" px-3 font-medium text-[16px] text-gray-900  bg-white ">O continúa con</span>
-            <hr className="w-24 lg:w-40 h-px my-8 bg-gray-600 border-0"/>
-          </div>  
-
+        <div className='flex mt-4 justify-center'>
+          <div className='inline-flex items-center justify-center '>
+            <hr className='w-24 lg:w-40 h-px my-8 bg-gray-600 border-0' />
+            <span className=' px-3 font-medium text-[16px] text-gray-900  bg-white '>
+              O continúa con
+            </span>
+            <hr className='w-24 lg:w-40 h-px my-8 bg-gray-600 border-0' />
+          </div>
         </div>
         <div className='flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 lg:mt-2 md:gap-8 md:flex-row'>
           <ButtonGoogle />

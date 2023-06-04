@@ -66,16 +66,18 @@ export default function CardReview() {
           <div className='bg-[#EBEBEB] rounded-lg w-[337px] h-[106px] lg:w-[423px] lg:h-[74px] lg:mb-3 lg:p-1.5'>
             <div className='flex-row lg:flex lg:[423px] lg:[126px] lg:p-2 lg:gap-2 p-3 mt-1 '>
               <div className='flex gap-2 items-center lg:'>
-                <Image src="/stub/imgprofile3.png" width={50} height={50} alt='profile' />
+                <Image src='/stub/imgprofile3.png' width={50} height={50} alt='profile' />
                 <div className='flex-col'>
                   <p className='lg:font-bold lg:text-sm'>Pedro Guitierrez Lazo</p>
                   <span className='lg:flex bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mt-1 mr-2 lg:ml-0 ml-2 px-2.5 py-0.5 rounded-full '>
-                  Abogado Migratorío
+                    Abogado Migratorío
                   </span>
                 </div>
               </div>
               <div className='flex lg:flex-col gap-2 lg:gap-0 '>
-                <p className='lg:font-normal lg:text-sm lg:text-end lg:mb-2 mb-3 text-xs mt-3 lg:mt-0'>Mi puntuación</p>
+                <p className='lg:font-normal lg:text-sm lg:text-end lg:mb-2 mb-3 text-xs mt-3 lg:mt-0'>
+                  Mi puntuación
+                </p>
                 <div className='flex items-center'>
                   <svg
                     aria-hidden='true'
@@ -134,8 +136,6 @@ export default function CardReview() {
               </div>
             </div>
           </div>
-         
-
 
           <div className='flex justify-center lg:justify-end mt-5'>
             <button
@@ -145,7 +145,7 @@ export default function CardReview() {
               <AiFillEye />
               Ver todos
             </button>
-          </div>  
+          </div>
         </div>
       </div>
     </>

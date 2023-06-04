@@ -1,5 +1,5 @@
 import { Rol } from "@/interfaces/user";
-import {  sign_in_with_credentials } from "@/lib";
+import { sign_in_with_credentials } from "@/lib";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     const jsonData = await responseUser.json();
     console.log("json", jsonData);
 
-    const response = NextResponse.json(( jsonData), { status: 201 });
+    const response = NextResponse.json(jsonData, { status: 201 });
 
     response.cookies.set("id", String(user?.id), {
       path: "/",

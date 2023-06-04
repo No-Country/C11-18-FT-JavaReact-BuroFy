@@ -25,7 +25,6 @@ const Drawer = () => {
       dispatch(logoutUser());
       //close conection with firebase
       //delete all states of user
-      
     } catch (error) {
       console.log((error as Error).message);
     }

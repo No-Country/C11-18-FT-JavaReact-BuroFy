@@ -28,8 +28,6 @@ export default function FormRegister() {
     formState: { errors },
   } = useForm<SignUp>();
 
-
-
   const onSubmit = async (data: SignUp) => {
     const { password, email, displayName, dni, enrollment } = data;
     dispatch(setVerified("checking"));
@@ -37,9 +35,16 @@ export default function FormRegister() {
       try {
         const { user } = await sign_up_with_credentials({ email, password, displayName });
         if (!user) throw new Error("user not found");
-        const userProfessional = registerAdapterProfessional(user, dni as string, enrollment as string);
+        const userProfessional = registerAdapterProfessional(
+          user,
+          dni as string,
+          enrollment as string,
+        );
 
-        const responseUser = await createUser(rol as Rol, userProfessional as Omit<UserInitial, "rol">);
+        const responseUser = await createUser(
+          rol as Rol,
+          userProfessional as Omit<UserInitial, "rol">,
+        );
         dispatch(setUserInitial(responseUser));
       } catch (error) {
         console.log((error as Error).message);
@@ -53,14 +58,13 @@ export default function FormRegister() {
       <div className='flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full'>
         <ButtonBack />
 
-        <h3 className='text-xl font-black lg:font-bold md:text-2xl lg:text-3xl leading-[33.85px]'>Registro de nuevo usuario</h3>
+        <h3 className='text-xl font-black lg:font-bold md:text-2xl lg:text-3xl leading-[33.85px]'>
+          Registro de nuevo usuario
+        </h3>
         <h4 className='font-bold flex justify-center my-6 space-x-10 text-sm lg:text-lg'>
           Crea tu usuario y recibí asistencia legal ¡ya!
         </h4>
-        <form
-          className='flex flex-col mb-6'
-          onSubmit={handleSubmit(onSubmit)}
-        >
+        <form className='flex flex-col mb-6' onSubmit={handleSubmit(onSubmit)}>
           <div className='w-full flex flex-col gap-10 m-auto space-y-4 text-left'>
             <div className='relative z-0 w-full group '>
               <input
@@ -217,7 +221,6 @@ export default function FormRegister() {
           </div>
         </form>
       </div>
-     
     </div>
   );
 }

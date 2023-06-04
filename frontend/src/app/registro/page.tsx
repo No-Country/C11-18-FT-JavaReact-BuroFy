@@ -6,7 +6,7 @@ export const metadata = {
 
 const RegisterPage = () => {
   return (
-    <section className="layout-out">
+    <section className='layout-out'>
       <SelectRol />
       <Heroimage />
     </section>

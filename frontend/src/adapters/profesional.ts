@@ -4,7 +4,7 @@ export function registerAdapterProfessional(
   user: Omit<UserInitial, "rol">,
   enrollment: string,
   dni: string,
-): Omit<UserInitial,  "rol"> {
+): Omit<UserInitial, "rol"> {
   return {
     id: user.id,
     id_token: user.id_token,

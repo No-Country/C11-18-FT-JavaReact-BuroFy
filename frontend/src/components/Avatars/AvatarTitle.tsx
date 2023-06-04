@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/hooks";
-import { logoutUser , setVerified } from "@/redux/features/userSlice";
+import { logoutUser, setVerified } from "@/redux/features/userSlice";
 
 import { logout_firebase } from "@/lib";
 
@@ -19,7 +19,6 @@ const AvatarTitle = () => {
       dispatch(logoutUser());
       //close conection with firebase
       //delete all states of user
-      
     } catch (error) {
       console.log((error as Error).message);
     }

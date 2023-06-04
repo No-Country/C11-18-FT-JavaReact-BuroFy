@@ -79,9 +79,10 @@ const SelectRol = () => {
           </button>
         </div>
         <button
-          type='submit' 
-          className=' w-[353px] h-[40px] md:w-96 md:h-14 lg:w-[515px] lg:h-[56px] mt-6 lg:mt-10 text-lg font-bold text-white flex- items-center justify-center rounded-lg bg-black   hover:bg-primary hover:scale-110 disabled:bg-sixnary transition active:scale-110 '>
-            Crear un usuario
+          type='submit'
+          className=' w-[353px] h-[40px] md:w-96 md:h-14 lg:w-[515px] lg:h-[56px] mt-6 lg:mt-10 text-lg font-bold text-white flex- items-center justify-center rounded-lg bg-black   hover:bg-primary hover:scale-110 disabled:bg-sixnary transition active:scale-110 '
+        >
+          Crear un usuario
         </button>
       </form>
 

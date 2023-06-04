@@ -22,8 +22,8 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setRol: (state, action: PayloadAction<Rol>) => {
-      state.rol = action.payload; 
-      console.log("payload",action.payload);
+      state.rol = action.payload;
+      console.log("payload", action.payload);
     },
     setVerified: (state, action: PayloadAction<Verified>) => {
       state.verified = action.payload;
