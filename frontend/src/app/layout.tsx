@@ -30,10 +30,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='es'>
-      <body className='overflow-hidden md:grid md:grid-cols-[20rem_1fr] md:grid-rows-[20rem_1fr]'>
+      <body className=' md:grid md:grid-cols-[20rem_1fr] md:grid-rows-[20rem_1fr]'>
         <Providers>
           <Header />
-          <main className='col-start-2 col-end-2 row-start-2 row-end-2 overflow-hidden'>
+          <main className='col-start-2 col-end-2 row-start-2 row-end-2 '>
             {children}
           </main>
         </Providers>
