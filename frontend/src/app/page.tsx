@@ -1,6 +1,6 @@
 import {
-  CardServices,
-  CardReview,
+  // CardServices,
+  // CardReview,
   CardReviewEmpty,
   CardApplicationEmpty,
   AlertRegister,
