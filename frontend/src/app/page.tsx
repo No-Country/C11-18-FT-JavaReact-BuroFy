@@ -1,15 +1,22 @@
-import { CardServices, CardReview } from "@/components";
+import {
+  CardServices,
+  CardReview,
+  CardReviewEmpty,
+  CardApplicationEmpty,
+  AlertRegister,
+} from "@/components";
 
 const HomePage = () => {
   return (
     <>
       <section className=' bg-white p-4 lg:flex lg:justify-center z-50 lg:overflow-hidden'>
+        <AlertRegister />
         <span className='text-[#616161] lg:hidden'>Tienes, 0 consultas</span>
         <article className='lg:flex lg:space-x-7 lg:justify-center lg:mt-2 mt-5 '>
-          <CardServices />
-          <CardReview />
-          {/* <CardReviewEmpty />
-          <CardApplicationEmpty /> */}
+          {/* <CardServices />
+          <CardReview /> */}
+          <CardApplicationEmpty />
+          <CardReviewEmpty />
         </article>
       </section>
       <footer className='flex justify-center mt-[250px] md:hidden lg:hidden'>
