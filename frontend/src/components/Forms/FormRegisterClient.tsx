@@ -29,21 +29,27 @@ export default function FormRegister() {
   } = useForm<SignUp>();
 
   const onSubmit = async (data: SignUp) => {
-    const { password, email, displayName } = data;
     dispatch(setVerified("checking"));
     if (data) {
       try {
+        const { password, email, displayName } = data;
         const { user } = await sign_up_with_credentials({ email, password, displayName });
-        console.log("user client form register",user);
+
+        if (!user) throw new Error("user not found");
 
         const responseUser = await createUser(rol as Rol, user as Omit<UserInitial, "rol">);
-        console.log("responseUser form register",responseUser);
-        dispatch(setUserInitial(responseUser));
+        
+        if (responseUser) {
+          console.log("response",responseUser);
+          dispatch(setUserInitial(responseUser));
+          router.push("/");
+        }
       } catch (error) {
         console.log((error as Error).message);
       }
     }
-    router.push("/");
+    
+    dispatch(setVerified("authenticated"));
   };
 
   return (

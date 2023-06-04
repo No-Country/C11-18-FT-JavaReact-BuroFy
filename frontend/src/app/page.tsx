@@ -1,6 +1,20 @@
 import { CardServices, CardReview } from "@/components";
+import { cookies } from "next/headers";
 
-const HomePage = () => {
+const HomePage = async () => {
+  const cookieStore = cookies();
+  const rol = cookieStore.get("rol")?.value;
+  const id = cookieStore.get("id")?.value;
+
+  const data = rol === "client" ? await fetch(`https://backend-web-burofy.onrender.com/getClient/${id}`,{
+    next: { revalidate: 10 },
+  }) : await fetch(`https://backend-web-burofy.onrender.com/getProfessional/${id}`,{
+    next: { revalidate: 10 },
+  });
+
+  const user = await data.json();
+  console.log("data" , user);
+  
   return (
     <>
       <section className=' bg-white p-4 lg:flex lg:justify-center z-50 lg:overflow-hidden'>

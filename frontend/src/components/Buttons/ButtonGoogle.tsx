@@ -14,30 +14,39 @@ const ButtonGoogle = () => {
   const router = useRouter();
   const { rol } = useAppSelector((state) => state.user);
   const pathname = usePathname();
-
+  console.log(pathname);
+  
   const handleGoogle = async () => {
     dispatch(setVerified("checking"));
     try {
       const { user } = await sing_in("google");
       console.log("USER", user);
       if (!user) throw new Error("user isn't found");
-
+     
       if (pathname === "/acceso") {
+        
         const responseUser = await loginUserWithProvider(
           user.id as unknown as Pick<UserInitial, "id">,
         );
-        dispatch(setUserInitial(responseUser));
+        if (responseUser) {
+          dispatch(setUserInitial(responseUser));
+          router.push("/");
+        }
+        
       } else {
         const responseUser = await createUserWithProvider(
           rol as Rol,
           user as Omit<UserInitial, "rol">,
         );
-        dispatch(setUserInitial(responseUser));
+        if (responseUser) {
+          dispatch(setUserInitial(responseUser));
+          router.push("/");
+        }
       }
     } catch (error) {
       console.log(error as Error);
     }
-    router.push("/");
+    dispatch(setVerified("authenticated"));
   };
 
   return (

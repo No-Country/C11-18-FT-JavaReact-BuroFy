@@ -31,21 +31,32 @@ export default function FormRegister() {
 
 
   const onSubmit = async (data: SignUp) => {
-    const { password, email, displayName, dni, enrollment } = data;
     dispatch(setVerified("checking"));
     if (data) {
       try {
+        const { password, email, displayName, dni, enrollment } = data;
         const { user } = await sign_up_with_credentials({ email, password, displayName });
         if (!user) throw new Error("user not found");
-        const userProfessional = registerAdapterProfessional(user, dni as string, enrollment as string);
 
-        const responseUser = await createUser(rol as Rol, userProfessional as Omit<UserInitial, "rol">);
-        dispatch(setUserInitial(responseUser));
+        const userProfessional = registerAdapterProfessional(
+          user,
+          dni as string,
+          enrollment as string,
+        );
+        const responseUser = await createUser(
+          rol as Rol,
+          userProfessional as Omit<UserInitial, "rol">,
+        );
+        if (responseUser) {
+          dispatch(setUserInitial(responseUser));
+          router.push("/");
+        }
+        
       } catch (error) {
         console.log((error as Error).message);
       }
     }
-    router.push("/");
+    dispatch(setVerified("authenticated"));
   };
 
   return (

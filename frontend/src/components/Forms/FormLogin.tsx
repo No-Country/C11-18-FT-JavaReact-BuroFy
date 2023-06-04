@@ -31,14 +31,15 @@ const FormLogin = () => {
         const user = await loginUser(data);
         console.log("USER", user);
         if (!user) throw new Error("user not found");
-
+        
         dispatch( setCredentials(user));
+        router.push("/");
       } catch (error) {
         console.log((error as Error).message);
       }
     }
-
-    router.push("/");
+   
+    dispatch(setVerified("authenticated"));
   };
 
   return (

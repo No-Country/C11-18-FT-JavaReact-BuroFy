@@ -38,7 +38,7 @@ const userSlice = createSlice({
       state.avatar = action.payload.avatar;
       state.rol = action.payload.rol;
       state.rolContent = action.payload.rolContent;
-      state.verified = "authenticated";
+      
     },
     setCredentials: (state, action: PayloadAction<User>) => {
       state.fullName = action.payload.fullName;
@@ -52,7 +52,7 @@ const userSlice = createSlice({
       state.address = action.payload.address || null;
       state.phone = action.payload.phone || null;
       state.birthday = action.payload.birthday || null;
-      state.verified = "authenticated";
+      
     },
     logoutUser: (state) => {
       // all states of user

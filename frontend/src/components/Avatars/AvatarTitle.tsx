@@ -16,14 +16,14 @@ const AvatarTitle = () => {
     dispatch(setVerified("checking"));
     try {
       await logout_firebase();
-      dispatch(logoutUser());
+      router.push("/registro");
       //close conection with firebase
       //delete all states of user
       
     } catch (error) {
       console.log((error as Error).message);
     }
-    router.push("/registro");
+    dispatch(logoutUser());
   };
 
   return (
