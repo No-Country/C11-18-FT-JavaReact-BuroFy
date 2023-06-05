@@ -66,7 +66,7 @@ public class ConsultationServiceImpl implements IConsultationService {
         return consultationRepository.save(consultation);
     }
     @Override
-    public ConsultationResponseDTO getConsultationsByClientId(Long clientId) {
+    public ConsultationResponseDTO getConsultationsByClientId(String clientId) {
         ConsultationResponseDTO consultationResponseDTO = new ConsultationResponseDTO();
         //consultationResponseDTO.setStatus(200);
         List<Consultation> consultations = (List<Consultation>) consultationRepository.getConsultationsByClientId(clientId);
@@ -87,7 +87,7 @@ public class ConsultationServiceImpl implements IConsultationService {
     }
 
     @Override
-    public ConsultationResponseDTO getConsultationsByProfessionalId(Long professionalId) {
+    public ConsultationResponseDTO getConsultationsByProfessionalId(String professionalId) {
         ConsultationResponseDTO consultationResponseDTO = new ConsultationResponseDTO();
         //consultationResponseDTO.setStatus(200);
         List<Consultation> consultations = (List<Consultation>) consultationRepository.getConsultationsByProfessionalId(professionalId);
