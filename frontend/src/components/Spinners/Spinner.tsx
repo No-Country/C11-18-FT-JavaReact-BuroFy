@@ -9,6 +9,7 @@ const Spinner = () => {
         height={250}
         width={250}
       />
+      console.log(hola);
       <div className="w-24 h-24 bg-gradient-to-r from-lilac to-sky-blue animate-spinner-square before:content-[''] before:z-index-[-1] before:absolute before:bg-gradient-to-r before:from-sky-blue before:to-lilac before:blur-xl before:scale-[0.95] z-[99]"></div>
     </section>
   );
