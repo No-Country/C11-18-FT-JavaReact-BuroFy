@@ -1,6 +1,7 @@
 package com.burofy.appWebBurofy.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -19,9 +20,13 @@ public class Professional {
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotEmpty(message = "Id may not be empty")
     private String id;
+    @NotEmpty(message = "Email may not be empty")
     private String email;
     private String avatar;
+
+    @NotEmpty(message = "fullName may not be empty")
     private String fullName;
     private LocalDate birthDate;
     private String documentNumber;
