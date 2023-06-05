@@ -5,6 +5,7 @@ export const metadata = {
 };
 
 const RegisterPage = () => {
+  
   return (
     <section className="layout-out">
       <SelectRol />

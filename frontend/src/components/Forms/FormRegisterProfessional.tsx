@@ -49,7 +49,7 @@ export default function FormRegister() {
         );
         if (responseUser) {
           dispatch(setUserInitial(responseUser));
-          router.push("/");
+          router.push("/inicio");
         }
         
       } catch (error) {

@@ -42,7 +42,7 @@ export default function FormRegister() {
         if (responseUser) {
           console.log("response",responseUser);
           dispatch(setUserInitial(responseUser));
-          router.push("/");
+          router.push("/inicio");
         }
       } catch (error) {
         console.log((error as Error).message);

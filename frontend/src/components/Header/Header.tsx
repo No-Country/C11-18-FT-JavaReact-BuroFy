@@ -4,10 +4,23 @@ import Image from "next/image";
 import Spinner from "../Spinners/Spinner";
 import Sidebar from "./Sidebar";
 import Drawer from "./Drawer";
-import { useAppSelector } from "@/hooks";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { setCredentials, setVerified } from "@/redux/features/userSlice";
+import { useEffect } from "react";
 
-const Header = () => {
+
+const Header = ({user} :  any) => {
+  
   const { verified } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    if (user ) {
+      dispatch(setCredentials(user));
+      console.log( "user" , user);
+      dispatch(setVerified("authenticated"));
+    }
+  }, [user, dispatch]);
+  
   return (
     <>
       {verified === "checking" && <Spinner />}

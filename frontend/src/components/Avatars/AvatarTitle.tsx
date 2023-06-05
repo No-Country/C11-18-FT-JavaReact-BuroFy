@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { logoutUser , setVerified } from "@/redux/features/userSlice";
-
 import { logout_firebase } from "@/lib";
+
 
 const AvatarTitle = () => {
   const router = useRouter();

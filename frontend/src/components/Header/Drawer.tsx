@@ -51,17 +51,17 @@ const Drawer = () => {
           <ul className='space-y-2'>
             <li
               className={`hover:bg-primary transition-colors ${
-                pathname === "/" && "bg-tertiary"
+                pathname === "/inicio" && "bg-tertiary"
               } w-full mb-7`}
             >
               <Link
-                href='/'
+                href='/inicio'
                 className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg group px-6 py-[14px]'
               >
                 <AiFillHome
-                  className={`w-6 h-6  active:text-white ${pathname === "/" && "text-white"}`}
+                  className={`w-6 h-6  active:text-white ${pathname === "/inicio" && "text-white"}`}
                 />
-                <span className={`ml-3 self-end ${pathname === "/" && "text-white"}`}>Inicio</span>
+                <span className={`ml-3 self-end ${pathname === "/inicio" && "text-white"}`}>Inicio</span>
               </Link>
             </li>
 

@@ -30,7 +30,7 @@ const ButtonGoogle = () => {
         );
         if (responseUser) {
           dispatch(setUserInitial(responseUser));
-          router.push("/");
+          router.push("/inicio");
         }
         
       } else {
@@ -40,7 +40,7 @@ const ButtonGoogle = () => {
         );
         if (responseUser) {
           dispatch(setUserInitial(responseUser));
-          router.push("/");
+          router.push("/inicio");
         }
       }
     } catch (error) {

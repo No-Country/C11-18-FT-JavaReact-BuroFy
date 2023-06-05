@@ -26,8 +26,8 @@ const slides = [
     image: image2,
   },
   {
-    title: "Con Bourofy conectarse es mas facil",
-    subtitle: " plataforma diseñada por expertos para brindar soluciones legales al alcance de tu mano",
+    title: "Con Bourofy conectarse es más fácil",
+    subtitle: "Plataforma diseñada por expertos para brindar soluciones legales al alcance de tu mano",
     image: image3,
   },
 ];
@@ -44,18 +44,20 @@ export const Carousel = () => (
     >
       {slides.map((slide) => (
         <div key={slide.title} className="react-carousel-slide mb-[6rem]">
-          <div className="image-wrapper ">
+          <div className="image-wrapper mt-14 md:mt-32">
             <Image src={slide.image} width={250} height={250} alt="image"   />
           </div>
-          <h2>{slide.title}</h2>
-          <h3>{slide.subtitle}</h3>
+          <div className="md:px-40 text-center">
+            <h2 className="px-12 md:text-2xl">{slide.title}</h2>
+            <h3 className="hidden md:flex md:text-lg ">{slide.subtitle}</h3>
+          </div>
           
         </div>
       
       ))}
       
     </ReactCarousel>
-    <Link href="/registro" className="mx-auto">
+    <Link href="/registro" className="mx-auto mb-32 md:mb-64">
       <ButtonAuth>Empezar ahora</ButtonAuth>
     </Link>
     

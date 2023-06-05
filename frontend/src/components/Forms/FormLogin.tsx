@@ -33,7 +33,7 @@ const FormLogin = () => {
         if (!user) throw new Error("user not found");
         
         dispatch( setCredentials(user));
-        router.push("/");
+        router.push("/inicio");
       } catch (error) {
         console.log((error as Error).message);
       }
