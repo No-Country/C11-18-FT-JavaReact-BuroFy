@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public interface IProfessionalRepository extends JpaRepository<Professional, Long> {
+public interface IProfessionalRepository extends JpaRepository<Professional, String> {
 
     Optional<Professional> findById(String id);
     List<Professional> findByLocation(String location);

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 
@@ -19,9 +20,13 @@ public class Client  {
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotEmpty(message = "ID may not be empty")
     private String id;
+    @NotEmpty(message = "Email may not be empty")
     private String email;
     private String avatar;
+
+    @NotEmpty(message = "fullName may not be empty")
     private String fullName;
     private LocalDate birthDate;
     private String documentNumber;
