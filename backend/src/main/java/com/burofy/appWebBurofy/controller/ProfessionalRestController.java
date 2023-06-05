@@ -58,4 +58,14 @@ public class ProfessionalRestController  {
         }
     }
 
+    @GetMapping(path = "/professionalsByLocation/{page}/{size}/{location}")
+    public ResponseEntity<List<Professional>> professionalsByLocation(@PathVariable int page, @PathVariable int size, @PathVariable String location) {
+        List<Professional> professionals = professionalService.professionalsByLocation(page,size,location);
+        if (!professionals.isEmpty()) {
+            return ResponseEntity.ok(professionals);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
