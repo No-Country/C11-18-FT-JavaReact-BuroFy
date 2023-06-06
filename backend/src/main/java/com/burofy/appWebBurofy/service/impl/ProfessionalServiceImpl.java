@@ -6,6 +6,8 @@ import com.burofy.appWebBurofy.repository.IProfessionalRepository;
 import com.burofy.appWebBurofy.service.IProfessionalService;
 import com.burofy.appWebBurofy.utility.Pagination;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -98,6 +100,15 @@ public class ProfessionalServiceImpl implements IProfessionalService {
         List<Professional> professionals = professionalRepository.findByLocation(location);
         professionals.sort(Comparator.comparing(Professional::getFullName));
         return  Pagination.paginate(professionals, pageSize, page);
+    }
+
+    @Override
+    public Page<Professional> findProfessionals(Pageable paging) {
+        return professionalRepository.findAll(paging);
+    }
+    @Override
+    public Page<Professional> findProfessionalsByFilters(String experience, String location, Boolean isRemoteWork, Boolean isFaceToFaceWork, Pageable paging) {
+        return professionalRepository.findByExperienceAndLocationAndIsRemoteWorkAndIsFaceToFaceWork(experience, location, isRemoteWork, isFaceToFaceWork, paging);
     }
 
 }
