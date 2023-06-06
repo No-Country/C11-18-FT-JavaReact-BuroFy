@@ -14,5 +14,7 @@ public interface IProfessionalService {
     Professional updateProfessional(String id, Professional updatedProfessional);
 
     Professional deleteProfessional(String id);
+    List<Professional> professionalsByLocation(int page, int pageSize, String location);
+
 
 }

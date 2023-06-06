@@ -75,4 +75,11 @@ public class ProfessionalServiceImpl implements IProfessionalService {
         return professionalRepository.save(professional);
     }
 
+    @Override
+    public List<Professional> professionalsByLocation(int page, int pageSize, String location) {
+        List<Professional> professionals = professionalRepository.findByLocation(location);
+        professionals.sort(Comparator.comparing(Professional::getFullName));
+        return  Pagination.paginate(professionals, pageSize, page);
+    }
+
 }
