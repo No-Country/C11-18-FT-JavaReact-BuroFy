@@ -28,7 +28,7 @@ const AvatarTitle = () => {
 
   return (
     <div className='hidden md:flex md:flex-col lg:flex lg:ml-5 space-y-2'>
-      <span className='text-white font-medium'>Hola, {(fullName as string) || ""}</span>
+      <span className='text-white font-medium capitalize'>Hola, {(fullName as string) || ""}</span>
       <div className='flex gap-2'>
         <Link
           href='/perfil'

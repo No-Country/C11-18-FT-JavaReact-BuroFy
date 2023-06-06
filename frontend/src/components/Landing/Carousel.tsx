@@ -48,8 +48,8 @@ export const Carousel = () => (
             <Image src={slide.image} width={250} height={250} alt="image"   />
           </div>
           <div className="md:px-40 text-center">
-            <h2 className="px-12 md:text-2xl">{slide.title}</h2>
-            <h3 className="hidden md:flex md:text-lg ">{slide.subtitle}</h3>
+            <h2 className="title px-12 md:text-2xl">{slide.title}</h2>
+            <h3 className="subtitle hidden md:flex md:text-lg ">{slide.subtitle}</h3>
           </div>
           
         </div>

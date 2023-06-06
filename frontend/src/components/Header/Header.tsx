@@ -31,7 +31,7 @@ const Header = ({user} :  any) => {
         </>
       ) : (
         <>
-          <header className='md:hidden absolute top-4 left-[50%] translate-x-[-50%] z-[55]'>
+          <header className='flex md:hidden top-4 left-[50%] translate-x-[-50%] z-[55]'>
             <Image
               src='/assets/title-burofy.svg'
               width={150}

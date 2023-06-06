@@ -35,10 +35,10 @@ const Drawer = () => {
   };
   return (
     <>
-      <aside className={isOpen ? "drawer md:translate-x-0"  : "drawer -translate-x-full md:translate-x-0"}>
+      <aside className={isOpen ? "drawer md:translate-x-0"  : "drawer -translate-x-full md:translate-x-0 "}>
         <div className='overflow-y-auto h-full bg-white'>
           {/* title - header */}
-          <header className='w-full h-1/6 flex justify-center items-center border border-transparent border-b-2 border-b-[#C0C0C0] mb-7'>
+          <header className='w-full hidden h-1/6 md:flex justify-center items-center border border-transparent border-b-2 border-b-[#C0C0C0] mb-7'>
             <Image
               src='/assets/title-burofy.svg'
               alt='title burofy with colors'
