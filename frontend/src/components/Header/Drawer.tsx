@@ -8,18 +8,19 @@ import { HiPencil } from "react-icons/hi";
 import { IoMdHelpCircle } from "react-icons/io";
 import { BsFillPersonFill } from "react-icons/bs";
 import { logoutUser, setVerified } from "@/redux/features/userSlice";
-import { useAppDispatch } from "@/hooks";
+import { useAppDispatch} from "@/hooks";
 
 import { useRouter } from "next/navigation";
 import { logouUserApp } from "@/lib/services-burofy/logouUserApp";
 import { useIsOpen } from "@/contexts/OpenContext";
+// import { Rol } from "@/interfaces/user";
 
 const Drawer = () => {
   const dispatch = useAppDispatch();
   const pathname = usePathname();
   const router = useRouter();
   const { isOpen } = useIsOpen();
-
+  // const {rol}  = useAppSelector((state)=> state.user);
   const handleLogout = async () => {
     dispatch(setVerified("checking"));
     try {
@@ -66,7 +67,7 @@ const Drawer = () => {
               </Link>
             </li>
 
-            <li
+            { true && (<li
               className={`hover:bg-primary transition-colors w-full  ${
                 pathname === "/buscar" && "bg-tertiary"
               }`}
@@ -80,7 +81,7 @@ const Drawer = () => {
                 />
                 <span className={`ml-3 ${pathname === "/buscar" && "text-white"}`}>Buscar</span>
               </Link>
-            </li>
+            </li>)}
 
             <li
               className={`hover:bg-primary transition-colors ${
