@@ -11,7 +11,7 @@ import { logoutUser, setVerified } from "@/redux/features/userSlice";
 import { useAppDispatch } from "@/hooks";
 
 import { useRouter } from "next/navigation";
-import { logout_firebase } from "@/lib";
+import { logouUserApp } from "@/lib/services-burofy/logouUserApp";
 import { useIsOpen } from "@/contexts/OpenContext";
 
 const Drawer = () => {
@@ -23,7 +23,8 @@ const Drawer = () => {
   const handleLogout = async () => {
     dispatch(setVerified("checking"));
     try {
-      await logout_firebase();
+      const message = await logouUserApp();
+      console.log(message);
       router.push("/registro");
       //close conection with firebase
       //delete all states of user
