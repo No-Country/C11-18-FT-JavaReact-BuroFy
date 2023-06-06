@@ -1,5 +1,6 @@
 package com.burofy.appWebBurofy.controller;
 
+import com.burofy.appWebBurofy.dto.ProfessionalDTO;
 import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.service.IProfessionalService;
 import com.burofy.appWebBurofy.utility.Response;
@@ -49,8 +50,18 @@ public class ProfessionalRestController  {
     }
 
     @GetMapping(path = "/allProfessionals/{page}/{size}")
-    public ResponseEntity<List<Professional>> allProfessionals(@PathVariable int page, @PathVariable int size) {
-        List<Professional> professionals = professionalService.allProfessionals(page,size);
+    public ResponseEntity<List<ProfessionalDTO>> allProfessionals(@PathVariable int page, @PathVariable int size) {
+        List<ProfessionalDTO> professionalDTOS = professionalService.allProfessionals(page,size);
+        if (!professionalDTOS.isEmpty()) {
+            return ResponseEntity.ok(professionalDTOS);
+        } else {
+            return ResponseEntity.ok(null);
+        }
+    }
+
+    @GetMapping(path = "/professionalsByLocation/{page}/{size}/{location}")
+    public ResponseEntity<List<Professional>> professionalsByLocation(@PathVariable int page, @PathVariable int size, @PathVariable String location) {
+        List<Professional> professionals = professionalService.professionalsByLocation(page,size,location);
         if (!professionals.isEmpty()) {
             return ResponseEntity.ok(professionals);
         } else {

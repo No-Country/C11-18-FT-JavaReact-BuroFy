@@ -9,4 +9,6 @@ public interface IConsultationRepository extends JpaRepository<Consultation, Lon
     Collection<Consultation> getConsultationsByClientId(String clientId);
     Collection<Consultation> getConsultationsByProfessionalId(String professionalId);
 
+
+
 }
