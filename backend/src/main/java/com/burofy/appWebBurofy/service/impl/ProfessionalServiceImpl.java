@@ -1,9 +1,6 @@
 package com.burofy.appWebBurofy.service.impl;
 
-import com.burofy.appWebBurofy.dto.ConsultationDTO;
-import com.burofy.appWebBurofy.dto.ConsultationResponseDTO;
 import com.burofy.appWebBurofy.dto.ProfessionalDTO;
-import com.burofy.appWebBurofy.entity.Consultation;
 import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.repository.IProfessionalRepository;
 import com.burofy.appWebBurofy.service.IProfessionalService;
@@ -41,8 +38,6 @@ public class ProfessionalServiceImpl implements IProfessionalService {
     @Override
     public List<ProfessionalDTO> allProfessionals(int page, int pageSize) {
 
-        ProfessionalDTO professionalDTO = new ProfessionalDTO();
-
         List<Professional> professionals = professionalRepository.findAll();
         List<ProfessionalDTO> professionalDTOS = new ArrayList<>();
         for (Professional c: professionals) {
@@ -53,7 +48,8 @@ public class ProfessionalServiceImpl implements IProfessionalService {
                     .location(c.getLocation())
                     .experience(c.getExperience())
                     .price(c.getPrice())
-                    .rating(c.getRating()).build();
+                    .rating(c.getRating())
+                    .build();
             professionalDTOS.add(cDto);
         }
 

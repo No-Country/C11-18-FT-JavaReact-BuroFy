@@ -1,8 +1,6 @@
 package com.burofy.appWebBurofy.dto;
 
-import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.entity.Payment;
-import com.burofy.appWebBurofy.entity.Professional;
 import lombok.*;
 
 import java.util.Date;
@@ -14,8 +12,8 @@ import java.util.Date;
 @Builder
 public class ConsultationDTO {
     private Long id;
-    private Client client;
-    private Professional professional;
+    private ClientDTO client;
+    private ProfessionalDTO professional;
     private Payment payment;
     private String type;
     private Date date;
