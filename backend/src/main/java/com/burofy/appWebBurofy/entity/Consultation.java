@@ -32,10 +32,8 @@ public class Consultation {
     @JoinColumn(name = "payment_id")
     private Payment payment;
     private String type;
+    private String status;
     private Date date;
     private String comments;
-    private Boolean state;
-
-
 
 }

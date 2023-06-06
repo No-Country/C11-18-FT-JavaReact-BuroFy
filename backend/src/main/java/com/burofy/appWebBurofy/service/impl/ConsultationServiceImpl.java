@@ -24,7 +24,7 @@ public class ConsultationServiceImpl implements IConsultationService {
 
     @Override
     public Consultation createConsultation(Consultation consultation) {
-        consultation.setState(true);
+        consultation.setStatus("progreso");
         return consultationRepository.save(consultation);
     }
 
@@ -52,7 +52,7 @@ public class ConsultationServiceImpl implements IConsultationService {
         consultation.setType(updatedConsultation.getType());
         consultation.setDate(updatedConsultation.getDate());
         consultation.setComments(updatedConsultation.getComments());
-        consultation.setState(updatedConsultation.getState());
+        consultation.setStatus(updatedConsultation.getStatus());
 
         return consultationRepository.save(consultation);
     }
@@ -65,7 +65,7 @@ public class ConsultationServiceImpl implements IConsultationService {
             throw new RuntimeException(NOTFOUND);
         }
         Consultation consultation = consultationOptional.get();
-        consultation.setState(false);
+        consultation.setStatus("");
         return consultationRepository.save(consultation);
     }
     @Override
@@ -92,7 +92,7 @@ public class ConsultationServiceImpl implements IConsultationService {
                     .type(c.getType())
                     .date(c.getDate())
                     .comments(c.getComments())
-                    .state(c.getState())
+                    .status(c.getStatus())
                     .build();
             consultationDTOS.add(cDto);
         }
@@ -121,7 +121,7 @@ public class ConsultationServiceImpl implements IConsultationService {
                     .type(c.getType())
                     .date(c.getDate())
                     .comments(c.getComments())
-                    .state(c.getState())
+                    .status(c.getStatus())
                     .build();
             consultationDTOS.add(cDto);
         }

@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class ConsultationRestController {
         consultationService.createConsultation(consultation);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-
+    @ApiIgnore
     @GetMapping(path = "/getConsultation/{id}")
     public ResponseEntity<Consultation> getConsultation(@PathVariable Long id) {
         Consultation consultation = consultationService.getConsultation(id);
@@ -41,6 +42,7 @@ public class ConsultationRestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @ApiIgnore
     @PatchMapping(path = "/delete/consultation/{id}")
     public ResponseEntity<Consultation> deleteConsultation(@PathVariable Long id) {
         consultationService.deleteConsultation(id);
@@ -67,6 +69,5 @@ public class ConsultationRestController {
         }
         //return ResponseEntity.status(HttpStatus.valueOf((int)consultationResponseDTO.getStatus())).body(consultationResponseDTO);
     }
-
 
 }

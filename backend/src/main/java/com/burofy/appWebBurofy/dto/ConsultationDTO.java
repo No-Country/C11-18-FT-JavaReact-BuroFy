@@ -18,5 +18,5 @@ public class ConsultationDTO {
     private String type;
     private Date date;
     private String comments;
-    private Boolean state;
+    private String status;
 }
