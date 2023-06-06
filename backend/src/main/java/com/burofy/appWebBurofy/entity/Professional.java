@@ -41,5 +41,6 @@ public class Professional {
     private Boolean isRemoteWork;
     private Boolean isFaceToFaceWork;
     private Boolean state;
+    private String rating;
 
 }

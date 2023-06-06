@@ -1,5 +1,6 @@
 package com.burofy.appWebBurofy.service.impl;
 
+import com.burofy.appWebBurofy.dto.ProfessionalDTO;
 import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.repository.IProfessionalRepository;
 import com.burofy.appWebBurofy.service.IProfessionalService;
@@ -7,6 +8,7 @@ import com.burofy.appWebBurofy.utility.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -34,10 +36,26 @@ public class ProfessionalServiceImpl implements IProfessionalService {
     }
 
     @Override
-    public List<Professional> allProfessionals(int page, int pageSize) {
+    public List<ProfessionalDTO> allProfessionals(int page, int pageSize) {
+
         List<Professional> professionals = professionalRepository.findAll();
-        professionals.sort(Comparator.comparing(Professional::getFullName));
-        return  Pagination.paginate(professionals, pageSize, page);
+        List<ProfessionalDTO> professionalDTOS = new ArrayList<>();
+        for (Professional c: professionals) {
+            ProfessionalDTO cDto = ProfessionalDTO.builder()
+                    .id(c.getId())
+                    .avatar(c.getAvatar())
+                    .fullName(c.getFullName())
+                    .location(c.getLocation())
+                    .experience(c.getExperience())
+                    .price(c.getPrice())
+                    .rating(c.getRating())
+                    .build();
+            professionalDTOS.add(cDto);
+        }
+
+        professionalDTOS.sort(Comparator.comparing(ProfessionalDTO::getFullName));
+        return  Pagination.paginate(professionalDTOS, pageSize, page);
+
     }
 
     @Override
