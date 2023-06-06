@@ -9,6 +9,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ *
+ *  BuroFy Proyecto
+ *  para No Country
+ *
+ *  Person Rest Controller
+ *  Crea el usuario -Padrón- y despueé se determina el rol Client o Professional
+ *
+ * @version 1.0.0 2023-06-06
+ * @author Martha Liliana Gallego Murillo<lilianagallegom@gmail.com>
+ * @author Dmitry Borovskikh <dmibrv@gmail.com>
+ * @author Milton Figueredo <gratno@gmail.com>
+
+ * @since 1.0.0
+ */
+
 @RestController
 @RequiredArgsConstructor
 @Slf4j

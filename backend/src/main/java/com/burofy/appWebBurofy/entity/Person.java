@@ -8,6 +8,22 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
+/**
+ *
+ *  BuroFy Proyecto
+ *  para No Country
+ *
+ *  Entity Person
+ *  Class principal Person se crea los atributos
+ *
+ * @version 1.0.0 2023-06-06
+ * @author Martha Liliana Gallego Murillo<lilianagallegom@gmail.com>
+ * @author Dmitry Borovskikh <dmibrv@gmail.com>
+ * @author Milton Figueredo <gratno@gmail.com>
+
+ * @since 1.0.0
+ */
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

@@ -11,6 +11,22 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Date;
 
+/**
+ *
+ *  BuroFy Proyecto
+ *  para No Country
+ *
+ *  Entity Consultation
+ *  Class principal Consultation se crea los atributos
+ *
+ * @version 1.0.0 2023-06-06
+ * @author Martha Liliana Gallego Murillo<lilianagallegom@gmail.com>
+ * @author Dmitry Borovskikh <dmibrv@gmail.com>
+ * @author Milton Figueredo <gratno@gmail.com>
+
+ * @since 1.0.0
+ */
+
 @Entity
 @Table(name = "consultation")
 @NoArgsConstructor
