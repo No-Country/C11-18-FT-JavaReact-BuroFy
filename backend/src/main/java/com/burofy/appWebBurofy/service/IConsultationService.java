@@ -13,8 +13,8 @@ public interface IConsultationService {
 
     Consultation deleteConsultation(Long id);
 
-    ConsultationResponseDTO getConsultationsByClientId(Long id);
+    ConsultationResponseDTO getConsultationsByClientId(String id);
 
-    ConsultationResponseDTO getConsultationsByProfessionalId(Long id);
+    ConsultationResponseDTO getConsultationsByProfessionalId(String id);
 
 }

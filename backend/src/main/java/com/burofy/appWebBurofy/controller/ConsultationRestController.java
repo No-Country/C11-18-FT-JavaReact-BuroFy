@@ -46,7 +46,7 @@ public class ConsultationRestController {
     }
 
     @GetMapping(path = "/getConsultationsByClientId")
-    public ResponseEntity<ConsultationResponseDTO> findConsultationsByClientId(@RequestHeader("clientId") Long clientId) {
+    public ResponseEntity<ConsultationResponseDTO> findConsultationsByClientId(@RequestHeader("clientId") String clientId) {
         ConsultationResponseDTO consultationResponseDTO = consultationService.getConsultationsByClientId(clientId);
         if (consultationResponseDTO.getConsultations().isEmpty()) {
             return ResponseEntity.notFound().build();
@@ -56,7 +56,7 @@ public class ConsultationRestController {
         //return ResponseEntity.status(HttpStatus.valueOf((int)consultationResponseDTO.getStatus())).body(consultationResponseDTO);
     }
     @GetMapping(path = "/getConsultationsByProfessionalId")
-    public ResponseEntity<ConsultationResponseDTO> getConsultationsByProfessionalId(@RequestHeader("professionalId") Long professionalId) {
+    public ResponseEntity<ConsultationResponseDTO> getConsultationsByProfessionalId(@RequestHeader("professionalId") String professionalId) {
         ConsultationResponseDTO consultationResponseDTO = consultationService.getConsultationsByProfessionalId(professionalId);
         if (consultationResponseDTO.getConsultations().isEmpty()) {
             return ResponseEntity.notFound().build();
