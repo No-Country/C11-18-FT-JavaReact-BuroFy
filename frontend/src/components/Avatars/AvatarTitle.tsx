@@ -4,8 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { logoutUser , setVerified } from "@/redux/features/userSlice";
-import { logout_firebase } from "@/lib";
-
+import { logouUserApp } from "@/lib/services-burofy/logouUserApp";
 
 const AvatarTitle = () => {
   const router = useRouter();
@@ -15,7 +14,8 @@ const AvatarTitle = () => {
   const handleLogout = async () => {
     dispatch(setVerified("checking"));
     try {
-      await logout_firebase();
+      const message = await logouUserApp();
+      console.log(message);
       router.push("/registro");
       //close conection with firebase
       //delete all states of user
