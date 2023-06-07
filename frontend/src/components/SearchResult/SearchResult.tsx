@@ -1,22 +1,21 @@
 "use client";
 
+import { Search } from "@/interfaces/search";
 import Image from "next/image";
 import React from "react";
 
-export default function SearchResult() {
+export default function SearchResult({search}: {search : Search}) {
+  console.log("searchResult", search);
   return (
-
     <>
-
-      <article className='lg:flex lg:space-x-7 lg:justify-center lg:mt-2 mt-5 '>
-
-        
+      <article className='lg:flex lg:space-x-7 lg:justify-center lg:mt-2 mt-5 mb-5 '>
+  
         <div className='bg-white border-2 border-[#7FCEFF] rounded-lg drop-shadow-xl lg:border-[3px] w-[363px]  lg:w-[935px] lg:h-[195px]'>
           <div className="flex lg:p-8 justify-between">
             <div className='flex gap-2 items-center '>
               <Image src="/mocks/searchresult1.png" width={125} height={182} alt='profile' className=" rounded-full" />
               <div className='flex-col space-y-3'>
-                <p className='lg:font-bold lg:text-3xl'>Lisandro Aguirre</p>
+                <p className='lg:font-bold lg:text-3xl'>{search.fullName}</p>
                 <div className="flex">
                   <span className='lg:flex bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mt-1 mr-2 lg:ml-0 ml-2 px-2.5 py-0.5 rounded-full '>
                     Abogado Migratorío
@@ -92,7 +91,7 @@ export default function SearchResult() {
                     <strong className='text-black'>4</strong> (30)
                   </p>
                 </div>
-                <p className='lg:font-normal lg:text-sm lg:text-end lg:mb-2 mb-3 text-xs mt-3 lg:mt-0'><strong> $5000</strong> /consulta</p>
+                <p className='lg:font-normal lg:text-sm lg:text-end lg:mb-2 mb-3 text-xs mt-3 lg:mt-0'><strong> $5000</strong> / consulta</p>
                 <button
                   type='button'
                   className='text-white bg-[#24292F] rounded-md lg:w-[146px] lg:h-[30px] lg:font-bold  lg:text-sm  lg:text-center lg:inline-flex mx-auto flex flex-col items-center p-1'

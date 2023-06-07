@@ -8,7 +8,7 @@ import { HiPencil } from "react-icons/hi";
 import { IoMdHelpCircle } from "react-icons/io";
 import { BsFillPersonFill } from "react-icons/bs";
 import { logoutUser, setVerified } from "@/redux/features/userSlice";
-import { useAppDispatch} from "@/hooks";
+import { useAppDispatch, useAppSelector} from "@/hooks";
 
 import { useRouter } from "next/navigation";
 import { logouUserApp } from "@/lib/services-burofy/logouUserApp";
@@ -20,7 +20,7 @@ const Drawer = () => {
   const pathname = usePathname();
   const router = useRouter();
   const { isOpen } = useIsOpen();
-  // const {rol}  = useAppSelector((state)=> state.user);
+  const {id}  = useAppSelector((state)=> state.user);
   const handleLogout = async () => {
     dispatch(setVerified("checking"));
     try {
@@ -109,7 +109,7 @@ const Drawer = () => {
               } w-full`}
             >
               <Link
-                href='/perfil'
+                href={`/perfil/${id}`}
                 className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
               >
                 <BsFillPersonFill

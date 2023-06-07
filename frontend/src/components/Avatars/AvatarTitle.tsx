@@ -9,7 +9,7 @@ import { logouUserApp } from "@/lib/services-burofy/logouUserApp";
 const AvatarTitle = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const { fullName } = useAppSelector((state) => state.user);
+  const { fullName , id } = useAppSelector((state) => state.user);
 
   const handleLogout = async () => {
     dispatch(setVerified("checking"));
@@ -31,7 +31,7 @@ const AvatarTitle = () => {
       <span className='text-white font-medium capitalize'>Hola, {(fullName as string) || ""}</span>
       <div className='flex gap-2'>
         <Link
-          href='/perfil'
+          href={`/perfil/${id}`}
           className='text-sx text-white italic font-light hover:opacity-60 cursor-pointer hover:scale-105 transition'
         >
           Mi perfil

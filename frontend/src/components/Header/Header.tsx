@@ -37,6 +37,8 @@ const Header = ({user} :  any) => {
               width={150}
               height={80}
               alt='title burofy white'
+              placeholder="blur"
+              blurDataURL={"/assets/title-burofy.svg"} 
             />
           </header>
         </>

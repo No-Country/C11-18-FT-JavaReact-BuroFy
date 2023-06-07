@@ -1,5 +1,5 @@
 import ContainerSearchResults from "@/components/SearchResult/ContainerSearchResults";
-// import ProfileSearchResult from "@/components/SearchResult/SearchResult";
+import SearchResultFIlter from "@/components/SearchResult/SearchResultFIlter";
 import React from "react";
 
 
@@ -14,8 +14,8 @@ export default async function ProfileResult(){
     <>
     
       <section>
+        <SearchResultFIlter/>
         <ContainerSearchResults search={search}/>
-        {/* <ProfileSearchResult/> */}
       </section>
     </>
   );

@@ -7,8 +7,6 @@ import ConsultProfessional from "./ConsultProfessional";
 import ReviewsProfessional from "./ReviewsProfessional";
 import ProfileHeaderView from "./ProfileHeaderView";
 
-
-
 export default function ProfileSearchResult(){
   return(
     <>
