@@ -1,6 +1,6 @@
 package com.burofy.appWebBurofy.controller;
 
-import com.burofy.appWebBurofy.dto.ConsultationResponseDTO;
+import com.burofy.appWebBurofy.dto.ConsultationDTO;
 import com.burofy.appWebBurofy.entity.Consultation;
 import com.burofy.appWebBurofy.service.IConsultationService;
 import com.burofy.appWebBurofy.utility.Response;
@@ -9,6 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
+
+import java.util.List;
 
 /**
  *
@@ -38,7 +41,7 @@ public class ConsultationRestController {
         consultationService.createConsultation(consultation);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-
+    @ApiIgnore
     @GetMapping(path = "/getConsultation/{id}")
     public ResponseEntity<Consultation> getConsultation(@PathVariable Long id) {
         Consultation consultation = consultationService.getConsultation(id);
@@ -55,6 +58,7 @@ public class ConsultationRestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @ApiIgnore
     @PatchMapping(path = "/delete/consultation/{id}")
     public ResponseEntity<Consultation> deleteConsultation(@PathVariable Long id) {
         consultationService.deleteConsultation(id);
@@ -62,25 +66,24 @@ public class ConsultationRestController {
     }
 
     @GetMapping(path = "/getConsultationsByClientId")
-    public ResponseEntity<ConsultationResponseDTO> findConsultationsByClientId(@RequestHeader("clientId") String clientId) {
-        ConsultationResponseDTO consultationResponseDTO = consultationService.getConsultationsByClientId(clientId);
-        if (consultationResponseDTO.getConsultations().isEmpty()) {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<List<ConsultationDTO>> findConsultationsByClientId(@RequestHeader("id") String id) {
+        List <ConsultationDTO> consultationDTOS = consultationService.getConsultationsByClientId(id);
+        if (consultationDTOS.isEmpty()) {
+            return ResponseEntity.ok(null);
         } else {
-            return ResponseEntity.ok(consultationResponseDTO);
+            return ResponseEntity.ok(consultationDTOS);
         }
         //return ResponseEntity.status(HttpStatus.valueOf((int)consultationResponseDTO.getStatus())).body(consultationResponseDTO);
     }
     @GetMapping(path = "/getConsultationsByProfessionalId")
-    public ResponseEntity<ConsultationResponseDTO> getConsultationsByProfessionalId(@RequestHeader("professionalId") String professionalId) {
-        ConsultationResponseDTO consultationResponseDTO = consultationService.getConsultationsByProfessionalId(professionalId);
-        if (consultationResponseDTO.getConsultations().isEmpty()) {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<List<ConsultationDTO>> getConsultationsByProfessionalId(@RequestHeader("id") String id) {
+        List <ConsultationDTO> consultationDTOS = consultationService.getConsultationsByProfessionalId(id);
+        if (consultationDTOS.isEmpty()) {
+            return ResponseEntity.ok(null);
         } else {
-            return ResponseEntity.ok(consultationResponseDTO);
+            return ResponseEntity.ok(consultationDTOS);
         }
         //return ResponseEntity.status(HttpStatus.valueOf((int)consultationResponseDTO.getStatus())).body(consultationResponseDTO);
     }
-
 
 }

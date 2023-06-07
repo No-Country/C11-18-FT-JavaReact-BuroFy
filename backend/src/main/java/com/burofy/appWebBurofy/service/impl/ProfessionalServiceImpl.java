@@ -1,14 +1,13 @@
 package com.burofy.appWebBurofy.service.impl;
 
-import com.burofy.appWebBurofy.dto.ConsultationDTO;
-import com.burofy.appWebBurofy.dto.ConsultationResponseDTO;
 import com.burofy.appWebBurofy.dto.ProfessionalDTO;
-import com.burofy.appWebBurofy.entity.Consultation;
 import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.repository.IProfessionalRepository;
 import com.burofy.appWebBurofy.service.IProfessionalService;
 import com.burofy.appWebBurofy.utility.Pagination;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -60,8 +59,6 @@ public class ProfessionalServiceImpl implements IProfessionalService {
     @Override
     public List<ProfessionalDTO> allProfessionals(int page, int pageSize) {
 
-        ProfessionalDTO professionalDTO = new ProfessionalDTO();
-
         List<Professional> professionals = professionalRepository.findAll();
         List<ProfessionalDTO> professionalDTOS = new ArrayList<>();
         for (Professional c: professionals) {
@@ -72,7 +69,8 @@ public class ProfessionalServiceImpl implements IProfessionalService {
                     .location(c.getLocation())
                     .experience(c.getExperience())
                     .price(c.getPrice())
-                    .rating(c.getRating()).build();
+                    .rating(c.getRating())
+                    .build();
             professionalDTOS.add(cDto);
         }
 
@@ -121,6 +119,15 @@ public class ProfessionalServiceImpl implements IProfessionalService {
         List<Professional> professionals = professionalRepository.findByLocation(location);
         professionals.sort(Comparator.comparing(Professional::getFullName));
         return  Pagination.paginate(professionals, pageSize, page);
+    }
+
+    @Override
+    public Page<Professional> findProfessionals(Pageable paging) {
+        return professionalRepository.findAll(paging);
+    }
+    @Override
+    public Page<Professional> findProfessionalsByFilters(String experience, String location, Boolean isRemoteWork, Boolean isFaceToFaceWork, Pageable paging) {
+        return professionalRepository.findByExperienceAndLocationAndIsRemoteWorkAndIsFaceToFaceWork(experience, location, isRemoteWork, isFaceToFaceWork, paging);
     }
 
 }

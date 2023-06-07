@@ -1,8 +1,11 @@
 package com.burofy.appWebBurofy.service.impl;
 
+import com.burofy.appWebBurofy.dto.ClientDTO;
 import com.burofy.appWebBurofy.dto.ConsultationDTO;
-import com.burofy.appWebBurofy.dto.ConsultationResponseDTO;
+import com.burofy.appWebBurofy.dto.ProfessionalDTO;
+import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.entity.Consultation;
+import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.repository.IConsultationRepository;
 import com.burofy.appWebBurofy.service.IConsultationService;
 import lombok.RequiredArgsConstructor;
@@ -40,7 +43,7 @@ public class ConsultationServiceImpl implements IConsultationService {
 
     @Override
     public Consultation createConsultation(Consultation consultation) {
-        consultation.setState(true);
+        consultation.setStatus("progreso");
         return consultationRepository.save(consultation);
     }
 
@@ -68,7 +71,7 @@ public class ConsultationServiceImpl implements IConsultationService {
         consultation.setType(updatedConsultation.getType());
         consultation.setDate(updatedConsultation.getDate());
         consultation.setComments(updatedConsultation.getComments());
-        consultation.setState(updatedConsultation.getState());
+        consultation.setStatus(updatedConsultation.getStatus());
 
         return consultationRepository.save(consultation);
     }
@@ -81,49 +84,68 @@ public class ConsultationServiceImpl implements IConsultationService {
             throw new RuntimeException(NOTFOUND);
         }
         Consultation consultation = consultationOptional.get();
-        consultation.setState(false);
+        consultation.setStatus("");
         return consultationRepository.save(consultation);
     }
     @Override
-    public ConsultationResponseDTO getConsultationsByClientId(String clientId) {
-        ConsultationResponseDTO consultationResponseDTO = new ConsultationResponseDTO();
+    public List<ConsultationDTO> getConsultationsByClientId(String clientId) {
+        //ConsultationDTO consultationDTO = new ConsultationDTO();
         //consultationResponseDTO.setStatus(200);
         List<Consultation> consultations = (List<Consultation>) consultationRepository.getConsultationsByClientId(clientId);
         List<ConsultationDTO> consultationDTOS = new ArrayList<>();
         for (Consultation c: consultations) {
+            Professional professional = c.getProfessional();
+            ProfessionalDTO professionalDTO = ProfessionalDTO.builder()
+                    .id(professional.getId())
+                    .avatar(professional.getAvatar())
+                    .fullName(professional.getFullName())
+                    .location(professional.getLocation())
+                    .experience(professional.getExperience())
+                    .price(professional.getPrice())
+                    .rating(professional.getRating())
+                    .build();
             ConsultationDTO cDto = ConsultationDTO.builder()
                     .id(c.getId())
-                    .professional(c.getProfessional())
+                    .professional(professionalDTO)
                     .payment(c.getPayment())
                     .type(c.getType())
                     .date(c.getDate())
                     .comments(c.getComments())
-                    .state(c.getState()).build();
+                    .status(c.getStatus())
+                    .build();
             consultationDTOS.add(cDto);
         }
-        consultationResponseDTO.setConsultations(consultationDTOS);
-        return consultationResponseDTO;
+        //consultationResponseDTO.setConsultations(consultationDTOS);
+        return consultationDTOS;
     }
 
     @Override
-    public ConsultationResponseDTO getConsultationsByProfessionalId(String professionalId) {
-        ConsultationResponseDTO consultationResponseDTO = new ConsultationResponseDTO();
+    public List<ConsultationDTO> getConsultationsByProfessionalId(String professionalId) {
+        //ConsultationResponseDTO consultationResponseDTO = new ConsultationResponseDTO();
         //consultationResponseDTO.setStatus(200);
         List<Consultation> consultations = (List<Consultation>) consultationRepository.getConsultationsByProfessionalId(professionalId);
         List<ConsultationDTO> consultationDTOS = new ArrayList<>();
         for (Consultation c: consultations) {
+            Client client = c.getClient();
+            ClientDTO clientDTO = ClientDTO.builder()
+                    .id(client.getId())
+                    .avatar(client.getAvatar())
+                    .fullName(client.getFullName())
+                    .location(client.getLocation())
+                    .build();
             ConsultationDTO cDto = ConsultationDTO.builder()
                     .id(c.getId())
-                    .client(c.getClient())
+                    .client(clientDTO)
                     .payment(c.getPayment())
                     .type(c.getType())
                     .date(c.getDate())
                     .comments(c.getComments())
-                    .state(c.getState()).build();
+                    .status(c.getStatus())
+                    .build();
             consultationDTOS.add(cDto);
         }
-        consultationResponseDTO.setConsultations(consultationDTOS);
-        return consultationResponseDTO;
+        //consultationResponseDTO.setConsultations(consultationDTOS);
+        return consultationDTOS;
     }
 
 }
