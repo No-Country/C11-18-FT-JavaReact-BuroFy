@@ -27,22 +27,21 @@ export const metadata = {
     },
     shortcut: { url: "/favicon.png", type: "image/png" },
   },
+  
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='es'>
-     
+    <html lang='es'>  
       <body>
         <Providers>
           <main className='col-start-2 col-end-2 row-start-2 row-end-2 '>
             {children}
           </main>
         </Providers>
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></Script>
-    
+        
       </body>
-      
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"/>
     </html>
   );
 }

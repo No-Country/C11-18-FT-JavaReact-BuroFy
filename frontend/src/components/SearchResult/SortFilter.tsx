@@ -1,8 +1,11 @@
 import React from "react";
 
+
 export default function SortFilter() {
   return (
     <>
+
+
       <div className="flex ml-80 justify-between p-6 mb-5 lg:w-[960px] gap-5">
         <h1 className="lg: text-lg font-semibold ">Más recientes</h1>
         
