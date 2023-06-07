@@ -38,33 +38,32 @@ export default function FormRegister() {
         if (!user) throw new Error("user not found");
 
         const responseUser = await createUser(rol as Rol, user as Omit<UserInitial, "rol">);
+        
         if (responseUser) {
+          console.log("response",responseUser);
           dispatch(setUserInitial(responseUser));
+          router.push("/inicio");
         }
       } catch (error) {
         console.log((error as Error).message);
       }
     }
-    router.push("/");
+    
+    dispatch(setVerified("authenticated"));
   };
 
   return (
-    <div className=' flex flex-col order-4 w-full h-auto mx-auto mb-6 md:items-center lg:mt-20 lg:mb-0'>
-      <div className='mb-8 flex flex-col items-center justify-center h-full bg-white md:w-full md:h-full'>
-        <ButtonBack />
+    <div className='flex flex-col order-4 w-full h-auto mx-auto mb-2 md:items-center lg:mt-32 lg:mb-0 mt-20'>
+      <div className='flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full'>
+        <ButtonBack/>
 
-        <h3 className='text-xl font-black self-center mb-6 md:text-2xl lg:text-4xl lg:ml-[-100px]'>
-          Registro de nuevo usuario
-        </h3>
-        <h4 className='font-bold flex justify-center my-6 space-x-10 text-sm lg:text-lg'>
-          Crea tu usuario y recibí asistencia legal ¡ya!
+        <h3 className='text-xl font-black lg:font-bold md:text-2xl lg:text-3xl leading-[33.85px]'>Registro de nuevo usuario</h3>
+        <h4 className='flex text-center my-6 px-20 font-medium text-sm lg:text-lg'>
+        Crea tu usuario y recibí asistencia legal ¡Ya!
         </h4>
-        <form
-          className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center lg:mt-36'
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <div className='w-full flex flex-col gap-10 m-auto space-y-4 text-left'>
-            <div className='relative z-0 w-full group'>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className='flex flex-col w-full gap-4 lg:gap-10 m-auto space-y-4 text-left'>
+            <div className='relative z-0 w-[353px] group'>
               <input
                 type='text'
                 id='name'
@@ -79,12 +78,12 @@ export default function FormRegister() {
                 htmlFor='name'
                 className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 z-50 pl-4 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 '
               >
-                Nombre
+              Nombre
               </label>
               {errors.displayName && <ErrorMsg>{errors.displayName?.message as string}</ErrorMsg>}
             </div>
 
-            <div className='relative z-0 w-full group mb-14 '>
+            <div className='relative z-0 w-full group lg:mb-14 '>
               <input
                 type='email'
                 id='email'
@@ -103,7 +102,7 @@ export default function FormRegister() {
                 htmlFor='email'
                 className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 z-50 pl-4 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 '
               >
-                Correo electrónico
+              Correo electrónico
               </label>
               {errors.email && <ErrorMsg>{errors.email?.message as string}</ErrorMsg>}
             </div>
@@ -127,7 +126,7 @@ export default function FormRegister() {
                 htmlFor='password'
                 className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 z-50 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 pl-4 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
-                Contraseña
+              Contraseña
               </label>
               {errors.password && <ErrorMsg>{errors.password?.message as string}</ErrorMsg>}
               {visible ? (
@@ -168,24 +167,30 @@ export default function FormRegister() {
                 htmlFor='confirmPassword'
                 className='peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 z-50 origin-[0] peer-focus:left-0 peer-focus:text-lilac peer-placeholder-shown:scale-100 pl-4 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
-                Confirma contraseña
+              Confirma contraseña
               </label>
               {errors.confirmPassword && <ErrorMsg>{errors.confirmPassword?.message}</ErrorMsg>}
             </div>
           </div>
 
-          <div className='flex justify-center my-10 '>
+          <div className='flex justify-center mt-10 '>
             <ButtonAuth>Crear cuenta</ButtonAuth>
           </div>
         </form>
-        <div>
-          <span>O continúa con</span>
+        <div className="flex mt-4">
+          <div className="inline-flex items-center justify-center ">
+            <hr className="w-24 lg:w-40 h-px my-8 bg-gray-600 border-0"/>
+            <span className=" px-3 font-medium text-[16px] text-gray-900  bg-white ">O continúa con</span>
+            <hr className="w-24 lg:w-40 h-px my-8 bg-gray-600 border-0"/>
+          </div>  
+
         </div>
-        <div className='w-full flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 md:gap-8 md:flex-row'>
+        <div className='flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 lg:mt-2 md:gap-8 md:flex-row'>
           <ButtonGoogle />
+        
         </div>
+        <footer className='hidden lg:absolute mt-4 text-xs bottom-4'>Burofy genera conexiones</footer>
       </div>
-      <footer className='self-center text-xs'>Burofy genera conexiones</footer>
     </div>
   );
 }

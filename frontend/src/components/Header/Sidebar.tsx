@@ -22,7 +22,7 @@ const Sidebar = () => {
         height={52}
         className='md:hidden bg-no-repeat'
       />
-      <div className='hidden md:flex md:flex-col md:grow-1 md:shrink-1  '>
+      <div className='hidden md:flex md:flex-col md:grow-1 md:shrink-1 lg:mt-10 lg:ml-44  '>
         <h5 className='mb-3 font-bold text-secundary text-white leading-[39.06px]  '>
           Encuentra a tu especialista
         </h5>

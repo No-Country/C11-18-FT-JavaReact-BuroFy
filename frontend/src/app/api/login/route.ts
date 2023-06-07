@@ -1,5 +1,5 @@
 import { Rol } from "@/interfaces/user";
-import { sign_in_with_credentials } from "@/lib";
+import {  sign_in_with_credentials } from "@/lib";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -7,7 +7,6 @@ export async function POST(req: NextRequest) {
     const { email, password } = await req.json();
     const { user } = await sign_in_with_credentials({ email, password });
     if (!user) throw new Error("Your data isn't valid");
-
     const responseUser = await fetch(
       `http://backend-web-burofy.onrender.com/getPerson/${user?.id}`,
       {
@@ -20,7 +19,7 @@ export async function POST(req: NextRequest) {
     const jsonData = await responseUser.json();
     console.log("json", jsonData);
 
-    const response = NextResponse.json(jsonData, { status: 201 });
+    const response = NextResponse.json(( jsonData), { status: 201 });
 
     response.cookies.set("id", String(user?.id), {
       path: "/",

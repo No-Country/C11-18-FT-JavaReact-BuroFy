@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/hooks";
-import { logoutUser, setVerified } from "@/redux/features/userSlice";
+import { logoutUser , setVerified } from "@/redux/features/userSlice";
 import { logout_firebase } from "@/lib";
+
 
 const AvatarTitle = () => {
   const router = useRouter();
@@ -15,11 +16,14 @@ const AvatarTitle = () => {
     dispatch(setVerified("checking"));
     try {
       await logout_firebase();
-      dispatch(logoutUser());
+      router.push("/registro");
+      //close conection with firebase
+      //delete all states of user
+      
     } catch (error) {
       console.log((error as Error).message);
     }
-    router.push("/registro");
+    dispatch(logoutUser());
   };
 
   return (

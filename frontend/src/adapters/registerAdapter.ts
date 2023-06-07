@@ -1,9 +1,6 @@
 import { Rol, UserInitial } from "@/interfaces/user";
 
-export function registerAdapter(
-  user: Omit<UserInitial, "rol">,
-  rol: Rol,
-): Omit<UserInitial, "id_token"> {
+export function registerAdapter(user: Omit<UserInitial, "rol">, rol: Rol)  {
   return {
     id: user.id,
     fullName: user.fullName,
@@ -11,6 +8,6 @@ export function registerAdapter(
     avatar: user.avatar,
     rol: rol,
     providerId: user.providerId,
-    rolContent: user.rolContent || null,
+    rolContent: user.rolContent || null
   };
 }

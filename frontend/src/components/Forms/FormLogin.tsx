@@ -29,24 +29,27 @@ const FormLogin = () => {
     if (data) {
       try {
         const user = await loginUser(data);
-        if (user) {
-          dispatch(setCredentials(user));
-        }
+        console.log("USER", user);
+        if (!user) throw new Error("user not found");
+        
+        dispatch( setCredentials(user));
+        router.push("/inicio");
       } catch (error) {
         console.log((error as Error).message);
       }
     }
-    router.push("/");
+   
+    dispatch(setVerified("authenticated"));
   };
 
   return (
     <>
       <form
-        className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center order-4 lg:mt-36 '
+        className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center order-4 lg:mt-40 mt-20  '
         onSubmit={handleSubmit(onSubmit)}
       >
         <ButtonBack />
-        <h3 className='text-xl font-black self-center mb-6 md:text-2xl lg:text-4xl lg:ml-[-100px]'>
+        <h3 className='text-xl font-black self-center lg:font-bold mb-10 lg:mt-4 md:text-2xl lg:text-4xl lg:ml-[-110px]'>
           ¡Bienvenido de nuevo!
         </h3>
         <div className='flex flex-col justify-center items-center'>
@@ -112,25 +115,18 @@ const FormLogin = () => {
             )}
           </div>
         </div>
-        <div className='flex flex-col mt-5 capitalize mx-auto gap-12 mb-14 md:flex-row'>
-          <div className='flex items-center gap-2'>
-            <input
-              type='checkbox'
-              id='remember'
-              className='w-4 h-4 text-lilac bg-gray-100 border-gray-300 rounded focus:ring-0 cursor-pointer hover:scale-110 transition'
-            />
-            <label htmlFor='remember' className='text-lg cursor-pointer'>
-              recordarme
-            </label>
-          </div>
+        <div className="mt-6">
+          <ButtonAuth>Iniciar Sesión</ButtonAuth>
         </div>
-        <ButtonAuth>Iniciar Sesion</ButtonAuth>
-        <div className='flex  mt-14'>
-          <p className='mb-4 md:mb-10 max-w-xl mx-auto text-center text-xl relative '>
-            O continúa con
-          </p>
+        <div className="flex mt-4 justify-center">
+          <div className="inline-flex items-center justify-center ">
+            <hr className="w-24 lg:w-40 h-px my-8 bg-gray-600 border-0"/>
+            <span className=" px-3 font-medium text-[16px] text-gray-900  bg-white ">O continúa con</span>
+            <hr className="w-24 lg:w-40 h-px my-8 bg-gray-600 border-0"/>
+          </div>  
+
         </div>
-        <div className='flex mt-4 items-center justify-center flex-col gap-8 lg:flex-row'>
+        <div className='flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 lg:mt-2 md:gap-8 md:flex-row'>
           <ButtonGoogle />
         </div>
       </form>
