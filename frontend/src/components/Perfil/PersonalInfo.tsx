@@ -1,14 +1,18 @@
 "use client";
+
 import React from "react";
 import { useForm } from "react-hook-form";
-import { MdLocationPin, MdPhoneEnabled, MdWork, MdCake , MdMail } from "react-icons/md";
+import { MdLocationPin, MdPhoneEnabled, MdWork, MdCake , MdMail} from "react-icons/md";
 import { RiEditCircleFill } from "react-icons/ri";
 import { FaUserAlt } from "react-icons/fa";
-import Image from "next/image";
+
 import AvatarProfile from "../Avatars/AvatarProfile";
+import { useAppSelector } from "@/hooks";
 
 
 export default function PersonalInfo() {
+  const { avatar , fullName} = useAppSelector((state) => state.user);
+
   const {
     register,
     handleSubmit,
@@ -24,10 +28,11 @@ export default function PersonalInfo() {
         <header className='mb-8 border-b border-[#7FCEFF] flex justify-center'>
           <h1 className='font-bold font-primary-roboto text-[30px] mb-3'>Datos Personales</h1>
         </header>
-        <div className='flex items-center'>
+        <div className='flex items-center gap-2'>
           <FaUserAlt size={25} color='#2E2E2E' className='' />
           <span className='relative'>
-            <Image
+            <AvatarProfile  avatar={avatar as string} fullName={fullName as string} />
+            {/* <Image
               height={60}
               width={60}
               className='rounded-full'
@@ -35,19 +40,22 @@ export default function PersonalInfo() {
               alt="asd"
               // src={user?.avatar as string}
               // alt={user?.firstName as string}
-            />
+            /> */}
             <button className='absolute bottom-0 right-0 transform -translate-y-2 bg-white rounded-full'>
-              <RiEditCircleFill size={20} color='#2E2E2E' />
+              <RiEditCircleFill size={30} color='#2E2E2E' />
             </button>
           </span>
      
-          <h1 className='ml-5 w-fit m-auto font-bold font-primary-roboto text-[25px]'>
-            <p> Alan Telo</p>
+          <h1 className='ml-5 w-fit m-auto font-bold font-primary-roboto text-[25px] capitalize'>
+            <p> {fullName}</p>
             
           </h1>
           <span className='flex justify-center m-auto font-primary-roboto ml-10'>
             <MdCake size={25} color='#2E2E2E' className='items-center m-2' />
             <p className='m-auto text-center'>
+
+              <div inline-datepicker data-date="02/25/2022"></div>
+
               {/* {user.birthday?.toLocaleDateString().split("T")[0]} */}
               21-04-1987
             </p>
@@ -58,7 +66,7 @@ export default function PersonalInfo() {
           <div className='space-y-4'>
             <span className='flex items-center mt-3'>
               <MdMail size={25} color='#2E2E2E' /> 
-              <p className={pStyle}>alan@gmail.com</p>
+              <p className={pStyle}>maria@gmail.com</p>
 
             </span>
             <span className='flex items-center'>
