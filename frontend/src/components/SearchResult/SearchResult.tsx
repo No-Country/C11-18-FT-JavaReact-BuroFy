@@ -7,7 +7,6 @@ import React from "react";
 import AvatarProfile from "../Avatars/AvatarProfile";
 import { useRouter } from "next/navigation";
 
-
 export default function SearchResult({search}: {search : Search}) {
   const route = useRouter();
   console.log("searchResult", search);

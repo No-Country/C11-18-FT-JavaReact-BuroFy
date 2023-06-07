@@ -49,7 +49,7 @@ const FormLogin = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <ButtonBack />
-        <h3 className='text-xl font-black self-center lg:font-bold mb-10 lg:mt-4 md:text-2xl lg:text-4xl lg:ml-[-110px]'>
+        <h3 className='text-xl font-black self-center lg:font-bold mb-10 lg:mt-4 md:text-2xl lg:text-4xl lg:ml-[-110px] font-primary-roboto'>
           ¡Bienvenido de nuevo!
         </h3>
         <div className='flex flex-col justify-center items-center'>

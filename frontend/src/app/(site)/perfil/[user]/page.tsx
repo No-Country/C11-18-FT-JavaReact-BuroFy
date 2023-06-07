@@ -6,7 +6,7 @@ export default function page({params} : { params: { user: string }}) {
   console.log(params);
   const cookieStore = cookies();
   const rol = cookieStore.get("rol")?.value;
-  
+    
 
   return (
     <>

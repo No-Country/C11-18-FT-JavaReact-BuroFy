@@ -54,7 +54,7 @@ export default function FormRegister() {
 
   return (
     <div className='flex flex-col order-4 w-full h-auto mx-auto mb-2 md:items-center lg:mt-32 lg:mb-0 mt-20'>
-      <div className='flex flex-col items-center justify-center h-full m-auto bg-white md:w-full md:h-full'>
+      <div className='flex flex-col items-center font-primary-roboto justify-center h-full m-auto bg-white md:w-full md:h-full'>
         <ButtonBack/>
 
         <h3 className='text-xl font-black lg:font-bold md:text-2xl lg:text-3xl leading-[33.85px]'>Registro de nuevo usuario</h3>
