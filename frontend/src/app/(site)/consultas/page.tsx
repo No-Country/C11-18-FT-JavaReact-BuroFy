@@ -1,9 +1,14 @@
-import { MisConsultasCliente } from "@/components/MisConsultas/MisConsultasCliente";
+import { MisConsultasCliente } from "@/components";
 import React from "react";
 
-export default function MisConsultas() {
+export const metadata = {
+  title: "Burofy | Consultas",
+};
+
+export default function ConsultationPage() {
   return (
-    <div><MisConsultasCliente/>
-    </div>
+    <section>
+      <MisConsultasCliente />
+    </section>
   );
 }

@@ -18,7 +18,9 @@ const Providers = ({ children }: PropsType) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <AuthProvider>{children}</AuthProvider>
+        <OpenProvider>
+          {children}
+        </OpenProvider>
       </Provider>
     </QueryClientProvider>
   );

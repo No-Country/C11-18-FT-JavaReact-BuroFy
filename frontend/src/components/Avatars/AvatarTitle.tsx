@@ -1,37 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useAppDispatch, useAppSelector } from "@/hooks";
-import { logoutUser , setVerified } from "@/redux/features/userSlice";
-import { logout_firebase } from "@/lib";
-
+import { useAppSelector, useAuth } from "@/hooks";
 
 const AvatarTitle = () => {
-  const router = useRouter();
-  const dispatch = useAppDispatch();
-  const { fullName } = useAppSelector((state) => state.user);
-
-  const handleLogout = async () => {
-    dispatch(setVerified("checking"));
-    try {
-      await logout_firebase();
-      router.push("/registro");
-      //close conection with firebase
-      //delete all states of user
-      
-    } catch (error) {
-      console.log((error as Error).message);
-    }
-    dispatch(logoutUser());
-  };
+  const { fullName, id } = useAppSelector((state) => state.user);
+  const { handleLogout } = useAuth();
 
   return (
     <div className='hidden md:flex md:flex-col lg:flex lg:ml-5 space-y-2'>
-      <span className='text-white font-medium'>Hola, {(fullName as string) || ""}</span>
+      <span className='text-white font-medium capitalize'>Hola, {(fullName as string) || ""}</span>
       <div className='flex gap-2'>
         <Link
-          href='/perfil'
+          href={`/perfil/${id}`}
           className='text-sx text-white italic font-light hover:opacity-60 cursor-pointer hover:scale-105 transition'
         >
           Mi perfil

@@ -23,7 +23,7 @@ const Avatar = () => {
       ) : (
         <div className='self-baseline lg:flex'>
           <div className='bg-secundary rounded-full w-10 h-10 relative lg:w-12 lg:h-12'>
-            <span className='text-secundary font-semibold absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] '>
+            <span className='text-secundary font-semibold absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] uppercase'>
               {stringAvatar((fullName as string) || " ") as string}
             </span>
           </div>

@@ -23,10 +23,11 @@ const userSlice = createSlice({
   reducers: {
     setRol: (state, action: PayloadAction<Rol>) => {
       state.rol = action.payload; 
-      console.log("payload",action.payload);
+      
     },
     setVerified: (state, action: PayloadAction<Verified>) => {
       state.verified = action.payload;
+      console.log("payload",action.payload);
     },
     setUserInitial: (state, action: PayloadAction<UserInitial>) => {
       // seven state

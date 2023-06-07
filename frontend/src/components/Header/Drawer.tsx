@@ -7,42 +7,26 @@ import { AiOutlineSearch, AiFillHome, AiOutlineExport } from "react-icons/ai";
 import { HiPencil } from "react-icons/hi";
 import { IoMdHelpCircle } from "react-icons/io";
 import { BsFillPersonFill } from "react-icons/bs";
-import { logoutUser, setVerified } from "@/redux/features/userSlice";
-import { useAppDispatch } from "@/hooks";
-
-import { useRouter } from "next/navigation";
-import { logout_firebase } from "@/lib";
+import { useAppSelector, useAuth } from "@/hooks";
 import { useIsOpen } from "@/contexts/OpenContext";
+import { Rol } from "@/interfaces/user";
 
 const Drawer = () => {
-  const dispatch = useAppDispatch();
   const pathname = usePathname();
-  const router = useRouter();
   const { isOpen } = useIsOpen();
+  const { id, rol } = useAppSelector((state) => state.user);
+  const { handleLogout } = useAuth();
 
-  const handleLogout = async () => {
-    dispatch(setVerified("checking"));
-    try {
-      await logout_firebase();
-      router.push("/registro");
-      //close conection with firebase
-      //delete all states of user
-      
-    } catch (error) {
-      console.log((error as Error).message);
-    }
-    dispatch(logoutUser());
-  };
   return (
     <>
       <aside
-        className='fixed top-0 left-0 z-40 w-80 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 p-0 md:block col-span-1'
-        aria-label='Sidenav'
-        id='drawer-navigation'
+        className={
+          isOpen ? "drawer md:translate-x-0" : "drawer -translate-x-full md:translate-x-0 "
+        }
       >
         <div className='overflow-y-auto h-full bg-white'>
           {/* title - header */}
-          <header className='w-full h-1/6 flex justify-center items-center border border-transparent border-b-2 border-b-[#C0C0C0] mb-7'>
+          <header className='w-full hidden h-1/6 md:flex justify-center items-center border border-transparent border-b-2 border-b-[#C0C0C0] mb-7'>
             <Image
               src='/assets/title-burofy.svg'
               alt='title burofy with colors'
@@ -65,25 +49,31 @@ const Drawer = () => {
                 <AiFillHome
                   className={`w-6 h-6  active:text-white ${pathname === "/inicio" && "text-white"}`}
                 />
-                <span className={`ml-3 self-end ${pathname === "/inicio" && "text-white"}`}>Inicio</span>
+                <span className={`ml-3 self-end ${pathname === "/inicio" && "text-white"}`}>
+                  Inicio
+                </span>
               </Link>
             </li>
 
-            <li
-              className={`hover:bg-primary transition-colors w-full  ${
-                pathname === "/buscar" && "bg-tertiary"
-              }`}
-            >
-              <Link
-                href='/buscar'
-                className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
+            {rol as Rol === "client" && (
+              <li
+                className={`hover:bg-primary transition-colors w-full  ${
+                  pathname === "/buscar" && "bg-tertiary"
+                }`}
               >
-                <AiOutlineSearch
-                  className={`w-6 h-6 active:text-white ${pathname === "/buscar" && "text-white"}`}
-                />
-                <span className={`ml-3 ${pathname === "/buscar" && "text-white"}`}>Buscar</span>
-              </Link>
-            </li>
+                <Link
+                  href='/buscar'
+                  className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
+                >
+                  <AiOutlineSearch
+                    className={`w-6 h-6 active:text-white ${
+                      pathname === "/buscar" && "text-white"
+                    }`}
+                  />
+                  <span className={`ml-3 ${pathname === "/buscar" && "text-white"}`}>Buscar</span>
+                </Link>
+              </li>
+            )}
 
             <li
               className={`hover:bg-primary transition-colors ${
@@ -111,7 +101,7 @@ const Drawer = () => {
               } w-full`}
             >
               <Link
-                href='/perfil'
+                href={`/perfil/${id}`}
                 className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
               >
                 <BsFillPersonFill
@@ -148,6 +138,7 @@ const Drawer = () => {
               </Link>
             </li>
           </ul>
+
           {/* down - footer */}
           <footer className='absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex bg-white z-20 text-xs'>
             <ul className='flex justify-between font-medium capitalize gap-8'>

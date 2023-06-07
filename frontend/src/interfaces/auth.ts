@@ -1,7 +1,4 @@
-import React, { Dispatch } from "react";
 import { Rol } from "./user";
-
-export type Status = "authenticated" | "no-authenticated" | "checking";
 
 export interface SignIn {
   email: string;
@@ -18,9 +15,4 @@ export interface SignUp {
   enrollment?: string;
   rol?: Rol;
   confirmPassword?: string;
-}
-
-export interface ContextAuth {
-  statusAuth: Status;
-  setStatusAuth: Dispatch<React.SetStateAction<Status>>;
 }

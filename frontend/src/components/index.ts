@@ -44,7 +44,11 @@ export { default as ProfileSearchResult } from "./ProfileSearchResult/ProfileSea
 export { default as ReviewsProfessional } from "./ProfileSearchResult/ReviewsProfessional";
 export { default as Providers } from "./Providers";
 export { default as SearchBar } from "./SearchBar";
+export { default as ContainerSearchResults } from "./SearchResult/ContainerSearchResults";
+export { default as SearchResult } from "./SearchResult/SearchResult";
+export { default as SearchResultFIlter } from "./SearchResult/SearchResultFIlter";
 export { default as Spinner } from "./Spinners/Spinner";
 export { default as Spinner2 } from "./Spinners/Spinner2";
 export { default as StarsCalification } from "./StarsCalification";
 export { default as WriteReview } from "./WriteReview";
+export * from "./index";

@@ -1,9 +1,21 @@
 import { CardServices, CardReview } from "@/components";
+// import { cookies } from "next/headers";
 
+export const metadata = {
+  title: "Burofy | Inicio",
+};
 
 const HomePage = async () => {
+  // const cookieStore = cookies();
+  // const rol = cookieStore.get("rol")?.value;
+  // const id = cookieStore.get("id")?.value;
 
-  
+  // const data = rol === "client" ? await fetch(`https://backend-web-burofy.onrender.com/getConsultationsByClientId/${id}`,{
+  //   next: { revalidate: 900 },
+  // }) : await fetch(`https://backend-web-burofy.onrender.com/getConsultationsByProfessionalId${id}`,{
+  //   next: { revalidate: 900 },
+  // });
+
   return (
     <>
       <section className=' bg-white p-4 lg:flex lg:justify-center z-50 lg:overflow-hidden'>

@@ -8,4 +8,6 @@ export interface Consultation {
   type: string;
   date: Date;
   comments: string;
+  avatar: string | null;
+  experience : string;
 }

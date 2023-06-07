@@ -1,9 +1,9 @@
 import "./globals.css";
 import { Providers } from "@/components";
-// import { Roboto } from "next/font/google";
+import { Roboto } from "next/font/google";
 import { ReactNode } from "react";
 
-// const roboto = Roboto({ weight: ["400", "500", "700"], subsets: ["latin"], style: "normal" });
+const roboto = Roboto({ weight: ["400", "500", "700"], subsets: ["latin"], style: "normal" });
 
 export const metadata = {
   title: "Burofy",
@@ -30,11 +30,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='es'>
-      <body>
+      <body className={roboto.className}>
         <Providers>
-          <main className='col-start-2 col-end-2 row-start-2 row-end-2 '>
-            {children}
-          </main>
+          <main className='col-start-2 col-end-2 row-start-2 row-end-2 '>{children}</main>
         </Providers>
       </body>
     </html>
