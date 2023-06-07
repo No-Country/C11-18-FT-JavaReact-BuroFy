@@ -7,6 +7,25 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
+/**
+ *
+ *  BuroFy Proyecto
+ *  para No Country
+ *
+ *
+ *  I Professional Service
+ *
+ *  Implementa el objeto CRUD del Professional Service IMPL
+ *  manipular el objeto del dominio
+ *
+ * @version 1.0.0 2023-06-06
+ * @author Martha Liliana Gallego Murillo<lilianagallegom@gmail.com>
+ * @author Dmitry Borovskikh <dmibrv@gmail.com>
+ * @author Milton Figueredo <gratno@gmail.com>
+
+ * @since 1.0.0
+ */
+
 public interface IProfessionalService {
 
     Professional createProfessional(Professional professional);

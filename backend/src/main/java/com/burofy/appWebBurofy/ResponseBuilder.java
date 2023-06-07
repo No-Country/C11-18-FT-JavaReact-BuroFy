@@ -6,6 +6,24 @@ import org.springframework.http.ResponseEntity;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *
+ *  BuroFy Proyecto
+ *  para No Country
+ *
+ *  Response Builder - Utility
+ *
+ *  Organiza class  funciones y métodos útiles y genéricos
+ *
+ *
+ * @version 1.0.0 2023-06-06
+ * @author Martha Liliana Gallego Murillo<lilianagallegom@gmail.com>
+ * @author Dmitry Borovskikh <dmibrv@gmail.com>
+ * @author Milton Figueredo <gratno@gmail.com>
+
+ * @since 1.0.0
+ */
+
 public class ResponseBuilder {
 
     public static ResponseEntity<?> responseBuilder(HttpStatus httpStatus, String path, Object object){

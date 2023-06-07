@@ -10,6 +10,25 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.Collections;
+
+/**
+ *
+ *  BuroFy Proyecto
+ *  para No Country
+ *
+ *  Configuración Swagger
+ *  Swagger documentar nuestras APIs
+ *
+ * @version 1.0.0 2023-06-06
+ * @author Martha Liliana Gallego Murillo<lilianagallegom@gmail.com>
+ * @author Dmitry Borovskikh <dmibrv@gmail.com>
+ * @author Milton Figueredo <gratno@gmail.com>
+
+ * @since 1.0.0
+ */
+
+
+
 @Configuration
 public class SwaggerConfig {
 

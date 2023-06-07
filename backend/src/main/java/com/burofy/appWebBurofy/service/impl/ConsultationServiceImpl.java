@@ -15,6 +15,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ *
+ *  BuroFy Proyecto
+ *  para No Country
+ *
+ *  Implementation - IMPL
+ *  Consultation Service IMPL
+ *
+ *  Implementa el objeto CRUD del Repository Consultation
+ *  manipular el objeto del dominio
+ *
+ * @version 1.0.0 2023-06-06
+ * @author Martha Liliana Gallego Murillo<lilianagallegom@gmail.com>
+ * @author Dmitry Borovskikh <dmibrv@gmail.com>
+ * @author Milton Figueredo <gratno@gmail.com>
+
+ * @since 1.0.0
+ */
+
 @Service
 @RequiredArgsConstructor
 public class ConsultationServiceImpl implements IConsultationService {
