@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
-
+import { SnackbarProvider } from "notistack";
 import { OpenProvider } from "@/contexts/OpenContext";
 
 type PropsType = {
@@ -19,7 +19,15 @@ const Providers = ({ children }: PropsType) => {
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <OpenProvider>
-          {children}
+          <SnackbarProvider
+            maxSnack={3}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right",
+            }}
+          >
+            {children}
+          </SnackbarProvider>
         </OpenProvider>
       </Provider>
     </QueryClientProvider>

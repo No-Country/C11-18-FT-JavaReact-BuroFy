@@ -5,6 +5,9 @@ import SearchResult from "./SearchResult";
 import { ObjectSearch, Search } from "@/interfaces/search";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setSearchResults } from "@/redux/features/searchSlice";
+import SortFilter from "./SortFilter";
+
+
 
 
 type PropsType = { 
@@ -24,6 +27,7 @@ export default function ContainerSearchResults({search}:PropsType) {
   console.log(searchs);
   return (
     <>
+      <SortFilter/>
       {searchs &&   searchs.map(search => (
         <SearchResult key={search.idProfessional} search={search}/>
       )) }

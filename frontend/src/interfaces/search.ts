@@ -1,11 +1,11 @@
-import { Review } from "./serializers/user";
+import { Rating } from "./serializers/user";
 export interface Search {
-  idProfessional: string | number;
+  id: string | number;
   fullName: string; 
   avatar: string | null;
-  category: string;
-  review :  Review | null;
-  address : string | null;
+  experience: string;
+  rating :  Rating | null;
+  location : string | null;
   price: string
 }
 

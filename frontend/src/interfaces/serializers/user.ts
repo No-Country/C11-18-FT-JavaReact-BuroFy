@@ -1,6 +1,6 @@
 export type Interview = "remote" | "onSite";
 
-export type Review =  "20%" | "40%" |  "60%" |  "80%" |   "100%"  ;  
+export type Rating =  "20%" | "40%" |  "60%" |  "80%" |   "100%"  ;  
 
 export interface UserClientContent {
   occupation?: string | null;
@@ -11,8 +11,7 @@ export interface UserProfessionalContent {
   dni?: string | null;
   enrollment?: string | null;
   price?: string | null;
-  review?: Review | null;
-  category?: string | null,
+  rating?: Rating | null;
   experience?: string | null;
   training?: string | null;
   certification?: string | null;
