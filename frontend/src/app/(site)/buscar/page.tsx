@@ -1,5 +1,6 @@
 import ContainerSearchResults from "@/components/SearchResult/ContainerSearchResults";
 import SearchResultFIlter from "@/components/SearchResult/SearchResultFIlter";
+
 import React from "react";
 
 
@@ -15,6 +16,7 @@ export default async function ProfileResult(){
     
       <section>
         <SearchResultFIlter/>
+        
         <ContainerSearchResults search={search}/>
       </section>
     </>

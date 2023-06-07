@@ -1,5 +1,7 @@
 import "./globals.css";
 import { Providers } from "@/components";
+import Script from "next/script";
+
 // import { Roboto } from "next/font/google";
 import { ReactNode } from "react";
 
@@ -30,13 +32,17 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='es'>
+     
       <body>
         <Providers>
           <main className='col-start-2 col-end-2 row-start-2 row-end-2 '>
             {children}
           </main>
         </Providers>
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></Script>
+    
       </body>
+      
     </html>
   );
 }
