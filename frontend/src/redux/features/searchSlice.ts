@@ -4,12 +4,12 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState: ObjectSearch =
  {searchs : [{
-   idProfessional: "",
-   name: "",
+   id: "",
+   fullName: "",
    avatar: "",
-   category: "",
-   review :  null ,
-   address : "",
+   experience: "",
+   rating :  null ,
+   location : "",
    price: ""
  }]};
 
