@@ -39,8 +39,8 @@ public class Client  {
     private String id;
     //@NotEmpty(message = "Email may not be empty")
     private String email;
+    @Column(length = 1024)
     private String avatar;
-
     //@NotEmpty(message = "fullName may not be empty")
     private String fullName;
     private LocalDate birthDate;
