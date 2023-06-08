@@ -32,6 +32,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin
 public class ConsultationRestController {
 
     private final IConsultationService consultationService;
