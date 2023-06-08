@@ -37,6 +37,7 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin
 public class ProfessionalRestController  {
 
     private final IProfessionalService professionalService;

@@ -30,6 +30,7 @@ import springfox.documentation.annotations.ApiIgnore;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin
 public class ClientRestController{
 
     private final IClientService clientService;
