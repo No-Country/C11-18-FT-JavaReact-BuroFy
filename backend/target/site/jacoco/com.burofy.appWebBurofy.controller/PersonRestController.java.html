@@ -28,27 +28,28 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 <span class="fc" id="L29">@RequiredArgsConstructor</span>
 <span class="fc" id="L30">@Slf4j</span>
+@CrossOrigin
 public class PersonRestController {
 
     private final IPersonService personService;
 
     @PostMapping(path = &quot;/create/person&quot;)
     public ResponseEntity&lt;Response&gt; createPerson(@RequestBody Person person) {
-<span class="nc bnc" id="L37" title="All 4 branches missed.">        if (person.getRol().equals(&quot;client&quot;) || person.getRol().equals(&quot;professional&quot;)) {</span>
-<span class="nc" id="L38">            personService.createPerson(person);</span>
-<span class="nc" id="L39">            return new ResponseEntity&lt;&gt;(HttpStatus.CREATED);</span>
+<span class="nc bnc" id="L38" title="All 4 branches missed.">        if (person.getRol().equals(&quot;client&quot;) || person.getRol().equals(&quot;professional&quot;)) {</span>
+<span class="nc" id="L39">            personService.createPerson(person);</span>
+<span class="nc" id="L40">            return new ResponseEntity&lt;&gt;(HttpStatus.CREATED);</span>
         } else {
-<span class="nc" id="L41">            return new ResponseEntity&lt;&gt;(HttpStatus.BAD_REQUEST);</span>
+<span class="nc" id="L42">            return new ResponseEntity&lt;&gt;(HttpStatus.BAD_REQUEST);</span>
         }
     }
 
     @GetMapping(path = &quot;/getPerson/{id}&quot;)
     public ResponseEntity&lt;Person&gt; getPerson(@PathVariable String id) {
-<span class="nc" id="L47">        Person person = personService.getPerson(id);</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (person != null) {</span>
-<span class="nc" id="L49">            return ResponseEntity.ok(person);</span>
+<span class="nc" id="L48">        Person person = personService.getPerson(id);</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (person != null) {</span>
+<span class="nc" id="L50">            return ResponseEntity.ok(person);</span>
         } else {
-<span class="nc" id="L51">            return ResponseEntity.notFound().build();</span>
+<span class="nc" id="L52">            return ResponseEntity.notFound().build();</span>
         }
     }
 

@@ -37,6 +37,7 @@ import java.util.Map;
 @RestController
 <span class="fc" id="L38">@RequiredArgsConstructor</span>
 <span class="fc" id="L39">@Slf4j</span>
+@CrossOrigin
 public class ProfessionalRestController  {
 
     private final IProfessionalService professionalService;
@@ -44,49 +45,49 @@ public class ProfessionalRestController  {
     @ApiIgnore // no se usa, para crear a un cliente/un professional usamos /create/person
     @PostMapping(path = &quot;/create/professional&quot;)
     public ResponseEntity&lt;Response&gt; createProfessional(@RequestBody Professional professional) {
-<span class="nc" id="L47">        professionalService.createProfessional(professional)  ;</span>
-<span class="nc" id="L48">        return new  ResponseEntity&lt;&gt;(HttpStatus.CREATED);</span>
+<span class="nc" id="L48">        professionalService.createProfessional(professional)  ;</span>
+<span class="nc" id="L49">        return new  ResponseEntity&lt;&gt;(HttpStatus.CREATED);</span>
     }
 
     @GetMapping(path = &quot;/getProfessional/{id}&quot;)
     public ResponseEntity&lt;Professional&gt; getProfessional(@PathVariable String id) {
-<span class="nc" id="L53">        Professional professional = professionalService.getProfessional(id);</span>
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (professional != null) {</span>
-<span class="nc" id="L55">            return ResponseEntity.ok(professional);</span>
+<span class="nc" id="L54">        Professional professional = professionalService.getProfessional(id);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        if (professional != null) {</span>
+<span class="nc" id="L56">            return ResponseEntity.ok(professional);</span>
         } else {
-<span class="nc" id="L57">            return ResponseEntity.notFound().build();</span>
+<span class="nc" id="L58">            return ResponseEntity.notFound().build();</span>
         }
     }
 
     @PutMapping(path = &quot;/update/professional/{id}&quot;)
     public ResponseEntity&lt;Professional&gt; updateProfessional(@PathVariable String id, @RequestBody Professional updatedProfessional) {
-<span class="nc" id="L63">        professionalService.updateProfessional(id,updatedProfessional);</span>
-<span class="nc" id="L64">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
+<span class="nc" id="L64">        professionalService.updateProfessional(id,updatedProfessional);</span>
+<span class="nc" id="L65">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
     }
 
     @PatchMapping(path = &quot;/delete/professional/{id}&quot;)
     public ResponseEntity&lt;Professional&gt; deleteProfessional(@PathVariable String id) {
-<span class="nc" id="L69">        professionalService.deleteProfessional(id);</span>
-<span class="nc" id="L70">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
+<span class="nc" id="L70">        professionalService.deleteProfessional(id);</span>
+<span class="nc" id="L71">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
     }
 
     @GetMapping(path = &quot;/allProfessionals/{page}/{size}&quot;)
     public ResponseEntity&lt;List&lt;ProfessionalDTO&gt;&gt; allProfessionals(@PathVariable int page, @PathVariable int size) {
-<span class="nc" id="L75">        List&lt;ProfessionalDTO&gt; professionalDTOS = professionalService.allProfessionals(page,size);</span>
-<span class="nc bnc" id="L76" title="All 2 branches missed.">        if (!professionalDTOS.isEmpty()) {</span>
-<span class="nc" id="L77">            return ResponseEntity.ok(professionalDTOS);</span>
+<span class="nc" id="L76">        List&lt;ProfessionalDTO&gt; professionalDTOS = professionalService.allProfessionals(page,size);</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (!professionalDTOS.isEmpty()) {</span>
+<span class="nc" id="L78">            return ResponseEntity.ok(professionalDTOS);</span>
         } else {
-<span class="nc" id="L79">            return ResponseEntity.ok(null);</span>
+<span class="nc" id="L80">            return ResponseEntity.ok(null);</span>
         }
     }
 
     @GetMapping(path = &quot;/professionalsByLocation/{page}/{size}/{location}&quot;)
     public ResponseEntity&lt;List&lt;Professional&gt;&gt; professionalsByLocation(@PathVariable int page, @PathVariable int size, @PathVariable String location) {
-<span class="nc" id="L85">        List&lt;Professional&gt; professionals = professionalService.professionalsByLocation(page,size,location);</span>
-<span class="nc bnc" id="L86" title="All 2 branches missed.">        if (!professionals.isEmpty()) {</span>
-<span class="nc" id="L87">            return ResponseEntity.ok(professionals);</span>
+<span class="nc" id="L86">        List&lt;Professional&gt; professionals = professionalService.professionalsByLocation(page,size,location);</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        if (!professionals.isEmpty()) {</span>
+<span class="nc" id="L88">            return ResponseEntity.ok(professionals);</span>
         } else {
-<span class="nc" id="L89">            return ResponseEntity.notFound().build();</span>
+<span class="nc" id="L90">            return ResponseEntity.notFound().build();</span>
         }
     }
 
@@ -101,25 +102,25 @@ public class ProfessionalRestController  {
     ) {
         try {
             List&lt;Professional&gt; professionals;
-<span class="nc" id="L104">            Pageable paging = PageRequest.of(page, size);</span>
+<span class="nc" id="L105">            Pageable paging = PageRequest.of(page, size);</span>
 
             Page&lt;Professional&gt; pagePros;
-<span class="nc bnc" id="L107" title="All 8 branches missed.">            if (experience == null &amp;&amp; location == null &amp;&amp; isRemoteWork == null &amp;&amp; isFaceToFaceWork == null)</span>
-<span class="nc" id="L108">                pagePros = professionalService.findProfessionals(paging);</span>
+<span class="nc bnc" id="L108" title="All 8 branches missed.">            if (experience == null &amp;&amp; location == null &amp;&amp; isRemoteWork == null &amp;&amp; isFaceToFaceWork == null)</span>
+<span class="nc" id="L109">                pagePros = professionalService.findProfessionals(paging);</span>
             else
-<span class="nc" id="L110">                pagePros = professionalService.findProfessionalsByFilters(experience, location, isRemoteWork, isFaceToFaceWork, paging);</span>
+<span class="nc" id="L111">                pagePros = professionalService.findProfessionalsByFilters(experience, location, isRemoteWork, isFaceToFaceWork, paging);</span>
 
-<span class="nc" id="L112">            professionals = pagePros.getContent();</span>
+<span class="nc" id="L113">            professionals = pagePros.getContent();</span>
 
-<span class="nc" id="L114">            Map&lt;String, Object&gt; response = new HashMap&lt;&gt;();</span>
-<span class="nc" id="L115">            response.put(&quot;professionals&quot;, professionals);</span>
-<span class="nc" id="L116">            response.put(&quot;totalItems&quot;, pagePros.getTotalElements());</span>
-<span class="nc" id="L117">            response.put(&quot;currentPage&quot;, pagePros.getNumber()+1);</span>
-<span class="nc" id="L118">            response.put(&quot;totalPages&quot;, pagePros.getTotalPages());</span>
+<span class="nc" id="L115">            Map&lt;String, Object&gt; response = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L116">            response.put(&quot;professionals&quot;, professionals);</span>
+<span class="nc" id="L117">            response.put(&quot;totalItems&quot;, pagePros.getTotalElements());</span>
+<span class="nc" id="L118">            response.put(&quot;currentPage&quot;, pagePros.getNumber()+1);</span>
+<span class="nc" id="L119">            response.put(&quot;totalPages&quot;, pagePros.getTotalPages());</span>
 
-<span class="nc" id="L120">            return new ResponseEntity&lt;&gt;(response, HttpStatus.OK);</span>
-<span class="nc" id="L121">        } catch (Exception e) {</span>
-<span class="nc" id="L122">            return new ResponseEntity&lt;&gt;(null, HttpStatus.INTERNAL_SERVER_ERROR);</span>
+<span class="nc" id="L121">            return new ResponseEntity&lt;&gt;(response, HttpStatus.OK);</span>
+<span class="nc" id="L122">        } catch (Exception e) {</span>
+<span class="nc" id="L123">            return new ResponseEntity&lt;&gt;(null, HttpStatus.INTERNAL_SERVER_ERROR);</span>
         }
     }
 
