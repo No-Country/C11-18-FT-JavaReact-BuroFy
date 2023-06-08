@@ -7,11 +7,13 @@ export interface Address {
 }
 
 export interface Phone {
-  phone?: string | null;
+  phone?: string;
 }
 
-export interface PersonalInformation extends Phone {
+export interface PersonalInformation {
   location?: string;
   avatar?: string;
+  result?: string;
+  phone?: Phone
   occupation?: string;
 }

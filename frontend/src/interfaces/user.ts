@@ -15,7 +15,7 @@ export interface User {
   rolContent?: UserClientContent | UserProfessionalContent | null;
   birthday?: Date | null;
   surName?: string | null;
-  phone?: Phone | null;
+  phone?: Phone | string;
   location?: string | null;
   avatar?: string | null;
   verified?: Verified;

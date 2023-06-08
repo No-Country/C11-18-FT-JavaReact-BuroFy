@@ -1,3 +1,4 @@
+import { PersonalInformation } from "@/interfaces/serializers/common";
 import { Rol, User, UserInitial, Verified } from "@/interfaces/user";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
@@ -11,9 +12,9 @@ const initialState: User = {
   rolContent: null,
   providerId: "",
   birthday: null,
-  phone: null,
+  phone: "",
   location: null,
-  occupation: null, 
+  occupation: null,
   avatar: null,
   verified: "no-authenticated",
 };
@@ -23,12 +24,11 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setRol: (state, action: PayloadAction<Rol>) => {
-      state.rol = action.payload; 
-      
+      state.rol = action.payload;
     },
     setVerified: (state, action: PayloadAction<Verified>) => {
       state.verified = action.payload;
-      console.log("payload",action.payload);
+      console.log("payload", action.payload);
     },
     setUserInitial: (state, action: PayloadAction<UserInitial>) => {
       // seven state
@@ -40,7 +40,6 @@ const userSlice = createSlice({
       state.avatar = action.payload.avatar;
       state.rol = action.payload.rol;
       state.rolContent = action.payload.rolContent;
-      
     },
     setCredentials: (state, action: PayloadAction<User>) => {
       state.fullName = action.payload.fullName;
@@ -52,9 +51,15 @@ const userSlice = createSlice({
       state.rol = action.payload.rol;
       state.rolContent = action.payload.rolContent;
       state.location = action.payload.location || null;
-      state.phone = action.payload.phone || null;
+      state.phone = action.payload.phone;
       state.birthday = action.payload.birthday || null;
       state.occupation = action.payload.occupation || null;
+    },
+    updateProfile: (state, action: PayloadAction<PersonalInformation>) => {
+      state.location = action.payload.location;
+      state.avatar = action.payload.avatar;
+      state.phone = action.payload.phone;
+      state.occupation = action.payload.occupation;
     },
     logoutUser: (state) => {
       // all states of user
@@ -67,7 +72,7 @@ const userSlice = createSlice({
       state.rolContent = null;
       state.providerId = "";
       state.birthday = null;
-      state.phone = null;
+      state.phone = "";
       state.location = null;
       state.avatar = null;
       state.verified = "no-authenticated";
@@ -76,6 +81,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { setRol, setUserInitial, logoutUser, setVerified, setCredentials } =
+export const { setRol, setUserInitial, logoutUser, setVerified, setCredentials, updateProfile } =
   userSlice.actions;
 export default userSlice.reducer;
