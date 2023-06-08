@@ -1,11 +1,10 @@
-/*package com.burofy.appWebBurofy.dto;
+package com.burofy.appWebBurofy.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-<<<<<<< HEAD
 import java.util.List;
 
 /**
@@ -24,14 +23,12 @@ import java.util.List;
  * @since 1.0.0
  */
 
-=======
->>>>>>> 8aa6cc205257e7fc10ca6e328a03c651a5578b49
-@NoArgsConstructor
+/*@NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Setter
+@Setter*/
 public class ConsultationResponseDTO {
     //private long status;
     //private List<ConsultationDTO> consultations;
     //private String message;
-}*/
+}
