@@ -7,6 +7,7 @@ import { useAppSelector } from "@/hooks";
 
 const Avatar = () => {
   const { avatar, fullName } = useAppSelector((state) => state.user);
+  console.log(avatar);
   return (
     <>
       {avatar ? (
