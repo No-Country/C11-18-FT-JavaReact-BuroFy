@@ -1,4 +1,4 @@
-"use client";
+
 
 import stringAvatar from "@/utils/getAvatarString";
 import Image from "next/image";

@@ -1,7 +1,7 @@
 <svg width="1095" height="309" viewBox="0 0 1095 309" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect width="1095" height="309" fill="black" fill-opacity="0.8"/>
-<rect width="1095" height="309" fill="url(#paint0_linear_148_2626)" fill-opacity="0.3"/>
-<rect width="1095" height="309" fill="url(#pattern0)" fill-opacity="0.8" style="mix-blend-mode:soft-light"/>
+<rect width="1095" height="309" fill="black" fillOpacity="0.8"/>
+<rect width="1095" height="309" fill="url(#paint0_linear_148_2626)" fillOpacity="0.3"/>
+<rect width="1095" height="309" fill="url(#pattern0)" fillOpacity="0.8" style="mix-blend-mode:soft-light"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_148_2626" transform="matrix(0.000531915 0 0 0.00188494 0 -0.678088)"/>

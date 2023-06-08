@@ -3,7 +3,7 @@
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { Rol, UserInitial } from "@/interfaces/user";
 import { sing_in } from "@/lib";
-import { createUserWithProvider } from "@/lib/services-burofy/createUserWithProvider";
+import { createUser} from "@/lib/services-burofy/createUser";
 import { loginUserWithProvider } from "@/lib/services-burofy/loginUserWithProvider";
 import { setUserInitial, setVerified } from "@/redux/features/userSlice";
 import { usePathname, useRouter } from "next/navigation";
@@ -34,7 +34,7 @@ const ButtonGoogle = () => {
         }
         
       } else {
-        const responseUser = await createUserWithProvider(
+        const responseUser = await createUser(
           rol as Rol,
           user as Omit<UserInitial, "rol">,
         );

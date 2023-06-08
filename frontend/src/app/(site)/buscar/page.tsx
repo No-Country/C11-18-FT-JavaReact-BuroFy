@@ -1,23 +1,20 @@
 import ContainerSearchResults from "@/components/SearchResult/ContainerSearchResults";
 import SearchResultFIlter from "@/components/SearchResult/SearchResultFIlter";
+import { Search } from "@/interfaces/search";
+import { getAllProfessional } from "@/lib/services-burofy/getAllProfessional";
 
 import React from "react";
 
-
 export default async function ProfileResult(){
   
-  const data = await fetch("https://backend-web-burofy.onrender.com/allProfessionals/1/10");
-  
-  const search = await data.json();
-  console.log(search);
+  const search = await getAllProfessional(1);
 
   return(
     <>
     
       <section>
         <SearchResultFIlter/>
-        
-        <ContainerSearchResults search={search}/>
+        <ContainerSearchResults search={search as Search[]}/>
       </section>
     </>
   );

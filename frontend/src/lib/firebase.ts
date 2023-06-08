@@ -2,6 +2,7 @@
 import { FirebaseOptions, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 // import { getAnalytics } from "firebase/analytics";
+import {getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
 
 const firebase_configuration: FirebaseOptions = {
   apiKey: process.env.NEXT_PUBLIC_APIKEY,
@@ -15,6 +16,17 @@ const firebase_configuration: FirebaseOptions = {
 
 // Initialize Firebase
 const app = initializeApp(firebase_configuration);
+
+export const storage = getStorage(app);
+
+export async function uploadFile(file : Blob , id : string) {
+  if (file ) {
+    const storageRef = ref(storage, `profileImages/${id}`);
+    await uploadBytes(storageRef, file ) ;
+    const url = await getDownloadURL(storageRef);
+    return url;
+  }
+}
 
 export const firebase_auth = getAuth(app);
 // export const analytics = getAnalytics(app);

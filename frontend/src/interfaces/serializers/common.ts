@@ -9,3 +9,9 @@ export interface Address {
 export interface Phone {
   phone?: string | null;
 }
+
+export interface PersonalInformation extends Phone {
+  location?: string;
+  avatar?: string;
+  occupation?: string;
+}

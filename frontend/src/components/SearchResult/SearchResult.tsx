@@ -17,9 +17,9 @@ export default function SearchResult({search}: {search : Search}) {
           <div className="flex lg:p-8 justify-between">
             <div className='flex gap-4 items-center '>
               
-              <AvatarProfile avatar={search.avatar as string} fullName={search.fullName}/>
+              <AvatarProfile avatar={search.avatar as string} fullName={search.fullName as string}/>
               <div className='flex-col space-y-3'>
-                <p className='lg:font-bold lg:text-3xl'>{search.fullName}</p>
+                <p className='lg:font-bold lg:text-3xl'>{search.fullName }</p>
                 <div className="flex">
                   <span className='lg:flex bg-[#D0D0D0] text-[#2E2E2E] text-xs font-normal mt-1 mr-2 lg:ml-0 ml-2 px-2.5 py-0.5 rounded-full '>
                     {search.experience || "n/a" }

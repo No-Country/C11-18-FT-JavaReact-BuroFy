@@ -39,9 +39,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             {children}
           </main>
         </Providers>
-        
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"/> 
       </body>
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"/>
     </html>
   );
 }

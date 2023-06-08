@@ -1,6 +1,7 @@
 export { default as AlertRegister } from "./Alerts/AlertRegister";
 export { default as WelcomeApp } from "./Alerts/WelcomeApp";
 export { default as Avatar } from "./Avatars/Avatar";
+export { default as AvatarProfile } from "./Avatars/AvatarProfile";
 export { default as AvatarTitle } from "./Avatars/AvatarTitle";
 export { default as ButtonAuth } from "./Buttons/ButtonAuth";
 export { default as ButtonBack } from "./Buttons/ButtonBack";
@@ -32,6 +33,7 @@ export { default as Lapandingpage } from "./Landing/Lapandingpage";
 export * from "./MisConsultas/MisConsultasCliente";
 export { default as Payment } from "./Perfil/Payment";
 export { default as PerfilClient } from "./Perfil/PerfilClient";
+export { default as PerfilProfessional } from "./Perfil/PerfilProfessional";
 export { default as PersonalInfo } from "./Perfil/PersonalInfo";
 export { default as Reviews } from "./Perfil/Reviews";
 export { default as AboutMe } from "./ProfileSearchResult/AboutMe";
@@ -44,6 +46,10 @@ export { default as ProfileSearchResult } from "./ProfileSearchResult/ProfileSea
 export { default as ReviewsProfessional } from "./ProfileSearchResult/ReviewsProfessional";
 export { default as Providers } from "./Providers";
 export { default as SearchBar } from "./SearchBar";
+export { default as ContainerSearchResults } from "./SearchResult/ContainerSearchResults";
+export { default as SearchResult } from "./SearchResult/SearchResult";
+export { default as SearchResultFIlter } from "./SearchResult/SearchResultFIlter";
+export { default as SortFilter } from "./SearchResult/SortFilter";
 export { default as Spinner } from "./Spinners/Spinner";
 export { default as Spinner2 } from "./Spinners/Spinner2";
 export { default as StarsCalification } from "./StarsCalification";

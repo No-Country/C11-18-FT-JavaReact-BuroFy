@@ -29,7 +29,7 @@ export default function ContainerSearchResults({search}:PropsType) {
     <>
       <SortFilter/>
       {searchs &&   searchs.map(search => (
-        <SearchResult key={search.idProfessional} search={search}/>
+        <SearchResult key={search.id} search={search}/>
       )) }
     </>
   );
