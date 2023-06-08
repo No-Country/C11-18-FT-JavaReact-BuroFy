@@ -91,7 +91,7 @@ public class ProfessionalRestController  {
     }
 
     @GetMapping("/professionals")
-    public ResponseEntity<Map<String, Object>> getAllTutorials(
+    public ResponseEntity<Map<String, Object>> getAllProfessionals(
             @RequestParam(required = false) String experience,
             @RequestParam(required = false) String location,
             @RequestParam(required = false) Boolean isRemoteWork,
