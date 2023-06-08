@@ -89,8 +89,7 @@ public class ConsultationServiceImpl implements IConsultationService {
     }
     @Override
     public List<ConsultationDTO> getConsultationsByClientId(String clientId) {
-        //ConsultationDTO consultationDTO = new ConsultationDTO();
-        //consultationResponseDTO.setStatus(200);
+
         List<Consultation> consultations = (List<Consultation>) consultationRepository.getConsultationsByClientId(clientId);
         List<ConsultationDTO> consultationDTOS = new ArrayList<>();
         for (Consultation c: consultations) {
@@ -115,14 +114,13 @@ public class ConsultationServiceImpl implements IConsultationService {
                     .build();
             consultationDTOS.add(cDto);
         }
-        //consultationResponseDTO.setConsultations(consultationDTOS);
+
         return consultationDTOS;
     }
 
     @Override
     public List<ConsultationDTO> getConsultationsByProfessionalId(String professionalId) {
-        //ConsultationResponseDTO consultationResponseDTO = new ConsultationResponseDTO();
-        //consultationResponseDTO.setStatus(200);
+
         List<Consultation> consultations = (List<Consultation>) consultationRepository.getConsultationsByProfessionalId(professionalId);
         List<ConsultationDTO> consultationDTOS = new ArrayList<>();
         for (Consultation c: consultations) {
@@ -144,7 +142,6 @@ public class ConsultationServiceImpl implements IConsultationService {
                     .build();
             consultationDTOS.add(cDto);
         }
-        //consultationResponseDTO.setConsultations(consultationDTOS);
         return consultationDTOS;
     }
 

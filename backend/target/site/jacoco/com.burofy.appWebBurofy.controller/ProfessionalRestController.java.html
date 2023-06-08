@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProfessionalRestController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">appWebBurofy</a> &gt; <a href="index.source.html" class="el_package">com.burofy.appWebBurofy.controller</a> &gt; <span class="el_source">ProfessionalRestController.java</span></div><h1>ProfessionalRestController.java</h1><pre class="source lang-java linenums">package com.burofy.appWebBurofy.controller;
+
+import com.burofy.appWebBurofy.dto.ProfessionalDTO;
+import com.burofy.appWebBurofy.entity.Professional;
+import com.burofy.appWebBurofy.service.IProfessionalService;
+import com.burofy.appWebBurofy.utility.Response;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ *
+ *  BuroFy Proyecto
+ *  para No Country
+ *
+ *  Professional Rest Controller
+ *  Crea y recibe la nueva instancia del Professional y sus interacciones
+ *
+ * @version 1.0.0 2023-06-06
+ * @author Martha Liliana Gallego Murillo&lt;lilianagallegom@gmail.com&gt;
+ * @author Dmitry Borovskikh &lt;dmibrv@gmail.com&gt;
+ * @author Milton Figueredo &lt;gratno@gmail.com&gt;
+
+ * @since 1.0.0
+ */
+
+@RestController
+<span class="fc" id="L38">@RequiredArgsConstructor</span>
+<span class="fc" id="L39">@Slf4j</span>
+public class ProfessionalRestController  {
+
+    private final IProfessionalService professionalService;
+
+    @ApiIgnore // no se usa, para crear a un cliente/un professional usamos /create/person
+    @PostMapping(path = &quot;/create/professional&quot;)
+    public ResponseEntity&lt;Response&gt; createProfessional(@RequestBody Professional professional) {
+<span class="nc" id="L47">        professionalService.createProfessional(professional)  ;</span>
+<span class="nc" id="L48">        return new  ResponseEntity&lt;&gt;(HttpStatus.CREATED);</span>
+    }
+
+    @GetMapping(path = &quot;/getProfessional/{id}&quot;)
+    public ResponseEntity&lt;Professional&gt; getProfessional(@PathVariable String id) {
+<span class="nc" id="L53">        Professional professional = professionalService.getProfessional(id);</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (professional != null) {</span>
+<span class="nc" id="L55">            return ResponseEntity.ok(professional);</span>
+        } else {
+<span class="nc" id="L57">            return ResponseEntity.notFound().build();</span>
+        }
+    }
+
+    @PutMapping(path = &quot;/update/professional/{id}&quot;)
+    public ResponseEntity&lt;Professional&gt; updateProfessional(@PathVariable String id, @RequestBody Professional updatedProfessional) {
+<span class="nc" id="L63">        professionalService.updateProfessional(id,updatedProfessional);</span>
+<span class="nc" id="L64">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
+    }
+
+    @PatchMapping(path = &quot;/delete/professional/{id}&quot;)
+    public ResponseEntity&lt;Professional&gt; deleteProfessional(@PathVariable String id) {
+<span class="nc" id="L69">        professionalService.deleteProfessional(id);</span>
+<span class="nc" id="L70">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
+    }
+
+    @GetMapping(path = &quot;/allProfessionals/{page}/{size}&quot;)
+    public ResponseEntity&lt;List&lt;ProfessionalDTO&gt;&gt; allProfessionals(@PathVariable int page, @PathVariable int size) {
+<span class="nc" id="L75">        List&lt;ProfessionalDTO&gt; professionalDTOS = professionalService.allProfessionals(page,size);</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        if (!professionalDTOS.isEmpty()) {</span>
+<span class="nc" id="L77">            return ResponseEntity.ok(professionalDTOS);</span>
+        } else {
+<span class="nc" id="L79">            return ResponseEntity.ok(null);</span>
+        }
+    }
+
+    @GetMapping(path = &quot;/professionalsByLocation/{page}/{size}/{location}&quot;)
+    public ResponseEntity&lt;List&lt;Professional&gt;&gt; professionalsByLocation(@PathVariable int page, @PathVariable int size, @PathVariable String location) {
+<span class="nc" id="L85">        List&lt;Professional&gt; professionals = professionalService.professionalsByLocation(page,size,location);</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        if (!professionals.isEmpty()) {</span>
+<span class="nc" id="L87">            return ResponseEntity.ok(professionals);</span>
+        } else {
+<span class="nc" id="L89">            return ResponseEntity.notFound().build();</span>
+        }
+    }
+
+    @GetMapping(&quot;/professionals&quot;)
+    public ResponseEntity&lt;Map&lt;String, Object&gt;&gt; getAllProfessionals(
+            @RequestParam(required = false) String experience,
+            @RequestParam(required = false) String location,
+            @RequestParam(required = false) Boolean isRemoteWork,
+            @RequestParam(required = false) Boolean isFaceToFaceWork,
+            @RequestParam(defaultValue = &quot;0&quot;) int page,
+            @RequestParam(defaultValue = &quot;10&quot;) int size
+    ) {
+        try {
+            List&lt;Professional&gt; professionals;
+<span class="nc" id="L104">            Pageable paging = PageRequest.of(page, size);</span>
+
+            Page&lt;Professional&gt; pagePros;
+<span class="nc bnc" id="L107" title="All 8 branches missed.">            if (experience == null &amp;&amp; location == null &amp;&amp; isRemoteWork == null &amp;&amp; isFaceToFaceWork == null)</span>
+<span class="nc" id="L108">                pagePros = professionalService.findProfessionals(paging);</span>
+            else
+<span class="nc" id="L110">                pagePros = professionalService.findProfessionalsByFilters(experience, location, isRemoteWork, isFaceToFaceWork, paging);</span>
+
+<span class="nc" id="L112">            professionals = pagePros.getContent();</span>
+
+<span class="nc" id="L114">            Map&lt;String, Object&gt; response = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L115">            response.put(&quot;professionals&quot;, professionals);</span>
+<span class="nc" id="L116">            response.put(&quot;totalItems&quot;, pagePros.getTotalElements());</span>
+<span class="nc" id="L117">            response.put(&quot;currentPage&quot;, pagePros.getNumber()+1);</span>
+<span class="nc" id="L118">            response.put(&quot;totalPages&quot;, pagePros.getTotalPages());</span>
+
+<span class="nc" id="L120">            return new ResponseEntity&lt;&gt;(response, HttpStatus.OK);</span>
+<span class="nc" id="L121">        } catch (Exception e) {</span>
+<span class="nc" id="L122">            return new ResponseEntity&lt;&gt;(null, HttpStatus.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Professional.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">appWebBurofy</a> &gt; <a href="index.source.html" class="el_package">com.burofy.appWebBurofy.entity</a> &gt; <span class="el_source">Professional.java</span></div><h1>Professional.java</h1><pre class="source lang-java linenums">package com.burofy.appWebBurofy.entity;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
+
+/**
+ *
+ *  BuroFy Proyecto
+ *  para No Country
+ *
+ *  Entity Professional
+ *  Class principal Professional se crea los atributos
+ *
+ * @version 1.0.0 2023-06-06
+ * @author Martha Liliana Gallego Murillo&lt;lilianagallegom@gmail.com&gt;
+ * @author Dmitry Borovskikh &lt;dmibrv@gmail.com&gt;
+ * @author Milton Figueredo &lt;gratno@gmail.com&gt;
+
+ * @since 1.0.0
+ */
+
+<span class="fc" id="L29">@NoArgsConstructor</span>
+<span class="fc" id="L30">@AllArgsConstructor</span>
+@Getter
+<span class="pc" id="L32">@Setter</span>
+@Entity
+@Table(name = &quot;professional&quot;)
+public class Professional {
+
+    @Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotEmpty(message = &quot;Id may not be empty&quot;)
+<span class="fc" id="L40">    private String id;</span>
+    //@NotEmpty(message = &quot;Email may not be empty&quot;)
+<span class="fc" id="L42">    private String email;</span>
+    @Column(length = 1024)
+<span class="fc" id="L44">    private String avatar;</span>
+    //@NotEmpty(message = &quot;fullName may not be empty&quot;)
+<span class="fc" id="L46">    private String fullName;</span>
+<span class="nc" id="L47">    private LocalDate birthDate;</span>
+<span class="fc" id="L48">    private String documentNumber;</span>
+<span class="fc" id="L49">    private String phone;</span>
+<span class="fc" id="L50">    private String location;</span>
+<span class="fc" id="L51">    private String license;</span>
+<span class="fc" id="L52">    private String experience;</span>
+<span class="fc" id="L53">    private String diploma;</span>
+<span class="fc" id="L54">    private String price;</span>
+    @Column(length = 2048)
+<span class="nc" id="L56">    private String aboutMe;</span>
+    @Column(length = 2048)
+<span class="fc" id="L58">    private String training;</span>
+<span class="fc" id="L59">    private Boolean isRemoteWork;</span>
+<span class="fc" id="L60">    private Boolean isFaceToFaceWork;</span>
+<span class="fc" id="L61">    private Boolean state;</span>
+<span class="fc" id="L62">    private String rating;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
