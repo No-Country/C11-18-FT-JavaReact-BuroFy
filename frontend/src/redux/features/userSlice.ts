@@ -12,7 +12,8 @@ const initialState: User = {
   providerId: "",
   birthday: null,
   phone: null,
-  address: null,
+  location: null,
+  occupation: null, 
   avatar: null,
   verified: "no-authenticated",
 };
@@ -50,10 +51,10 @@ const userSlice = createSlice({
       state.avatar = action.payload.avatar;
       state.rol = action.payload.rol;
       state.rolContent = action.payload.rolContent;
-      state.address = action.payload.address || null;
+      state.location = action.payload.location || null;
       state.phone = action.payload.phone || null;
       state.birthday = action.payload.birthday || null;
-      
+      state.occupation = action.payload.occupation || null;
     },
     logoutUser: (state) => {
       // all states of user
@@ -67,9 +68,10 @@ const userSlice = createSlice({
       state.providerId = "";
       state.birthday = null;
       state.phone = null;
-      state.address = null;
+      state.location = null;
       state.avatar = null;
       state.verified = "no-authenticated";
+      state.occupation = null;
     },
   },
 });

@@ -12,14 +12,14 @@ import { PersonalInformation } from "@/interfaces/serializers/common";
 import { Rol } from "@/interfaces/user";
 import ErrorMsg from "../ErrorMsg";
 import { uploadFile } from "@/lib";
-import { setVerified } from "@/redux/features/userSlice";
+import { setCredentials, setVerified } from "@/redux/features/userSlice";
 import { useRouter } from "next/navigation";
 
 
 
 
 export default function PersonalInfo() {
-  const { avatar : avatarRedux , fullName , rol , id} = useAppSelector((state) => state.user);
+  const { avatar : avatarRedux , fullName , rol , id , location , phone , occupation } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
   const router = useRouter();
   const {
@@ -35,7 +35,7 @@ export default function PersonalInfo() {
       if (data.avatar) {
         const { location , phone , occupation  } = data;
         const result = await uploadFile(data.avatar[0] as unknown as Blob , id as string );
-        rol as Rol === "client" ? await fetch(`https://backend-web-burofy.onrender.com/update/client/${id}`  , {
+        const dataProfile = rol as Rol === "client" ? await fetch(`https://backend-web-burofy.onrender.com/update/client/${id}`  , {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -53,7 +53,11 @@ export default function PersonalInfo() {
             occupation,
             location,
             phone}),
+
         });
+        const dataProfileUser = await dataProfile.json();
+        dispatch(setCredentials(dataProfileUser));
+        console.log(dataProfileUser);
         console.log(result);
         dispatch(setVerified("authenticated"));
         router.push("/inicio");
@@ -110,7 +114,7 @@ export default function PersonalInfo() {
                     type='text'
                     id='name'
                     className=' placeholder:text-black placeholder:text-[16px] block py-2.5 pr-0 pl-4 w-full lg:w-[310px] text-sm text-gray-900 border-0 border-b-2 border-[#AAAAAA] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96 bg-none focus:bg-transparent'
-                    placeholder='Capital Federal, Buenos Aires'
+                    placeholder={location || "n/a"}
                     required
                     {...register("location", {
                       required: "Tu dirección es necesaria.",
@@ -130,7 +134,7 @@ export default function PersonalInfo() {
                     type='text'
                     id='name'
                     className=' placeholder:text-black placeholder:text-[16px] block py-2.5 pr-0 pl-4 w-full lg:w-[310px] text-sm text-gray-900 border-0 border-b-2 border-[#AAAAAA] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96 bg-none focus:bg-transparent'
-                    placeholder='11-4426-7278'
+                    placeholder={phone as string || "n/a"}
                     required
                     {...register("phone", {
                       required: "El teléfono es requerido",
@@ -150,7 +154,7 @@ export default function PersonalInfo() {
                     type='text'
                     id='name'
                     className=' placeholder:text-black placeholder:text-[16px] block py-2.5 pr-0 pl-4 w-full lg:w-[310px] text-sm text-gray-900 border-0 border-b-2 border-[#AAAAAA] appearance-none focus:outline-none focus:ring-0 focus:border-lilac peer md:w-96 bg-none focus:bg-transparent'
-                    placeholder='Profesor de Inglés'
+                    placeholder={occupation as string || "n/a"}
                     required
                     {...register("occupation", {
                       required: "Tu ocupacion es requerida.",
