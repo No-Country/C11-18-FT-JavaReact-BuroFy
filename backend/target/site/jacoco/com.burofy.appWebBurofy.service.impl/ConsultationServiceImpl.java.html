@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsultationServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">appWebBurofy</a> &gt; <a href="index.source.html" class="el_package">com.burofy.appWebBurofy.service.impl</a> &gt; <span class="el_source">ConsultationServiceImpl.java</span></div><h1>ConsultationServiceImpl.java</h1><pre class="source lang-java linenums">package com.burofy.appWebBurofy.service.impl;
+
+import com.burofy.appWebBurofy.dto.ClientDTO;
+import com.burofy.appWebBurofy.dto.ConsultationDTO;
+import com.burofy.appWebBurofy.dto.ProfessionalDTO;
+import com.burofy.appWebBurofy.entity.Client;
+import com.burofy.appWebBurofy.entity.Consultation;
+import com.burofy.appWebBurofy.entity.Professional;
+import com.burofy.appWebBurofy.repository.IConsultationRepository;
+import com.burofy.appWebBurofy.service.IConsultationService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+/**
+ *
+ *  BuroFy Proyecto
+ *  para No Country
+ *
+ *  Implementation - IMPL
+ *  Consultation Service IMPL
+ *
+ *  Implementa el objeto CRUD del Repository Consultation
+ *  manipular el objeto del dominio
+ *
+ * @version 1.0.0 2023-06-06
+ * @author Martha Liliana Gallego Murillo&lt;lilianagallegom@gmail.com&gt;
+ * @author Dmitry Borovskikh &lt;dmibrv@gmail.com&gt;
+ * @author Milton Figueredo &lt;gratno@gmail.com&gt;
+
+ * @since 1.0.0
+ */
+
+@Service
+<span class="fc" id="L38">@RequiredArgsConstructor</span>
+public class ConsultationServiceImpl implements IConsultationService {
+
+    private final IConsultationRepository consultationRepository;
+    private static final String NOTFOUND = &quot;Could not find consultation&quot;;
+
+    @Override
+    public Consultation createConsultation(Consultation consultation) {
+<span class="fc" id="L46">        consultation.setStatus(&quot;progreso&quot;);</span>
+<span class="fc" id="L47">        return consultationRepository.save(consultation);</span>
+    }
+
+    @Override
+    public Consultation getConsultation(Long id) {
+<span class="fc" id="L52">        Optional&lt;Consultation&gt; consultation = consultationRepository.findById(id);</span>
+
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        if (!consultation.isPresent()) {</span>
+<span class="nc" id="L55">            throw new RuntimeException(NOTFOUND);</span>
+        }
+<span class="fc" id="L57">        return consultation.get();</span>
+    }
+
+    @Override
+    public Consultation updateConsultation(Long id, Consultation updatedConsultation) {
+<span class="fc" id="L62">        Optional&lt;Consultation&gt; consultationOptional = consultationRepository.findById(id);</span>
+
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">        if (!consultationOptional.isPresent()) {</span>
+<span class="nc" id="L65">            throw new RuntimeException(NOTFOUND);</span>
+        }
+<span class="fc" id="L67">        Consultation consultation = consultationOptional.get();</span>
+<span class="fc" id="L68">        consultation.setClient(updatedConsultation.getClient());</span>
+<span class="fc" id="L69">        consultation.setProfessional(updatedConsultation.getProfessional());</span>
+<span class="fc" id="L70">        consultation.setPayment(updatedConsultation.getPayment());</span>
+<span class="fc" id="L71">        consultation.setType(updatedConsultation.getType());</span>
+<span class="fc" id="L72">        consultation.setDate(updatedConsultation.getDate());</span>
+<span class="fc" id="L73">        consultation.setComments(updatedConsultation.getComments());</span>
+<span class="fc" id="L74">        consultation.setStatus(updatedConsultation.getStatus());</span>
+
+<span class="fc" id="L76">        return consultationRepository.save(consultation);</span>
+    }
+
+    @Override
+    public Consultation deleteConsultation(Long id) {
+<span class="fc" id="L81">        Optional&lt;Consultation&gt; consultationOptional = consultationRepository.findById(id);</span>
+
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">        if (!consultationOptional.isPresent()) {</span>
+<span class="nc" id="L84">            throw new RuntimeException(NOTFOUND);</span>
+        }
+<span class="fc" id="L86">        Consultation consultation = consultationOptional.get();</span>
+<span class="fc" id="L87">        consultation.setStatus(&quot;&quot;);</span>
+<span class="fc" id="L88">        return consultationRepository.save(consultation);</span>
+    }
+    @Override
+    public List&lt;ConsultationDTO&gt; getConsultationsByClientId(String clientId) {
+
+<span class="fc" id="L93">        List&lt;Consultation&gt; consultations = (List&lt;Consultation&gt;) consultationRepository.getConsultationsByClientId(clientId);</span>
+<span class="fc" id="L94">        List&lt;ConsultationDTO&gt; consultationDTOS = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        for (Consultation c: consultations) {</span>
+<span class="fc" id="L96">            Professional professional = c.getProfessional();</span>
+<span class="fc" id="L97">            ProfessionalDTO professionalDTO = ProfessionalDTO.builder()</span>
+<span class="fc" id="L98">                    .id(professional.getId())</span>
+<span class="fc" id="L99">                    .avatar(professional.getAvatar())</span>
+<span class="fc" id="L100">                    .fullName(professional.getFullName())</span>
+<span class="fc" id="L101">                    .location(professional.getLocation())</span>
+<span class="fc" id="L102">                    .experience(professional.getExperience())</span>
+<span class="fc" id="L103">                    .price(professional.getPrice())</span>
+<span class="fc" id="L104">                    .rating(professional.getRating())</span>
+<span class="fc" id="L105">                    .build();</span>
+<span class="fc" id="L106">            ConsultationDTO cDto = ConsultationDTO.builder()</span>
+<span class="fc" id="L107">                    .id(c.getId())</span>
+<span class="fc" id="L108">                    .professional(professionalDTO)</span>
+<span class="fc" id="L109">                    .payment(c.getPayment())</span>
+<span class="fc" id="L110">                    .type(c.getType())</span>
+<span class="fc" id="L111">                    .date(c.getDate())</span>
+<span class="fc" id="L112">                    .comments(c.getComments())</span>
+<span class="fc" id="L113">                    .status(c.getStatus())</span>
+<span class="fc" id="L114">                    .build();</span>
+<span class="fc" id="L115">            consultationDTOS.add(cDto);</span>
+<span class="fc" id="L116">        }</span>
+
+<span class="fc" id="L118">        return consultationDTOS;</span>
+    }
+
+    @Override
+    public List&lt;ConsultationDTO&gt; getConsultationsByProfessionalId(String professionalId) {
+
+<span class="nc" id="L124">        List&lt;Consultation&gt; consultations = (List&lt;Consultation&gt;) consultationRepository.getConsultationsByProfessionalId(professionalId);</span>
+<span class="nc" id="L125">        List&lt;ConsultationDTO&gt; consultationDTOS = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        for (Consultation c: consultations) {</span>
+<span class="nc" id="L127">            Client client = c.getClient();</span>
+<span class="nc" id="L128">            ClientDTO clientDTO = ClientDTO.builder()</span>
+<span class="nc" id="L129">                    .id(client.getId())</span>
+<span class="nc" id="L130">                    .avatar(client.getAvatar())</span>
+<span class="nc" id="L131">                    .fullName(client.getFullName())</span>
+<span class="nc" id="L132">                    .location(client.getLocation())</span>
+<span class="nc" id="L133">                    .build();</span>
+<span class="nc" id="L134">            ConsultationDTO cDto = ConsultationDTO.builder()</span>
+<span class="nc" id="L135">                    .id(c.getId())</span>
+<span class="nc" id="L136">                    .client(clientDTO)</span>
+<span class="nc" id="L137">                    .payment(c.getPayment())</span>
+<span class="nc" id="L138">                    .type(c.getType())</span>
+<span class="nc" id="L139">                    .date(c.getDate())</span>
+<span class="nc" id="L140">                    .comments(c.getComments())</span>
+<span class="nc" id="L141">                    .status(c.getStatus())</span>
+<span class="nc" id="L142">                    .build();</span>
+<span class="nc" id="L143">            consultationDTOS.add(cDto);</span>
+<span class="nc" id="L144">        }</span>
+<span class="nc" id="L145">        return consultationDTOS;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
