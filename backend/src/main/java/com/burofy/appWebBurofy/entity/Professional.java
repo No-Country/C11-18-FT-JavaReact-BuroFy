@@ -40,8 +40,8 @@ public class Professional {
     private String id;
     //@NotEmpty(message = "Email may not be empty")
     private String email;
+    @Column(length = 1024)
     private String avatar;
-
     //@NotEmpty(message = "fullName may not be empty")
     private String fullName;
     private LocalDate birthDate;
@@ -50,10 +50,12 @@ public class Professional {
     private String location;
     private String license;
     private String experience;
-    private String training;
     private String diploma;
     private String price;
+    @Column(length = 2048)
     private String aboutMe;
+    @Column(length = 2048)
+    private String training;
     private Boolean isRemoteWork;
     private Boolean isFaceToFaceWork;
     private Boolean state;
