@@ -24,14 +24,13 @@ import java.util.List;
  * @since 1.0.0
  */
 
-=======
->>>>>>> 8aa6cc205257e7fc10ca6e328a03c651a5578b49
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-public class ConsultationResponseDTO {
-    //private long status;
-    //private List<ConsultationDTO> consultations;
-    //private String message;
-}*/
+
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Getter
+//@Setter
+//public class ConsultationResponseDTO {
+//    //private long status;
+//    //private List<ConsultationDTO> consultations;
+//    //private String message;
+//}*/
