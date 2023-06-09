@@ -1,7 +1,6 @@
 package com.burofy.appWebBurofy.service.impl;
 
 import com.burofy.appWebBurofy.dto.ConsultationClientDTO;
-import com.burofy.appWebBurofy.dto.ConsultationDTO;
 import com.burofy.appWebBurofy.dto.ConsultationProfessionalDTO;
 import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.entity.Consultation;

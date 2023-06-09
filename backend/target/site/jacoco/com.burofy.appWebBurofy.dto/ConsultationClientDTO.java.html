@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsultationClientDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">appWebBurofy</a> &gt; <a href="index.source.html" class="el_package">com.burofy.appWebBurofy.dto</a> &gt; <span class="el_source">ConsultationClientDTO.java</span></div><h1>ConsultationClientDTO.java</h1><pre class="source lang-java linenums">package com.burofy.appWebBurofy.dto;
+
+import com.burofy.appWebBurofy.entity.Payment;
+import lombok.*;
+
+import java.util.Date;
+
+/**
+ *
+ *  BuroFy Proyecto
+ *  para No Country
+ *
+ *  Consultation DTO
+ *  Class crea los datos  DTO para Consulation Response DTO - resentación y persistencia
+ *
+ * @version 1.0.0 2023-06-06
+ * @author Martha Liliana Gallego Murillo&lt;lilianagallegom@gmail.com&gt;
+ * @author Dmitry Borovskikh &lt;dmibrv@gmail.com&gt;
+ * @author Milton Figueredo &lt;gratno@gmail.com&gt;
+
+ * @since 1.0.0
+ */
+
+<span class="nc" id="L24">@NoArgsConstructor</span>
+<span class="fc" id="L25">@AllArgsConstructor</span>
+@Getter
+<span class="nc" id="L27">@Setter</span>
+<span class="pc" id="L28">@Builder</span>
+public class ConsultationClientDTO {
+<span class="nc" id="L30">    private Long id;</span>
+<span class="nc" id="L31">    private ProfessionalDTO professional;</span>
+<span class="nc" id="L32">    private Payment payment;</span>
+<span class="nc" id="L33">    private String type;</span>
+<span class="nc" id="L34">    private Date date;</span>
+<span class="nc" id="L35">    private String comments;</span>
+<span class="nc" id="L36">    private String status;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

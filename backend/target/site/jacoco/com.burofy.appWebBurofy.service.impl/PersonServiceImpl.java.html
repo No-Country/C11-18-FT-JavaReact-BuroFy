@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PersonServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">appWebBurofy</a> &gt; <a href="index.source.html" class="el_package">com.burofy.appWebBurofy.service.impl</a> &gt; <span class="el_source">PersonServiceImpl.java</span></div><h1>PersonServiceImpl.java</h1><pre class="source lang-java linenums">package com.burofy.appWebBurofy.service.impl;
+
+import com.burofy.appWebBurofy.entity.Client;
+import com.burofy.appWebBurofy.entity.Person;
+import com.burofy.appWebBurofy.entity.Professional;
+import com.burofy.appWebBurofy.repository.IClientRepository;
+import com.burofy.appWebBurofy.repository.IPersonRepository;
+import com.burofy.appWebBurofy.repository.IProfessionalRepository;
+import com.burofy.appWebBurofy.service.IPersonService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+/**
+ *
+ *  BuroFy Proyecto
+ *  para No Country
+ *
+ *  Implementation - IMPL
+ *  Person Service IMPL
+ *
+ *  Implementa el objeto CRUD del Repository Person
+ *  manipular el objeto del dominio
+ *
+ * @version 1.0.0 2023-06-06
+ * @author Martha Liliana Gallego Murillo&lt;lilianagallegom@gmail.com&gt;
+ * @author Dmitry Borovskikh &lt;dmibrv@gmail.com&gt;
+ * @author Milton Figueredo &lt;gratno@gmail.com&gt;
+
+ * @since 1.0.0
+ */
+
+@Service
+<span class="fc" id="L35">@RequiredArgsConstructor</span>
+public class PersonServiceImpl implements IPersonService {
+
+    private final IPersonRepository personRepository;
+    private final IClientRepository clientRepository;
+    private final IProfessionalRepository professionalRepository;
+
+    private static final String NOTFOUND = &quot;Could not find person&quot;;
+    private static final String EXISTE = &quot;This person already exists&quot;;
+
+    @Override
+    public Person createPerson(Person person) {
+
+<span class="nc" id="L48">        Optional&lt;Person&gt; personalOptional = personRepository.findById(person.getId());</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (personalOptional.isPresent()) {</span>
+<span class="nc" id="L50">            throw new RuntimeException(EXISTE);</span>
+        }
+
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        if (person.getRol().equals(&quot;client&quot;)) {</span>
+<span class="nc" id="L54">            Client client = new Client();</span>
+<span class="nc" id="L55">            client.setId(person.getId());</span>
+<span class="nc" id="L56">            client.setEmail(person.getEmail());</span>
+<span class="nc" id="L57">            client.setAvatar(person.getAvatar());</span>
+<span class="nc" id="L58">            client.setFullName(person.getFullName());</span>
+<span class="nc" id="L59">            client.setState(true);</span>
+<span class="nc" id="L60">            ClientServiceImpl save = new ClientServiceImpl(clientRepository);</span>
+<span class="nc" id="L61">            save.createClient(client);</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        } else if (person.getRol().equals(&quot;professional&quot;)) {</span>
+<span class="nc" id="L63">            Professional professional = new Professional();</span>
+<span class="nc" id="L64">            professional.setId(person.getId());</span>
+<span class="nc" id="L65">            professional.setEmail(person.getEmail());</span>
+<span class="nc" id="L66">            professional.setAvatar(person.getAvatar());</span>
+<span class="nc" id="L67">            professional.setFullName(person.getFullName());</span>
+<span class="nc" id="L68">            professional.setDocumentNumber(person.getDocumentNumber());</span>
+<span class="nc" id="L69">            professional.setLicense(person.getLicense());</span>
+<span class="nc" id="L70">            professional.setState(true);</span>
+<span class="nc" id="L71">            ProfessionalServiceImpl save = new ProfessionalServiceImpl(professionalRepository);</span>
+<span class="nc" id="L72">            save.createProfessional(professional);</span>
+        }
+
+<span class="nc" id="L75">        return personRepository.save(person);</span>
+    }
+
+    @Override
+    public Person getPerson(String id) {
+<span class="nc" id="L80">        Optional&lt;Person&gt; person = personRepository.findById(id);</span>
+
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        if (!person.isPresent()) {</span>
+<span class="nc" id="L83">            throw new RuntimeException(NOTFOUND);</span>
+        }
+<span class="nc" id="L85">        return person.get();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

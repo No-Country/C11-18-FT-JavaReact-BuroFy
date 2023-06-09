@@ -16,6 +16,7 @@
 /Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/entity/Client.java
 /Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/service/IClientService.java
 /Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/exception/MailAlreadyExistsException.java
+/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/dto/ConsultationRequestDTO.java
 /Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/ResponseBuilder.java
 /Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/exception/Exception.java
 /Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/dto/ClientDTO.java
