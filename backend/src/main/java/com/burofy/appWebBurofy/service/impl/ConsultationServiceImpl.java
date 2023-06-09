@@ -88,14 +88,13 @@ public class ConsultationServiceImpl implements IConsultationService {
         consultation.setStatus("");
         return consultationRepository.save(consultation);
     }
-    @Override
     public List<ConsultationClientDTO> getConsultationsByClientId(String clientId) {
 
         List<Consultation> consultations = (List<Consultation>) consultationRepository.getConsultationsByClientId(clientId);
         List<ConsultationClientDTO> consultationDTOS = new ArrayList<>();
         for (Consultation c: consultations) {
             Professional professional = c.getProfessional();
-            ProfessionalDTO professionalDTO = ProfessionalDTO.builder()
+/*            ProfessionalDTO professionalDTO = ProfessionalDTO.builder()
                     .id(professional.getId())
                     .avatar(professional.getAvatar())
                     .fullName(professional.getFullName())
@@ -103,10 +102,16 @@ public class ConsultationServiceImpl implements IConsultationService {
 
                     .price(professional.getPrice())
                     .rating(professional.getRating())
-                    .build();
+                    .build();*/
             ConsultationClientDTO cDto = ConsultationClientDTO.builder()
                     .id(c.getId())
-                    .professional(professionalDTO)
+                    .idProfessional(professional.getId())
+                    .avatar(professional.getAvatar())
+                    .fullName(professional.getFullName())
+                    .location(professional.getLocation())
+                    .experience(professional.getExperience())
+                    .price(professional.getPrice())
+                    .rating(professional.getRating())
                     .payment(c.getPayment())
                     .type(c.getType())
                     .date(c.getDate())
