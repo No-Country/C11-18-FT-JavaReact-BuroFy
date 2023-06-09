@@ -1,5 +1,7 @@
 package com.burofy.appWebBurofy.controller;
 
+import com.burofy.appWebBurofy.dto.ClientDTO;
+import com.burofy.appWebBurofy.dto.ProfessionalDTO;
 import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.service.IClientService;
 import com.burofy.appWebBurofy.utility.Response;
@@ -9,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
+
+import java.util.List;
 
 /**
  *
@@ -43,8 +47,8 @@ public class ClientRestController{
     }
 
     @GetMapping(path = "/getClient/{id}")
-    public ResponseEntity<Client> getClient(@PathVariable String id) {
-        Client client = clientService.getClient(id);
+    public ResponseEntity<ClientDTO> getClient(@PathVariable String id) {
+        ClientDTO client = clientService.getClient(id);
         if (client != null) {
             return ResponseEntity.ok(client);
         } else {
@@ -63,4 +67,15 @@ public class ClientRestController{
         clientService.deleteClient(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping(path = "/allClients/{page}/{size}")
+    public ResponseEntity<List<ClientDTO>> allClients(@PathVariable int page, @PathVariable int size) {
+        List<ClientDTO> clientDTOS = clientService.allClients(page,size);
+        if (!clientDTOS.isEmpty()) {
+            return ResponseEntity.ok(clientDTOS);
+        } else {
+            return ResponseEntity.ok(null);
+        }
+    }
+
 }

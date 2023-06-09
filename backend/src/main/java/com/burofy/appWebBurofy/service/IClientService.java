@@ -1,6 +1,9 @@
 package com.burofy.appWebBurofy.service;
 
+import com.burofy.appWebBurofy.dto.ClientDTO;
 import com.burofy.appWebBurofy.entity.Client;
+
+import java.util.List;
 
 /**
  *
@@ -23,7 +26,8 @@ import com.burofy.appWebBurofy.entity.Client;
 
 public interface IClientService {
     Client createClient(Client client);
-    Client getClient(String id);
+    ClientDTO getClient(String id);
     Client updateClient(String id, Client updatedClient);
     Client deleteClient(String id);
+    List<ClientDTO> allClients(int page, int pageSize);
 }

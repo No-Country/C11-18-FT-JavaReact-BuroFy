@@ -1,11 +1,18 @@
 package com.burofy.appWebBurofy.service.impl;
 
+import com.burofy.appWebBurofy.dto.ClientDTO;
+import com.burofy.appWebBurofy.dto.ProfessionalDTO;
 import com.burofy.appWebBurofy.entity.Client;
+import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.repository.IClientRepository;
 import com.burofy.appWebBurofy.service.IClientService;
+import com.burofy.appWebBurofy.utility.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -33,6 +40,7 @@ public class ClientServiceImpl implements IClientService {
 
     private final IClientRepository clientRepository;
     private static final String NOTFOUND = "Could not find client";
+
     @Override
     public Client createClient(Client client) {
 
@@ -41,13 +49,18 @@ public class ClientServiceImpl implements IClientService {
     }
 
     @Override
-    public Client getClient(String id) {
+    public ClientDTO getClient(String id) {
         Optional<Client> client = clientRepository.findById(id);
+        ClientDTO clientDTO = new ClientDTO();
+        clientDTO.setId(id);
+        clientDTO.setFullName(client.get().getFullName());
+        clientDTO.setAvatar(client.get().getAvatar());
+        clientDTO.setLocation(client.get().getLocation());
 
         if (!client.isPresent()) {
             throw new RuntimeException(NOTFOUND);
         }
-        return client.get();
+        return clientDTO;
     }
 
     @Override
@@ -81,4 +94,22 @@ public class ClientServiceImpl implements IClientService {
         return clientRepository.save(client);
     }
 
+
+    @Override
+    public List<ClientDTO> allClients(int page, int pageSize) {
+
+        List<Client> clients = clientRepository.findAll();
+        List<ClientDTO> clientDTOS = new ArrayList<>();
+        for (Client c : clients) {
+            ClientDTO cDto = ClientDTO.builder()
+                    .id(c.getId())
+                    .avatar(c.getAvatar())
+                    .fullName(c.getFullName())
+                    .location(c.getLocation())
+                    .build();
+            clientDTOS.add(cDto);
+        }
+        return clientDTOS;
+
+    }
 }
