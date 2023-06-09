@@ -1,7 +1,7 @@
-///*package com.burofy.appWebBurofy;
-//
-//import org.junit.jupiter.api.Test;
-//import org.springframework.boot.test.context.SpringBootTest;
+package com.burofy.appWebBurofy;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  *
@@ -20,11 +20,11 @@
  * @since 1.0.0
  */
 
-//@SpringBootTest
-//class AppWebBurofyApplicationTests {
-//
-//	@Test
-//	void contextLoads() {
-//	}
-//
-//}*/
+@SpringBootTest
+class AppWebBurofyApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

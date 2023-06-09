@@ -37,6 +37,7 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin
 public class ProfessionalRestController  {
 
     private final IProfessionalService professionalService;
@@ -81,8 +82,8 @@ public class ProfessionalRestController  {
     }
 
     @GetMapping(path = "/professionalsByLocation/{page}/{size}/{location}")
-    public ResponseEntity<List<Professional>> professionalsByLocation(@PathVariable int page, @PathVariable int size, @PathVariable String location) {
-        List<Professional> professionals = professionalService.professionalsByLocation(page,size,location);
+    public ResponseEntity<List<ProfessionalDTO>> professionalsByLocation(@PathVariable int page, @PathVariable int size, @PathVariable String location) {
+        List<ProfessionalDTO> professionals = professionalService.professionalsByLocation(page,size,location);
         if (!professionals.isEmpty()) {
             return ResponseEntity.ok(professionals);
         } else {
@@ -91,7 +92,7 @@ public class ProfessionalRestController  {
     }
 
     @GetMapping("/professionals")
-    public ResponseEntity<Map<String, Object>> getAllTutorials(
+    public ResponseEntity<Map<String, Object>> getAllProfessionals(
             @RequestParam(required = false) String experience,
             @RequestParam(required = false) String location,
             @RequestParam(required = false) Boolean isRemoteWork,
@@ -100,11 +101,11 @@ public class ProfessionalRestController  {
             @RequestParam(defaultValue = "10") int size
     ) {
         try {
-            List<Professional> professionals;
+            List<ProfessionalDTO> professionals;
             Pageable paging = PageRequest.of(page, size);
 
-            Page<Professional> pagePros;
-            if (experience == null && location == null && isRemoteWork == null && isFaceToFaceWork == null)
+            Page<ProfessionalDTO> pagePros;
+            if ( experience == null && location == null && isRemoteWork == null && isFaceToFaceWork == null)
                 pagePros = professionalService.findProfessionals(paging);
             else
                 pagePros = professionalService.findProfessionalsByFilters(experience, location, isRemoteWork, isFaceToFaceWork, paging);

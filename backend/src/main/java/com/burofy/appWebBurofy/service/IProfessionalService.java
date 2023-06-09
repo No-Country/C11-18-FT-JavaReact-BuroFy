@@ -36,8 +36,8 @@ public interface IProfessionalService {
     Professional updateProfessional(String id, Professional updatedProfessional);
 
     Professional deleteProfessional(String id);
-    List<Professional> professionalsByLocation(int page, int pageSize, String location);
+    List<ProfessionalDTO> professionalsByLocation(int page, int pageSize, String location);
 
-    Page<Professional> findProfessionals(Pageable paging);
-    Page<Professional> findProfessionalsByFilters(String experience, String location, Boolean isRemoteWork, Boolean isFaceToFaceWork, Pageable paging);
+    Page<ProfessionalDTO> findProfessionals(Pageable paging);
+    Page<ProfessionalDTO> findProfessionalsByFilters(String experience, String location, Boolean isRemoteWork, Boolean isFaceToFaceWork, Pageable paging);
 }

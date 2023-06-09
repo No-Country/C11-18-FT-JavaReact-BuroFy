@@ -1,6 +1,7 @@
 package com.burofy.appWebBurofy.service;
 
-import com.burofy.appWebBurofy.dto.ConsultationDTO;
+import com.burofy.appWebBurofy.dto.ConsultationClientDTO;
+import com.burofy.appWebBurofy.dto.ConsultationProfessionalDTO;
 import com.burofy.appWebBurofy.entity.Consultation;
 
 
@@ -36,8 +37,8 @@ public interface IConsultationService {
 
     Consultation deleteConsultation(Long id);
 
-    List<ConsultationDTO> getConsultationsByClientId(String id);
+    List<ConsultationClientDTO> getConsultationsByClientId(String id);
 
-    List<ConsultationDTO> getConsultationsByProfessionalId(String id);
+    List<ConsultationProfessionalDTO> getConsultationsByProfessionalId(String id);
 
 }

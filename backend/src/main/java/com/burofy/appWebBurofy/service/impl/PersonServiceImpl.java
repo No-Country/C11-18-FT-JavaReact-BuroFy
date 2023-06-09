@@ -56,6 +56,7 @@ public class PersonServiceImpl implements IPersonService {
             client.setEmail(person.getEmail());
             client.setAvatar(person.getAvatar());
             client.setFullName(person.getFullName());
+            client.setState(true);
             ClientServiceImpl save = new ClientServiceImpl(clientRepository);
             save.createClient(client);
         } else if (person.getRol().equals("professional")) {
@@ -66,6 +67,7 @@ public class PersonServiceImpl implements IPersonService {
             professional.setFullName(person.getFullName());
             professional.setDocumentNumber(person.getDocumentNumber());
             professional.setLicense(person.getLicense());
+            professional.setState(true);
             ProfessionalServiceImpl save = new ProfessionalServiceImpl(professionalRepository);
             save.createProfessional(professional);
         }

@@ -1,6 +1,7 @@
 package com.burofy.appWebBurofy.controller;
 
-import com.burofy.appWebBurofy.dto.ConsultationDTO;
+import com.burofy.appWebBurofy.dto.ConsultationClientDTO;
+import com.burofy.appWebBurofy.dto.ConsultationProfessionalDTO;
 import com.burofy.appWebBurofy.entity.Consultation;
 import com.burofy.appWebBurofy.service.IConsultationService;
 import com.burofy.appWebBurofy.utility.Response;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +34,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin
 public class ConsultationRestController {
 
     private final IConsultationService consultationService;
@@ -66,24 +69,24 @@ public class ConsultationRestController {
     }
 
     @GetMapping(path = "/getConsultationsByClientId")
-    public ResponseEntity<List<ConsultationDTO>> findConsultationsByClientId(@RequestHeader("id") String id) {
-        List <ConsultationDTO> consultationDTOS = consultationService.getConsultationsByClientId(id);
+    public ResponseEntity<List<ConsultationClientDTO>> findConsultationsByClientId(@RequestHeader("id") String id) {
+        List <ConsultationClientDTO> consultationDTOS = consultationService.getConsultationsByClientId(id);
         if (consultationDTOS.isEmpty()) {
-            return ResponseEntity.ok(null);
-        } else {
-            return ResponseEntity.ok(consultationDTOS);
+            //List<ConsultationClientDTO> emptyList = new ArrayList<>();
+            //return ResponseEntity.ok(emptyList);
+            return ResponseEntity.notFound().build();
         }
-        //return ResponseEntity.status(HttpStatus.valueOf((int)consultationResponseDTO.getStatus())).body(consultationResponseDTO);
+        return ResponseEntity.ok(consultationDTOS);
     }
     @GetMapping(path = "/getConsultationsByProfessionalId")
-    public ResponseEntity<List<ConsultationDTO>> getConsultationsByProfessionalId(@RequestHeader("id") String id) {
-        List <ConsultationDTO> consultationDTOS = consultationService.getConsultationsByProfessionalId(id);
+    public ResponseEntity<List<ConsultationProfessionalDTO>> getConsultationsByProfessionalId(@RequestHeader("id") String id) {
+        List<ConsultationProfessionalDTO> consultationDTOS = consultationService.getConsultationsByProfessionalId(id);
         if (consultationDTOS.isEmpty()) {
-            return ResponseEntity.ok(null);
-        } else {
-            return ResponseEntity.ok(consultationDTOS);
+            //List<ConsultationProfessionalDTO> emptyList = new ArrayList<>();
+            //return ResponseEntity.ok(emptyList);
+            return ResponseEntity.notFound().build();
         }
-        //return ResponseEntity.status(HttpStatus.valueOf((int)consultationResponseDTO.getStatus())).body(consultationResponseDTO);
+        return ResponseEntity.ok(consultationDTOS);
     }
 
 }

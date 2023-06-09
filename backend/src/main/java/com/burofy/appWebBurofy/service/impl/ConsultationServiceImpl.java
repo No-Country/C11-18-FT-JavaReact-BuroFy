@@ -1,8 +1,6 @@
 package com.burofy.appWebBurofy.service.impl;
 
-import com.burofy.appWebBurofy.dto.ClientDTO;
-import com.burofy.appWebBurofy.dto.ConsultationDTO;
-import com.burofy.appWebBurofy.dto.ProfessionalDTO;
+import com.burofy.appWebBurofy.dto.*;
 import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.entity.Consultation;
 import com.burofy.appWebBurofy.entity.Professional;
@@ -88,11 +86,10 @@ public class ConsultationServiceImpl implements IConsultationService {
         return consultationRepository.save(consultation);
     }
     @Override
-    public List<ConsultationDTO> getConsultationsByClientId(String clientId) {
-        //ConsultationDTO consultationDTO = new ConsultationDTO();
-        //consultationResponseDTO.setStatus(200);
+    public List<ConsultationClientDTO> getConsultationsByClientId(String clientId) {
+
         List<Consultation> consultations = (List<Consultation>) consultationRepository.getConsultationsByClientId(clientId);
-        List<ConsultationDTO> consultationDTOS = new ArrayList<>();
+        List<ConsultationClientDTO> consultationDTOS = new ArrayList<>();
         for (Consultation c: consultations) {
             Professional professional = c.getProfessional();
             ProfessionalDTO professionalDTO = ProfessionalDTO.builder()
@@ -100,11 +97,11 @@ public class ConsultationServiceImpl implements IConsultationService {
                     .avatar(professional.getAvatar())
                     .fullName(professional.getFullName())
                     .location(professional.getLocation())
-                    .experience(professional.getExperience())
+
                     .price(professional.getPrice())
                     .rating(professional.getRating())
                     .build();
-            ConsultationDTO cDto = ConsultationDTO.builder()
+            ConsultationClientDTO cDto = ConsultationClientDTO.builder()
                     .id(c.getId())
                     .professional(professionalDTO)
                     .payment(c.getPayment())
@@ -114,18 +111,18 @@ public class ConsultationServiceImpl implements IConsultationService {
                     .status(c.getStatus())
                     .build();
             consultationDTOS.add(cDto);
+
         }
-        //consultationResponseDTO.setConsultations(consultationDTOS);
         return consultationDTOS;
     }
 
     @Override
-    public List<ConsultationDTO> getConsultationsByProfessionalId(String professionalId) {
-        //ConsultationResponseDTO consultationResponseDTO = new ConsultationResponseDTO();
-        //consultationResponseDTO.setStatus(200);
+    public List<ConsultationProfessionalDTO> getConsultationsByProfessionalId(String professionalId) {
+
         List<Consultation> consultations = (List<Consultation>) consultationRepository.getConsultationsByProfessionalId(professionalId);
-        List<ConsultationDTO> consultationDTOS = new ArrayList<>();
+        List<ConsultationProfessionalDTO> consultationDTOS = new ArrayList<>();
         for (Consultation c: consultations) {
+
             Client client = c.getClient();
             ClientDTO clientDTO = ClientDTO.builder()
                     .id(client.getId())
@@ -133,7 +130,7 @@ public class ConsultationServiceImpl implements IConsultationService {
                     .fullName(client.getFullName())
                     .location(client.getLocation())
                     .build();
-            ConsultationDTO cDto = ConsultationDTO.builder()
+            ConsultationProfessionalDTO cDto = ConsultationProfessionalDTO.builder()
                     .id(c.getId())
                     .client(clientDTO)
                     .payment(c.getPayment())
@@ -144,7 +141,6 @@ public class ConsultationServiceImpl implements IConsultationService {
                     .build();
             consultationDTOS.add(cDto);
         }
-        //consultationResponseDTO.setConsultations(consultationDTOS);
         return consultationDTOS;
     }
 
