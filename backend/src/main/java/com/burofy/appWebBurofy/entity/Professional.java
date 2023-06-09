@@ -49,7 +49,7 @@ public class Professional {
     private String phone;
     private String location;
     private String license;
-    //private String experience;
+    private String experience;
     private String diploma;
     private String price;
     @Column(length = 2048)
