@@ -88,6 +88,7 @@ public class ConsultationServiceImpl implements IConsultationService {
         consultation.setStatus("");
         return consultationRepository.save(consultation);
     }
+    @Override
     public List<ConsultationClientDTO> getConsultationsByClientId(String clientId) {
 
         List<Consultation> consultations = (List<Consultation>) consultationRepository.getConsultationsByClientId(clientId);
