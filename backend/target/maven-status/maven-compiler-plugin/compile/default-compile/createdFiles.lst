@@ -10,6 +10,7 @@ com/burofy/appWebBurofy/entity/Payment.class
 com/burofy/appWebBurofy/service/IPersonService.class
 com/burofy/appWebBurofy/controller/PersonRestController.class
 com/burofy/appWebBurofy/exception/Exception.class
+com/burofy/appWebBurofy/dto/ConsultationRequestDTO.class
 com/burofy/appWebBurofy/exception/MailAlreadyExistsException.class
 com/burofy/appWebBurofy/utility/Pagination.class
 com/burofy/appWebBurofy/dto/ProfessionalDTO.class

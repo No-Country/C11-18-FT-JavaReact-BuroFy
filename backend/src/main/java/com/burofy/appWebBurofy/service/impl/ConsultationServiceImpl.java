@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +43,8 @@ public class ConsultationServiceImpl implements IConsultationService {
     @Override
     public Consultation createConsultation(Consultation consultation) {
         consultation.setStatus("progreso");
+        Date date = new Date();
+        consultation.setDate(date);
         return consultationRepository.save(consultation);
     }
 
