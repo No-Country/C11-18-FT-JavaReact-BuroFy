@@ -7,6 +7,7 @@ import com.burofy.appWebBurofy.service.IProfessionalService;
 import com.burofy.appWebBurofy.utility.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -137,12 +138,31 @@ public class ProfessionalServiceImpl implements IProfessionalService {
     }
 
     @Override
-    public Page<Professional> findProfessionals(Pageable paging) {
-        return professionalRepository.findAll(paging);
+    public Page<ProfessionalDTO> findProfessionals(Pageable paging) {
+        //professionalRepository.findAll(paging)
+        return null;
     }
     @Override
-    public Page<Professional> findProfessionalsByFilters(String experience, String location, Boolean isRemoteWork, Boolean isFaceToFaceWork, Pageable paging) {
-        return professionalRepository.findByExperienceAndLocationAndIsRemoteWorkAndIsFaceToFaceWork(experience, location, isRemoteWork, isFaceToFaceWork, paging);
+    public Page<ProfessionalDTO> findProfessionalsByFilters(String experience, String location, Boolean isRemoteWork, Boolean isFaceToFaceWork, Pageable paging) {
+
+        List<Professional> professionals = professionalRepository.findByExperienceAndLocationAndIsRemoteWorkAndIsFaceToFaceWork(experience, location, isRemoteWork, isFaceToFaceWork, paging).getContent();
+        List<ProfessionalDTO> professionalDTOS = new ArrayList<>();
+        for (Professional c: professionals) {
+            ProfessionalDTO cDto = ProfessionalDTO.builder()
+                    .id(c.getId())
+                    .avatar(c.getAvatar())
+                    .fullName(c.getFullName())
+                    .location(c.getLocation())
+                    .experience(c.getExperience())
+                    .price(c.getPrice())
+                    .rating(c.getRating())
+                    .build();
+            professionalDTOS.add(cDto);
+        }
+
+        Page<ProfessionalDTO> professionalDTO = new PageImpl<>(professionalDTOS);
+
+        return professionalDTO;
     }
 
 }

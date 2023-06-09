@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -70,11 +71,19 @@ public class ConsultationRestController {
     @GetMapping(path = "/getConsultationsByClientId")
     public ResponseEntity<List<ConsultationClientDTO>> findConsultationsByClientId(@RequestHeader("id") String id) {
         List <ConsultationClientDTO> consultationDTOS = consultationService.getConsultationsByClientId(id);
+        if (consultationDTOS.isEmpty()) {
+            List<ConsultationClientDTO> emptyList = new ArrayList<>();
+            return ResponseEntity.ok(emptyList);
+        }
         return ResponseEntity.ok(consultationDTOS);
     }
     @GetMapping(path = "/getConsultationsByProfessionalId")
     public ResponseEntity<List<ConsultationProfessionalDTO>> getConsultationsByProfessionalId(@RequestHeader("id") String id) {
         List<ConsultationProfessionalDTO> consultationDTOS = consultationService.getConsultationsByProfessionalId(id);
+        if (consultationDTOS.isEmpty()) {
+            List<ConsultationProfessionalDTO> emptyList = new ArrayList<>();
+            return ResponseEntity.ok(emptyList);
+        }
         return ResponseEntity.ok(consultationDTOS);
     }
 

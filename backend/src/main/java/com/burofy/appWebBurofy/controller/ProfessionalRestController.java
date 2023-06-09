@@ -101,10 +101,10 @@ public class ProfessionalRestController  {
             @RequestParam(defaultValue = "10") int size
     ) {
         try {
-            List<Professional> professionals;
+            List<ProfessionalDTO> professionals;
             Pageable paging = PageRequest.of(page, size);
 
-            Page<Professional> pagePros;
+            Page<ProfessionalDTO> pagePros;
             if ( experience == null && location == null && isRemoteWork == null && isFaceToFaceWork == null)
                 pagePros = professionalService.findProfessionals(paging);
             else
