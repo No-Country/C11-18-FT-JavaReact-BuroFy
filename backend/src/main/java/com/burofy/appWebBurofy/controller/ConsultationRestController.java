@@ -2,7 +2,10 @@ package com.burofy.appWebBurofy.controller;
 
 import com.burofy.appWebBurofy.dto.ConsultationClientDTO;
 import com.burofy.appWebBurofy.dto.ConsultationProfessionalDTO;
+import com.burofy.appWebBurofy.dto.ConsultationRequestDTO;
+import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.entity.Consultation;
+import com.burofy.appWebBurofy.entity.Professional;
 import com.burofy.appWebBurofy.service.IConsultationService;
 import com.burofy.appWebBurofy.utility.Response;
 import lombok.RequiredArgsConstructor;
@@ -40,7 +43,19 @@ public class ConsultationRestController {
     private final IConsultationService consultationService;
 
     @PostMapping(path = "/create/consultation")
-    public ResponseEntity<Response> createConsultation(@RequestBody Consultation consultation) {
+    public ResponseEntity<Response> createConsultation(@RequestBody ConsultationRequestDTO consultationRequestDTO) {
+        Client client = new Client();
+        client.setId(consultationRequestDTO.getIdClient());
+
+        Professional professional = new Professional();
+        professional.setId(consultationRequestDTO.getIdProfessional());
+
+        Consultation consultation = new Consultation();
+        consultation.setClient(client);
+        consultation.setProfessional(professional);
+        consultation.setType(consultationRequestDTO.getType());
+        consultation.setComments(consultationRequestDTO.getComments());
+
         consultationService.createConsultation(consultation);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
