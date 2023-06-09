@@ -116,21 +116,34 @@ public class ProfessionalServiceImpl implements IProfessionalService {
     }
 
     @Override
-    public List&lt;Professional&gt; professionalsByLocation(int page, int pageSize, String location) {
+    public List&lt;ProfessionalDTO&gt; professionalsByLocation(int page, int pageSize, String location) {
 
 <span class="nc" id="L121">        List&lt;Professional&gt; professionals = professionalRepository.findByLocation(location);</span>
+<span class="nc" id="L122">        List&lt;ProfessionalDTO&gt; professionalDTOS = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">        for (Professional c: professionals) {</span>
+<span class="nc" id="L124">            ProfessionalDTO cDto = ProfessionalDTO.builder()</span>
+<span class="nc" id="L125">                    .id(c.getId())</span>
+<span class="nc" id="L126">                    .avatar(c.getAvatar())</span>
+<span class="nc" id="L127">                    .fullName(c.getFullName())</span>
+<span class="nc" id="L128">                    .location(c.getLocation())</span>
+<span class="nc" id="L129">                    .experience(c.getExperience())</span>
+<span class="nc" id="L130">                    .price(c.getPrice())</span>
+<span class="nc" id="L131">                    .rating(c.getRating())</span>
+<span class="nc" id="L132">                    .build();</span>
+<span class="nc" id="L133">            professionalDTOS.add(cDto);</span>
+<span class="nc" id="L134">        }</span>
 
-<span class="nc" id="L123">        professionals.sort(Comparator.comparing(Professional::getFullName));</span>
-<span class="nc" id="L124">        return  Pagination.paginate(professionals, pageSize, page);</span>
+<span class="nc" id="L136">        professionalDTOS.sort(Comparator.comparing(ProfessionalDTO::getFullName));</span>
+<span class="nc" id="L137">        return  Pagination.paginate(professionalDTOS, pageSize, page);</span>
     }
 
     @Override
     public Page&lt;Professional&gt; findProfessionals(Pageable paging) {
-<span class="nc" id="L129">        return professionalRepository.findAll(paging);</span>
+<span class="nc" id="L142">        return professionalRepository.findAll(paging);</span>
     }
     @Override
     public Page&lt;Professional&gt; findProfessionalsByFilters(String experience, String location, Boolean isRemoteWork, Boolean isFaceToFaceWork, Pageable paging) {
-<span class="nc" id="L133">        return professionalRepository.findByExperienceAndLocationAndIsRemoteWorkAndIsFaceToFaceWork(experience, location, isRemoteWork, isFaceToFaceWork, paging);</span>
+<span class="nc" id="L146">        return professionalRepository.findByExperienceAndLocationAndIsRemoteWorkAndIsFaceToFaceWork(experience, location, isRemoteWork, isFaceToFaceWork, paging);</span>
     }
 
 }

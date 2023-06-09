@@ -82,8 +82,8 @@ public class ProfessionalRestController  {
     }
 
     @GetMapping(path = &quot;/professionalsByLocation/{page}/{size}/{location}&quot;)
-    public ResponseEntity&lt;List&lt;Professional&gt;&gt; professionalsByLocation(@PathVariable int page, @PathVariable int size, @PathVariable String location) {
-<span class="nc" id="L86">        List&lt;Professional&gt; professionals = professionalService.professionalsByLocation(page,size,location);</span>
+    public ResponseEntity&lt;List&lt;ProfessionalDTO&gt;&gt; professionalsByLocation(@PathVariable int page, @PathVariable int size, @PathVariable String location) {
+<span class="nc" id="L86">        List&lt;ProfessionalDTO&gt; professionals = professionalService.professionalsByLocation(page,size,location);</span>
 <span class="nc bnc" id="L87" title="All 2 branches missed.">        if (!professionals.isEmpty()) {</span>
 <span class="nc" id="L88">            return ResponseEntity.ok(professionals);</span>
         } else {

@@ -1,6 +1,7 @@
 package com.burofy.appWebBurofy.controller;
 
-import com.burofy.appWebBurofy.dto.ConsultationDTO;
+import com.burofy.appWebBurofy.dto.ConsultationClientDTO;
+import com.burofy.appWebBurofy.dto.ConsultationProfessionalDTO;
 import com.burofy.appWebBurofy.entity.Consultation;
 import com.burofy.appWebBurofy.service.IConsultationService;
 import com.burofy.appWebBurofy.utility.Response;
@@ -67,24 +68,23 @@ public class ConsultationRestController {
     }
 
     @GetMapping(path = "/getConsultationsByClientId")
-    public ResponseEntity<List<ConsultationDTO>> findConsultationsByClientId(@RequestHeader("id") String id) {
-        List <ConsultationDTO> consultationDTOS = consultationService.getConsultationsByClientId(id);
+    public ResponseEntity<List<ConsultationClientDTO>> findConsultationsByClientId(@RequestHeader("id") String id) {
+        List <ConsultationClientDTO> consultationDTOS = consultationService.getConsultationsByClientId(id);
         if (consultationDTOS.isEmpty()) {
             return ResponseEntity.ok(null);
         } else {
             return ResponseEntity.ok(consultationDTOS);
         }
-        //return ResponseEntity.status(HttpStatus.valueOf((int)consultationResponseDTO.getStatus())).body(consultationResponseDTO);
+
     }
     @GetMapping(path = "/getConsultationsByProfessionalId")
-    public ResponseEntity<List<ConsultationDTO>> getConsultationsByProfessionalId(@RequestHeader("id") String id) {
-        List <ConsultationDTO> consultationDTOS = consultationService.getConsultationsByProfessionalId(id);
+    public ResponseEntity<List<ConsultationProfessionalDTO>> getConsultationsByProfessionalId(@RequestHeader("id") String id) {
+        List<ConsultationProfessionalDTO> consultationDTOS = consultationService.getConsultationsByProfessionalId(id);
         if (consultationDTOS.isEmpty()) {
             return ResponseEntity.ok(null);
         } else {
             return ResponseEntity.ok(consultationDTOS);
         }
-        //return ResponseEntity.status(HttpStatus.valueOf((int)consultationResponseDTO.getStatus())).body(consultationResponseDTO);
     }
 
 }
