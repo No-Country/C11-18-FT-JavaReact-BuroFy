@@ -70,21 +70,12 @@ public class ConsultationRestController {
     @GetMapping(path = "/getConsultationsByClientId")
     public ResponseEntity<List<ConsultationClientDTO>> findConsultationsByClientId(@RequestHeader("id") String id) {
         List <ConsultationClientDTO> consultationDTOS = consultationService.getConsultationsByClientId(id);
-        if (consultationDTOS.isEmpty()) {
-            return ResponseEntity.ok(null);
-        } else {
-            return ResponseEntity.ok(consultationDTOS);
-        }
-
+        return ResponseEntity.ok(consultationDTOS);
     }
     @GetMapping(path = "/getConsultationsByProfessionalId")
     public ResponseEntity<List<ConsultationProfessionalDTO>> getConsultationsByProfessionalId(@RequestHeader("id") String id) {
         List<ConsultationProfessionalDTO> consultationDTOS = consultationService.getConsultationsByProfessionalId(id);
-        if (consultationDTOS.isEmpty()) {
-            return ResponseEntity.ok(null);
-        } else {
-            return ResponseEntity.ok(consultationDTOS);
-        }
+        return ResponseEntity.ok(consultationDTOS);
     }
 
 }
