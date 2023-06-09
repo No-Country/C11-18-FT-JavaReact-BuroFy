@@ -1,4 +1,4 @@
-"use Client";
+"use client";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { useRouter } from "next/navigation";
 import React from "react";

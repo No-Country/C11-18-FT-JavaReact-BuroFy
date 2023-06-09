@@ -1,11 +1,38 @@
 "use client";
 import React from "react";
 
+
+
 export default function SearchResultFIlter() {
   return (
     <>
       <div className='flex gap-12 justify-center border-b-2 border-solid border-gray-200 p-6 mb-5'>
-        <button
+        
+        
+        <button id="dropdownDefault" className="bg-gradient-to-br active:scale-90 transition bg-white text-gray-500  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 text-center inline-flex items-center shadow-md shadow-gray-300 hover:scale-[1.02]" type="button">
+        Ordenar por mayor 
+         
+          
+        </button>
+
+        
+        <button id="dropdownDefault" data-dropdown-toggle="dropdown" className="bg-gradient-to-br active:scale-90 transition bg-white text-gray-500  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 text-center inline-flex items-center shadow-md shadow-gray-300 hover:scale-[1.02]" type="button">
+      Ordenar por menor
+      
+        </button>
+
+        <button id="dropdownDefault" data-dropdown-toggle="dropdown" className="bg-gradient-to-br active:scale-90 transition bg-white text-gray-500  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 text-center inline-flex items-center shadow-md shadow-gray-300 hover:scale-[1.02]" type="button">
+      Calificacion
+       
+        </button>
+
+        
+
+
+        
+        
+        
+        {/* <button
           id='dropdownDefaultButton'
           data-dropdown-toggle='dropdown'
           className='px-2 py-2 lg:w-[230px] text-sm  text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none  text-center inline-flex items-center '
@@ -158,7 +185,7 @@ export default function SearchResultFIlter() {
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
 
         <button type='button' className=' text-gray-500 underline'>
           Borrar fitros

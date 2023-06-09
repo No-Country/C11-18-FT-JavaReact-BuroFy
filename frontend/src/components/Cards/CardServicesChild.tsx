@@ -9,7 +9,7 @@ const CardServicesChild = ({ consult }: { consult: Consultation }) => {
   const { rol } = useAppSelector((state) => state.user);
 
   return (
-    <div className='flex flex-col lg:flex-col w-[337px] h-[138px] p-2 bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[126px] lg:mb-3 lg:p-1.5'>
+    <div className='flex flex-col lg:flex-col w-[337px] h-[138px] p-2 bg-[#EBEBEB] rounded-lg lg:w-[453px] lg:h-[150px] lg:m-10 lg:ml-10 lg:p-1.5'>
       <div className='flex ms-2 mt-1 lg:mt-0 lg:ms-0 lg:flex lg:p-3 lg: lg:gap-10 mb-2 lg:mb-0'>
         <div className='flex items-center'>
           <p className='text-xs lg:font-normal leading-[14px]'>N° del servicio:</p>
@@ -30,7 +30,7 @@ const CardServicesChild = ({ consult }: { consult: Consultation }) => {
           <p className='lg:ml-0 ml-2 lg:px-0 lg:font-bold lg:text-sm w-[220px]'>
             {consult.fullName}
           </p>
-          {(rol as Rol) === "professional" && (
+          {(rol as Rol) === "client" && (
             <span className='lg:flex bg-[#D0D0D0] text-[#2E2E2E] w-[135px] text-xs font-normal mt-1 mr-2 lg:ml-0 ml-2 px-2.5 py-0.5 rounded-full '>
               {consult?.experience}
             </span>

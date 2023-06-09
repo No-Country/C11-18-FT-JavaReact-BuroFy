@@ -26,14 +26,14 @@ export default function CardServices({ consultations }: CardServicesProps) {
   return (
     <>
       <motion.div
-        className=' bg-white mb-3 border-2 border-[#C600E0] rounded-lg drop-shadow-xl lg:border-[3px] w-[363px] lg:w-[459px] lg:h-auto'
+        className=' bg-white mb-3 border-2 border-[#C600E0] rounded-lg drop-shadow-xl lg:border-[3px] w-[363px] lg:w-[530px] lg:h-auto'
         initial={{ opacity: 0 }}
         animate={{
           opacity: !consultations ? 0 : 1,
         }}
         transition={{ opacity: { delay: 0.5, duration: 0.4 } }}
       >
-        <div className='flex justify-between rounded-tr-lg rounded-tl-lg bg-[#EBEBEB] lg:w-[453px]  lg:h-[60px] lg:items-center'>
+        <div className='flex justify-between rounded-tr-lg rounded-tl-lg bg-[#EBEBEB] lg:w-full  lg:h-[60px] lg:items-center'>
           <h2 className='lg:font-bold lg:text-[20px] m-5 lg:leading-[26px]'>Mis servicios</h2>
           <label className='mb-2 text-sm font-medium text-gray-900 sr-only'>Your Email</label>
           <button
@@ -67,7 +67,7 @@ export default function CardServices({ consultations }: CardServicesProps) {
             >
               <li>
                 <button type='button' className='inline-flex w-full px-4 py-2'>
-                  Fecha
+                  {}
                 </button>
               </li>
               <li>

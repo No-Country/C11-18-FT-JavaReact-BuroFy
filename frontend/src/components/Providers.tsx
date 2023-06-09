@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "@/redux/store";
 
 import { OpenProvider } from "@/contexts/OpenContext";
+import { CategoryFiltersProvider } from "@/contexts/CategoryFiltersContext";
 
 type PropsType = {
   children: ReactNode;
@@ -18,7 +19,9 @@ const Providers = ({ children }: PropsType) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <OpenProvider>{children}</OpenProvider>
+        <CategoryFiltersProvider>
+          <OpenProvider>{children}</OpenProvider>
+        </CategoryFiltersProvider>
       </Provider>
     </QueryClientProvider>
   );
