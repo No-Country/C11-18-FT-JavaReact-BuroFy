@@ -100,57 +100,59 @@ public class ConsultationServiceImpl implements IConsultationService {
                     .avatar(professional.getAvatar())
                     .fullName(professional.getFullName())
                     .location(professional.getLocation())
-
                     .price(professional.getPrice())
                     .rating(professional.getRating())
                     .build();*/
-<span class="fc" id="L107">            ConsultationClientDTO cDto = ConsultationClientDTO.builder()</span>
-<span class="fc" id="L108">                    .id(c.getId())</span>
-<span class="fc" id="L109">                    .idProfessional(professional.getId())</span>
-<span class="fc" id="L110">                    .avatar(professional.getAvatar())</span>
-<span class="fc" id="L111">                    .fullName(professional.getFullName())</span>
-<span class="fc" id="L112">                    .location(professional.getLocation())</span>
-<span class="fc" id="L113">                    .experience(professional.getExperience())</span>
-<span class="fc" id="L114">                    .price(professional.getPrice())</span>
-<span class="fc" id="L115">                    .rating(professional.getRating())</span>
-<span class="fc" id="L116">                    .payment(c.getPayment())</span>
-<span class="fc" id="L117">                    .type(c.getType())</span>
-<span class="fc" id="L118">                    .date(c.getDate())</span>
-<span class="fc" id="L119">                    .comments(c.getComments())</span>
-<span class="fc" id="L120">                    .status(c.getStatus())</span>
-<span class="fc" id="L121">                    .build();</span>
-<span class="fc" id="L122">            consultationDTOS.add(cDto);</span>
+<span class="fc" id="L106">            ConsultationClientDTO cDto = ConsultationClientDTO.builder()</span>
+<span class="fc" id="L107">                    .id(c.getId())</span>
+<span class="fc" id="L108">                    .idProfessional(professional.getId())</span>
+<span class="fc" id="L109">                    .avatar(professional.getAvatar())</span>
+<span class="fc" id="L110">                    .fullName(professional.getFullName())</span>
+<span class="fc" id="L111">                    .location(professional.getLocation())</span>
+<span class="fc" id="L112">                    .experience(professional.getExperience())</span>
+<span class="fc" id="L113">                    .price(professional.getPrice())</span>
+<span class="fc" id="L114">                    .rating(professional.getRating())</span>
+<span class="fc" id="L115">                    .payment(c.getPayment())</span>
+<span class="fc" id="L116">                    .type(c.getType())</span>
+<span class="fc" id="L117">                    .date(c.getDate())</span>
+<span class="fc" id="L118">                    .comments(c.getComments())</span>
+<span class="fc" id="L119">                    .status(c.getStatus())</span>
+<span class="fc" id="L120">                    .build();</span>
+<span class="fc" id="L121">            consultationDTOS.add(cDto);</span>
 
-<span class="fc" id="L124">        }</span>
-<span class="fc" id="L125">        return consultationDTOS;</span>
+<span class="fc" id="L123">        }</span>
+<span class="fc" id="L124">        return consultationDTOS;</span>
     }
 
     @Override
     public List&lt;ConsultationProfessionalDTO&gt; getConsultationsByProfessionalId(String professionalId) {
 
-<span class="fc" id="L131">        List&lt;Consultation&gt; consultations = (List&lt;Consultation&gt;) consultationRepository.getConsultationsByProfessionalId(professionalId);</span>
-<span class="fc" id="L132">        List&lt;ConsultationProfessionalDTO&gt; consultationDTOS = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L133" title="All 2 branches covered.">        for (Consultation c: consultations) {</span>
+<span class="fc" id="L130">        List&lt;Consultation&gt; consultations = (List&lt;Consultation&gt;) consultationRepository.getConsultationsByProfessionalId(professionalId);</span>
+<span class="fc" id="L131">        List&lt;ConsultationProfessionalDTO&gt; consultationDTOS = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">        for (Consultation c: consultations) {</span>
 
-<span class="fc" id="L135">            Client client = c.getClient();</span>
-<span class="fc" id="L136">            ClientDTO clientDTO = ClientDTO.builder()</span>
-<span class="fc" id="L137">                    .id(client.getId())</span>
-<span class="fc" id="L138">                    .avatar(client.getAvatar())</span>
-<span class="fc" id="L139">                    .fullName(client.getFullName())</span>
-<span class="fc" id="L140">                    .location(client.getLocation())</span>
-<span class="fc" id="L141">                    .build();</span>
-<span class="fc" id="L142">            ConsultationProfessionalDTO cDto = ConsultationProfessionalDTO.builder()</span>
-<span class="fc" id="L143">                    .id(c.getId())</span>
-<span class="fc" id="L144">                    .client(clientDTO)</span>
-<span class="fc" id="L145">                    .payment(c.getPayment())</span>
-<span class="fc" id="L146">                    .type(c.getType())</span>
-<span class="fc" id="L147">                    .date(c.getDate())</span>
-<span class="fc" id="L148">                    .comments(c.getComments())</span>
-<span class="fc" id="L149">                    .status(c.getStatus())</span>
-<span class="fc" id="L150">                    .build();</span>
-<span class="fc" id="L151">            consultationDTOS.add(cDto);</span>
-<span class="fc" id="L152">        }</span>
-<span class="fc" id="L153">        return consultationDTOS;</span>
+<span class="fc" id="L134">            Client client = c.getClient();</span>
+/*            ClientDTO clientDTO = ClientDTO.builder()
+                    .id(client.getId())
+                    .avatar(client.getAvatar())
+                    .fullName(client.getFullName())
+                    .location(client.getLocation())
+                    .build();*/
+<span class="fc" id="L141">            ConsultationProfessionalDTO cDto = ConsultationProfessionalDTO.builder()</span>
+<span class="fc" id="L142">                    .id(c.getId())</span>
+<span class="fc" id="L143">                    .idClient(client.getId())</span>
+<span class="fc" id="L144">                    .avatar(client.getAvatar())</span>
+<span class="fc" id="L145">                    .fullName(client.getFullName())</span>
+<span class="fc" id="L146">                    .location(client.getLocation())</span>
+<span class="fc" id="L147">                    .payment(c.getPayment())</span>
+<span class="fc" id="L148">                    .type(c.getType())</span>
+<span class="fc" id="L149">                    .date(c.getDate())</span>
+<span class="fc" id="L150">                    .comments(c.getComments())</span>
+<span class="fc" id="L151">                    .status(c.getStatus())</span>
+<span class="fc" id="L152">                    .build();</span>
+<span class="fc" id="L153">            consultationDTOS.add(cDto);</span>
+<span class="fc" id="L154">        }</span>
+<span class="fc" id="L155">        return consultationDTOS;</span>
     }
 
 }

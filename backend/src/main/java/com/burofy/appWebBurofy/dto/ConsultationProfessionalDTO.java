@@ -28,7 +28,11 @@ import java.util.Date;
 @Builder
 public class ConsultationProfessionalDTO {
     private Long id;
-    private ClientDTO client;
+    //private ClientDTO client;
+    private String idClient;
+    private String avatar;
+    private String fullName;
+    private String location;
     private Payment payment;
     private String type;
     private Date date;

@@ -100,7 +100,6 @@ public class ConsultationServiceImpl implements IConsultationService {
                     .avatar(professional.getAvatar())
                     .fullName(professional.getFullName())
                     .location(professional.getLocation())
-
                     .price(professional.getPrice())
                     .rating(professional.getRating())
                     .build();*/
@@ -133,15 +132,18 @@ public class ConsultationServiceImpl implements IConsultationService {
         for (Consultation c: consultations) {
 
             Client client = c.getClient();
-            ClientDTO clientDTO = ClientDTO.builder()
+/*            ClientDTO clientDTO = ClientDTO.builder()
                     .id(client.getId())
                     .avatar(client.getAvatar())
                     .fullName(client.getFullName())
                     .location(client.getLocation())
-                    .build();
+                    .build();*/
             ConsultationProfessionalDTO cDto = ConsultationProfessionalDTO.builder()
                     .id(c.getId())
-                    .client(clientDTO)
+                    .idClient(client.getId())
+                    .avatar(client.getAvatar())
+                    .fullName(client.getFullName())
+                    .location(client.getLocation())
                     .payment(c.getPayment())
                     .type(c.getType())
                     .date(c.getDate())

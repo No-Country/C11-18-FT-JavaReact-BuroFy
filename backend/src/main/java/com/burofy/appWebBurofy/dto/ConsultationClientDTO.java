@@ -28,7 +28,7 @@ import java.util.Date;
 @Builder
 public class ConsultationClientDTO {
     private Long id;
-    private ProfessionalDTO professional;
+    //private ProfessionalDTO professional;
     private String idProfessional;
     private String avatar;
     private String fullName;
