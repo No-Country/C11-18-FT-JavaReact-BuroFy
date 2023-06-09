@@ -15,7 +15,7 @@ export default function ConsultProfessional(){
             <p>Limite de caracteres</p>
             <span className="flex items-center space-x-5">
               <p>0/500</p>
-              <input type="submit" className="w-[110px] hidden xl:block text-[16px] font-bold text-white  rounded-md bg-sixnary h-[40px]" value="Consultar"></input> 
+              <button type="submit" className="w-[110px] hidden xl:block text-[16px] font-bold text-white  rounded-md h-[40px] hover:scale-110 bg-black hover:bg-primary active:scale-95 transition" value="Consultar"></button> 
             </span>
           </label>
             

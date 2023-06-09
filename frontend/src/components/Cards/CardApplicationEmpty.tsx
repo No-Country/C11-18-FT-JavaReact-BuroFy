@@ -1,9 +1,18 @@
+"use client";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function CardApplicationEmpty() {
+  const router = useRouter();
   return (
     <>
-      <div className=' p-5 m-3 bg-white border border-[#C600E0] rounded-lg drop-shadow-xl text-center lg:border-2 lg:w-[450px] lg:h-[249px] lg:p-12 lg:space-y-6'>
+      <motion.div
+        className=' p-5 m-3 bg-white border border-[#C600E0] rounded-lg drop-shadow-xl text-center lg:border-2 lg:w-[450px] lg:h-[249px] lg:p-12 lg:space-y-6'
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <h5 className='mb-2 text-base font-medium tracking-tight text-gray-900 lg:text-[25px] lg:font-bold'>
           Aún no tienes consultas
         </h5>
@@ -14,7 +23,8 @@ export default function CardApplicationEmpty() {
 
         <button
           type='button'
-          className='text-white bg-[#C600E0] font-medium rounded-full text-xs py-1.5 inline-flex justify-center text-center items-center w-full gap-3 lg:rounded-lg lg:w-[236px]'
+          onClick={() => router.push("/buscar")}
+          className='text-white hover:scale-110 active:scale-95 transition bg-[#C600E0] font-medium rounded-full text-xs py-1.5 inline-flex justify-center text-center items-center w-full gap-3 lg:rounded-lg lg:w-[236px]'
         >
           <svg
             className='w-[30px] h-[30px] lg:w-[16px] lg:h-[16px]'
@@ -29,7 +39,7 @@ export default function CardApplicationEmpty() {
           </svg>
           Buscar un profesional
         </button>
-      </div>
+      </motion.div>
     </>
   );
 }

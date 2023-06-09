@@ -1,14 +1,22 @@
-type Status = "progreso" | "cerrado" | "contestado";
+type Status = "progreso" | "cerrado" | "contestado" | "";
 
 export interface Consultation {
-  id: string | number;
-  idClient: string | number;
-  idProfessional: string | number;
-  status: Status;
-  type: string;
-  date: Date;
-  comments: string;
-  avatar: string | null;
-  experience : string;
+  avatar?: string,
+  fullName?: string,
+  occupation?: string,
+  experience?: string,
+  date?: string,
+  id?: string,
+  idProfessional?: string,
+  idClient?: string,
+  status?: Status,
+  price?: string,
+  phone?: string,
+  email?: string,
+  location?: string,
+  comments?: string
+}
 
+export interface ObjectConsultation {
+  consults: Consultation[]
 }

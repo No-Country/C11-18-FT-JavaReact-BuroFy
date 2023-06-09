@@ -161,7 +161,9 @@ export default function PersonalInfo() {
             </div>
           </div>
           <div className='flex justify-center my-8'>
-            <button className='rounded-md  w-[180px] h-[40px] text-white font-bold bg-sixnary'>
+            <button
+              className='rounded-md hover:scale-110 bg-black hover:bg-primary active:scale-95 transition w-[180px] h-[40px] text-white font-bold disabled:bg-sixnary'
+            >
               Guardar cambios
             </button>
           </div>

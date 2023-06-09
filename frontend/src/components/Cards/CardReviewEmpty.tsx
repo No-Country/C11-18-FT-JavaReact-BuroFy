@@ -1,9 +1,15 @@
+import { motion } from "framer-motion";
 import React from "react";
 
 export default function CardReviewEmpty() {
   return (
     <>
-      <div className=' p-5 m-3 bg-white border border-[#7FCEFF] rounded-lg drop-shadow-xl text-center lg:border-2 lg:w-[450px] lg:h-[249px] lg:p-12 lg:space-y-6'>
+      <motion.div
+        className=' p-5 m-3 bg-white border border-[#7FCEFF] rounded-lg drop-shadow-xl text-center lg:border-2 lg:w-[450px] lg:h-[249px] lg:p-12 lg:space-y-6'
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <h5 className='mb-2 text-base font-normal tracking-tight text-gray-900 lg:text-[25px] lg:font-bold'>
           Aún no haz realizado reseñas
         </h5>
@@ -27,7 +33,7 @@ export default function CardReviewEmpty() {
             />
           </svg>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

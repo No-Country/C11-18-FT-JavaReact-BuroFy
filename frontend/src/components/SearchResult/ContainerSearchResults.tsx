@@ -7,9 +7,6 @@ import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setSearchResults } from "@/redux/features/searchSlice";
 import SortFilter from "./SortFilter";
 
-
-
-
 type PropsType = { 
     search : Search[];
 }
@@ -23,12 +20,13 @@ export default function ContainerSearchResults({search}:PropsType) {
     if (search ) {
       dispatch(setSearchResults(search));
     }
-  }, [ search , dispatch ]);
+  }, [search , dispatch]);
+
   console.log(searchs);
   return (
     <>
       <SortFilter/>
-      {searchs &&   searchs.map(search => (
+      {searchs && searchs.map(search => (
         <SearchResult key={search.id} search={search}/>
       )) }
     </>

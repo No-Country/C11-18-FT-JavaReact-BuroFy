@@ -12,6 +12,7 @@ import ButtonBack from "../Buttons/ButtonBack";
 import { loginUser } from "@/lib/services-burofy/loginUser";
 import { setCredentials, setVerified } from "@/redux/features/userSlice";
 import { useAppDispatch } from "@/hooks";
+import { motion } from "framer-motion";
 
 const FormLogin = () => {
   const dispatch = useAppDispatch();
@@ -31,22 +32,25 @@ const FormLogin = () => {
         const user = await loginUser(data);
         console.log("USER", user);
         if (!user) throw new Error("user not found");
-        
-        dispatch( setCredentials(user));
+
+        dispatch(setCredentials(user));
         router.push("/inicio");
       } catch (error) {
         console.log((error as Error).message);
       }
     }
-   
+
     dispatch(setVerified("authenticated"));
   };
 
   return (
     <>
-      <form
+      <motion.form
         className='flex w-full h-auto flex-col mx-auto mb-6 md:items-center order-4 lg:mt-40 mt-20  '
         onSubmit={handleSubmit(onSubmit)}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
       >
         <ButtonBack />
         <h3 className='text-xl font-black self-center lg:font-bold mb-10 lg:mt-4 md:text-2xl lg:text-4xl lg:ml-[-110px] font-primary-roboto'>
@@ -115,21 +119,22 @@ const FormLogin = () => {
             )}
           </div>
         </div>
-        <div className="mt-6">
+        <div className='mt-6'>
           <ButtonAuth>Iniciar Sesión</ButtonAuth>
         </div>
-        <div className="flex mt-4 justify-center">
-          <div className="inline-flex items-center justify-center ">
-            <hr className="w-24 lg:w-40 h-px my-8 bg-gray-600 border-0"/>
-            <span className=" px-3 font-medium text-[16px] text-gray-900  bg-white ">O continúa con</span>
-            <hr className="w-24 lg:w-40 h-px my-8 bg-gray-600 border-0"/>
-          </div>  
-
+        <div className='flex mt-4 justify-center'>
+          <div className='inline-flex items-center justify-center '>
+            <hr className='w-24 lg:w-40 h-px my-8 bg-gray-600 border-0' />
+            <span className=' px-3 font-medium text-[16px] text-gray-900  bg-white '>
+              O continúa con
+            </span>
+            <hr className='w-24 lg:w-40 h-px my-8 bg-gray-600 border-0' />
+          </div>
         </div>
         <div className='flex flex-col items-center justify-center gap-4 mt-2 md:mt-14 lg:mt-2 md:gap-8 md:flex-row'>
           <ButtonGoogle />
         </div>
-      </form>
+      </motion.form>
     </>
   );
 };

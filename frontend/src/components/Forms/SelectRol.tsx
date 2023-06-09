@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setRol } from "@/redux/features/userSlice";
 import { Rol } from "@/interfaces/user";
 import { BsFillPersonFill } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 const SelectRol = () => {
   const router = useRouter();
@@ -24,7 +25,12 @@ const SelectRol = () => {
   };
 
   return (
-    <article className='flex flex-col order-4 gap-8 w-full h-screen justify-start items-center lg:mt-36'>
+    <motion.article
+      className='flex flex-col order-4 gap-8 w-full h-screen justify-start items-center lg:mt-36'
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className='w-[353px] h-[134px] lg:w-[653px] flex flex-col items-center'>
         <h2 className='font-bold text-2xl mt-14 lg:text-4xl leading-10 text-center'>
           ¿Cómo deseas registrarte?
@@ -79,9 +85,10 @@ const SelectRol = () => {
           </button>
         </div>
         <button
-          type='submit' 
-          className=' w-[353px] h-[40px] md:w-96 md:h-14 lg:w-[515px] lg:h-[56px] mt-6 lg:mt-10 text-lg font-bold text-white flex- items-center justify-center rounded-lg bg-black   hover:bg-primary hover:scale-110 disabled:bg-sixnary transition active:scale-110 '>
-            Crear un usuario
+          type='submit'
+          className=' w-[353px] h-[40px] md:w-96 md:h-14 lg:w-[515px] lg:h-[56px] mt-6 lg:mt-10 text-lg font-bold text-white flex- items-center justify-center rounded-lg bg-black   hover:bg-primary hover:scale-110 disabled:bg-sixnary transition active:scale-110 '
+        >
+          Crear un usuario
         </button>
       </form>
 
@@ -94,7 +101,7 @@ const SelectRol = () => {
           Inicia sesión
         </button>
       </footer>
-    </article>
+    </motion.article>
   );
 };
 export default SelectRol;
