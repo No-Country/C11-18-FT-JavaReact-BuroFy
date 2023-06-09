@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin
 public class PersonRestController {
 
     private final IPersonService personService;

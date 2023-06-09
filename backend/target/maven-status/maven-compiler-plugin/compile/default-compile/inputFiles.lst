@@ -1,36 +1,35 @@
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/repository/IClientRepository.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/service/impl/ConsultationServiceImpl.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/service/IConsultationService.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/entity/Professional.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/service/impl/PersonServiceImpl.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/Constants.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/entity/Schedule.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/controller/ClientRestController.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/controller/PersonRestController.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/service/impl/ProfessionalServiceImpl.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/dto/ProfessionalDTO.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/service/IPersonService.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/dto/ConsultationDTO.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/repository/IPersonRepository.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/entity/Client.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/service/IClientService.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/exception/MailAlreadyExistsException.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/ResponseBuilder.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/exception/Exception.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/dto/ClientDTO.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/entity/Payment.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/entity/Consultation.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/service/IProfessionalService.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/config/SwaggerConfig.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/service/impl/ClientServiceImpl.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/WebConfig.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/repository/IProfessionalRepository.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/repository/IConsultationRepository.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/utility/Pagination.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/DetailError.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/controller/ConsultationRestController.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/entity/Person.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/controller/ProfessionalRestController.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/dto/ConsultationResponseDTO.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/utility/Response.java
-/Users/dima/Library/Mobile Documents/com~apple~CloudDocs/Dev/Java & Spring/C11-18-FT-JavaReact-BuroFy/backend/src/main/java/com/burofy/appWebBurofy/AppWebBurofyApplication.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\Constants.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\DetailError.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\dto\ConsultationDTO.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\service\IPersonService.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\entity\Consultation.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\exception\MailAlreadyExistsException.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\config\SwaggerConfig.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\dto\ConsultationResponseDTO.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\utility\Response.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\service\IProfessionalService.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\repository\IClientRepository.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\controller\ProfessionalRestController.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\service\impl\ConsultationServiceImpl.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\entity\Person.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\repository\IPersonRepository.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\AppWebBurofyApplication.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\exception\Exception.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\service\impl\PersonServiceImpl.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\entity\Client.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\controller\PersonRestController.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\service\impl\ProfessionalServiceImpl.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\utility\Pagination.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\dto\ClientDTO.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\entity\Payment.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\entity\Schedule.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\service\IClientService.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\controller\ConsultationRestController.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\ResponseBuilder.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\repository\IConsultationRepository.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\repository\IProfessionalRepository.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\entity\Professional.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\controller\ClientRestController.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\service\impl\ClientServiceImpl.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\dto\ProfessionalDTO.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\service\IConsultationService.java

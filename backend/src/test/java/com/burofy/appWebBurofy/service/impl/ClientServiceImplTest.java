@@ -1,4 +1,3 @@
-/*
 package com.burofy.appWebBurofy.service.impl;
 
 import com.burofy.appWebBurofy.entity.Client;
@@ -7,13 +6,16 @@ import com.burofy.appWebBurofy.service.IClientService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.util.Optional;
 
+@ExtendWith(MockitoExtension.class)
 class ClientServiceImplTest {
 
     private IClientService clientService;
@@ -30,9 +32,9 @@ class ClientServiceImplTest {
     @Test
     void testCreateClient() {
         // Arrange
-        Client client = new Client(1L,"firabaseId","providedId","token","Lili",
-                "Gallego","1049940", LocalDate.of(1995, 5,6), "3139393039",
-                "Ibague","lili@gmail.com","123","Ing de Alimentos",true);
+        Client client = new Client("1L","lili@gmail.com","urlAvatar","Lili Gallego"
+                , LocalDate.of(1995, 5,6), "1049940",
+                "382884990","Ibague","Ing de Alimentos",true);
         // Set the necessary properties of the client
         //LocalDate.of(year,month,day)
         Mockito.when(clientRepository.save(client)).thenReturn(client);
@@ -48,10 +50,10 @@ class ClientServiceImplTest {
     @Test
     void testGetClient() {
         // Arrange
-        Long clientId = 1L;
-        Client client = new Client(1L,"firabaseId","providedId","token","Lili",
-                "Gallego","1049940", LocalDate.of(1995, 5,6), "3139393039",
-                "Ibague","lili@gmail.com","123","Ing de Alimentos",true);
+        String clientId = "1L";
+        Client client = new Client("1L","lili@gmail.com","urlAvatar","Lili Gallego"
+                , LocalDate.of(1995, 5,6), "1049940",
+                "382884990","Ibague","Ing de Alimentos",true);
         // Set the necessary properties of the client
 
         Mockito.when(clientRepository.findById(clientId)).thenReturn(Optional.of(client));
@@ -67,34 +69,34 @@ class ClientServiceImplTest {
     @Test
     void testUpdateClient() {
         // Arrange
-        Long clientId = 1L;
-        Client existingClient = new Client(1L,"firabaseId","providedId","token","Lili",
-                "Gallego","1049940", LocalDate.of(1995, 5,6), "3139393039",
-                "Ibague","lili@gmail.com","123","Ing de Alimentos",true);
+        String clientId = "1L";
+        Client client = new Client("1L","lili@gmail.com","urlAvatar","Lili Gallego"
+                , LocalDate.of(1995, 5,6), "1049940",
+                "382884990","Ibague","Ing de Alimentos",true);
 
         // Set the necessary properties of the existing client
 
-        Client updatedClient = new Client(1L,"firabaseId","providedId","token","Lili",
-                "Gallego","1049940", LocalDate.of(1995, 5,6), "3139393039",
-                "Ibague","liliana@gmail.com","123","Ing de Alimentos",true);
+        Client updatedClient = new Client("1L","lili@gmail.com","urlAvatar","Lili Gallego"
+                , LocalDate.of(1995, 5,16), "10499409",
+                "382884990","Ibague","Ing de Alimentos",true);
         // Set the necessary properties of the updated client
 
-        Mockito.when(clientRepository.findById(clientId)).thenReturn(Optional.of(existingClient));
-        Mockito.when(clientRepository.save(existingClient)).thenReturn(existingClient);
+        Mockito.when(clientRepository.findById(clientId)).thenReturn(Optional.of(client));
+        Mockito.when(clientRepository.save(client)).thenReturn(client);
 
         // Act
         Client updated = clientService.updateClient(clientId, updatedClient);
 
         // Assert
-        Assertions.assertEquals(existingClient, updated);
-        Assertions.assertEquals(updatedClient.getName(), existingClient.getName());
+        Assertions.assertEquals(client, updated);
+        Assertions.assertEquals(updatedClient.getFullName(), client.getFullName());
         // Add more assertions as needed
     }
 
     @Test
     void testDeleteClient() {
         // Arrange
-        Long clientId = 1L;
+        String clientId = "1L";
         Client client = new Client();
         // Set the necessary properties of the client
 
@@ -110,4 +112,4 @@ class ClientServiceImplTest {
         // Add more assertions as needed
     }
 }
-*/
+

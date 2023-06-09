@@ -37,6 +37,7 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin
 public class ProfessionalRestController  {
 
     private final IProfessionalService professionalService;
@@ -92,22 +93,22 @@ public class ProfessionalRestController  {
 
     @GetMapping("/professionals")
     public ResponseEntity<Map<String, Object>> getAllProfessionals(
-            @RequestParam(required = false) String experience,
+
             @RequestParam(required = false) String location,
             @RequestParam(required = false) Boolean isRemoteWork,
             @RequestParam(required = false) Boolean isFaceToFaceWork,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size
+            @RequestParam(defaultValue = "9") int size
     ) {
         try {
             List<Professional> professionals;
             Pageable paging = PageRequest.of(page, size);
 
             Page<Professional> pagePros;
-            if (experience == null && location == null && isRemoteWork == null && isFaceToFaceWork == null)
+            if ( location == null && isRemoteWork == null && isFaceToFaceWork == null)
                 pagePros = professionalService.findProfessionals(paging);
             else
-                pagePros = professionalService.findProfessionalsByFilters(experience, location, isRemoteWork, isFaceToFaceWork, paging);
+                pagePros = professionalService.findProfessionalsByFilters( location, isRemoteWork, isFaceToFaceWork, paging);
 
             professionals = pagePros.getContent();
 

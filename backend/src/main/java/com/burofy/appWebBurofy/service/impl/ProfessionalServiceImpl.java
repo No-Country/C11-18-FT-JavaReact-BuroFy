@@ -67,7 +67,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
                     .avatar(c.getAvatar())
                     .fullName(c.getFullName())
                     .location(c.getLocation())
-                    .experience(c.getExperience())
+                    //.experience(c.getExperience())
                     .price(c.getPrice())
                     .rating(c.getRating())
                     .build();
@@ -93,7 +93,7 @@ public class ProfessionalServiceImpl implements IProfessionalService {
         professional.setLocation(updatedProfessional.getLocation());
         professional.setEmail(updatedProfessional.getEmail());
         professional.setLicense(updatedProfessional.getLicense());
-        professional.setExperience(updatedProfessional.getExperience());
+        //professional.setExperience(updatedProfessional.getExperience());
         professional.setTraining(updatedProfessional.getTraining());
         professional.setDiploma(updatedProfessional.getDiploma());
         professional.setIsRemoteWork(updatedProfessional.getIsRemoteWork());
@@ -126,8 +126,8 @@ public class ProfessionalServiceImpl implements IProfessionalService {
         return professionalRepository.findAll(paging);
     }
     @Override
-    public Page<Professional> findProfessionalsByFilters(String experience, String location, Boolean isRemoteWork, Boolean isFaceToFaceWork, Pageable paging) {
-        return professionalRepository.findByExperienceAndLocationAndIsRemoteWorkAndIsFaceToFaceWork(experience, location, isRemoteWork, isFaceToFaceWork, paging);
+    public Page<Professional> findProfessionalsByFilters(String location, Boolean isRemoteWork, Boolean isFaceToFaceWork, Pageable paging) {
+        return professionalRepository.findByAndLocationAndIsRemoteWorkAndIsFaceToFaceWork(location, isRemoteWork, isFaceToFaceWork, paging);
     }
 
 }

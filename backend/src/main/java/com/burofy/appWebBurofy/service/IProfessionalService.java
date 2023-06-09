@@ -39,5 +39,5 @@ public interface IProfessionalService {
     List<Professional> professionalsByLocation(int page, int pageSize, String location);
 
     Page<Professional> findProfessionals(Pageable paging);
-    Page<Professional> findProfessionalsByFilters(String experience, String location, Boolean isRemoteWork, Boolean isFaceToFaceWork, Pageable paging);
+    Page<Professional> findProfessionalsByFilters(String location, Boolean isRemoteWork, Boolean isFaceToFaceWork, Pageable paging);
 }
