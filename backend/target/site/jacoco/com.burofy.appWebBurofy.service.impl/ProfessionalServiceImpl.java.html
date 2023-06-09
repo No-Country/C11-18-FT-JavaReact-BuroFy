@@ -7,6 +7,7 @@ import com.burofy.appWebBurofy.service.IProfessionalService;
 import com.burofy.appWebBurofy.utility.Pagination;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -35,99 +36,101 @@ import java.util.Optional;
  */
 
 @Service
-<span class="fc" id="L38">@RequiredArgsConstructor</span>
+<span class="fc" id="L39">@RequiredArgsConstructor</span>
 public class ProfessionalServiceImpl implements IProfessionalService {
 
     private final IProfessionalRepository professionalRepository;
     private static final String NOTFOUND = &quot;Could not find professional&quot;;
     @Override
     public Professional createProfessional(Professional professional) {
-<span class="fc" id="L45">        professional.setState(true);</span>
-<span class="fc" id="L46">        return professionalRepository.save(professional);</span>
+<span class="fc" id="L46">        professional.setState(true);</span>
+<span class="fc" id="L47">        return professionalRepository.save(professional);</span>
     }
 
     @Override
     public Professional getProfessional(String id) {
-<span class="fc" id="L51">        Optional&lt;Professional&gt; professional = professionalRepository.findById(id);</span>
+<span class="fc" id="L52">        Optional&lt;Professional&gt; professional = professionalRepository.findById(id);</span>
 
-<span class="pc bpc" id="L53" title="1 of 2 branches missed.">        if (!professional.isPresent()) {</span>
-<span class="nc" id="L54">            throw new RuntimeException(NOTFOUND);</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        if (!professional.isPresent()) {</span>
+<span class="nc" id="L55">            throw new RuntimeException(NOTFOUND);</span>
         }
-<span class="fc" id="L56">        return professional.get();</span>
+<span class="fc" id="L57">        return professional.get();</span>
     }
 
     @Override
     public List&lt;ProfessionalDTO&gt; allProfessionals(int page, int pageSize) {
 
-<span class="nc" id="L62">        List&lt;Professional&gt; professionals = professionalRepository.findAll();</span>
-<span class="nc" id="L63">        List&lt;ProfessionalDTO&gt; professionalDTOS = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L64" title="All 2 branches missed.">        for (Professional c: professionals) {</span>
-<span class="nc" id="L65">            ProfessionalDTO cDto = ProfessionalDTO.builder()</span>
-<span class="nc" id="L66">                    .id(c.getId())</span>
-<span class="nc" id="L67">                    .avatar(c.getAvatar())</span>
-<span class="nc" id="L68">                    .fullName(c.getFullName())</span>
-<span class="nc" id="L69">                    .location(c.getLocation())</span>
-<span class="nc" id="L70">                    .experience(c.getExperience())</span>
-<span class="nc" id="L71">                    .price(c.getPrice())</span>
-<span class="nc" id="L72">                    .rating(c.getRating())</span>
-<span class="nc" id="L73">                    .build();</span>
-<span class="nc" id="L74">            professionalDTOS.add(cDto);</span>
-<span class="nc" id="L75">        }</span>
+<span class="nc" id="L63">        List&lt;Professional&gt; professionals = professionalRepository.findAll();</span>
+<span class="nc" id="L64">        List&lt;ProfessionalDTO&gt; professionalDTOS = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        for (Professional c: professionals) {</span>
+<span class="nc" id="L66">            ProfessionalDTO cDto = ProfessionalDTO.builder()</span>
+<span class="nc" id="L67">                    .id(c.getId())</span>
+<span class="nc" id="L68">                    .avatar(c.getAvatar())</span>
+<span class="nc" id="L69">                    .fullName(c.getFullName())</span>
+<span class="nc" id="L70">                    .location(c.getLocation())</span>
+<span class="nc" id="L71">                    .experience(c.getExperience())</span>
+<span class="nc" id="L72">                    .price(c.getPrice())</span>
+<span class="nc" id="L73">                    .rating(c.getRating())</span>
+<span class="nc" id="L74">                    .build();</span>
+<span class="nc" id="L75">            professionalDTOS.add(cDto);</span>
+<span class="nc" id="L76">        }</span>
 
-<span class="nc" id="L77">        professionalDTOS.sort(Comparator.comparing(ProfessionalDTO::getFullName));</span>
-<span class="nc" id="L78">        return  Pagination.paginate(professionalDTOS, pageSize, page);</span>
+<span class="nc" id="L78">        professionalDTOS.sort(Comparator.comparing(ProfessionalDTO::getFullName));</span>
+<span class="nc" id="L79">        return  Pagination.paginate(professionalDTOS, pageSize, page);</span>
 
     }
 
     @Override
     public Professional updateProfessional(String id, Professional updatedProfessional) {
-<span class="fc" id="L84">        Optional&lt;Professional&gt; professionalOptional = professionalRepository.findById(id);</span>
+<span class="fc" id="L85">        Optional&lt;Professional&gt; professionalOptional = professionalRepository.findById(id);</span>
 
-<span class="pc bpc" id="L86" title="1 of 2 branches missed.">        if (!professionalOptional.isPresent()) {</span>
-<span class="nc" id="L87">            throw new RuntimeException(NOTFOUND);</span>
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">        if (!professionalOptional.isPresent()) {</span>
+<span class="nc" id="L88">            throw new RuntimeException(NOTFOUND);</span>
         }
-<span class="fc" id="L89">        Professional professional = professionalOptional.get();</span>
-<span class="fc" id="L90">        professional.setFullName(updatedProfessional.getFullName());</span>
-<span class="fc" id="L91">        professional.setDocumentNumber(updatedProfessional.getDocumentNumber());</span>
-<span class="fc" id="L92">        professional.setPhone(updatedProfessional.getPhone());</span>
-<span class="fc" id="L93">        professional.setLocation(updatedProfessional.getLocation());</span>
-<span class="fc" id="L94">        professional.setEmail(updatedProfessional.getEmail());</span>
-<span class="fc" id="L95">        professional.setLicense(updatedProfessional.getLicense());</span>
-<span class="fc" id="L96">        professional.setExperience(updatedProfessional.getExperience());</span>
-<span class="fc" id="L97">        professional.setTraining(updatedProfessional.getTraining());</span>
-<span class="fc" id="L98">        professional.setDiploma(updatedProfessional.getDiploma());</span>
-<span class="fc" id="L99">        professional.setIsRemoteWork(updatedProfessional.getIsRemoteWork());</span>
-<span class="fc" id="L100">        professional.setIsFaceToFaceWork(updatedProfessional.getIsFaceToFaceWork());</span>
-<span class="fc" id="L101">        professional.setState(updatedProfessional.getState());</span>
+<span class="fc" id="L90">        Professional professional = professionalOptional.get();</span>
+<span class="fc" id="L91">        professional.setFullName(updatedProfessional.getFullName());</span>
+<span class="fc" id="L92">        professional.setDocumentNumber(updatedProfessional.getDocumentNumber());</span>
+<span class="fc" id="L93">        professional.setPhone(updatedProfessional.getPhone());</span>
+<span class="fc" id="L94">        professional.setLocation(updatedProfessional.getLocation());</span>
+<span class="fc" id="L95">        professional.setEmail(updatedProfessional.getEmail());</span>
+<span class="fc" id="L96">        professional.setLicense(updatedProfessional.getLicense());</span>
+<span class="fc" id="L97">        professional.setExperience(updatedProfessional.getExperience());</span>
+<span class="fc" id="L98">        professional.setTraining(updatedProfessional.getTraining());</span>
+<span class="fc" id="L99">        professional.setDiploma(updatedProfessional.getDiploma());</span>
+<span class="fc" id="L100">        professional.setIsRemoteWork(updatedProfessional.getIsRemoteWork());</span>
+<span class="fc" id="L101">        professional.setIsFaceToFaceWork(updatedProfessional.getIsFaceToFaceWork());</span>
+<span class="fc" id="L102">        professional.setState(updatedProfessional.getState());</span>
 
-<span class="fc" id="L103">        return professionalRepository.save(professional);</span>
+<span class="fc" id="L104">        return professionalRepository.save(professional);</span>
     }
     @Override
     public Professional deleteProfessional(String id) {
-<span class="fc" id="L107">        Optional&lt;Professional&gt; professionalOptional = professionalRepository.findById(id);</span>
+<span class="fc" id="L108">        Optional&lt;Professional&gt; professionalOptional = professionalRepository.findById(id);</span>
 
-<span class="pc bpc" id="L109" title="1 of 2 branches missed.">        if (!professionalOptional.isPresent()) {</span>
-<span class="nc" id="L110">            throw new RuntimeException(NOTFOUND);</span>
+<span class="pc bpc" id="L110" title="1 of 2 branches missed.">        if (!professionalOptional.isPresent()) {</span>
+<span class="nc" id="L111">            throw new RuntimeException(NOTFOUND);</span>
         }
-<span class="fc" id="L112">        Professional professional = professionalOptional.get();</span>
-<span class="fc" id="L113">        professional.setState(false);</span>
-<span class="fc" id="L114">        return professionalRepository.save(professional);</span>
+<span class="fc" id="L113">        Professional professional = professionalOptional.get();</span>
+<span class="fc" id="L114">        professional.setState(false);</span>
+<span class="fc" id="L115">        return professionalRepository.save(professional);</span>
     }
 
     @Override
     public List&lt;Professional&gt; professionalsByLocation(int page, int pageSize, String location) {
-<span class="nc" id="L119">        List&lt;Professional&gt; professionals = professionalRepository.findByLocation(location);</span>
-<span class="nc" id="L120">        professionals.sort(Comparator.comparing(Professional::getFullName));</span>
-<span class="nc" id="L121">        return  Pagination.paginate(professionals, pageSize, page);</span>
+
+<span class="nc" id="L121">        List&lt;Professional&gt; professionals = professionalRepository.findByLocation(location);</span>
+
+<span class="nc" id="L123">        professionals.sort(Comparator.comparing(Professional::getFullName));</span>
+<span class="nc" id="L124">        return  Pagination.paginate(professionals, pageSize, page);</span>
     }
 
     @Override
     public Page&lt;Professional&gt; findProfessionals(Pageable paging) {
-<span class="nc" id="L126">        return professionalRepository.findAll(paging);</span>
+<span class="nc" id="L129">        return professionalRepository.findAll(paging);</span>
     }
     @Override
     public Page&lt;Professional&gt; findProfessionalsByFilters(String experience, String location, Boolean isRemoteWork, Boolean isFaceToFaceWork, Pageable paging) {
-<span class="nc" id="L130">        return professionalRepository.findByExperienceAndLocationAndIsRemoteWorkAndIsFaceToFaceWork(experience, location, isRemoteWork, isFaceToFaceWork, paging);</span>
+<span class="nc" id="L133">        return professionalRepository.findByExperienceAndLocationAndIsRemoteWorkAndIsFaceToFaceWork(experience, location, isRemoteWork, isFaceToFaceWork, paging);</span>
     }
 
 }

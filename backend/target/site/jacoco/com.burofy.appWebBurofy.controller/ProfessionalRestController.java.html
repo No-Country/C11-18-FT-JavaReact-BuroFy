@@ -105,7 +105,7 @@ public class ProfessionalRestController  {
 <span class="nc" id="L105">            Pageable paging = PageRequest.of(page, size);</span>
 
             Page&lt;Professional&gt; pagePros;
-<span class="nc bnc" id="L108" title="All 8 branches missed.">            if (experience == null &amp;&amp; location == null &amp;&amp; isRemoteWork == null &amp;&amp; isFaceToFaceWork == null)</span>
+<span class="nc bnc" id="L108" title="All 8 branches missed.">            if ( experience == null &amp;&amp; location == null &amp;&amp; isRemoteWork == null &amp;&amp; isFaceToFaceWork == null)</span>
 <span class="nc" id="L109">                pagePros = professionalService.findProfessionals(paging);</span>
             else
 <span class="nc" id="L111">                pagePros = professionalService.findProfessionalsByFilters(experience, location, isRemoteWork, isFaceToFaceWork, paging);</span>
