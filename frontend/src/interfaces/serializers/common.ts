@@ -14,6 +14,6 @@ export interface PersonalInformation {
   location?: string;
   avatar?: string;
   result?: string;
-  phone?: Phone
+  phone?: Phone;
   occupation?: string;
 }

@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/hooks";
-import { logoutUser , setVerified } from "@/redux/features/userSlice";
+import { logoutUser, setVerified } from "@/redux/features/userSlice";
 import { logouUserApp } from "@/lib/services-burofy/logouUserApp";
 
 const AvatarTitle = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const { fullName , id } = useAppSelector((state) => state.user);
+  const { fullName, id } = useAppSelector((state) => state.user);
 
   const handleLogout = async () => {
     dispatch(setVerified("checking"));
@@ -19,7 +19,6 @@ const AvatarTitle = () => {
       router.push("/registro");
       //close conection with firebase
       //delete all states of user
-      
     } catch (error) {
       console.log((error as Error).message);
     }

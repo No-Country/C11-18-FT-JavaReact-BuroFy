@@ -16,7 +16,7 @@ export const updateProfessional = async ({
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      "avatar": avatar,
+      avatar: avatar,
       location,
       phone,
     }),

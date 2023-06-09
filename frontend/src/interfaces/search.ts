@@ -1,14 +1,14 @@
 import { Rating } from "./serializers/user";
 export interface Search {
   id: string | number;
-  fullName: string; 
+  fullName: string;
   avatar: string | null;
   experience: string;
-  rating :  Rating | null;
-  location : string | null;
-  price: string
+  rating: Rating | null;
+  location: string | null;
+  price: string;
 }
 
 export interface ObjectSearch {
-  searchs: Search[]
+  searchs: Search[];
 }

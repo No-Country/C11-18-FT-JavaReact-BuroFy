@@ -7,7 +7,7 @@ import { Rol } from "@/interfaces/user";
 
 const CardServicesChild = ({ consult }: { consult: Consultation }) => {
   const { rol } = useAppSelector((state) => state.user);
-  
+
   return (
     <div className='flex flex-col lg:flex-col w-[337px] h-[138px] p-2 bg-[#EBEBEB] rounded-lg lg:w-[423px] lg:h-[126px] lg:mb-3 lg:p-1.5'>
       <div className='flex ms-2 mt-1 lg:mt-0 lg:ms-0 lg:flex lg:p-3 lg: lg:gap-10 mb-2 lg:mb-0'>

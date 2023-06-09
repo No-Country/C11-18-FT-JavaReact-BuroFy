@@ -17,7 +17,7 @@ export const updateClient = async ({
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      "avatar": avatar,
+      avatar: avatar,
       occupation,
       location,
       phone,

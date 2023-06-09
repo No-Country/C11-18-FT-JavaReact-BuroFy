@@ -8,7 +8,8 @@ import ReviewsProfessional from "./ReviewsProfessional";
 import ProfileHeaderView from "./ProfileHeaderView";
 import { motion } from "framer-motion";
 
-export default function ProfileSearchResult() {
+export default function ProfileSearchResult({ id }: { id: string }) {
+  console.log(id);
   return (
     <>
       <motion.div
@@ -33,7 +34,7 @@ export default function ProfileSearchResult() {
           <div className='space-y-4 xl:overflow-y-scroll'>
             <div className='max-w-[700px]'>
               <AboutMe />
-              <ConsultProfessional />
+              <ConsultProfessional idProfessional={id} />
               <ReviewsProfessional />
             </div>
           </div>

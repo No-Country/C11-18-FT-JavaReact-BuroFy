@@ -17,7 +17,7 @@ const Heroimage = () => {
         width={800}
         className='w-full h-full'
         priority={true}
-        placeholder="blur"
+        placeholder='blur'
       />
       <h2 className='absolute bottom-48 left-[50%] translate-x-[-50%] font-bold text-5xl text-white leading-12 text-center w-[521px]'>
         Burofy genera conexiones.

@@ -7,28 +7,26 @@ import { useAppDispatch, useAppSelector } from "@/hooks";
 import { setSearchResults } from "@/redux/features/searchSlice";
 import SortFilter from "./SortFilter";
 
-type PropsType = { 
-    search : Search[];
-}
+type PropsType = {
+  search: Search[];
+};
 
-export default function ContainerSearchResults({search}:PropsType) {
+export default function ContainerSearchResults({ search }: PropsType) {
   const dispatch = useAppDispatch();
-  
-  const {searchs}: ObjectSearch = useAppSelector((state)=> state.search);
+
+  const { searchs }: ObjectSearch = useAppSelector((state) => state.search);
 
   useEffect(() => {
-    if (search ) {
+    if (search) {
       dispatch(setSearchResults(search));
     }
-  }, [search , dispatch]);
+  }, [search, dispatch]);
 
   console.log(searchs);
   return (
     <>
-      <SortFilter/>
-      {searchs && searchs.map(search => (
-        <SearchResult key={search.id} search={search}/>
-      )) }
+      <SortFilter />
+      {searchs && searchs.map((search) => <SearchResult key={search.id} search={search} />)}
     </>
   );
 }

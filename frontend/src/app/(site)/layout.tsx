@@ -1,4 +1,4 @@
-import { Header} from "@/components";
+import { Header } from "@/components";
 import { ReactNode, Suspense } from "react";
 import { cookies } from "next/headers";
 import { Rol, User } from "@/interfaces/user";

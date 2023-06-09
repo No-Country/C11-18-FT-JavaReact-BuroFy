@@ -3,8 +3,13 @@ export const getConsultationClient = async (id: string): Promise<any> => {
     headers: {
       id: id,
     },
-    next: { revalidate: 900 },
+    next: { revalidate: 150 },
   });
-  const consultation = data.json();
-  return consultation;
+
+  if (data.ok) {
+    const consultation = data.json();
+    return consultation;
+  } else {
+    return null;
+  }
 };

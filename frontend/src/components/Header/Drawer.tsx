@@ -8,7 +8,7 @@ import { HiPencil } from "react-icons/hi";
 import { IoMdHelpCircle } from "react-icons/io";
 import { BsFillPersonFill } from "react-icons/bs";
 import { logoutUser, setVerified } from "@/redux/features/userSlice";
-import { useAppDispatch, useAppSelector} from "@/hooks";
+import { useAppDispatch, useAppSelector } from "@/hooks";
 
 import { useRouter } from "next/navigation";
 import { logouUserApp } from "@/lib/services-burofy/logouUserApp";
@@ -20,7 +20,7 @@ const Drawer = () => {
   const pathname = usePathname();
   const router = useRouter();
   const { isOpen } = useIsOpen();
-  const {id}  = useAppSelector((state)=> state.user);
+  const { id } = useAppSelector((state) => state.user);
   const handleLogout = async () => {
     dispatch(setVerified("checking"));
     try {
@@ -29,7 +29,6 @@ const Drawer = () => {
       router.push("/registro");
       //close conection with firebase
       //delete all states of user
-      
     } catch (error) {
       console.log((error as Error).message);
     }
@@ -37,7 +36,11 @@ const Drawer = () => {
   };
   return (
     <>
-      <aside className={isOpen ? "drawer md:translate-x-0"  : "drawer -translate-x-full md:translate-x-0 "}>
+      <aside
+        className={
+          isOpen ? "drawer md:translate-x-0" : "drawer -translate-x-full md:translate-x-0 "
+        }
+      >
         <div className='overflow-y-auto h-full bg-white'>
           {/* title - header */}
           <header className='w-full hidden h-1/6 md:flex justify-center items-center border border-transparent border-b-2 border-b-[#C0C0C0] mb-7'>
@@ -63,25 +66,31 @@ const Drawer = () => {
                 <AiFillHome
                   className={`w-6 h-6  active:text-white ${pathname === "/inicio" && "text-white"}`}
                 />
-                <span className={`ml-3 self-end ${pathname === "/inicio" && "text-white"}`}>Inicio</span>
+                <span className={`ml-3 self-end ${pathname === "/inicio" && "text-white"}`}>
+                  Inicio
+                </span>
               </Link>
             </li>
 
-            { true && (<li
-              className={`hover:bg-primary transition-colors w-full  ${
-                pathname === "/buscar" && "bg-tertiary"
-              }`}
-            >
-              <Link
-                href='/buscar'
-                className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
+            {true && (
+              <li
+                className={`hover:bg-primary transition-colors w-full  ${
+                  pathname === "/buscar" && "bg-tertiary"
+                }`}
               >
-                <AiOutlineSearch
-                  className={`w-6 h-6 active:text-white ${pathname === "/buscar" && "text-white"}`}
-                />
-                <span className={`ml-3 ${pathname === "/buscar" && "text-white"}`}>Buscar</span>
-              </Link>
-            </li>)}
+                <Link
+                  href='/buscar'
+                  className='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white group px-6 py-[14px] mb-7'
+                >
+                  <AiOutlineSearch
+                    className={`w-6 h-6 active:text-white ${
+                      pathname === "/buscar" && "text-white"
+                    }`}
+                  />
+                  <span className={`ml-3 ${pathname === "/buscar" && "text-white"}`}>Buscar</span>
+                </Link>
+              </li>
+            )}
 
             <li
               className={`hover:bg-primary transition-colors ${

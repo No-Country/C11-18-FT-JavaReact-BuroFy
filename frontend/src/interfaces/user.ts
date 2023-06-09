@@ -1,4 +1,4 @@
-import {  Phone } from "./serializers/common";
+import { Phone } from "./serializers/common";
 import { UserClientContent, UserProfessionalContent } from "./serializers/user";
 
 export type Rol = "client" | "professional";

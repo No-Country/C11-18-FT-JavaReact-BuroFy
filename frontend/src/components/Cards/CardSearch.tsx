@@ -59,7 +59,7 @@ export const CardSearch = ({ consult }: { consult: Consultation }) => {
               </p>
               <p className='mt-3 flex text-xs items-center justify-center ml-[-4rem] mx-2'>
                 {/* p dinamico */}
-                <HiLocationMarker className='text-sm mx-1 ' /> 
+                <HiLocationMarker className='text-sm mx-1 ' />
                 {consult.location}
               </p>
             </div>

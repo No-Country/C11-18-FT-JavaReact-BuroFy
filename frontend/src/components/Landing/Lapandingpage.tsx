@@ -7,5 +7,6 @@ export default function Lapandingpage() {
     <section className='layout-out flex-row-reverse'>
       <Heroimage />
       <Carousel />
-    </section>);
+    </section>
+  );
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import stringAvatar from "@/utils/getAvatarString";
 import { motion } from "framer-motion";
 import Image from "next/image";

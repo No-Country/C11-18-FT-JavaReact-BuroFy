@@ -1,10 +1,9 @@
 import React from "react";
 
 const SearchBar = () => {
-
   return (
     <>
-      <div className="lg:flex lg:w-[935px] lg:h-[92px] bg-white rounded-md mt-5">
+      <div className='lg:flex lg:w-[935px] lg:h-[92px] bg-white rounded-md mt-5'>
         <div className='lg:flex lg:flex-row  lg:content-center lg:justify-center lg:w-[300px] lg:h-[92px] items-center lg:gap-4 border-e-2 lg:mr-5'>
           {/* button of client and profesional */}
           <button className='flex flex-col lg:w-[111px] lg:h-[63px] text-white bg-[#2E2E2E] font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center mt-3 mr-2 mb-2'>
@@ -80,7 +79,7 @@ const SearchBar = () => {
             </button>
           </form>
         </div>
-      </div >
+      </div>
     </>
   );
 };

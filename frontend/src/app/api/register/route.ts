@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
     if (!user || !rol) throw new Error("Your data isn't valid");
 
     const userInitial = registerAdapter(user, rol);
-    console.log("userInitial route" , userInitial);
+    console.log("userInitial route", userInitial);
     await fetch("http://backend-web-burofy.onrender.com/create/person", {
       method: "POST",
       headers: {
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     });
 
     const response = NextResponse.json({ user, rol }, { status: 201 });
-    console.log("response route" , response);
+    console.log("response route", response);
     response.cookies.set("id", String(user?.id), {
       path: "/",
       httpOnly: true,

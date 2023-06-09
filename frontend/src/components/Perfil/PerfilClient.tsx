@@ -11,7 +11,7 @@ export default function PerfilCliente() {
   const imageLoaded = () => {
     setTimeout(() => setImageLoading(false), 600);
   };
-  
+
   return (
     <motion.div
       className='space-y-6 mb-5'

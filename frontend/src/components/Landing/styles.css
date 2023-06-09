@@ -1,9 +1,7 @@
-
 .title {
   font-size: 25px;
   color: #2f2e41;
   margin: 0 0 6px;
-  
 }
 
 .subtitle {
@@ -28,7 +26,7 @@
 
 .carousel .control-dots .dot {
   box-shadow: none;
-  background: #C600E0;
+  background: #c600e0;
   width: 16px;
   height: 16px;
   margin-bottom: 30px;

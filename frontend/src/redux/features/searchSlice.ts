@@ -2,16 +2,19 @@ import { ObjectSearch, Search } from "@/interfaces/search";
 
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState: ObjectSearch =
- {searchs : [{
-   id: "",
-   fullName: "",
-   avatar: "",
-   experience: "",
-   rating :  null ,
-   location : "",
-   price: ""
- }]};
+const initialState: ObjectSearch = {
+  searchs: [
+    {
+      id: "",
+      fullName: "",
+      avatar: "",
+      experience: "",
+      rating: null,
+      location: "",
+      price: "",
+    },
+  ],
+};
 
 const searchSlice = createSlice({
   name: "search",
@@ -24,5 +27,5 @@ const searchSlice = createSlice({
   },
 });
 
-export const {setSearchResults } = searchSlice.actions;
+export const { setSearchResults } = searchSlice.actions;
 export default searchSlice.reducer;
