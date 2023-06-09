@@ -19,6 +19,7 @@ E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\
 E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\entity\Client.java
 E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\controller\PersonRestController.java
 E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\service\impl\ProfessionalServiceImpl.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\dto\ConsultationProfessionalDTO.java
 E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\utility\Pagination.java
 E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\dto\ClientDTO.java
 E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\entity\Payment.java
@@ -32,4 +33,5 @@ E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\
 E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\controller\ClientRestController.java
 E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\service\impl\ClientServiceImpl.java
 E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\dto\ProfessionalDTO.java
+E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\dto\ConsultationClientDTO.java
 E:\NOT COUNTRY C11-18\Proyecto\C11-18-FT-JavaReact-BuroFy\backend\src\main\java\com\burofy\appWebBurofy\service\IConsultationService.java

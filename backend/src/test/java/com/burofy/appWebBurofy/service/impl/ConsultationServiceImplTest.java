@@ -1,6 +1,8 @@
 package com.burofy.appWebBurofy.service.impl;
 
+import com.burofy.appWebBurofy.dto.ConsultationClientDTO;
 import com.burofy.appWebBurofy.dto.ConsultationDTO;
+import com.burofy.appWebBurofy.dto.ConsultationProfessionalDTO;
 import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.entity.Consultation;
 import com.burofy.appWebBurofy.entity.Payment;
@@ -175,7 +177,7 @@ class ConsultationServiceImplTest {
         when(consultationRepository.getConsultationsByClientId(clientId)).thenReturn(consultations);
 
         // Act
-        List<ConsultationDTO> result = consultationService.getConsultationsByClientId(clientId);
+        List<ConsultationClientDTO> result = consultationService.getConsultationsByClientId(clientId);
 
         // Assert
         verify(consultationRepository, times(1)).getConsultationsByClientId(clientId);
@@ -211,12 +213,12 @@ class ConsultationServiceImplTest {
         // Set other necessary fields in consultation2
         consultations.add(consultation2);
 
-        when(consultationRepository.getConsultationsByClientId(professional.getId())).thenReturn(consultations);
+        when(consultationRepository.getConsultationsByProfessionalId(professional.getId())).thenReturn(consultations);
 
         // Act
-        List<ConsultationDTO> result = consultationService.getConsultationsByClientId(professional.getId());
+        List<ConsultationProfessionalDTO> result = consultationService.getConsultationsByProfessionalId(professional.getId());
 
         // Assert
-        verify(consultationRepository, times(1)).getConsultationsByClientId(professional.getId());
+        verify(consultationRepository, times(1)).getConsultationsByProfessionalId(professional.getId());
     }
 }
