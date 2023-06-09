@@ -99,7 +99,7 @@ public class ConsultationServiceImpl implements IConsultationService {
                     .avatar(professional.getAvatar())
                     .fullName(professional.getFullName())
                     .location(professional.getLocation())
-                    .experience(professional.getExperience())
+
                     .price(professional.getPrice())
                     .rating(professional.getRating())
                     .build();

@@ -1,5 +1,6 @@
 package com.burofy.appWebBurofy.service.impl;
 
+import com.burofy.appWebBurofy.dto.ClientDTO;
 import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.repository.IClientRepository;
 import com.burofy.appWebBurofy.service.IClientService;
@@ -54,15 +55,17 @@ class ClientServiceImplTest {
         Client client = new Client("1L","lili@gmail.com","urlAvatar","Lili Gallego"
                 , LocalDate.of(1995, 5,6), "1049940",
                 "382884990","Ibague","Ing de Alimentos",true);
+
+        ClientDTO client2 = new ClientDTO("1L","urlAvatar","Lili Gallego","Ibague");
         // Set the necessary properties of the client
 
         Mockito.when(clientRepository.findById(clientId)).thenReturn(Optional.of(client));
 
         // Act
-        Client retrievedClient = clientService.getClient(clientId);
+        ClientDTO retrievedClient = clientService.getClient(client2.getId());
 
         // Assert
-        Assertions.assertEquals(client, retrievedClient);
+        Assertions.assertEquals(client2.getId(), retrievedClient.getId());
         // Add more assertions as needed
     }
 

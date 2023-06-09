@@ -105,7 +105,7 @@ public class ProfessionalRestController  {
             Pageable paging = PageRequest.of(page, size);
 
             Page<Professional> pagePros;
-            if (experience == null && location == null && isRemoteWork == null && isFaceToFaceWork == null)
+            if ( experience == null && location == null && isRemoteWork == null && isFaceToFaceWork == null)
                 pagePros = professionalService.findProfessionals(paging);
             else
                 pagePros = professionalService.findProfessionalsByFilters(experience, location, isRemoteWork, isFaceToFaceWork, paging);

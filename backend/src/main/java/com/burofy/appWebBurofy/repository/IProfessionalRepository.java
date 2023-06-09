@@ -26,6 +26,7 @@ import java.util.Optional;
  * @since 1.0.0
  */
 
+
 public interface IProfessionalRepository extends JpaRepository<Professional, String> {
 
     Optional<Professional> findById(String id);
@@ -37,6 +38,5 @@ public interface IProfessionalRepository extends JpaRepository<Professional, Str
                                                                                      @Param("isRemoteWork") Boolean isRemoteWork,
                                                                                      @Param("isFaceToFaceWork") Boolean isFaceToFaceWork,
                                                                                      Pageable pageable);
-
 }
 

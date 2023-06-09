@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClientRestController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">appWebBurofy</a> &gt; <a href="index.source.html" class="el_package">com.burofy.appWebBurofy.controller</a> &gt; <span class="el_source">ClientRestController.java</span></div><h1>ClientRestController.java</h1><pre class="source lang-java linenums">package com.burofy.appWebBurofy.controller;
 
+import com.burofy.appWebBurofy.dto.ClientDTO;
+import com.burofy.appWebBurofy.dto.ProfessionalDTO;
 import com.burofy.appWebBurofy.entity.Client;
 import com.burofy.appWebBurofy.service.IClientService;
 import com.burofy.appWebBurofy.utility.Response;
@@ -9,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
+
+import java.util.List;
 
 /**
  *
@@ -28,8 +32,8 @@ import springfox.documentation.annotations.ApiIgnore;
 
 
 @RestController
-<span class="fc" id="L31">@RequiredArgsConstructor</span>
-<span class="fc" id="L32">@Slf4j</span>
+<span class="fc" id="L35">@RequiredArgsConstructor</span>
+<span class="fc" id="L36">@Slf4j</span>
 @CrossOrigin
 public class ClientRestController{
 
@@ -38,30 +42,41 @@ public class ClientRestController{
     @ApiIgnore // no se usa, para crear a un cliente/un professional usamos /create/person
     @PostMapping(path = &quot;/create/client&quot;)
     public ResponseEntity&lt;Response&gt; createClient(@RequestBody Client client) {
-<span class="nc" id="L41">        clientService.createClient(client);</span>
-<span class="nc" id="L42">        return new  ResponseEntity&lt;&gt;(HttpStatus.CREATED);</span>
+<span class="nc" id="L45">        clientService.createClient(client);</span>
+<span class="nc" id="L46">        return new  ResponseEntity&lt;&gt;(HttpStatus.CREATED);</span>
     }
 
     @GetMapping(path = &quot;/getClient/{id}&quot;)
-    public ResponseEntity&lt;Client&gt; getClient(@PathVariable String id) {
-<span class="nc" id="L47">        Client client = clientService.getClient(id);</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (client != null) {</span>
-<span class="nc" id="L49">            return ResponseEntity.ok(client);</span>
+    public ResponseEntity&lt;ClientDTO&gt; getClient(@PathVariable String id) {
+<span class="nc" id="L51">        ClientDTO client = clientService.getClient(id);</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        if (client != null) {</span>
+<span class="nc" id="L53">            return ResponseEntity.ok(client);</span>
         } else {
-<span class="nc" id="L51">            return ResponseEntity.notFound().build();</span>
+<span class="nc" id="L55">            return ResponseEntity.notFound().build();</span>
         }
     }
 
     @PutMapping(path = &quot;/update/client/{id}&quot;)
     public ResponseEntity&lt;Client&gt; updateClient(@PathVariable String id,@RequestBody Client updatedClient) {
-<span class="nc" id="L57">        clientService.updateClient(id,updatedClient);</span>
-<span class="nc" id="L58">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
+<span class="nc" id="L61">        clientService.updateClient(id,updatedClient);</span>
+<span class="nc" id="L62">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
     }
 
     @PatchMapping(path = &quot;/delete/client/{id}&quot;)
     public ResponseEntity&lt;Client&gt; deleteClient(@PathVariable String id) {
-<span class="nc" id="L63">        clientService.deleteClient(id);</span>
-<span class="nc" id="L64">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
+<span class="nc" id="L67">        clientService.deleteClient(id);</span>
+<span class="nc" id="L68">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
     }
+
+    @GetMapping(path = &quot;/allClients/{page}/{size}&quot;)
+    public ResponseEntity&lt;List&lt;ClientDTO&gt;&gt; allClients(@PathVariable int page, @PathVariable int size) {
+<span class="nc" id="L73">        List&lt;ClientDTO&gt; clientDTOS = clientService.allClients(page,size);</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        if (!clientDTOS.isEmpty()) {</span>
+<span class="nc" id="L75">            return ResponseEntity.ok(clientDTOS);</span>
+        } else {
+<span class="nc" id="L77">            return ResponseEntity.ok(null);</span>
+        }
+    }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

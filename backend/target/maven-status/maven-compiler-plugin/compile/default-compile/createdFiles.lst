@@ -9,7 +9,6 @@ com\burofy\appWebBurofy\utility\Response.class
 com\burofy\appWebBurofy\controller\ConsultationRestController.class
 com\burofy\appWebBurofy\dto\ClientDTO.class
 com\burofy\appWebBurofy\Constants.class
-com\burofy\appWebBurofy\dto\ConsultationResponseDTO.class
 com\burofy\appWebBurofy\exception\MailAlreadyExistsException.class
 com\burofy\appWebBurofy\utility\Response$1.class
 com\burofy\appWebBurofy\entity\Consultation.class
